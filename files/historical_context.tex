@@ -1,8 +1,8 @@
 \chapter{Historical context of neutrino physics}
 \label{ch:history}
 
+\section{A brief history of the neutrino}
 % Pauli's hypothesis of the neutrino
-
 The existence of the neutrino as a particle carrying no electric charge was first hypothesised in 1930 by Wolfgang Pauli as a solution to issues observed in the spectrum produced by nuclear $\beta$-decay.
 At the time, the existence of only 3 year subatomic particles was known, the electon, the proton and the photon~\cite{ideaOfNeutrino}.
 
@@ -47,7 +47,7 @@ Interactions arising from muon neutrinos and antineutrinos were identified by th
 
 % nutau discovery from DONUT
 The discovery of the tau lepton in $e^{+}e^{-}$ collisions in 1975~\cite{tauLepton} led to the theorisation of a corresponding neutrino, in keeping with the two already identified for the electron and muon leptons.
-However, due to the high mass of the tau lepton ($1777~\text{MeV}/c^{2}$ compared to $0.5110~\text{MeV}/c^{2}$ and $105.7~\text{MeV}/c^{2}$ for the electron and muon respectively~\cite{leptonMasses}) a higher energy beam was required for direct observation of the tau neutrino since the $K^{\pm}$ and $\pi^{\pm}$ mesons typically used in beam neutrino experiments did not have high enough masses to decay to a tau lepton-neutrino pair.
+However, due to the high mass of the tau lepton ($1777~\text{MeV}/c^{2}$ compared to $0.5110~\text{MeV}/c^{2}$ and $105.7~\text{MeV}/c^{2}$ for the electron and muon respectively~\cite{pdg2018}) a higher energy beam was required for direct observation of the tau neutrino since the $K^{\pm}$ and $\pi^{\pm}$ mesons typically used in beam neutrino experiments did not have high enough masses to decay to a tau lepton-neutrino pair.
 
 From 1997, the DONuT (Direct Observation of the Nu Tau) collaboration fired a beam of 800~GeV protons from the Tevatron into a tungsten alloy target.
 Although this process produced many $\pi^{\pm}$ and $K^{\pm}$ mesons, the centre of mass energy was high enough in this case to produce significant numbers of $D_{s}$ mesons~\cite{donutFinal}.
@@ -122,9 +122,40 @@ Charged current interactions of electron neutrinos were observed via the channel
 It was not possible to detect the charged current interactions of muon or tau neutrinos due to the low energy of $^{8}\text{B}$ neutrinos.
 These interactions were identified by the Cherenkov light produced by the emitted electron.
 
-The results showed that the flux of solar neutrinos was approximately on third of the total flux and thus that some solar electron neutrinos has oscillated into different flavours~\cite{SNO}.
+The results showed that the flux of solar neutrinos was approximately one third of the total flux and thus that some solar electron neutrinos has oscillated into different flavours~\cite{SNO}.
+These observations of oscillations also confirmed the massive nature of neutrinos where they had once been believed to be massless.
+
+Further confirmations of oscillations would come from reactor neutrino experiments (KamLAND in 2003~\cite{kamland2003}) and from long-baseline accelerator neutrino experiments (K2K in 2003~\cite{k2kDisapp} and MINOS in 2006~\cite{minosDisapp}).
+
+\section{Current state of neutrino oscillations}
+%%% Current state of PMNS matrix
+It is widely accepted today that the left-handed flavour neutrino flavour states are formed from linear combinations of the mass eigenstates in the relation
+\begin{equation}
+  \nu_{lL}(x) = \sum_{j=1}^{3} U_{lj} \nu_{jL}(x)
+\end{equation}
+where $l = e, \mu, \tau$ and $U$ is the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix.
+This unitary matrix is more commonly parameterised in terms of three mixing angles ($\theta_{12}, \theta_{13}, \theta_{23}$) and one complex phase, $\delta$ as
+\begin{equation}
+  U =
+  \begin{bmatrix}
+    c_{12}c_{13} & s_{12}c_{13} & s_{13} e^{-i\delta} \\
+    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\delta} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta} & s_{23}c_{13} \\
+    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\delta} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\delta} & c_{23}c_{13}
+  \end{bmatrix}
+\end{equation}
+where $s_{ij} = \text{sin}\theta_{ij}$, $c_{ij} = \text{cos}\theta_{ij}$, $\theta_{ij} = [0, \pi/2]$ and $\delta = [0, 2\pi]$.
+These mixing angles control the strength of the oscillations while $\delta$ specifies the difference in the oscillation of neutrinos and antineutrinos.
+The frequencies of the oscillations are controlled by the differences between the squares of the masses of the mass eigenstates, $\Delta m_{ij}^{2} = m_{i}^{2} - m_{j}^{2}$ where $i \neq j$.
+The two independent mass splittings which are usually referred to are $m^{2}_{21}$ and $m^{2}_{31}$~\cite{pdg2018}.
+
+% Uncertainty on each of the various parameters
+The most recent global fit of these parameters gives the following values along with the associated uncertainties and shows that significant questions still exist in the field of neutrino oscillations~\cite{nufit4}.
+Although the absolute values of $\Delta m^{2}_{21}$ and $\Delta m^{2}_{31}$ have $\pm1\sigma$ uncertainties of less than 3\% and 2\% respectively, the sign of $\Delta m^{2}_{31}$ is not known.   
+
+% Mass hierarchy
+
+% Open questions in neutrino physics
 
 
-% Current state of PMNS matrix
 
 
