@@ -155,6 +155,99 @@ Further confirmations of the existence of oscillations would come from reactor n
 \section{Theory}
 \label{sec:theory:theory}
 
+Neutrinos are fermions carrying no electric or colour charge and which therefore interact only via the weak force and gravity.
+Neutrinos(antineutrinos) with left(right)-handed chirality have a weak isospin number, $T$, of $+\frac{1}{2}$ and a weak hypercharge number, $Y$, of -1.
+For neutrinos(antineutrinos) with right(left)-handed chirality, $T = Y = 0$.
+
+Neutrinos exist in 3 flavours ($\nu_{e}$, $\nu_{\mu}$ and $\nu_{\tau}$), each corresponding to one of the charged leptons in the standard model.
+
+\subsection{Neutrino oscillations}
+\label{sec:theory:theory:oscillations}
+
+It is widely accepted today that the neutrino flavour eigenstates are formed from linear combinations of the mass eigenstates in the relation
+\begin{equation}
+  \nu_{l}(x) = \sum_{j=1}^{3} U_{lj} \nu_{j}(x)
+  \label{eq:massFlavSuper}
+\end{equation}
+where $l = e, \mu, \tau$ and $U$ is the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix which can be represented as
+\begin{equation}
+  \begin{bmatrix}
+    U_{e1} & U_{e2} & U_{e3} \\
+    U_{\mu 1} & U_{\mu 2} & U_{\mu 3} \\
+    U_{\tau 1} & U_{\tau 2} & U_{\tau 3}
+  \end{bmatrix}
+\end{equation}
+
+This unitary matrix is more commonly parameterised in terms of three mixing angles ($\theta_{12}, \theta_{13}, \theta_{23}$) and one complex phase, $\delta_{CP}$ (assuming neutrinos are Dirac particles).
+This allows $U$ to be expressed as the product of three rotation matrices (where one rotation depends upon $\delta_{CP}$) in the form
+\begin{align}
+  U &=
+  \begin{bmatrix}
+    1 & 0       & 0 \\
+    0 & c_{23}  & s_{23} \\
+    0 & -s_{23} & c_{23}  
+  \end{bmatrix}
+  \begin{bmatrix}
+    c_{13}                  & 0 & s_{13}e^{-i\delta_{CP}} \\
+    0                       & 1 & 0 \\
+    -s_{13}e^{i\delta_{CP}} & 0 & c_{13}
+  \end{bmatrix}
+  \begin{bmatrix}
+    c_{12}  & s_{12} & 0 \\
+    -s_{12} & c_{12} & 0 \\
+    0       & 0      & 1
+  \end{bmatrix}
+  \\
+  &=
+  \begin{bmatrix}
+    c_{12}c_{13} & s_{12}c_{13} & s_{13} e^{-i\delta_{CP}} \\
+    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\delta_{CP}} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta_{CP}} & s_{23}c_{13} \\
+    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\delta_{CP}} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\delta_{CP}} & c_{23}c_{13}
+  \end{bmatrix}
+\end{align}
+where $s_{ij} = \text{sin}\theta_{ij}$, $c_{ij} = \text{cos}\theta_{ij}$, $\theta_{ij} = [0, \pi/2]$ and $\delta_{CP} = [0, 2\pi]$~\cite{pmnsMatrix}.
+
+Thus the angles can be expressed in terms of the elements of the mixing matrix in the following way~\cite{pdg2018}:
+\begin{gather*}
+  \text{cos}^{2}\theta_{12} = \frac{|U_{e1}|^{2}}{1 - |U_{e3}|^{2}}, \quad \text{sin}^{2}\theta_{12} = \frac{|U_{e2}|^{2}}{1 - |U_{e3}|^{2}}, \\
+  \text{sin}^{2}\theta_{13} = |U_{e3}|^{2}, \quad \text{sin}^{2}\theta_{23} = \frac{|U_{\mu 3}|^{2}}{1 - |U_{e3}|^{2}}, \\
+  \text{cos}^{2}\theta_{23} = \frac{|U_{\tau 3}|^{2}}{1 - |U_{e3}|^{2}} \, .
+\end{gather*}
+
+\subsubsection{Vacuum oscillation case}
+We begin by consider the case of a neutrino propagating freely at its point of production ($x=t=0$) as a pure flavour state.
+As shown in Eq.~\ref{eq:massFlavSuper}, the flavour state is a superposition of mass eigenstates.
+Thus, its wavefunction at the point of production is given by
+\begin{equation}
+  \ket{\nu_{\alpha}(t=0)} = \sum_{j=1}^{3} U^{*}_{\alpha j} \ket{v_{j}} \, .
+\end{equation}
+
+At this point the neutrino begins propagating through space.
+However, each mass eigenstate propagates at a different rate due the differences in energy, $E_{j} = \sqrt{p_{j}^{2} + m{j}^{2}}$. 
+
+Therefore, after a time $t$ has passed, the wavefunction becomes
+\begin{equation}
+  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-iE_{j}t} \ket{\nu_{j}}
+  \label{eq:nuPropagation}
+\end{equation}
+and thus $\ket{\nu}$ is no longer a pure flavour eigenstate.
+In the limit that $|p_{j}| \gg m_{j}$ (the case for all observable neutrinos given the smallness of neutrino masses), we find that
+\begin{equation}
+  E_{j} \approx p_{j} + \frac{m_{j}^{2}}{2p_{j}} \approx E + \frac{m_{j}^{2}}{2E} \, , 
+\end{equation}
+which means that Eq.~\ref{eq:nuPropagation} can be expressed as
+\begin{equation}
+  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-it \left( E+\frac{m_{j}}{2E}\right)} \ket{\nu_{j}} \, .
+\end{equation}
+
+The next step is to ask what is the probability that the state $\ket{\nu_{\alpha}(t)}$ will be detected as another flavour state, $\ket{\nu_{\beta}}$?
+We find that
+\begin{equation}
+  P_{\nu_{\alpha} \rightarrow \nu_{\beta}} = \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2}
+\end{equation}
+
+\subsubsection{Two neutrino case}
+
 \section{Current state of neutrino oscillations}
 \label{sec:theory:currentState}
 
