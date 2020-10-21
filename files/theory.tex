@@ -227,24 +227,30 @@ However, each mass eigenstate propagates at a different rate due the differences
 
 Therefore, after a time $t$ has passed, the wavefunction becomes
 \begin{equation}
-  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-iE_{j}t} \ket{\nu_{j}}
+  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-i \left(E_{j}t - \bm{p_{j}} \cdot \bm{x} \right)} \ket{\nu_{j}}
   \label{eq:nuPropagation}
 \end{equation}
 and thus $\ket{\nu}$ is no longer a pure flavour eigenstate.
 In the limit that $|p_{j}| \gg m_{j}$ (the case for all observable neutrinos given the smallness of neutrino masses), we find that
 \begin{equation}
-  E_{j} \approx p_{j} + \frac{m_{j}^{2}}{2p_{j}} \approx E + \frac{m_{j}^{2}}{2E} \, , 
+  E_{j} \approx p_{j} + \frac{m_{j}^{2}}{2p_{j}} \approx E + \frac{m_{j}^{2}}{2E} \, ,
 \end{equation}
-which means that Eq.~\ref{eq:nuPropagation} can be expressed as
+where $E$ is the total energy of the particle.
+We also take $t \approx L$ where $L$ is the distance propagated by the neutrino.
+This means that Eq.~\ref{eq:nuPropagation} can be expressed as
 \begin{equation}
-  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-it \left( E+\frac{m_{j}}{2E}\right)} \ket{\nu_{j}} \, .
+  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \, .
 \end{equation}
 
-The next step is to ask what is the probability that the state $\ket{\nu_{\alpha}(t)}$ will be detected as another flavour state, $\ket{\nu_{\beta}}$?
-We find that
-\begin{equation}
-  P_{\nu_{\alpha} \rightarrow \nu_{\beta}} = \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2}
-\end{equation}
+The next step is to ask what is the probability that the state $\ket{\nu_{\alpha}(t)}$ will be detected as a different flavour state, $\ket{\nu_{\beta}}$?
+Using the form from above, we find that
+\begin{align}
+  P_{\nu_{\alpha} \rightarrow \nu_{\beta}} &= \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2} =
+  \left| \bra{\nu_{i}} \sum^{3}_{i=1} U_{\beta i} \sum^{3}_{j=1} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \right|^{2} \\
+  &= \left| \sum^{3}_{j=1} U_{\beta j} U_{\alpha j}^{*} e^{-i \frac{m^{2}_{j}L}{2E}} \right|^{2} \, ,
+\end{align}
+and thus can see that the probability of finding the neutrino in a different flavour state is dependent on $\frac{m^{2}_{j}L}{2E}$.
+This implies that for a neutrino of a given energy, the probability of oscillation will vary as a function of the distance travelled by the neutrino.
 
 \subsubsection{Two neutrino case}
 
