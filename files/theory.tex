@@ -161,6 +161,7 @@ For neutrinos(antineutrinos) with right(left)-handed chirality, $T = Y = 0$.
 
 Neutrinos exist in 3 flavours ($\nu_{e}$, $\nu_{\mu}$ and $\nu_{\tau}$), each corresponding to one of the charged leptons in the standard model.
 
+%%%% Actual theory stuff %%%%%%%%%%
 \subsection{Neutrino oscillations}
 \label{sec:theory:theory:oscillations}
 
@@ -215,6 +216,7 @@ Thus the angles can be expressed in terms of the elements of the mixing matrix i
 \end{gather*}
 
 \subsubsection{Vacuum oscillation case}
+\label{sec:theory:theory:vacuum}
 We begin by consider the case of a neutrino propagating freely at its point of production ($x=t=0$) as a pure flavour state.
 As shown in Eq.~\ref{eq:massFlavSuper}, the flavour state is a superposition of mass eigenstates.
 Thus, its wavefunction at the point of production is given by
@@ -223,7 +225,7 @@ Thus, its wavefunction at the point of production is given by
 \end{equation}
 
 At this point the neutrino begins propagating through space.
-However, each mass eigenstate propagates at a different rate due the differences in energy, $E_{j} = \sqrt{p_{j}^{2} + m{j}^{2}}$. 
+However, each mass eigenstate propagates at a different rate due to the differences in energy, $E_{j} = \sqrt{p_{j}^{2} + m{j}^{2}}$. 
 
 Therefore, after a time $t$ has passed, the wavefunction becomes
 \begin{equation}
@@ -248,12 +250,59 @@ Using the form from above, we find that
   P_{\nu_{\alpha} \rightarrow \nu_{\beta}} &= \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2} =
   \left| \bra{\nu_{i}} \sum^{3}_{i=1} U_{\beta i} \sum^{3}_{j=1} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \right|^{2} \\
   &= \left| \sum^{3}_{j=1} U_{\beta j} U_{\alpha j}^{*} e^{-i \frac{m^{2}_{j}L}{2E}} \right|^{2} \, ,
+  \label{eq:oscillationProb}
 \end{align}
 and thus can see that the probability of finding the neutrino in a different flavour state is dependent on $\frac{m^{2}_{j}L}{2E}$.
 This implies that for a neutrino of a given energy, the probability of oscillation will vary as a function of the distance travelled by the neutrino.
 
 \subsubsection{Two neutrino case}
+\label{sec:theory:theory:twoNeutrino}
+The consequences of this are more easily understood in the situation where only two neutrinos participate in the mixing, since the oscillation probabilities are far more complex to write for the 3 neutrino case.
+In this case, the neutrino mixing matrix, $U$ can be written as a simple rotation matrix with one mixing angle,
+\begin{equation}
+  U =
+  \begin{pmatrix}
+    \cos\theta  & \sin\theta \\
+    -\sin\theta & \cos\theta
+  \end{pmatrix} \, .
+\end{equation}
 
+In terms of the mass contents of the pure flavour states, we find that
+\begin{align}
+  \ket{\nu_{\alpha}} &= \cos\theta\ket{\nu_{1}} - \sin\theta\ket{\nu_{2}} \\
+  \ket{\nu_{\beta}}  &= \sin\theta\ket{\nu_{1}} + \cos\theta\ket{\nu_{2}} \, .
+\end{align}
+Using this and Eq.~\ref{eq:oscillationProb}, we find that
+\begin{equation}
+  P_{\nu_{\alpha}\rightarrow\nu_{\beta}} = \sin^{2}(2\theta)\sin^{2} \left(\frac{\Delta m^{2} L}{4E} \right) \, ,
+\end{equation}
+for $\alpha \neq \beta$ where $\Delta m^{2}$ is the mass difference between the mass eigenstates.
+Restoring factors of $\hbar$ and $c$, this becomes
+\begin{equation}
+  P_{\nu_{\alpha}\rightarrow\nu_{\beta}} = \sin^{2}(2\theta) \sin^{2} \left( 1.27 \frac{\Delta m^{2} L}{E} \times \frac{[\text{eV}^{2}] [\text{km}] }{ [\text{GeV}] } \right) \, .
+\end{equation}
+
+One can visualise the effect of this equation graphically as is shown in Figure~\ref{fig:twoNeutrino}, left and right. 
+In this case we take $\deltam{}{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thetaij{}{} = 50^{\circ}$.
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/theory/twoNuFixedE}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/theory/twoNuFixedL}
+    \end{adjustbox}
+  \end{minipage}
+  \caption{Left: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of baseline, $L$. Here, the energy of the neutrino is 1~GeV. Right: Probability of detecting an intial$\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline.}
+  \label{fig:twoNeutrino}
+\end{figure}
+
+%%%% Current state of oscillations
 \section{Current state of neutrino oscillations}
 \label{sec:theory:currentState}
 
