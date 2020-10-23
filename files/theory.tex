@@ -247,7 +247,7 @@ This means that Eq.~\ref{eq:nuPropagation} can be expressed as
 The next step is to ask what is the probability that the state $\ket{\nu_{\alpha}(t)}$ will be detected as a different flavour state, $\ket{\nu_{\beta}}$?
 Using the form from above, we find that
 \begin{align}
-  P_{\nu_{\alpha} \rightarrow \nu_{\beta}} &= \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2} =
+  P(\nu_{\alpha} \rightarrow \nu_{\beta}) &= \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2} =
   \left| \bra{\nu_{i}} \sum^{3}_{i=1} U_{\beta i} \sum^{3}_{j=1} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \right|^{2} \\
   &= \left| \sum^{3}_{j=1} U_{\beta j} U_{\alpha j}^{*} e^{-i \frac{m^{2}_{j}L}{2E}} \right|^{2} \, ,
   \label{eq:oscillationProb}
@@ -279,11 +279,11 @@ Using this and Eq.~\ref{eq:oscillationProb}, we find that
 for $\alpha \neq \beta$ where $\Delta m^{2}$ is the mass difference between the mass eigenstates.
 Restoring factors of $\hbar$ and $c$, this becomes
 \begin{equation}
-  P_{\nu_{\alpha}\rightarrow\nu_{\beta}} = \sin^{2}(2\theta) \sin^{2} \left( 1.27 \frac{\Delta m^{2} L}{E} \times \frac{[\text{eV}^{2}] [\text{km}] }{ [\text{GeV}] } \right) \, .
+  P(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sin^{2}(2\theta) \sin^{2} \left( 1.27 \frac{\Delta m^{2} L}{E} \times \frac{[\text{eV}^{2}] [\text{km}] }{ [\text{GeV}] } \right) \, .
   \label{eq:twoNuProb}
 \end{equation}
 
-One can visualise the effect of this equation graphically as is shown in Figure~\ref{fig:twoNeutrino}, left and right. 
+One can visualise the effect of this equation graphically as is shown in Figure~\ref{fig:twoNeutrino}. 
 In this case we take $\deltam{}{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thetaij{}{} = 50^{\circ}$.
 The period of the oscillations can be found by setting $1.27 \frac{\deltam{}{}L}{E} = \pi$ and rearranging for $L$ to give
 \begin{equation}
@@ -298,21 +298,46 @@ One can see that the strength of the oscillations is controlled by $\sin^{2}(2\t
 
 \begin{figure}[h]
   \centering
-  \begin{minipage}[t]{0.49\textwidth}
+  \begin{subfigure}[t]{0.49\textwidth}
     \begin{adjustbox}{max totalsize={\textwidth}, center}
       \input{files/figures/theory/twoNuFixedE}
     \end{adjustbox}
-  \end{minipage}
+    \caption{Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of baseline, $L$. Here, the energy of the neutrino is 1~GeV.}
+  \end{subfigure}
   \hfill
-  \begin{minipage}[t]{0.49\textwidth}
+  \begin{subfigure}[t]{0.49\textwidth}
     \begin{adjustbox}{max totalsize={\textwidth}, center}
       \input{files/figures/theory/twoNuFixedL}
     \end{adjustbox}
-  \end{minipage}
-  \caption{Left: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of baseline, $L$. Here, the energy of the neutrino is 1~GeV. Right: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline.}
+    \caption{Right: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline.}
+  \end{subfigure}
+  \caption{Oscillation probabilities in the two neutrino approximation as a function of neutrino energy and baseline.}
   \label{fig:twoNeutrino}
 \end{figure}
 
+\subsubsection{Three neutrino oscillations}
+\label{sec:theory:theory:threeNeutrino}
+
+For three flavours of neutrino, the oscillation probabilities become significantly more complicated.
+However, a couple of illustrative oscillation probabilities or relevant approximations are noted here.
+For all flavours the survival probability of a given neutrino flavour, the so-called ``disappearance'' channel, can be expressed as~\cite{Nunokawa_2008}
+\begin{align}
+  P(\nu_{\alpha} \rightarrow \nu_{\alpha}) &= P(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\alpha})\\
+  &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
+\end{align}
+where $\Delta_{ij}=\deltam{i}{j}L/4E$.
+Thus, we can see that the neutrino disappearance probability does not depend on \dcp.
+
+In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
+We find that, in a vacuum,
+\begin{align}
+  P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
+  &= \left| 2U_{\mu 3}^{*}U_{e3} \sin \Delta_{31} e^{-i \Delta_{32}} + 2U^{*}_{\mu 2}U_{e2} \sin \Delta_{21} \right|^{2} \\
+  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\delta)} + \sqrt{P_{\text{sol}}} \right|^{2}
+\end{align}
+
+\subsubsection{Neutrino interactions}
+\label{sec:theory:theory:interactions}
 
 %%%% Current state of oscillations
 \section{Current state of neutrino oscillations}
