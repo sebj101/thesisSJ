@@ -309,7 +309,7 @@ One can see that the strength of the oscillations is controlled by $\sin^{2}(2\t
     \begin{adjustbox}{max totalsize={\textwidth}, center}
       \input{files/figures/theory/twoNuFixedL}
     \end{adjustbox}
-    \caption{Right: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline.}
+    \caption{Right: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline. Here the chosen baseline is 1300~km.}
   \end{subfigure}
   \caption{Oscillation probabilities in the two neutrino approximation as a function of neutrino energy and baseline.}
   \label{fig:twoNeutrino}
@@ -329,12 +329,20 @@ where $\Delta_{ij}=\deltam{i}{j}L/4E$.
 Thus, we can see that the neutrino disappearance probability does not depend on \dcp.
 
 In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
-We find that, in a vacuum,
+We find that, in a vacuum~\cite{Nunokawa_2008},
 \begin{align}
   P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
   &= \left| 2U_{\mu 3}^{*}U_{e3} \sin \Delta_{31} e^{-i \Delta_{32}} + 2U^{*}_{\mu 2}U_{e2} \sin \Delta_{21} \right|^{2} \\
-  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\delta)} + \sqrt{P_{\text{sol}}} \right|^{2}
+  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\delta)} + \sqrt{P_{\text{sol}}} \right|^{2} \\
+  &= P_{\text{atm}} + 2 \sqrt{P_{\text{atm}}} \sqrt{P_{\text{sol}}} \cos(\Delta_{32}+\delta) + P_{\text{sol}}
 \end{align}
+where
+\begin{align}
+  \sqrt{P_{\text{atm}}} &= \sthetaij{2}{3} \stwothetai{13} \sin\Delta_{31} \\
+  \sqrt{P_{\text{sol}}} &= \cthetai{23} \cthetai{13} \stwothetai{12} \sin\Delta_{21} \, .
+\end{align}
+
+
 
 \subsubsection{Neutrino interactions}
 \label{sec:theory:theory:interactions}
