@@ -280,10 +280,21 @@ for $\alpha \neq \beta$ where $\Delta m^{2}$ is the mass difference between the 
 Restoring factors of $\hbar$ and $c$, this becomes
 \begin{equation}
   P_{\nu_{\alpha}\rightarrow\nu_{\beta}} = \sin^{2}(2\theta) \sin^{2} \left( 1.27 \frac{\Delta m^{2} L}{E} \times \frac{[\text{eV}^{2}] [\text{km}] }{ [\text{GeV}] } \right) \, .
+  \label{eq:twoNuProb}
 \end{equation}
 
 One can visualise the effect of this equation graphically as is shown in Figure~\ref{fig:twoNeutrino}, left and right. 
 In this case we take $\deltam{}{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thetaij{}{} = 50^{\circ}$.
+The period of the oscillations can be found by setting $1.27 \frac{\deltam{}{}L}{E} = \pi$ and rearranging for $L$ to give
+\begin{equation}
+  L_{\text{osc}} = \frac{E \pi}{1.27 \deltam{}{}} \, .
+\end{equation}
+Similarly, the energy at which the oscillation maximum occurs for a given baseline can be found by setting $1.27 \frac{\deltam{}{}L}{E} = \frac{\pi}{2}$ and rearranging to give
+\begin{equation}
+  E_{\text{osc}} = 2.54 \frac{\deltam{}{} L}{\pi} \,
+\end{equation}
+where the same units are used as in Eq.~\ref{eq:twoNuProb}.
+One can see that the strength of the oscillations is controlled by $\sin^{2}(2\theta)$.
 
 \begin{figure}[h]
   \centering
@@ -298,9 +309,10 @@ In this case we take $\deltam{}{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thet
       \input{files/figures/theory/twoNuFixedL}
     \end{adjustbox}
   \end{minipage}
-  \caption{Left: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of baseline, $L$. Here, the energy of the neutrino is 1~GeV. Right: Probability of detecting an intial$\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline.}
+  \caption{Left: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of baseline, $L$. Here, the energy of the neutrino is 1~GeV. Right: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline.}
   \label{fig:twoNeutrino}
 \end{figure}
+
 
 %%%% Current state of oscillations
 \section{Current state of neutrino oscillations}
