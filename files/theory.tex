@@ -311,7 +311,7 @@ One can see that the strength of the oscillations is controlled by $\sin^{2}(2\t
     \end{adjustbox}
     \caption{Right: Probability of detecting an initial $\nu_{\alpha}$ as a particular flavour as a function of neutrino energy at a fixed baseline. Here the chosen baseline is 1300~km.}
   \end{subfigure}
-  \caption{Oscillation probabilities in the two neutrino approximation as a function of neutrino energy and baseline.}
+  \caption{Oscillation probabilities in the two neutrino approximation as a function of neutrino energy and baseline. For both plots the mass splitting, \deltam{}{}, is $2.5~\times~10^{-3}~\text{eV}^{2}$ and the mixing angle, $\theta$, is $50^{\circ}$.}
   \label{fig:twoNeutrino}
 \end{figure}
 
@@ -333,15 +333,42 @@ We find that, in a vacuum~\cite{Nunokawa_2008},
 \begin{align}
   P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
   &= \left| 2U_{\mu 3}^{*}U_{e3} \sin \Delta_{31} e^{-i \Delta_{32}} + 2U^{*}_{\mu 2}U_{e2} \sin \Delta_{21} \right|^{2} \\
-  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\delta)} + \sqrt{P_{\text{sol}}} \right|^{2} \\
-  &= P_{\text{atm}} + 2 \sqrt{P_{\text{atm}}} \sqrt{P_{\text{sol}}} \cos(\Delta_{32}+\delta) + P_{\text{sol}}
+  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\dcp)} + \sqrt{P_{\text{sol}}} \right|^{2} \\
+  &= P_{\text{atm}} + 2 \sqrt{P_{\text{atm}}} \sqrt{P_{\text{sol}}} \cos(\Delta_{32}+\dcp) + P_{\text{sol}}
 \end{align}
 where
 \begin{align}
   \sqrt{P_{\text{atm}}} &= \sthetaij{2}{3} \stwothetai{13} \sin\Delta_{31} \\
   \sqrt{P_{\text{sol}}} &= \cthetai{23} \cthetai{13} \stwothetai{12} \sin\Delta_{21} \, .
 \end{align}
+In the case of antineutrino oscillations, the sign of \dcp is flipped.
 
+A graphical representation of these equations for multiple different values of \dcp is shown in Figure~\ref{fig:threeNuApp}.
+One can clearly see the significant effect that changing the value of \dcp has on the appearance probabilities of electron neutrinos and anitneutrinos.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/theory/nueAppVacuum}
+    \end{adjustbox}
+    \caption{\numu to \nue transition probabilities for various values of \dcp.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/theory/anueAppVacuum}
+    \end{adjustbox}
+    \caption{\anumu to \anue transition probabilities for various values of \dcp.}
+  \end{subfigure}
+  \caption{\nue(\anue) appearance probabilities for an initial \numu(\anumu) as a function of energy in vacuum at a baseline of 1300~km. For both figures, the mass hierarchy is assumed to be normal.}
+  \label{fig:threeNuApp}
+\end{figure}
+
+\subsubsection{The MSW effect}
+\label{sec:theory:theory:msw}
+So far, only neutrino oscillations in a vacuum have been discussed.
+The reason for the omission is the existence of the Mikheyev-Smirnov-Wolfenstein (MSW) effect which affects neutrino oscillations when passing through media.
 
 
 \subsubsection{Neutrino interactions}
