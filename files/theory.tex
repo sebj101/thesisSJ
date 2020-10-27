@@ -368,8 +368,127 @@ One can clearly see the significant effect that changing the value of \dcp has o
 \subsubsection{The MSW effect}
 \label{sec:theory:theory:msw}
 So far, only neutrino oscillations in a vacuum have been discussed.
-The reason for the omission is the existence of the Mikheyev-Smirnov-Wolfenstein (MSW) effect which affects neutrino oscillations when passing through media.
+The reason for the omission is the existence of the Mikheyev-Smirnov-Wolfenstein (MSW) effect which affects neutrino oscillations when passing through matter with non-zero electron density.
 
+In order to explain this better we return to the two neutrino case of Section~\ref{sec:theory:theory:twoNeutrino}.
+Here we will denote the two flavour eigenstates as \nue and $\nu_{x}$.
+We know that the mass eigenstates which make up these states satisfy the Schr\"odinger equation in the form
+\begin{align}
+  i \frac{d}{dt}
+  \begin{pmatrix}
+    \nu_{1} \\
+    \nu_{2}
+  \end{pmatrix}
+  &=
+  \begin{pmatrix}
+    E_{1} & 0 \\
+    0     & E_{2}
+  \end{pmatrix}
+  \begin{pmatrix}
+    \nu_{1} \\
+    \nu_{2}
+  \end{pmatrix} \\
+  & \approx
+  \begin{pmatrix}
+    m_{1}^{2}/2E & 0 \\
+    0 & m_{2}^{2}/2E
+  \end{pmatrix}
+  \begin{pmatrix}
+    \nu_{1} \\
+    \nu_{2}
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    E & 0 \\
+    0 & E 
+  \end{pmatrix}
+  \begin{pmatrix}
+    \nu_{1} \\
+    \nu_{2}
+  \end{pmatrix} \, .  
+\end{align}
+Using the relation for the flavour eigenstates
+\begin{equation}
+  \begin{pmatrix}
+    \nue \\
+    \nu_{x}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\theta & \sin\theta \\
+    -\sin\theta & \cos\theta
+  \end{pmatrix}
+  \begin{pmatrix}
+    \nu_{1} \\
+    \nu_{2}
+  \end{pmatrix}
+\end{equation}
+we can derive the Schr\"odinger equation for the flavour eigenstates in a vacuum,
+\begin{align}
+  i \frac{d}{dt}
+  \begin{pmatrix}
+    \nue \\ \nu_{x}
+  \end{pmatrix}
+  &=
+  \left( \frac{\deltam{}{}}{4E} \right)
+  \begin{pmatrix}
+    -\cos 2\theta & \sin 2\theta \\
+    \sin 2\theta & \cos 2\theta
+  \end{pmatrix} \\
+  &=
+  H_{V}
+  \begin{pmatrix} \nue \\ \nu_{x} \end{pmatrix}
+\end{align}
+where $H_{V}$ represents the vacuum Hamiltonian.
+
+In a dense medium the Hamiltonian changes due to the prescence of electrons in said medium.
+Electron neutrinos and antineutrinos can scatter elastically from electrons via both charged and neutral current interactions.
+Neutrino flavours other than electron can only scatter elastically from electrons via neutral currents.
+
+As a result, electron neutrinos and antineutrinos experience an additional potential, $V_{e} = \pm \sqrt{2} G_{F} N_{e}$, where $G_{F}$ is the Fermi constant, $N_{e}$ is the electron density of the medium and the negative sign applies for antineutrinos.
+This results in the Hamiltonian which we term $H_{M}$ now containing an additional term so it can now be written as
+\begin{equation}
+  H_{M} =  \left( \frac{\deltam{}{}}{4E} \right)
+  \begin{pmatrix}
+    -\cos 2\theta & \sin 2\theta \\
+    \sin 2\theta & \cos 2\theta
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    V_{e} & 0 \\
+    0 & 0
+  \end{pmatrix} \, .
+\end{equation}
+
+We can subtract $\frac{V_{e}}{2} I$ from $H_{M}$ to give
+\begin{equation}
+  H_{M} = \left( \frac{\deltam{}{}}{4E} \right)
+  \begin{pmatrix}
+    -\cos\theta+A & \sin 2\theta \\
+    \sin 2\theta & \cos 2\theta - A 
+  \end{pmatrix}
+\end{equation}
+where
+\begin{equation}
+  A = \pm \frac{ 2\sqrt{2}G_{F}N_{e}E }{\deltam{}{}} \, .
+\end{equation}
+
+We can now redefine $H_{M}$ in terms of an `effective' mass splitting and mixing angle (\deltam{m}{} and $\theta_{m}$ respectively) so that it becomes
+\begin{equation}
+  H_{M} = \left( \frac{\deltam{m}{}}{4E} \right)
+  \begin{pmatrix}
+    -\cos 2\theta_{m} & \sin 2\theta_{m} \\
+    \sin 2\theta_{m} & \cos 2\theta_{m}
+  \end{pmatrix}
+\end{equation}
+which one can observe is the same form as $H_{V}$.
+We can derive expressions for these `effective' mixing parameters and find that
+\begin{align}
+  \deltam{m}{} &= \deltam^{2} \sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }  \\
+  \sin 2\theta_{m} &= \frac{\sin 2\theta}{\sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }} \,.
+\end{align}
+Thus we can see that these matter effects have an effect on both the period and strength of oscillations.
+Additionally we can also see that, due to the sign change of $A$ for antineutrinos, the opposite effect will occur for neutrinos and antineutrinos. 
 
 \subsubsection{Neutrino interactions}
 \label{sec:theory:theory:interactions}
