@@ -315,56 +315,6 @@ One can see that the strength of the oscillations is controlled by $\sin^{2}(2\t
   \label{fig:twoNeutrino}
 \end{figure}
 
-\subsubsection{Three neutrino oscillations}
-\label{sec:theory:theory:threeNeutrino}
-
-For three flavours of neutrino, the oscillation probabilities become significantly more complicated.
-However, a couple of illustrative oscillation probabilities or relevant approximations are noted here.
-For all flavours the survival probability of a given neutrino flavour, the so-called ``disappearance'' channel, can be expressed as~\cite{Nunokawa_2008}
-\begin{align}
-  P(\nu_{\alpha} \rightarrow \nu_{\alpha}) &= P(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\alpha})\\
-  &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
-\end{align}
-where $\Delta_{ij}=\deltam{i}{j}L/4E$.
-Thus, we can see that the neutrino disappearance probability does not depend on \dcp.
-
-In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
-We find that, in a vacuum~\cite{Nunokawa_2008},
-\begin{align}
-  P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
-  &= \left| 2U_{\mu 3}^{*}U_{e3} \sin \Delta_{31} e^{-i \Delta_{32}} + 2U^{*}_{\mu 2}U_{e2} \sin \Delta_{21} \right|^{2} \\
-  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\dcp)} + \sqrt{P_{\text{sol}}} \right|^{2} \\
-  &= P_{\text{atm}} + 2 \sqrt{P_{\text{atm}}} \sqrt{P_{\text{sol}}} \cos(\Delta_{32}+\dcp) + P_{\text{sol}}
-\end{align}
-where
-\begin{align}
-  \sqrt{P_{\text{atm}}} &= \sthetaij{2}{3} \stwothetai{13} \sin\Delta_{31} \\
-  \sqrt{P_{\text{sol}}} &= \cthetai{23} \cthetai{13} \stwothetai{12} \sin\Delta_{21} \, .
-\end{align}
-In the case of antineutrino oscillations, the sign of \dcp is flipped.
-
-A graphical representation of these equations for multiple different values of \dcp is shown in Figure~\ref{fig:threeNuApp}.
-One can clearly see the significant effect that changing the value of \dcp has on the appearance probabilities of electron neutrinos and anitneutrinos.
-
-\begin{figure}[h]
-  \centering
-  \begin{subfigure}[t]{0.49\textwidth}
-    \begin{adjustbox}{max totalsize={\textwidth}, center}
-      \input{files/figures/theory/nueAppVacuum}
-    \end{adjustbox}
-    \caption{\numu to \nue transition probabilities for various values of \dcp.}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.49\textwidth}
-    \begin{adjustbox}{max totalsize={\textwidth}, center}
-      \input{files/figures/theory/anueAppVacuum}
-    \end{adjustbox}
-    \caption{\anumu to \anue transition probabilities for various values of \dcp.}
-  \end{subfigure}
-  \caption{\nue(\anue) appearance probabilities for an initial \numu(\anumu) as a function of energy in vacuum at a baseline of 1300~km. For both figures, the mass hierarchy is assumed to be normal.}
-  \label{fig:threeNuApp}
-\end{figure}
-
 \subsubsection{The MSW effect}
 \label{sec:theory:theory:msw}
 So far, only neutrino oscillations in a vacuum have been discussed.
@@ -482,13 +432,80 @@ We can now redefine $H_{M}$ in terms of an `effective' mass splitting and mixing
   \end{pmatrix}
 \end{equation}
 which one can observe is the same form as $H_{V}$.
+This leads to an oscillation probability of the same form as Eq.~\ref{eq:twoNuProb}
+\begin{equation}
+  P(\nue \rightarrow \nu_{x}) = \sin^{2} 2\theta_{m} \sin^{2} \left( \frac{\deltam{m}{} L}{4E} \right) \, .
+\end{equation}
+
 We can derive expressions for these `effective' mixing parameters and find that
 \begin{align}
-  \deltam{m}{} &= \deltam^{2} \sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }  \\
-  \sin 2\theta_{m} &= \frac{\sin 2\theta}{\sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }} \,.
+  \deltam{m}{} &= \deltam{}{} \sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }  \label{eq:mswMass} \\
+  \sin 2\theta_{m} &= \frac{\sin 2\theta}{\sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }} \,. \label{eq:mswAngle}
 \end{align}
 Thus we can see that these matter effects have an effect on both the period and strength of oscillations.
 Additionally we can also see that, due to the sign change of $A$ for antineutrinos, the opposite effect will occur for neutrinos and antineutrinos. 
+
+One can infer several interesting points from Equations~\ref{eq:mswMass} and~\ref{eq:mswAngle}.
+Under the condition that
+\begin{equation}
+  \cos 2\theta = \frac{2 \sqrt{2} G_{F} N_{e} E}{\deltam{}{}}
+\end{equation}
+we can see that $\sin 2\theta_{m} = 1$, i.e. maximal oscillations can occur regardless of the value of the vacuum mixing angle.
+This effect is known as the MSW resonance.
+We can also observe that as $A \rightarrow \infty$ (in extremely high matter densities, for example), $\sin 2\theta_{m} \rightarrow 0$ meaning that no oscillations occur.
+Additionally, it can be observed that $A$ depends on the sign of \deltam{}{}.
+Thus, the MSW effect can be used to determine the sign of the mass differences.
+This is in contrast to the vacuum oscillation case where it is not possible to determine the sign of \deltam{}{}.
+
+\subsubsection{Three neutrino oscillations}
+\label{sec:theory:theory:threeNeutrino}
+
+For three flavours of neutrino, the oscillation probabilities become significantly more complicated.
+However, a couple of illustrative oscillation probabilities or relevant approximations are noted here.
+For all flavours the survival probability of a given neutrino flavour, the so-called ``disappearance'' channel, can be expressed as~\cite{Nunokawa_2008}
+\begin{align}
+  P(\nu_{\alpha} \rightarrow \nu_{\alpha}) &= P(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\alpha})\\
+  &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
+\end{align}
+where $\Delta_{ij}=\deltam{i}{j}L/4E$.
+Thus, we can see that the neutrino disappearance probability does not depend on \dcp.
+
+In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
+We find that, in a vacuum~\cite{Nunokawa_2008},
+\begin{align}
+  P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
+  &= \left| 2U_{\mu 3}^{*}U_{e3} \sin \Delta_{31} e^{-i \Delta_{32}} + 2U^{*}_{\mu 2}U_{e2} \sin \Delta_{21} \right|^{2} \\
+  & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\dcp)} + \sqrt{P_{\text{sol}}} \right|^{2} \\
+  &= P_{\text{atm}} + 2 \sqrt{P_{\text{atm}}} \sqrt{P_{\text{sol}}} \cos(\Delta_{32}+\dcp) + P_{\text{sol}}
+\end{align}
+where
+\begin{align}
+  \sqrt{P_{\text{atm}}} &= \sthetaij{2}{3} \stwothetai{13} \sin\Delta_{31} \\
+  \sqrt{P_{\text{sol}}} &= \cthetai{23} \cthetai{13} \stwothetai{12} \sin\Delta_{21} \, .
+\end{align}
+In the case of antineutrino oscillations, the sign of \dcp is flipped.
+
+A graphical representation of these equations for multiple different values of \dcp is shown in Figure~\ref{fig:threeNuApp}.
+One can clearly see the significant effect that changing the value of \dcp has on the appearance probabilities of electron neutrinos and anitneutrinos.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/theory/nueAppVacuum}
+    \end{adjustbox}
+    \caption{\numu to \nue transition probabilities for various values of \dcp.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/theory/anueAppVacuum}
+    \end{adjustbox}
+    \caption{\anumu to \anue transition probabilities for various values of \dcp.}
+  \end{subfigure}
+  \caption{\nue(\anue) appearance probabilities for an initial \numu(\anumu) as a function of energy in vacuum at a baseline of 1300~km. For both figures, the mass hierarchy is assumed to be normal.}
+  \label{fig:threeNuApp}
+\end{figure}
 
 \subsection{Neutrino interactions}
 \label{sec:theory:theory:interactions}
