@@ -156,7 +156,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions
 \LoadClass{book}
-\RequirePackage{mathptmx}
+%\RequirePackage{mathptmx}
 %    \end{macrocode}
 %
 %  \subsection{Page Layout}

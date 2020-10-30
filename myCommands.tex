@@ -1,5 +1,11 @@
 %%%% My commands
 
+%%% Citation commands
+\newcommand*{\citefig}[1]{Figure~\ref{#1}}
+\newcommand*{\citeeq}[1]{Equation~\ref{#1}}
+\newcommand*{\citetab}[1]{Table~\ref{#1}}
+\newcommand*{\citesec}[1]{Section~\ref{#1}}
+
 %%% Particles I use a lot
 % Neutrinos and antineutrinos
 \newcommand*{\nue}{\ensuremath{\nu_{e}}\xspace}
@@ -24,6 +30,11 @@
 \newcommand*{\muplus}{\ensuremath{\mu^{+}}\xspace}
 \newcommand*{\muminus}{\ensuremath{\mu^{-}}\xspace}
 
+% Bosons
+\newcommand*{\wplus}{\ensuremath{W^{+}}\xspace}
+\newcommand*{\wminus}{\ensuremath{W^{-}}\xspace}
+\newcommand*{\wpm}{\ensuremath{W^{\pm}}\xspace}
+\newcommand*{\zboson}{\ensuremath{Z^{0}}\xspace}
 
 %%% Commonly used signs in oscillations
 
@@ -35,12 +46,15 @@
 % Mixing angles
 \newcommand*{\thetaij}[2]{\ensuremath{\theta_{#1 #2}}\xspace}
 \newcommand*{\sthetaij}[2]{\ensuremath{\sin^{2}\theta_{#1 #2}}\xspace}
-\newcommand*{\ssthetaij}[2]{\ensuremath{\sin\theta_{#1 #2}}\xspace}
 
+\newcommand*{\thetai}[2]{\ensuremath{\theta_{#1}}\xspace}
+\newcommand*{\ssthetai}[1]{\ensuremath{\sin\theta_{#1}}\xspace}
 \newcommand*{\sthetai}[1]{\ensuremath{\sin\theta_{#1}}\xspace}
+\newcommand*{\sstwothetai}[1]{\ensuremath{\sin^{2} 2 \theta_{#1}}\xspace}
 \newcommand*{\stwothetai}[1]{\ensuremath{\sin 2 \theta_{#1}}\xspace}
 
 \newcommand*{\cthetai}[1]{\ensuremath{\cos\theta_{#1}}\xspace}
+\newcommand*{\csthetai}[1]{\ensuremath{\cos^{2}\theta_{#1}}\xspace}
 
 \newcommand*{\dcp}{\ensuremath{\delta_{CP}}\xspace}
 
