@@ -171,14 +171,14 @@ Further confirmations of the existence of oscillations would come from reactor n
 \label{sec:theory:theory}
 
 Neutrinos are fermions carrying no electric or colour charge and which therefore interact only via the weak force and gravity.
-Neutrinos(antineutrinos) with left(right)-handed chirality have a weak isospin number, $T$, of $+\frac{1}{2}$ and a weak hypercharge number, $Y$, of -1.
+Neutrinos(antineutrinos) with left(right)-handed chirality have a weak isospin number, $T$, of $+\frac{1}{2}\left(-\frac{1}{2}\right)$ and a weak hypercharge number, $Y$, of -1(+1).
 For neutrinos(antineutrinos) with right(left)-handed chirality, $T = Y = 0$.
 
 Neutrinos exist in 3 flavours ($\nu_{e}$, $\nu_{\mu}$ and $\nu_{\tau}$), each corresponding to one of the charged leptons in the standard model.
-These flavours are defined by the charged lepton produced by the neutrino when interacting in a charged current interaction (see \citesec{sec:theory:theory:interactions})
+These flavours are defined by the charged lepton produced by the neutrino when interacting in a charged current interaction.
 
-\subsection{Neutrino interactions}
-\label{sec:theory:theory:interactions}
+%\subsection{Neutrino interactions}
+%\label{sec:theory:theory:interactions}
 
 Neutrinos may interact via the exchange of either a \wpm boson in the case of charged current (CC) interactions or a \zboson in the case of neutral current (NC) interactions.
 Examples of these interactions are shown in \citefig{fig:nuIntEx}.
@@ -275,7 +275,7 @@ However, each mass eigenstate propagates at a different rate due to the differen
 
 Therefore, after a time $t$ has passed, the wavefunction becomes
 \begin{equation}
-  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-i \left(E_{j}t - \bm{p_{j}} \cdot \bm{x} \right)} \ket{\nu_{j}}
+  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-i \left(E_{j}t - \bm{p_{j}} \cdot \bm{x} \right)} \ket{\nu_{j}(0)}
   \label{eq:nuPropagation}
 \end{equation}
 and thus $\ket{\nu}$ is no longer a pure flavour eigenstate.
@@ -286,20 +286,24 @@ In the limit that $|p_{j}| \gg m_{j}$ (the case for all observable neutrinos giv
 where $E$ is the total energy of the particle.
 We also take $t \approx L$ where $L$ is the distance propagated by the neutrino.
 This means that \citeeq{eq:nuPropagation} can be expressed as
-\begin{equation}
-  \ket{\nu_{\alpha}(t)} = \sum_{j=1}^{3} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \, .
-\end{equation}
+\begin{align}
+  \ket{\nu_{\alpha}(t)} &= \sum_{j} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}(0)} \\
+  &= \sum_{j} \sum_{\beta} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} U_{\beta j} \ket{\nu_{\beta}} \, .
+\end{align}
 
 The next step is to ask what is the probability that the state $\ket{\nu_{\alpha}(t)}$ will be detected as a different flavour state, $\ket{\nu_{\beta}}$?
 Using the form from above, we find that
 \begin{align}
-  P(\nu_{\alpha} \rightarrow \nu_{\beta}) &= \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2} =
-  \left| \bra{\nu_{i}} \sum^{3}_{i=1} U_{\beta i} \sum^{3}_{j=1} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \right|^{2} \\
-  &= \left| \sum^{3}_{j=1} U_{\beta j} U_{\alpha j}^{*} e^{-i \frac{m^{2}_{j}L}{2E}} \right|^{2} \, ,
+  P(\nu_{\alpha} \rightarrow \nu_{\beta}) &= \left|\braket{\nu_{\beta} | \nu_{\alpha}(t)} \right|^{2} \\
+  &=  \left| \bra{\nu_{i}} \sum_{i} U_{\beta i} \sum_{j} U^{*}_{\alpha j} e^{-i \frac{m^{2}_{j}L}{2E}} \ket{\nu_{j}} \right|^{2} \\
+  &= \left| \sum_{j} U_{\beta j} U_{\alpha j}^{*} e^{-i \frac{m^{2}_{j}L}{2E}} \right|^{2} \\
+  &= \sum_{i, j} U^{*}_{\alpha j} U_{\beta j} U_{\alpha i} U^{*}_{\beta i} e^{-i \frac{\deltam{i}{j}L}{2E}}  \, , 
   \label{eq:oscillationProb}
 \end{align}
-and thus can see that the probability of finding the neutrino in a different flavour state is dependent on $\frac{m^{2}_{j}L}{2E}$.
-This implies that for a neutrino of a given energy, the probability of oscillation will vary as a function of the distance travelled by the neutrino.
+where $\deltam{i}{j} = m_{i}^{2} - m_{j}^{2}$.
+We can see that the probability of finding the neutrino in a different flavour state is dependent on the neutrino energy, the difference between the squared masses of the flavour states (also know as the mass splittings), the distance travelled by the neutrino and the elements of the matrix $U$.
+This implies that for a neutrino of a given energy, the probability of detection as a different flavour will vary as a function of the distance travelled by the neutrino.
+This is the phenomena of neutrino oscillations.
 
 \subsubsection{Two neutrino case}
 \label{sec:theory:theory:twoNeutrino}
@@ -325,12 +329,13 @@ Using this and \citeeq{eq:oscillationProb}, we find that
 for $\alpha \neq \beta$ where $\Delta m^{2}$ is the mass difference between the mass eigenstates.
 Restoring factors of $\hbar$ and $c$, this becomes
 \begin{equation}
-  P(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sin^{2}(2\theta) \sin^{2} \left( 1.27 \frac{\Delta m^{2} L}{E} \times \frac{[\text{eV}^{2}] [\text{km}] }{ [\text{GeV}] } \right) \, .
+  P(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sin^{2}(2\theta) \sin^{2} \left( 1.27 \frac{\Delta m^{2} [\text{eV}]^{2} L [\text{km}]}{E[\text{GeV}]} \right) \, .
   \label{eq:twoNuProb}
 \end{equation}
 
 One can visualise the effect of this equation graphically as is shown in \citefig{fig:twoNeutrino}. 
 In this case we take $\deltam{}{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thetaij{}{} = 50^{\circ}$.
+
 The period of the oscillations can be found by setting $1.27 \frac{\deltam{}{}L}{E} = \pi$ and rearranging for $L$ to give
 \begin{equation}
   L_{\text{osc}} = \frac{E \pi}{1.27 \deltam{}{}} \, .
@@ -440,6 +445,43 @@ where $H_{V}$ represents the vacuum Hamiltonian.
 In a dense medium the Hamiltonian changes due to the prescence of electrons in said medium.
 Electron neutrinos and antineutrinos can scatter elastically from electrons via both charged and neutral current interactions.
 Neutrino flavours other than electron can only scatter elastically from electrons via neutral currents.
+Example diagrams of these interactions are shown in \citefig{fig:coherentScattering}.
+\citefig{fig:coherentScattering:nue} and \citefig{fig:coherentScattering:anue} show interactions that are only possible for electron neutrinos and antineutrinos respectively while \citefig{fig:coherentScattering:nul} shows an interaction which is possible for neutrinos of any flavour.
+
+\begin{figure}[h]
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \feynmandiagram [vertical=a to b] {
+      i1 [particle=\nue] -- [fermion] a -- [fermion] f1 [particle=\electron],
+      a -- [boson, edge label=\wplus] b,
+      i2 [particle=\nue] -- [anti fermion] b -- [anti fermion] f2 [particle=\electron],
+    };
+    \caption{Charged current elastic scattering of an electron neutrino on an electron.}
+    \label{fig:coherentScattering:nue}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.32\textwidth}
+    \feynmandiagram [horizontal=a to b] {
+      i1 [particle=\anue] -- [anti fermion] a -- [anti fermion] i2 [particle=\electron],
+      a -- [boson, edge label=\(W\)] b,
+      f1 [particle=\electron] -- [anti fermion] b -- [anti fermion] f2 [particle=\anue]
+    };
+    \caption{Charged current elastic scattering of an electron antineutrino on an electron.}
+    \label{fig:coherentScattering:anue}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \feynmandiagram [vertical=a to b] {
+      i1 [particle=\nul] -- [fermion] a -- [fermion] f1 [particle=\nul],
+      a -- [boson, edge label=\zboson] b,
+      i2 [particle=\electron] -- [anti fermion] b -- [anti fermion] f2 [particle=\electron],
+    };
+    \caption{Neutral current elastic scattering of a neutrino (of any flavour) on an electron.}
+    \label{fig:coherentScattering:nul}
+  \end{subfigure}
+  \caption{Examples of charged and neutral current elastic scattering processes for neutrinos and electrons.}
+  \label{fig:coherentScattering}
+\end{figure}
 
 As a result, electron neutrinos and antineutrinos experience an additional potential, $V_{e} = \pm \sqrt{2} G_{F} N_{e}$, where $G_{F}$ is the Fermi constant, $N_{e}$ is the electron density of the medium and the negative sign applies for antineutrinos.
 This results in the Hamiltonian which we term $H_{M}$ now containing an additional term so it can now be written as
@@ -508,13 +550,37 @@ This is in contrast to the vacuum oscillation case where it is not possible to d
 
 For three flavours of neutrino, the oscillation probabilities become significantly more complicated.
 However, a couple of illustrative oscillation probabilities or relevant approximations are noted here.
+In the three neutrino case, the parameters governing the oscillations are:
+\begin{itemize}
+\item The mixing angles of the PMNS matrix, \thetai{12}, \thetai{13}, \theta{23}
+\item The mass splittings, \deltam{2}{1}, \deltam{3}{1}
+\item The CP-violating phase of the PMNS matrix, \dcp
+\end{itemize}
+where \deltam{2}{1} and \deltam{3}{1} is one way to parametrise the differences between the 3 different mass states.
+
+Note that, in a vacuum, the oscillation frequency does not depend upon the sign of the mass splittings only the absolute value.
+At the present time, the ordering of the mass eigenstates is not known.
+That is to say, it is not known whether $\nu_{3}$ is the heaviest or the lightest mass eigenstate.
+
+The scenario in which $\nu_{3}$ is the heaviest mass eigenstate is referred to as the `normal' hierarchy while the scenario in which $\nu_{3}$ is the lightest mass eigenstate is referred to as the `inverted' hierarchy.
+The choice of nomenclature derives from the flavour content of the mass eigenstates, where $\nu_{1}$ has the greatest $\nu_{e}$ component and $\nu_{3}$ has the lowest.
+Thus the `normal' hierarchy somewhat mirrors the charged lepton masses, with the most `electron-like' mass eigenstate being the lightest~\cite{massHierarchy}.
+The two different mass hierarchies are illustrated in \citefig{fig:massHierarchy}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/theory/mh}
+  \caption{Figure illustrating the two different neutrino mass hierarchies along with the fractional flavour content of the mass eigenstates according to global best fit values. The variation from the bottom of the bands to the top is the variation induced by varying $\delta_{CP}$ from 0 to $\pi$. Figure from~\cite{tdrVol2}.}
+  \label{fig:massHierarchy}
+\end{figure}
+
 For all flavours the survival probability of a given neutrino flavour, the so-called ``disappearance'' channel, can be expressed as~\cite{Nunokawa_2008}
 \begin{align}
   P(\nu_{\alpha} \rightarrow \nu_{\alpha}) &= P(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\alpha})\\
   &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
 \end{align}
 where $\Delta_{ij}=\deltam{i}{j}L/4E$.
-Thus, we can see that the neutrino disappearance probability does not depend on \dcp.
+This probability does not depend on \dcp and therefore \dcp cannot be measured through purely looking at neutrino survival probabilities.
 
 In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
 We find that, in a vacuum~\cite{Nunokawa_2008},
@@ -550,7 +616,7 @@ One can clearly see the significant effect that changing the value of \dcp has o
     \end{adjustbox}
     \caption{\anumu to \anue transition probabilities for various values of \dcp.}
   \end{subfigure}
-  \caption{\nue(\anue) appearance probabilities for an initial \numu(\anumu) as a function of energy in vacuum at a baseline of 1300~km. For both figures, the mass hierarchy is assumed to be normal.}
+  \caption{\nue(\anue) appearance probabilities for an initial \numu(\anumu) as a function of energy in vacuum at a baseline of 1300~km. For both figures, the mass hierarchy is assumed to be normal. NH and IH refer to the normal and inverted mass hierarchies respectively.}
   \label{fig:threeNuApp}
 \end{figure}
 
@@ -599,65 +665,83 @@ It can be seen that as these baselines and matter densities that the true neutri
 \end{figure}
 
 %%%% Current state of oscillations
-\section{Current state of neutrino oscillations}
+\section{Current state of neutrino physics}
 \label{sec:theory:currentState}
 
 %%% Current state of PMNS matrix
-It is widely accepted today that the left-handed flavour neutrino flavour states are formed from linear combinations of the mass eigenstates in the relation
-\begin{equation}
-  \nu_{lL}(x) = \sum_{j=1}^{3} U_{lj} \nu_{jL}(x)
-\end{equation}
-where $l = e, \mu, \tau$ and $U$ is the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix.
-This unitary matrix is more commonly parameterised in terms of three mixing angles ($\theta_{12}, \theta_{13}, \theta_{23}$) and one complex phase, $\delta_{CP}$ as
-\begin{equation}
-  U =
-  \begin{bmatrix}
-    c_{12}c_{13} & s_{12}c_{13} & s_{13} e^{-i\delta_{CP}} \\
-    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\delta_{CP}} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta_{CP}} & s_{23}c_{13} \\
-    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\delta_{CP}} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\delta_{CP}} & c_{23}c_{13}
-  \end{bmatrix}
-\end{equation}
-where $s_{ij} = \text{sin}\theta_{ij}$, $c_{ij} = \text{cos}\theta_{ij}$, $\theta_{ij} = [0, \pi/2]$ and $\delta_{CP} = [0, 2\pi]$.
-These mixing angles control the strength of the oscillations while $\delta_{CP}$ specifies the difference in the oscillation of neutrinos and antineutrinos.
-The frequencies of the oscillations are controlled by the differences between the squares of the masses of the mass eigenstates, $\Delta m_{ij}^{2} = m_{i}^{2} - m_{j}^{2}$ where $i \neq j$.
-The two independent mass splittings which are usually referred to are $m^{2}_{21}$ and $m^{2}_{31}$~\cite{pdg2018}.
+%It is widely accepted today that the left-handed flavour neutrino flavour states are formed from linear combinations of the mass eigenstates in the relation
+%\begin{equation}
+%  \nu_{lL}(x) = \sum_{j=1}^{3} U_{lj} \nu_{jL}(x)
+%\end{equation}
+%where $l = e, \mu, \tau$ and $U$ is the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix.
+%This unitary matrix is more commonly parameterised in terms of three mixing angles ($\theta_{12}, \theta_{13}, \theta_{23}$) and one complex phase, $\delta_{CP}$ as
+%\begin{equation}
+%  U =
+%  \begin{bmatrix}
+%    c_{12}c_{13} & s_{12}c_{13} & s_{13} e^{-i\delta_{CP}} \\
+%    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\delta_{CP}} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta_{CP}} & s_{23}c_{13} \\
+%    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\delta_{CP}} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\delta_{CP}} & c_{23}c_{13}
+%  \end{bmatrix}
+%\end{equation}
+%where $s_{ij} = \text{sin}\theta_{ij}$, $c_{ij} = \text{cos}\theta_{ij}$, $\theta_{ij} = [0, \pi/2]$ and $\delta_{CP} = [0, 2\pi]$.
+%These mixing angles control the strength of the oscillations while $\delta_{CP}$ specifies the difference in the oscillation of neutrinos and antineutrinos.
+%The frequencies of the oscillations are controlled by the differences between the squares of the masses of the mass eigenstates, $\Delta m_{ij}^{2} = m_{i}^{2} - m_{j}^{2}$ where $i \neq j$.
+%The two independent mass splittings which are usually referred to are $m^{2}_{21}$ and $m^{2}_{31}$~\cite{pdg2018}.
 
 % Uncertainty on each of the various parameters
+Today the phenomenon of neutrino oscillations is widely accepted. 
 However, the values of the parameters involved in neutrino oscillation are yet to be precisely determined.
 The most recent global fit of these parameters gives the values shown in \citetab{tab:nufit4} along with the associated uncertainties and shows that significant questions still exist in the field of neutrino oscillations.
 
+Given that the mass hierarchy is unknown and that $\deltami{21} \ll |\deltami{31}| \simeq |\deltami{32}|$ it is easier to express the larger mass splitting in terms that depend on the true mass hierarchy.
+We denote this mass splitting as \deltami{3l} where
+\begin{equation}
+  \deltami{3l} =
+  \begin{cases}
+    \deltami{31} > 0 & \text{for NH} , \\
+    \deltami{32} < 0 & \text{for IH} \, .
+  \end{cases}
+\end{equation}
+
 \begin{table}
-  \caption{Current best-fit values of neutrino oscillation parameters for normal (inverted) hierarchy, with associated uncertainties. Taken from~\cite{nufit4}.}
+  \caption{Current best-fit values of neutrino oscillation parameters for normal (inverted) hierarchy, with associated uncertainties. The lower table shows the results with the constraints from the Super-Kamiokande atmospheric neutrino data while the upper table is shown without this constraint. Taken from~\cite{nufit4}.}
   \label{tab:nufit4}
   \centering
   \begin{tabular}{c c}
     \hline
-    Parameter & Best fit ($\pm1\sigma$) \\
     \hline
-    $\text{sin}^{2}\theta_{12}$ & $0.310^{+0.013}_{-0.012}$ \\[.2cm]
-    $\text{sin}^{2}\theta_{23}$ & $0.580^{+0.017}_{-0.021}$ ($0.584^{+0.016}_{-0.020}$) \\[.2cm]
-    $\text{sin}^{2}\theta_{13}$ & $0.02241^{+0.00065}_{-0.00065}$ ($0.02264^{+0.00066}_{-0.00066}$) \\[.2cm]
-    $\delta_{CP}/^{\circ}$ & $215^{+40}_{-29}$ ($284^{+27}_{-29}$) \\[.2cm]
+    \multicolumn{2}{c}{Without SK atmospheric constraint} \\
     \hline
-    $\frac{\Delta m^{2}_{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$\\[.2cm]
-    $\frac{\Delta m^{2}_{3l}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.032}$ ($-2.512^{+0.034}_{-0.032}$) \\[.2cm]
+    Parameter & Best fit \\
+    \hline
+    \ssthetai{12} & $0.310^{+0.013}_{-0.012}$ \\[.2cm]
+    \ssthetai{23} & $0.580^{+0.017}_{-0.021}$ ($0.584^{+0.016}_{-0.020}$) \\[.2cm]
+    \ssthetai{13} & $0.02241^{+0.00065}_{-0.00065}$ ($0.02264^{+0.00066}_{-0.00066}$) \\[.2cm]
+    $\dcp/^{\circ}$ & $215^{+40}_{-29}$ ($284^{+27}_{-29}$) \\[.2cm]
+    \hline
+    $\frac{\deltami{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$\\[.2cm]
+    $\frac{\deltami{3l}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.032}$ ($-2.512^{+0.034}_{-0.032}$) \\[.2cm]
+    \hline
+    \hline
+    \multicolumn{2}{c}{With SK atmospheric constraint} \\
+    \hline
+    Parameter & Best fit \\
+    \hline
+    \ssthetai{12} & $0.310^{+0.013}_{-0.012}$ \\[.2cm]
+    \ssthetai{23} & $0.582^{+0.015}_{-0.019}$ ($0.582^{+0.015}_{-0.018}$) \\[.2cm]
+    \ssthetai{13} & $0.02240^{+0.00065}_{-0.00066}$ ($0.02263^{+0.00065}_{-0.00066}$) \\[.2cm]
+    $\dcp/^{\circ}$ & $217^{+40}_{-28}$ ($280^{+25}_{-28}$) \\[.2cm]
+    \hline
+    $\frac{\deltami{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$\\[.2cm]
+    $\frac{\deltami{3l}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.031}$ ($-2.512^{+0.034}_{-0.031}$) \\[.2cm]
     \hline
   \end{tabular}
 \end{table}
 
-Although the absolute values of $\Delta m^{2}_{21}$ and $\Delta m^{2}_{31}$ have $\pm1\sigma$ uncertainties of less than 3\% and 2\% respectively, the sign of $\Delta m^{2}_{31}$ is not known, i.e. it is not known whether $\nu_{3}$ is the ligtest or the heaviest mass eigenstate~\cite{nufit4}.
+Although the absolute values of $\Delta m^{2}_{21}$ and $\Delta m^{2}_{31}$ have $\pm1\sigma$ uncertainties of less than 3\% and 2\% respectively, the sign of $\Delta m^{2}_{31}$ is not known, i.e. it is not known whether $\nu_{3}$ is the lightest or the heaviest mass eigenstate.
 
-The scenario in which $\nu_{3}$ is the heaviest mass eigenstate is referred to as the `normal' hierarchy while the scenario in which $\nu_{3}$ is the lightest mass eigenstate is referred to as the `inverted' hierarchy.
-The choice of nomenclature derives from the flavour content of the mass eigenstates, where $\nu_{1}$ has the greatest $\nu_{e}$ component and $\nu_{3}$ has the lowest.
-Thus the `normal' hierarchy somewhat mirrors the charged lepton masses, with the most `electron-like' mass eigenstate being the lightest~\cite{massHierarchy}.
-The two different mass hierarchies are illustrated in \citefig{fig:massHierarchy}.
-Although, the current global best fit disfavours the inverted hierarchy, the evidence is not conclusive~\cite{nufit4}. 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=.7\linewidth]{files/figures/theory/mh}
-  \caption{Figure illustrating the two different neutrino mass hierarchies along with the fractional flavour content of the mass eigenstates according to global best fit values. The variation from the bottom of the bands to the top is the variation induced by varying $\delta_{CP}$ from 0 to $\pi$. Figure from~\cite{tdrVol2}.}
-  \label{fig:massHierarchy}
-\end{figure}
+While the current global best fit disfavours the inverted hierarchy, the evidence is not conclusive.
+The inverted hierarchy is disfavoured with $\Delta \chi^{2}=4.7$ ($\Delta \chi^{2}=9.3$ if Super-Kamiokande atmospheric data is included)~\cite{nufit4}.
 
 The global fit also shows that CP-conserving values of $\delta_{CP}$ are slightly disfavoured but this preference is slight.
 In fact $\sim72\%$ of $\delta_{CP}$ values fall within the $\pm3\sigma$~\cite{nufit4}.
@@ -666,4 +750,13 @@ However, this result is not yet at the exacting standard of proof required in hi
 
 It is also hoped that the next generation of neutrino experiments will enable precision measurements of the mixing angles of the PMNS matrix, thus enabling tests of its unitarity.
 
+%%% Go over current experiments that measure each of these parameters
 
+\section{Measurement of \thetai{13}}
+\label{sec:theory:currentState:theta13}
+
+\section{Measurement of \thetai{23}}
+\label{sec:theory:currentState:theta23}
+
+\section{Measurement of \thetai{12} and \deltami{21}}
+\label{sec:theory:currentState:solar}
