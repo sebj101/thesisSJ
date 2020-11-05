@@ -692,6 +692,7 @@ It can be seen that as these baselines and matter densities that the true neutri
 Today the phenomenon of neutrino oscillations is widely accepted. 
 However, the values of the parameters involved in neutrino oscillation are yet to be precisely determined.
 The most recent global fit of these parameters gives the values shown in \citetab{tab:nufit4} along with the associated uncertainties and shows that significant questions still exist in the field of neutrino oscillations.
+\citefig{fig:nufit4Contours} shows the confidence limits obtained for the various parameters.
 
 Given that the mass hierarchy is unknown and that $\deltami{21} \ll |\deltami{31}| \simeq |\deltami{32}|$ it is easier to express the larger mass splitting in terms that depend on the true mass hierarchy.
 We denote this mass splitting as \deltami{3l} where
@@ -732,7 +733,7 @@ We denote this mass splitting as \deltami{3l} where
     \ssthetai{13} & $0.02240^{+0.00065}_{-0.00066}$ ($0.02263^{+0.00065}_{-0.00066}$) \\[.2cm]
     $\dcp/^{\circ}$ & $217^{+40}_{-28}$ ($280^{+25}_{-28}$) \\[.2cm]
     \hline
-    $\frac{\deltami{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$\\[.2cm]
+    $\frac{\deltami{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$ \\[.2cm]
     $\frac{\deltami{3l}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.031}$ ($-2.512^{+0.034}_{-0.031}$) \\[.2cm]
     \hline
   \end{tabular}
@@ -743,6 +744,13 @@ Although the absolute values of $\Delta m^{2}_{21}$ and $\Delta m^{2}_{31}$ have
 While the current global best fit disfavours the inverted hierarchy, the evidence is not conclusive.
 The inverted hierarchy is disfavoured with $\Delta \chi^{2}=4.7$ ($\Delta \chi^{2}=9.3$ if Super-Kamiokande atmospheric data is included)~\cite{nufit4}.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\linewidth]{files/figures/theory/nufit4Contours}
+  \caption{Contours from~\cite{nufit4}. Moving outwards, the contours refer to $1\sigma$, 90\%, $2\sigma$, 99\% and $3\sigma$ confidence limits. The coloured regions show the contours without the Super-Kamiokande atmospheric data while the black lines show the limits with this data.}
+  \label{fig:nufit4Contours}
+\end{figure}
+
 The global fit also shows that CP-conserving values of $\delta_{CP}$ are slightly disfavoured but this preference is slight.
 In fact $\sim72\%$ of $\delta_{CP}$ values fall within the $\pm3\sigma$~\cite{nufit4}.
 However, recent results from the Tokai to Kamioka (T2K) experiment show more stringent limits on the value of $\delta_{CP}$, excluding nearly $50\%$ of the values of $\delta_{CP}$ at $3\sigma$~\cite{t2kRecent}.
@@ -751,6 +759,43 @@ However, this result is not yet at the exacting standard of proof required in hi
 It is also hoped that the next generation of neutrino experiments will enable precision measurements of the mixing angles of the PMNS matrix, thus enabling tests of its unitarity.
 
 %%% Go over current experiments that measure each of these parameters
+\section{Measurement of \thetai{12} and \deltami{21}}
+\label{sec:theory:currentState:solar}
+%%% SNO, super K, borexino experiments
+
+These parameters are often known as \thetai{\text{sol}} and \deltami{\text{sol}} due to their primary measurement using the solar neutrino flux.
+The solar neutrino experiments setting the tightest constraints include the Sudbury Neutrino Observatory (SNO)~\cite{snoCombined}, Super-Kamiokande~\cite{superKReview} and Borexino~\cite{borexino} experiments.
+The detected \nue spectra is dominated by neutrinos produced by $^{8}\text{B}$ decays as shown in \citefig{fig:solarNuFluxes}.
+Measurements of the oscillation parameters are made by comparing the measured neutrino fluxes with those predicted by solar models~\cite{solarModel} and then using this to constrain the oscillation parameters.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/theory/solarNeutrinoSpectrum}
+  \caption{Solar neutrino spectrum. Taken from~\cite{solarNuFluxes}. Although $^{8}\text{B}$ neutrinos are not the most numerous, they are more readily detected than other more numerous neutrinos which are lower energy.}
+  \label{fig:solarNuFluxes}
+\end{figure}
+
+The SNO detector is a Cherenkov detector with an inner target mass of 1~kt of heavy water located near Sudbury, Canada.
+This heavy water target allows it to measure both charged and neutral current neutrino interactions and distinguish between the two~\cite{snoCombined}. An upgraded version of the experiment, SNO+, is currently taking data~\cite{snoPlus}. 
+The Super-Kamiokande detector consists of a water Cherenkov detector with a 22~kt fiducial mass located 1000~m underground in Kamioka, Japan and began taking data in 1996~\cite{superKReview}.
+In contrast to the other two experiments which use Cherenkov light to detector charged particles, the Borexino experiment consists of a spherical tank containing 278~t of liquid scintillator to detect neutrino interactions.
+
+Additionally, the Kamioka Liquid Scintillator Antineutrino Detector (KamLAND) experiment, located in Japan, is also able to constrain \thetai{12} and \deltami{21} using the flux of \anue from a number of nuclear reactors located at baselines of around 100~km in Japan.
+The detector consists of 1~kt of liquid scintillator surround by photomultiplier tubes.
+Electron antineutrinos are detected via inverse beta decay and resulting emission of a positron and a neutron (which undergoes neutron capture)~\cite{kamland}.
+The measured rate of antineutrinos is then compared to that expected based on the output of the various reactors.
+
+The KamLAND best fit point lies at $\deltami{21} = 7.54^{+0.19}_{-0.18} \times 10^{-5}~\text{eV}^{2}$ and $\ssthetai{12}=0.325^{+0.039}_{-0.039}$~\cite{kamland}.
+This result is in slight tension with those measured by solar experiments, for example SNO gives a measurement of $\deltami{21}=7.41^{+0.21}_{-0.19} \times 10^{-5}~\text{eV}^{2}$ and $\ssthetai{12}=0.308^{+0.014}_{-0.014}$.
+This tension is shown in greater detail in \citefig{fig:kamlandPlusSolar} where one can see that the best fit point measured by the solar neutrino experiments lies outside of the 99.73\% confidence limit.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/theory/kamlandPlusSolar}
+  \caption{Combined results from the KamLAND experiment and solar neutrino experiments from~\cite{kamland}.}
+  \label{fig:kamlandPlusSolar}
+\end{figure}
+
 
 \section{Measurement of \thetai{13}}
 \label{sec:theory:currentState:theta13}
@@ -758,5 +803,3 @@ It is also hoped that the next generation of neutrino experiments will enable pr
 \section{Measurement of \thetai{23}}
 \label{sec:theory:currentState:theta23}
 
-\section{Measurement of \thetai{12} and \deltami{21}}
-\label{sec:theory:currentState:solar}
