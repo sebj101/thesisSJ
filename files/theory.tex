@@ -580,7 +580,20 @@ For all flavours the survival probability of a given neutrino flavour, the so-ca
   &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
 \end{align}
 where $\Delta_{ij}=\deltam{i}{j}L/4E$.
-This probability does not depend on \dcp and therefore \dcp cannot be measured through purely looking at neutrino survival probabilities.
+For muon neutrinos, a case which is particularly relevant to long baseline accelerator experiments, this can be approximated as~\cite{pdg2018}
+\begin{align}
+  P(\numu \rightarrow \numu) &\approx 1 - \sstwothetai{\mu\mu} \sin^{2}\left( \frac{\deltami{\mu\mu}L}{4E} \right) \\
+  \label{eq:numuSurvival}
+  &\approx 1-\csthetai{13}\sstwothetai{23}\sin^{2}\left( \frac{\deltami{32}L}{4E} \right) + \order{\alpha, \ssthetai{13}}
+\end{align}
+where
+\begin{align}
+  \ssthetai{\mu\mu} &= \csthetai{13}\ssthetai{23} \\
+  \deltami{\mu\mu}  &= \ssthetai{12}\deltami{31}+\csthetai{12}\deltami{32} \\
+  &+\cos\dcp\sthetai{13}\stwothetai{12}\tthetai{23}\deltami{21} \, .
+\end{align}
+%One can see that \citeeq{eq:numuSurvival} depends upon \dcp which will have the opposite sign for antineutrinos.
+%However, given that 
 
 In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
 We find that, in a vacuum~\cite{Nunokawa_2008},
@@ -759,7 +772,7 @@ However, this result is not yet at the exacting standard of proof required in hi
 It is also hoped that the next generation of neutrino experiments will enable precision measurements of the mixing angles of the PMNS matrix, thus enabling tests of its unitarity.
 
 %%% Go over current experiments that measure each of these parameters
-\section{Measurement of \thetai{12} and \deltami{21}}
+\subsection{Measurement of \thetai{12} and \deltami{21}}
 \label{sec:theory:currentState:solar}
 %%% SNO, super K, borexino experiments
 
@@ -796,10 +809,69 @@ This tension is shown in greater detail in \citefig{fig:kamlandPlusSolar} where 
   \label{fig:kamlandPlusSolar}
 \end{figure}
 
-
-\section{Measurement of \thetai{13}}
+\subsection{Measurement of \thetai{13}}
 \label{sec:theory:currentState:theta13}
 
-\section{Measurement of \thetai{23}}
-\label{sec:theory:currentState:theta23}
+\thetai{13} is usually measured using reactor neutrino experiments at baselines of \order{\SI{1}{\kilo\metre}}, however it is also possible to measure it using long-baseline \nue appearance in a beam of \numu.
+Energies for long baseline experiments are \order{\SI{1}{\giga\electronvolt}}, which given the value of \deltami{31} (or \deltami{32} for inverted hierarchy) requires a baseline of a few \SI{100}{\kilo\metre} to observe oscillations.
+Typically, electron antineutrinos emitted by reactors are of a much lower energy (around \SI{4}{\mega\electronvolt}) and thus baselines of around a kilometre are required.
+The \anue survival probability can be approximated as 
+\begin{equation}
+  P(\anue \rightarrow \anue) = 1 - \sstwothetai{13}\sin^{2}\left( 1.27 \frac{\deltami{31}L}{E} \right) + \order{10^{-3}}
+\end{equation}
+where the smallness of the third term is due to the smallness of the ratio $\deltami{21}/\deltami{21}$~\cite{kuze2013measurements}.
+
+For many years, due to its small size, a measurement of \thetai{13} was not able to be made and only upper limits could be determined.
+However, a non-zero value of \thetai{13} was determined in 2012 by the Daya Bay experiment which found a value of $\sstwothetai{13} = 0.092\pm0.016(\text{stat.})\pm0.005(\text{syst.})$~\cite{dayaBay}.
+
+The Daya Bay experiment consists of electron antineutrino detectors situated at three underground sites, two of which are positioned close to reactors and one which is \SI{1910}{\metre} and \SI{1540}{\metre} from the two near sites.
+The detector medium is Gd-loaded liquid scintillator which is surrounded by PMTs to detect charged particles and gamma rays coming from neutron capture~\cite{dayaBayDetector}.
+
+Results from the Reactor Experiment for Neutrino Oscillation (RENO)~\cite{reno} and Double Chooz~\cite{doubleChooz} experiments, which operate under similar principles to Daya Bay, are in agreement with this measurement.
+Up to date measurements of \thetai{13} from these experiments, along with those from the long-baseline experiment T2K are shown in \citefig{fig:theta13Measurements}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/theory/theta13Measurements}
+  \caption{Most recent results from the Double Chooz (DC) experiment along with recent results from other reactor antineutrino experiments and the T2K experiment. Associated uncertainties for each measurement are shown. Taken from~\cite{dcIV}.}
+  \label{fig:theta13Measurements}
+\end{figure}
+
+\subsection{Measurement of \thetai{23} and \deltami{32}}
+\label{sec:theory:currentState:lbl}
+
+Measurements of \thetai{23} and \deltami{32} are primarily made by observing long baseline \numu disappearance and \nue appearance.
+There are both accelerator neutrino experiments such as MINOS, MINOS+, T2K and NOvA and experiments which detect atmospheric neutrinos such as Super-Kamiokande and IceCube which aim to measure these parameters.
+
+All of the accelerator experiments utilise two detectors, a near detector within a few hundred metres of the neutrino production target and a far detector several hundred kilometres away where the oscillated spectrum is measured.
+\citetab{tab:lblExp} shows the baseline, peak beam energy, far detector technology and operating years for each of these experiments.
+For these experiments the near detector constrains systematic uncertainties on the neutrino beam flux and cross-section while the far detector measures the number of neutrino events as a function of neutrino flavour and energy.
+
+\begin{table}
+  \caption{Table showing basic information about current and previous long baseline accelerator neutrino experiments.}
+  \label{tab:lblExp}
+  \centering
+  \begin{tabular}{c c c c c}
+    \hline
+    \hline
+    Name & Far detector & L [\si{\kilo\metre}] & $E_{\nu}$ [\si{\giga\electronvolt}] & Year \\
+    \hline
+    MINOS  & Iron scintillator                  & 735 & 3   & 2005-2013 \\
+    MINOS+ & Iron scintillator                  & 735 & 7   & 2013-2016 \\
+    T2K    & Water Cherenkov                        & 295 & 0.6 & 2010- \\
+    NOvA   & Liquid scintillator tracking calorimeter & 810 & 2   & 2014- \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Atmospheric neutrino experiments utilise the flux of \numu and \nue created by pion decay in the atmosphere.
+Depending on the direction from which the neutrino enters the detector it may have travelled a wide variety of distances from its point of production.
+For example, if travelling upwards it may have travelled the diameter of the Earth.
+
+The Super-Kamiokande experiment is a water Cherenkov detector with a \SI{22.5}{\kilo\tonne} fiducial mass which also acts as the far detector for the T2K experiment.
+The IceCube experiment is situated at the South Pole and consists of multiple vertical `strings' of PMTs which are sunk in to the antarctic ice over a \SI{1}{\km\cubic} volume.
+The central part of the volume (known as ``DeepCore'') is more densely instrumented and allows for the detection of lower energy neutrinos (a threshold of \SI{5}{\giga\electronvolt})~\cite{icecube}.
+
+\subsection{Measurement of \dcp}
+\label{sec:theory:currentState:dcp}
 
