@@ -18,7 +18,7 @@ Section~\ref{sec:dune:overview} will provide an overview of the detector, its mo
 Section~\ref{sec:dune:fd} will discuss the design of the far detector.
 Section~\ref{sec:dune:nd} will discuss the design of the near detector and Section~\ref{sec:dune:beam} will discuss the design of the beam.
 
-\section{Overview}
+\section{Overview and physics goals}
 \label{sec:dune:overview}
 As discussed in Section~\ref{sec:theory:currentState}, several questions remain in the field of neutrino oscillations.
 Namely, the ordering of the neutrino mass eigenstates is not yet known and the value of $\delta_{CP}$ in the PMNS matrix remains unknown, which could imply that neutrinos violate Charge-Parity symmetry if it is proven that $\delta_{CP} \neq 0, \pi$.
@@ -32,12 +32,19 @@ A range of other BSM processes will also be explored by the experiment.
 % Physics goals
 % Oscillations first and foremost are the most important - refer to what is in the historical context chapter
 DUNE aims to achieve its oscillation physics goals by simultaneously measuring the rates of $\nu_{\mu}$, $\bar{\nu}_{\mu}$, $\nu_{e}$ and $\bar{\nu}_{e}$ interactions in the near and far detectors as a function of neutrino energy.
+From these measurements, the values of various oscillation parameters can be determined (see \citesec{sec:theory:theory:threeNeutrino} for further details on three neutrino oscillations). 
 Enhanced fluxes of $\bar{\nu}_{\mu}$ and $\bar{\nu}_{e}$ are achieved by changing the polarity of the focussing horns used to produced the beam (see Section~\ref{sec:dune:beam} for details).
 In terms of terminology, the enhanced neutrino beam is produced using the Forward Horn Current (FHC) polarity while the the enhanced antineutrino beam is produced using the Reverse Horn Current (RHC) polarity.
 
 DUNE's proposed oscillation physics milestones are shown in \citetab{tab:physicsMilestones} along with their estimated expected running times.
-DUNE's ability to meet these goals depends in part on the large number of neutrino interactions it will be able to observe.
-These high statistics derive from the large fiducial volume of the far detector (40~kt with all modules) and the high beam power (1.2~MW initially with later planned upgrades to 2.4~MW).
+DUNE's ability to meet these goals depends on several factors.
+
+Firstly, DUNE will on the large number of neutrino interactions it will be able to observe.
+These high statistics derive from the large fiducial mass of the far detector (40~kt eventually) and the high beam power (1.2~MW initially with later planned upgrades to 2.4~MW).
+
+The far detector will consist of four liquid argon time projection chambers (LArTPCs).
+These modules will combine excellent particle identification and energy resolution will a large, monolithic detector mass. 
+The operation principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
 \citetab{tab:statistics} shows the number of expected neutrino interactions in the far detector for 3.5 years of staged running.
 
 \begin{table}
@@ -63,7 +70,7 @@ These high statistics derive from the large fiducial volume of the far detector 
 \end{table}
 
 \begin{table}
-  \caption[Expected numbers of DUNE far detector events.]{Expected numbers of signal events for the DUNE far detector in the neutrino energy range $0.5-0.8$~GeV for 3.5 years of staged exposures for both FHC and RHC running. The rates shown assume the mass hierarchy is normally ordered, that $\delta_{CP}=0$ and that all other oscillation parameters are at their best fit points in~\cite{nufit4}. Taken from~\cite{tdrVol2}.}
+  \caption[Expected numbers of DUNE far detector events.]{Expected numbers of signal events for the DUNE far detector in the neutrino energy range \SIrange{0.5}{8}{\giga\electronvolt} for 3.5 years of staged exposures for both FHC and RHC running. The rates shown assume the mass hierarchy is normally ordered, that $\delta_{CP}=0$ and that all other oscillation parameters are at their best fit points in~\cite{nufit4}. Taken from~\cite{tdrVol2}.}
   \label{tab:statistics}
   \centering
   \begin{tabular}{c c}
@@ -71,13 +78,13 @@ These high statistics derive from the large fiducial volume of the far detector 
     Signal & Expected events \\
     \hline
     \hline
-    Neutrino mode & \\
+    \multicolumn{2}{c}{Neutrino mode} \\
     $\nu_{\mu}$ & 6200 \\
     $\bar{\nu}_{\mu}$ & 389 \\
     $\nu_{e}$ & 1092 \\
     $\bar{\nu}_{e}$ & 18 \\
     \hline
-    Antineutrino mode & \\
+    \multicolumn{2}{c}{Antineutrino mode} \\
     $\nu_{\mu}$ & 1129 \\
     $\bar{\nu}_{\mu}$ & 2303 \\
     $\nu_{e}$ & 76 \\
@@ -85,6 +92,45 @@ These high statistics derive from the large fiducial volume of the far detector 
     \hline
   \end{tabular}
 \end{table}
+
+Secondly, DUNE will use a neutrino beam with a wide spread of neutrino energies which, given the values of the mass splittings, will allow it cover both the first and second oscillation maxima.
+It is helpful to measure multiple oscillation maxima because of degeneracies between the oscillation parameters.
+This means that, for a given neutrino energy, multiple sets of parameter values can realise the same oscillation probability.
+
+Some of the benefits of the broad band beam are shown in \citefig{fig:nueRates}.
+\citefig{fig:nueRates} is a so-called `bi-rate' plot which shows the rates of \nue and \anue interactions at the far detector for various values of the oscillation parameters.
+To make each of the ellipses, all oscillation parameters are held constant other than \dcp which is varied.
+The blue (green) ellipses show the rates for the first (second) oscillation maximum.
+The first oscillation maximum is defined as being at energies higher than the approximate first oscillation minimum at \SI{1.3}{\giga\electronvolt}, while the second oscillation maximum is defined as anything below this.
+The solid (dashed) lines show the rates for the normal (inverted) neutrino mass hierarchy.
+The red and black points highlight the maximally CP-violating cases.
+Here, $\thetai{23}=\pi/4$ while the other mixing angles and mass splittings are at their best fit points according to~\cite{nufit4}.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/dune_detector/nueRatesNoLog}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/dune_detector/nueRatesLog}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Predicted \nue and \anue rates for different values of \dcp and neutrino mass hierarchies at the first and second oscillation maxima.]{Comparison of predicted \nue and \anue rates in the DUNE far detector at the first (blue) and second (green) oscillation maxima and for normal (solid) and inverted (dashed) neutrino mass hierarchies. The right plot shows the same information but with logarithmic axes.}
+  \label{fig:nueRates}
+\end{figure}
+
+One can see in the right-hand plot of \citefig{fig:nueRates} that there is considerable overlap between the ellipses traced by the rates at the second oscillation maximum.
+In particular, the maximally CP-violating points ($\dcp=\pi/2$ and $\dcp=-\pi/2$) are similar for both normal and inverted hierarchies.
+Thus, careful measurement of the first oscillation maximum show allow unambiguous determination of \dcp.
+However, both of these ellipses overlap significant with one another, meaning that determination of the mass hierarchy using only this region is likely to be difficult.
+
+Looking at the left-hand plot, one can observe that this is not an issue at the first oscillation maximum.
+Here both ellipses are well separated, although for different values of \thetai{13} some degeneracies can be observed between the two different maximally CP-violating values of \dcp~\cite{twoExperiments}.
+Therefore, it should be possible to determine the mass hierarchy primarily using the first oscillation maximum and the value of \dcp using the second oscillation maximum.
+
 
 % Supernova neutrinos
 
@@ -94,6 +140,9 @@ These high statistics derive from the large fiducial volume of the far detector 
 
 \section{Far detector}
 \label{sec:dune:fd}
+
+\subsection{The LArTPC concept}
+\label{sec:dune:fd:lartpc}
 % LAr TPC concept
 
 % Explanation of single and dual phase concepts
