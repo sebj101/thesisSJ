@@ -43,7 +43,8 @@ Firstly, DUNE will on the large number of neutrino interactions it will be able 
 These high statistics derive from the large fiducial mass of the far detector (40~kt eventually) and the high beam power (1.2~MW initially with later planned upgrades to 2.4~MW).
 
 The far detector will consist of four liquid argon time projection chambers (LArTPCs).
-These modules will combine excellent particle identification and energy resolution will a large, monolithic detector mass. 
+It seems that at least one of these modules will use dual-phase LArTPC technology while the others will use single-phase LArTPC technology.
+These modules will combine excellent particle identification and energy resolution with a large, monolithic detector mass. 
 The operation principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
 \citetab{tab:statistics} shows the number of expected neutrino interactions in the far detector for 3.5 years of staged running.
 
@@ -131,12 +132,37 @@ Looking at the left-hand plot, one can observe that this is not an issue at the 
 Here both ellipses are well separated, although for different values of \thetai{13} some degeneracies can be observed between the two different maximally CP-violating values of \dcp~\cite{twoExperiments}.
 Therefore, it should be possible to determine the mass hierarchy primarily using the first oscillation maximum and the value of \dcp using the second oscillation maximum.
 
-
 % Supernova neutrinos
+Secondary to these oscillation physics goals, DUNE will also be involved in other important high energy physics work.
+For example, in the event of a galactic core-collapse supernova occurring during the lifetime of the experiment, DUNE aims to be able to detect the low energy neutrino produced by such an event.
+These neutrinos typically have energies of a few \si{\mega\electronvolt} to a few tens of \si{\mega\electronvolt} and are detected via the channels
+\begin{align}
+  &\nue + ^{40}\text{Ar} \rightarrow \electron + ^{40}\text{K}^{*} \\
+  &\anue + ^{40}\text{Ar} \rightarrow \positron + ^{40}\text{Cl}^{*} \\
+  &\nu + ^{40}\text{Ar} \rightarrow \nu + ^{40}\text{Ar}^{*} \\
+  &\nu + \electron \rightarrow \nu + \electron \, ,
+\end{align}
+where the final two reactions can occur for neutrinos of any flavour.
+Given that the flux of supernova neutrinos is highly model-dependent, an observation of a supernova by DUNE would help to answer many questions about the physics of core-collapse supernovae~\cite{duneSupernova}. 
 
 % Baryon number violation
+Additionally DUNE's large far detector mass will also allow it to search for evidence of nucleon decay and thus baryon number violation.
+Such decays are a key observable of many grand unified theory (GUTs) models.
+Other experiments typically search for proton decay via the channel
+\begin{align}
+  p \rightarrow \electron + \pizero \, ,
+\end{align}
+which has a distinct signature and a high predicted branching ratio.
+However, DUNE will likely not be able to compete in this channel with other experiments with larger detector masses.
+Instead, LAr experiments such as DUNE are more sensitive to decays that result in a final state $K^{+}$ such as 
+\begin{align}
+  p \rightarrow K^{+} + \overline{\nu} \, ,
+\end{align}
+which other experiments are predicted to have a lower efficiency in detecting~\cite{duneNDK}.
 
 % Quick bit on BSM physics
+Finally, DUNE will also have a wide variety of beyond the Standard Model (BSM) physics searches.
+These will include (but are not limited to) searching for non-standard interactions which affect neutrino propagation through the Earth, searching for CPT symmetry violation and looking for light dark matter~\cite{tdrVol2}.
 
 \section{Far detector}
 \label{sec:dune:fd}
@@ -144,10 +170,25 @@ Therefore, it should be possible to determine the mass hierarchy primarily using
 \subsection{The LArTPC concept}
 \label{sec:dune:fd:lartpc}
 % LAr TPC concept
+The time projection chamber was first conceived in the 1970s by David R. Nygren~\cite{nygrenProp}.
+He proposed a cylindrical volume of gas (in the report the suggested gas is methane) with parallel electric and magnetic fields along the axis of the cylinder.
+In the event that a particle ionises the methane, the electric field causes the resulting electrons and ions to drift in opposite directions. 
+The purpose of the magnetic field is to reduce the diffusion of the drifting electrons.
+The 2-dimensional electron `image' is then collected by an array at the end of the cyclinder.
+If the interaction time is known, this can be transformed into a 3-dimensional image. 
+
+This idea was built upon by Carlo Rubbia who, in 1977, first proposed using liquid argon rather than a gas as the detector medium.
+Additionally, this design lacked the magnetic field proposed in earlier designs~\cite{rubbiaProp}.
+An diagram of this proposal is shown in \citefig{fig:tpcRubbia}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/tpcRubbia}
+  \caption{Diagram of Rubbia's proposed time projection chamber from~\cite{rubbiaProp}.}
+  \label{fig:tpcRubbia}
+\end{figure}
 
 % Explanation of single and dual phase concepts
-
-\blindtext
 
 \section{Near detector}
 \label{sec:dune:nd}
