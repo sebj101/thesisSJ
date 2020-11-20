@@ -21,8 +21,10 @@ Section~\ref{sec:dune:nd} will discuss the design of the near detector and Secti
 \section{Overview and physics goals}
 \label{sec:dune:overview}
 As discussed in Section~\ref{sec:theory:currentState}, several questions remain in the field of neutrino oscillations.
-Namely, the ordering of the neutrino mass eigenstates is not yet known and the value of $\delta_{CP}$ in the PMNS matrix remains unknown, which could imply that neutrinos violate Charge-Parity symmetry if it is proven that $\delta_{CP} \neq 0, \pi$.
-Additionally, DUNE aims to be able to resolve the octant of $\theta_{23}$ (i.e. is $\theta_{23} > \pi/4$ or $< \pi/4$?) and usher in a new era of precision measurements of the PMNS matrix. 
+Namely, the ordering of the neutrino mass eigenstates is not yet known and the value of $\delta_{CP}$ in the PMNS matrix remains unknown.
+This could imply that neutrinos violate Charge-Parity symmetry if it is proven that $\delta_{CP} \neq 0, \pi$.
+DUNE aims to shed light on both of these issues.
+Additionally, DUNE aims to be able to resolve the octant of $\theta_{23}$ (i.e. is $\theta_{23} > \pi/4$ or $< \pi/4$?) if it is non-maximal and usher in a new era of precision measurements of the PMNS matrix. 
 DUNE aims to answer these questions, among others.
 
 Due to the large volume of the far detector, it is also designed to observe neutrinos from a galactic core-collapse supernova if one should occur during the running time of the experiments.
@@ -37,16 +39,16 @@ Enhanced fluxes of $\bar{\nu}_{\mu}$ and $\bar{\nu}_{e}$ are achieved by changin
 In terms of terminology, the enhanced neutrino beam is produced using the Forward Horn Current (FHC) polarity while the the enhanced antineutrino beam is produced using the Reverse Horn Current (RHC) polarity.
 
 DUNE's proposed oscillation physics milestones are shown in \citetab{tab:physicsMilestones} along with their estimated expected running times.
-DUNE's ability to meet these goals depends on several factors.
+DUNE's ability to meet these goals hinges on several design factors.
 
-Firstly, DUNE will on the large number of neutrino interactions it will be able to observe.
+Firstly, DUNE will gain from the large number of neutrino interactions it will be able to observe which.
 These high statistics derive from the large fiducial mass of the far detector (40~kt eventually) and the high beam power (1.2~MW initially with later planned upgrades to 2.4~MW).
+\citetab{tab:statistics} shows the number of expected neutrino interactions in the far detector for 3.5 years of staged running.
 
 The far detector will consist of four liquid argon time projection chambers (LArTPCs).
-It seems that at least one of these modules will use dual-phase LArTPC technology while the others will use single-phase LArTPC technology.
+It seems likely that at least one of these modules will use dual-phase LArTPC technology while the others will use single-phase LArTPC technology.
 These modules will combine excellent particle identification and energy resolution with a large, monolithic detector mass. 
-The operation principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
-\citetab{tab:statistics} shows the number of expected neutrino interactions in the far detector for 3.5 years of staged running.
+The operational principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
 
 \begin{table}
   \caption[DUNE oscillation physics milestones.]{Table from~\cite{tdrVol2} showing the expected DUNE oscillation physics milestones and their required exposure in years, assuming the true neutrino mass hierarchy is normally ordered and equal running in with both forward and reverse horn currents. The best fit parameters in~\cite{nufit4} are used.}
@@ -108,13 +110,13 @@ The red and black points highlight the maximally CP-violating cases.
 Here, $\thetai{23}=\pi/4$ while the other mixing angles and mass splittings are at their best fit points according to~\cite{nufit4}.
 
 \begin{figure}[h]
-  \begin{minipage}[t]{0.49\textwidth}
+  \begin{minipage}[t]{0.5\textwidth}
     \begin{adjustbox}{max totalsize={\textwidth}, center}
       \input{files/figures/dune_detector/nueRatesNoLog}
     \end{adjustbox}
   \end{minipage}
   \hfill
-  \begin{minipage}[t]{0.49\textwidth}
+  \begin{minipage}[t]{0.5\textwidth}
     \begin{adjustbox}{max totalsize={\textwidth}, center}
       \input{files/figures/dune_detector/nueRatesLog}
     \end{adjustbox}
@@ -171,24 +173,75 @@ These will include (but are not limited to) searching for non-standard interacti
 \label{sec:dune:fd:lartpc}
 % LAr TPC concept
 The time projection chamber was first conceived in the 1970s by David R. Nygren~\cite{nygrenProp}.
-He proposed a cylindrical volume of gas (in the report the suggested gas is methane) with parallel electric and magnetic fields along the axis of the cylinder.
-In the event that a particle ionises the methane, the electric field causes the resulting electrons and ions to drift in opposite directions. 
-The purpose of the magnetic field is to reduce the diffusion of the drifting electrons.
+He proposed a cylindrical volume of gas (in the report his suggested gas is methane) with parallel electric and magnetic fields along the axis of the cylinder.
+In the event that a particle ionises the methane, the electric field causes the resulting electrons and ions to drift in opposite directions.
 The 2-dimensional electron `image' is then collected by an array at the end of the cyclinder.
 If the interaction time is known, this can be transformed into a 3-dimensional image. 
+The purpose of the magnetic field is to reduce the diffusion of the drifting electrons.
 
 This idea was built upon by Carlo Rubbia who, in 1977, first proposed using liquid argon rather than a gas as the detector medium.
 Additionally, this design lacked the magnetic field proposed in earlier designs~\cite{rubbiaProp}.
-An diagram of this proposal is shown in \citefig{fig:tpcRubbia}.
+Diagrams of this proposal are shown in \citefig{fig:tpcRubbia}.
+The diagram with only one readout view is shown purely for clarity.
+An interaction is shown occuring in the chamber resulting in the production of several charged particles (shown by the arrowed lines emanating from the dashed line).
+The ionisation electrons then drift towards the charge collecting strips where they are read out.
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/tpcRubbia}
-  \caption{Diagram of Rubbia's proposed time projection chamber from~\cite{rubbiaProp}.}
+  \begin{minipage}[t]{0.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/tpcRubbia1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/tpcRubbia}
+  \end{minipage}
+  \caption[Diagrams of Carlo Rubbia's proposed liquid argon time projection chamber.]{Diagrams of Rubbia's proposed time projection chamber from~\cite{rubbiaProp}.}
   \label{fig:tpcRubbia}
 \end{figure}
 
+Having a noble liquid rather than a gas as the detector target medium has several advantages, particularly in the field of neutrino physics.
+Their high density (excluding helium) leads to a more massive detector leading to a greater number of neutrino interactions occurring in a given volume.
+This is important in neutrino physics due to the small neutrino cross-sections which limit the observed interactions.
+
+Noble liquids also benefit from having low electron diffusion and high electron mobility which allows the electron `image' to drift across a long distance without much distortion.
+This is an extremely important quality given that this `image' is what is used for particle detection.
+
+An abundance of ionisation photons and scintillation photons are also produced by charged particles passing through some noble liquids.
+The number of ionisation electrons is important for particle detection (in particular particles with low energies).
+Having a large quantity of scintillation light produced in by interactions is also important, given that this light can be used to provide the time of an interaction and thus its drfit coordinate.
+
+\citetab{tab:nobleLiquids} shows the physical properties of some of the noble liquids that could be used in particle physics experiments.
+Liquid helium is unlikely to be used in a neutrino experiment due to its low density ($\sim \SI{0.125}{\gram\per\cubic\centi\metre}$) and liquid krypton has relatively low scintillation yields ($25000~\gamma~\si{\per\mega\electronvolt}$~\cite{uBooneProp}).
+
+\begin{table}
+  \caption[Comparison of selected noble liquid properties.]{Comparison of selected noble liquid properties from~\cite{uBooneProp} and~\cite{nobleLiquids}. $W_{\text{ion}}$ is the average energy required to liberate an ionisation electron in the liquid.}
+  \label{tab:nobleLiquids}
+  \centering
+  \begin{tabular}{c c c c}
+    \hline
+    \textbf{Properties [unit]} & \textbf{Xe} & \textbf{Ar} & \textbf{Ne} \\
+    \hline
+    \hline
+    Atomic number & 54 & 18 & 10 \\
+    Boiling point at 1 atm [K] & 165.0 & 87.3 & 27.1 \\
+    Density at boiling point [\si{\gram\per\cubic\centi\metre}] & 2.94 & 1.40 & 1.21 \\
+    Scintillation light [$\gamma~\si{\per\mega\electronvolt}$] & 42,000 & 40,000 & 30,000 \\
+    $W_{\text{ion}}$ [\si{\electronvolt}] & 15.6 & 23.6 & - \\
+    Dielectric constant & 1.95 & 1.51 & 1.53 \\
+    Atmospheric abundance [ppm] & 0.09 & 9340 & 18.2 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Of those liquids in \citetab{tab:nobleLiquids}, neon is not a good ioniser~\cite{schumann2012dark} and can therefore be discounted.
+This leave the choice of noble liquid for the TPC to be argon or xenon.
+Of these two, argon is far more abundant and therefore cheaper and more suitable for large volume detectors such as those used in neutrino physics.
+
+The first large scale (mass $>\SI{100}{\tonne}$) LArTPC to be constructed was the ICARUS experiment~\cite{icarus}, with an active mass of \SI{500}{\tonne}.
+Since then more have been constructed and operated including MicroBooNE~\cite{uBooneConstruct} and the two ProtoDUNE detectors~\cite{protoduneSP_tdr, cuesta2019status}.
+
 % Explanation of single and dual phase concepts
+\subsubsection{Single phase LArTPC operation}
+
 
 \section{Near detector}
 \label{sec:dune:nd}
