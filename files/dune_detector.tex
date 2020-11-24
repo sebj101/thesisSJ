@@ -1,5 +1,5 @@
 \chapter{The Deep Underground Neutrino Experiment}
-\label{ch:dune}
+\label{sec:dune}
 
 The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment currently under construction at two sites in the USA~\cite{tdrVol1, tdrVol2, tdrVol3, tdrVol4}.
 The near detector site which will host the beam production facilities and the multi-component near detector is located at Fermilab, Illinois while the far detector site will be located at Sanford Underground Research Facility (SURF), South Dakota.
@@ -239,14 +239,42 @@ Of these two, argon is far more abundant and therefore cheaper and more suitable
 The first large scale (mass $>\SI{100}{\tonne}$) LArTPC to be constructed was the ICARUS experiment~\cite{icarus}, with an active mass of \SI{500}{\tonne}.
 Since then more have been constructed and operated including MicroBooNE~\cite{uBooneConstruct} and the two ProtoDUNE detectors~\cite{protoduneSP_tdr, cuesta2019status}.
 
-% Explanation of single and dual phase concepts
-\subsubsection{Single phase LArTPC operation}
+In DUNE, two types of LArTPC will be used for different far detector modules.
+These are single-phase and dual-phase LArTPCs and will be explained further in \citesec{sec:dune:fd:lartpc:singlephase} and \citesec{sec:dune:fd:lartpc:dualphase} respectively.
 
+% Explanation of single and dual phase concepts
+\subsubsection{Single-phase LArTPC operation}
+\label{sec:dune:fd:lartpc:singlephase}
+
+\citefig{fig:tpcOperation} shows the basic operating principles of a single-phase LArTPC.
+A LArTPC typically consists of at least one drift region which is bounded by a cathode plane on one side and an anode plane on the other.
+Between these two planes a strong, uniform electric field is applied (often referred to as the `drift field') which is labelled is labelled as $E_{\text{drift}}$ in \citefig{fig:tpcOperation}.
+
+Typically, the anode plane is made up of at least one plane of wires, which are used to detect ionisation electrons produced by charged particles within the detector.
+In \citefig{fig:tpcOperation} these are labelled as `sense wires'.
+These wires are held at a much higher voltage than the cathode plane which causes electrons to drift towards them from within the drift volume.
+\citefig{fig:tpcOperation} shows three different planes of these wires (the same number as in the DUNE far detector modules), labelled as U, V and Y, which are at different angles to one another.
+The gaps between these wires are small (usually less than \SI{1}{\centi\metre})
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/dune_detector/tpcOperation}
+  \caption[Diagram showing the basics of TPC operation.]{Diagram showing the basics of TPC operation from~\cite{uBooneConstruct}.}
+  \label{fig:tpcOperation}
+\end{figure}
+
+Normally, at least two anode planes are present.
+In a system of $N$ anode planes, the $N-1$ anode planes closest to the cathode are referred to as the `induction' planes, while the final anode plane is referred to as the `collection' plane.
+The electrostatic potential of the induction plane(s) allows the ionisation electrons to drift by undisturbed, inducing a bipolar signal on the wires.
+The ionisation electrons then end their path on one of the wires in the collection plane, this time causing a unipolar signal.
+All of these wire planes are continously read out.
+\citefig{fig:tpcOperation} has the induction planes labelled as U and V while the collection plane is labelled as Y.
+
+\subsubsection{Dual-phase LArTPC operation}
+\label{sec:dune:fd:lartpc:dualphase}
 
 \section{Near detector}
 \label{sec:dune:nd}
-
-\blindtext
 
 \section{Beam}
 \label{sec:dune:beam}
