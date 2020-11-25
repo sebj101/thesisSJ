@@ -254,7 +254,7 @@ Typically, the anode plane is made up of at least one plane of wires, which are 
 In \citefig{fig:tpcOperation} these are labelled as `sense wires'.
 These wires are held at a much higher voltage than the cathode plane which causes electrons to drift towards them from within the drift volume.
 \citefig{fig:tpcOperation} shows three different planes of these wires (the same number as in the DUNE far detector modules), labelled as U, V and Y, which are at different angles to one another.
-The gaps between these wires are small (usually less than \SI{1}{\centi\metre})
+The gaps between these wires are small (usually less than \SI{1}{\centi\metre}).
 
 \begin{figure}[h]
   \centering
@@ -269,6 +269,35 @@ The electrostatic potential of the induction plane(s) allows the ionisation elec
 The ionisation electrons then end their path on one of the wires in the collection plane, this time causing a unipolar signal.
 All of these wire planes are continously read out.
 \citefig{fig:tpcOperation} has the induction planes labelled as U and V while the collection plane is labelled as Y.
+
+Finally, the drift volume is surrounded by a field cage.
+This piece of apparatus consists of a series of equipotential rings and is intended to gradually change the voltage across the drift volume, such that the drift field is approximately constant and uniform throughout the detector.
+
+As mentioned in \citesec{sec:dune:fd:lartpc}, when a charged particle traverses the drift volume of a LArTPC, numerous ionisation electrons are produced.
+Provided that the liquid argon is relatively free of electronegative impurities, a portion of these ionisation electrons can travel to the anode wires.
+Some proportion of the liberated electrons quickly recombine with the argon ions.
+This fraction is determined by several factors including the ionisation density and the applied electric field.
+The fraction of electrons that do not immediately recombine is referred to as the recombination factor, $\mathcal{R}$.
+
+\citefig{fig:recombFactors} shows $\mathcal{R}$ for a varying electric field, $\epsilon$ and a number of different ionisation densities in liquid argon.
+One can see that, for all ionisation densities, the fraction of electrons recombining falls as the electric field increases.
+Additionally, at lower ionisation densities, the amount of recombination is lower.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize={.8\linewidth}, center}
+    \input{files/figures/dune_detector/recombFactor}
+  \end{adjustbox}
+  \caption{Recombination factors calculated using Birks model of recombination derived in~\cite{recombArgoneut}. The different lines represent different energy losses in argon in terms of number of minimum ionising particles (MIPs).}
+  \label{fig:recombFactors}
+\end{figure}
+
+Those ionisation electrons that do recombine, along with argon atoms that are excited (but not ionised), cause the emission of scintillation light.
+These excited argon atoms form an excimer, $\text{Ar}^{*}_{2}$, which then de-excites, resulting in the emission of photon with a wavelength of \SI{127}{\nano\metre} (the vacuum ultraviolet part of the spectrum)~\cite{argonScintillation}.
+
+This scintillation light is emitted in two components, a prompt component with $\tau < \SI{6.2}{\nano\second}$ and a slow component with a decay time of \SI{1300}{\nano\second}~\cite{argonScintillation}.
+This rapid scintillation means that this light can be used to determine the time of an interaction, $t_0$, within the liquid argon.
+Given that the relationship between the drift time of electrons and their position with in the detector is well known, this means that the drift coordinate of an interaction can be reconstructed.
+Together with the 2-dimensional views provided by the sense wires, this means a 3-dimensional image of a charged particle in the drift volume can be reconstructed.
 
 \subsubsection{Dual-phase LArTPC operation}
 \label{sec:dune:fd:lartpc:dualphase}
