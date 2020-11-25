@@ -275,6 +275,15 @@ This piece of apparatus consists of a series of equipotential rings and is inten
 
 As mentioned in \citesec{sec:dune:fd:lartpc}, when a charged particle traverses the drift volume of a LArTPC, numerous ionisation electrons are produced.
 Provided that the liquid argon is relatively free of electronegative impurities, a portion of these ionisation electrons can travel to the anode wires.
+Common electronegative impurities consist of molecules such as $\text{O}_{2}$ and $\text{N}_{2}$, which attach to drifting electrons as they traverse the detector.
+The charge that arrives at the anode planes, $Q$, can be expressed in terms of an electron lifetime $\tau_{\text{elec}}$ via the relation
+\begin{align}
+  Q(t) = Q_{0} e^{-\frac{t}{\tau_{\text{elec}}}} \, ,
+\end{align}
+where $Q_{0}$ is the initial charge produced and $t$ is the drift time.
+For the DUNE far detector the target purity is $<100~\text{ppt}$ $\text{O}_{2}$ equivalent.
+This equates to a value for $\tau_{\text{elec}}$ of \SI{3}{\milli\second}~\cite{tdrVol1}.
+
 Some proportion of the liberated electrons quickly recombine with the argon ions.
 This fraction is determined by several factors including the ionisation density and the applied electric field.
 The fraction of electrons that do not immediately recombine is referred to as the recombination factor, $\mathcal{R}$.
@@ -298,6 +307,9 @@ This scintillation light is emitted in two components, a prompt component with $
 This rapid scintillation means that this light can be used to determine the time of an interaction, $t_0$, within the liquid argon.
 Given that the relationship between the drift time of electrons and their position with in the detector is well known, this means that the drift coordinate of an interaction can be reconstructed.
 Together with the 2-dimensional views provided by the sense wires, this means a 3-dimensional image of a charged particle in the drift volume can be reconstructed.
+
+Given that both ionisation charge and scintillation light are important factors in event reconstruction for LArTPCs, it is optimal to have an electric field that allows some amount of recombination.
+Therefore, the electric is often chosen to be at around 0.5~\si{\kilo\volt\per\centi\metre}.
 
 \subsubsection{Dual-phase LArTPC operation}
 \label{sec:dune:fd:lartpc:dualphase}
