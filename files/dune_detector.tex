@@ -256,6 +256,7 @@ These wires are held at a much higher voltage than the cathode plane which cause
 \citefig{fig:tpcOperation} shows three different planes of these wires (the same number as in the DUNE far detector modules), labelled as U, V and Y, which are at different angles to one another.
 The gaps between these wires are small (usually less than \SI{1}{\centi\metre}).
 
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=.8\linewidth]{files/figures/dune_detector/tpcOperation}
@@ -296,7 +297,7 @@ Additionally, at lower ionisation densities, the amount of recombination is lowe
   \begin{adjustbox}{max totalsize={.8\linewidth}, center}
     \input{files/figures/dune_detector/recombFactor}
   \end{adjustbox}
-  \caption{Recombination factors calculated using Birks model of recombination derived in~\cite{recombArgoneut}. The different lines represent different energy losses in argon in terms of number of minimum ionising particles (MIPs).}
+  \caption[Recombination factors for different electric fields and ionisation densities.]{Recombination factors calculated using Birks model of recombination derived in~\cite{recombArgoneut}. The different lines represent different energy losses in argon in terms of number of minimum ionising particles (MIPs).}
   \label{fig:recombFactors}
 \end{figure}
 
@@ -313,6 +314,38 @@ Therefore, the electric is often chosen to be at around 0.5~\si{\kilo\volt\per\c
 
 \subsubsection{Dual-phase LArTPC operation}
 \label{sec:dune:fd:lartpc:dualphase}
+
+Dual-phase LArTPCs work under a similar basic principle to their single-phase counterparts (both feature a drift volume with a strong, uniform electric field applied across it), however there are some differences.
+\citefig{fig:dualPhase} is a diagram of the basic operational principles of a dual-phase LArTPC which shows a muon crossing the drift volume.
+In contrast to the single-phase case, the drift field is oriented vertically rather than horizontally and thus the ionisation electrons drift upwards.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.6\linewidth]{files/figures/dune_detector/dualPhase}
+  \caption[Explanatory diagram showing operational principles of a dual-phase LArTPC.]{Explanatory diagram showing operational principles of a dual-phase LArTPC from~\cite{tdrVol1}. A muon (green curve) is travelling through the volume, ionising argon atoms and causing ionisation electrons (red) to drift upwards.}
+  \label{fig:dualPhase}
+\end{figure}
+
+\citefig{fig:dualPhaseVoltage} shows a more detailed view of what happens at the top of the drift volume.
+Initially, electrons at the top of the drift volume encouter a higher electric field, causing them to be extracted through the extraction grid.
+At this point the phase of the argon changes from liquid to gas (hence the `dual-phase' name) as the electrons pass through it.
+In the gas phase, the electrons encounter the large electron multipliers (LEMs) which are tiny holes (an image of a LEM is shown in \citefig{fig:dualPhaseVoltage}) within which there are extremely high field regions which cause amplification of the electrons.
+This amplification is via the phenomenon of a Townsend avalance~\cite{townsendAvalanche}.
+This amplified charge is then collected on an anode.
+The DUNE far detector will use an anode with two views that collect the charge (there are no `induction' anodes in the dual-phase modules).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/dune_detector/dualPhaseVoltage}
+  \caption[Diagram showing electric fields at different near the DUNE dual-phase anode]{Diagram from~\cite{tdrVol1} showing the proposed voltages for electron extraction, amplification and collection in a DUNE dual-phase far detector module.}
+  \label{fig:dualPhaseVoltage}
+\end{figure}
+
+This dual-phase technology has two main advantages when compared with a single-phase detector.
+The amplification of the ionisation charge means that the signal-to-noise ratio is expected to be greater than for a single-phase module.
+Accordingly, the threshold for the smallest observable signal is raised.
+Secondly, this amplification means that the drift length can be greater than for a single-phase detector, although it does require very high voltages at the cathode.
+This means that for a given detector size much less dead material is present, resulting in less event information being lost.
 
 \section{Near detector}
 \label{sec:dune:nd}
