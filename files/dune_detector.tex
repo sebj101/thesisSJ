@@ -330,7 +330,7 @@ In contrast to the single-phase case, the drift field is oriented vertically rat
 Initially, electrons at the top of the drift volume encouter a higher electric field, causing them to be extracted through the extraction grid.
 At this point the phase of the argon changes from liquid to gas (hence the `dual-phase' name) as the electrons pass through it.
 In the gas phase, the electrons encounter the large electron multipliers (LEMs) which are tiny holes (an image of a LEM is shown in \citefig{fig:dualPhaseVoltage}) within which there are extremely high field regions which cause amplification of the electrons.
-This amplification is via the phenomenon of a Townsend avalance~\cite{townsendAvalanche}.
+This amplification is via the phenomenon of a Townsend avalanche~\cite{townsendAvalanche}.
 This amplified charge is then collected on an anode.
 The DUNE far detector will use an anode with two views that collect the charge (there are no `induction' anodes in the dual-phase modules).
 
@@ -346,6 +346,75 @@ The amplification of the ionisation charge means that the signal-to-noise ratio 
 Accordingly, the threshold for the smallest observable signal is raised.
 Secondly, this amplification means that the drift length can be greater than for a single-phase detector, although it does require very high voltages at the cathode.
 This means that for a given detector size much less dead material is present, resulting in less event information being lost.
+
+\subsection{The DUNE far detector modules}
+\label{sec:dune:fd:modules}
+
+\citesec{sec:dune:fd:modules:singlephase} will discuss the specific design of the DUNE single-phase far detector modules while \citesec{sec:dune:fd:modules:dualphase} will discuss the same aspects of a DUNE dual-phase far detector module. 
+
+\subsubsection{Single-phase}
+\label{sec:dune:fd:modules:singlephase}
+
+\citefig{fig:spDiagram} shows the exterior of a planned DUNE single-phase module while \citetab{tab:spStats} shows key parameters for a module.
+Each TPC measures \SI{12}{\metre} in height, \SI{14}{\metre} in the drift direction and \SI{58.2}{\metre} in the beam direction.
+This large length in the beam direction is to ensure that a large number of signal events (which mainly feature a forward-going lepton) are contained within the TPC.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/spDiagram}
+  \caption[Diagram of a DUNE single phase module.]{Diagram of DUNE single-phase module from~\cite{tdrVol4}.}
+  \label{fig:spDiagram}
+\end{figure}
+
+\begin{table}
+  \caption[Key parameters for a single DUNE single-phase far detector module.]{Key parameters for a single DUNE single-phase far detector module from~\cite{tdrVol4}.}
+  \label{tab:spStats}
+  \centering
+  \begin{tabular}{c c}
+    \hline
+    Item & Quantity \\
+    \hline
+    TPC size & $\SI{12.0}{\metre} \times \SI{14.0}{\metre} \times \SI{58.2}{\metre}$ \\
+    Fiducial mass & \SI{10}{\kilo\tonne} \\
+    APA size & $\SI{6}{\metre} \times \SI{2.3}{\metre}$ \\
+    CPA size & $\SI{1.2}{\metre} \times \SI{4}{\metre}$ \\
+    Number of APAs & 150 \\
+    Number of CPAs & 300 \\
+    Design voltage & \SI{-180}{\kilo\volt} \\
+    Design drift field & \SI{500}{\volt\per\centi\metre} \\
+    Drift length & \SI{3.5}{\metre} \\
+    Drift speed & \SI{1.6}{\milli\metre\per\micro\second} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Within the TPC, a modular design is used.
+In the drift direction, each module contains four drift volumes, separated by anodes and cathodes.
+This layout is important for two reasons.
+Firstly, it limits the size of the voltage that needs to be applied across each drift volume.
+Secondly, it means that the electron lifetime does not have to be at a level that may be unfeasible.
+The layout of the TPC is shown in \citefig{fig:tpcInterior} where the anodes are labelled as A and the cathodes are labelled as C. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.6\linewidth]{files/figures/dune_detector/tpcInterior}
+  \caption[Interior of a DUNE single-phase module, showing the layout on APAs and CPAs.]{Interior of a DUNE single-phase module, showing the layout on APAs and CPAs from~\cite{tdrVol4}. Here the anode planes are labelled as A while the cathode planes are labelled as C.}
+  \label{fig:tpcInterior}
+\end{figure}
+
+The anodes and cathodes are also modular, being made up of anode plane assemblies (APAs) and cathode plane assemblies (CPAs) respectively.
+Each APA consists of three planes of wrapped wires
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.95\linewidth]{files/figures/dune_detector/wireWrapping}
+  \caption[Wire wrapping scheme for a DUNE anode plane assembly]{Wire wrapping scheme for a DUNE anode plane assembly from~\cite{tdrVol4}.}
+  \label{fig:wireWrapping}
+\end{figure}
+
+\subsubsection{Dual-phase}
+\label{sec:dune:fd:modules:dualphase}
+
 
 \section{Near detector}
 \label{sec:dune:nd}
