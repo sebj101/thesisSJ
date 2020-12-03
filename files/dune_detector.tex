@@ -303,6 +303,14 @@ Additionally, at lower ionisation densities, the amount of recombination is lowe
 
 Those ionisation electrons that do recombine, along with argon atoms that are excited (but not ionised), cause the emission of scintillation light.
 These excited argon atoms form an excimer, $\text{Ar}^{*}_{2}$, which then de-excites, resulting in the emission of photon with a wavelength of \SI{127}{\nano\metre} (the vacuum ultraviolet part of the spectrum)~\cite{argonScintillation}.
+A diagram showing the possible pathways for scintillation light production is shown in \citefig{fig:scintillationLight}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/dune_detector/scintillationLight}
+  \caption[Schematic showing the production of scintillation light in argon.]{Schematic showing the production of scintillation light in argon from~\cite{tdrVol4}.}
+  \label{fig:scintillationLight}
+\end{figure}
 
 This scintillation light is emitted in two components, a prompt component with $\tau < \SI{6.2}{\nano\second}$ and a slow component with a decay time of \SI{1300}{\nano\second}~\cite{argonScintillation}.
 This rapid scintillation means that this light can be used to determine the time of an interaction, $t_0$, within the liquid argon.
@@ -372,6 +380,7 @@ This large length in the beam direction is to ensure that a large number of sign
   \centering
   \begin{tabular}{c c}
     \hline
+    \hline
     Item & Quantity \\
     \hline
     TPC size & $\SI{12.0}{\metre} \times \SI{14.0}{\metre} \times \SI{58.2}{\metre}$ \\
@@ -403,7 +412,21 @@ The layout of the TPC is shown in \citefig{fig:tpcInterior} where the anodes are
 \end{figure}
 
 The anodes and cathodes are also modular, being made up of anode plane assemblies (APAs) and cathode plane assemblies (CPAs) respectively.
-Each APA consists of three planes of wrapped wires
+Vertically, the anodes consist of two APAs on top of one another.
+In the beam direction, 25 APAs are placed next to each other in each anode.
+For each of the two cathode planes, 300 CPAs are required.
+These CPAs are stacked 3 vertically and 50 in the beam direction.
+
+Each APA consists of three planes of wrapped wires.
+As mentioned in \citesec{sec:dune:fd:lartpc:singlephase}, 2 of these are induction planes and the other is the collection plane.
+The APA wire wrapping scheme is shown in \citefig{fig:wireWrapping} with the APA rotated by \ang{90} from its orientation in the TPC.
+The collection and grid wires, labelled as the $X$ and $G$ planes respectively, are vertical.
+The two induction planes, labelled $U$ and $V$ are at $\pm\ang{35.7}$ to the collection plane.
+This angle is chosen such that each induction wire only crosses a given collection wire once.
+The ordering of the wire planes, starting from the drift volume is $GUVX$.
+The wires within the induction planes are spaced with \SI{4.67}{\milli\metre} between wires, while for the collection and grid plane the spacing is set at \SI{4.79}{\milli\metre}.
+This spacing is chosen to fulfil the requirement that a $yz$ vertex resolution of \SI{1.5}{\centi\metre} is achievable in the far detector.
+This means that, for each APA, there are 960 wires in each of the collection and grid planes and 800 wires in each of the induction planes~\cite{tdrVol4}.
 
 \begin{figure}[h]
   \centering
@@ -412,12 +435,119 @@ Each APA consists of three planes of wrapped wires
   \label{fig:wireWrapping}
 \end{figure}
 
+DUNE will also have an advanced photon detection system.
+This photon detection system is not strictly required for the oscillation analysis given that the timing of the beam can be used to determine $t_{0}$.
+Additionally, DUNE's large rock overburden will mean that there will be very few cosmic rays in time with the beam spill.
+It will allow more precise determination of interaction vertices and cross checks of the energy of events, however.
+However, the photon detection system will be of great use for other analyses such as searching for nucleon decay where it will allow fiducialisation of the detector.
+
+The photon detection system will consist of some \num{288000} silicion photomultipliers (SiPMs) arranged in modules which are themselves placed in the inactive volume of the detector, behind the APA wires.
+Given the configuration of anodes within the TPC (see \citefig{fig:tpcInterior}), the modules in the central APA will have to be able to collect light from both sides.
+The photon detection system will convert incident \SI{127}{\nano\metre} photons into visible light which can then be turned by the SiPMs into an electrical signal.
+
 \subsubsection{Dual-phase}
 \label{sec:dune:fd:modules:dualphase}
+As mentioned previously, the main advantages of the dual-phase TPC design versus the single-phase design are the increased signal-to-noise ratio and the larger drift length, resulting in a reduction in dead material.
+Additionally, the fact that the dual-phase module comprises only a single drift volume means that fewer readout channels are required than for an equivalent single phase module (\num{153600} for a dual-phase module versus \num{384000} for a single-phase module~\cite{idrVol3}).
 
+Similarly, to the single-phase module, the dual-phase module also features a modular design for the readout.
+The basic unit of the extraction and readout unit is known as a charge readout plane (CRP).
+Each of these CRPs contains the extraction grid, LEM and anode sandwiched together (see \citesec{sec:dune:fd:lartpc:dualphase} for more information on the operating principles of dual-phase LArTPCs and \citefig{fig:dualPhaseVoltage} for the voltages that the various parts of the CRP are held at).
+Each of these CRPs can be individually raised or lowered such that the extraction grid is just below the surface of the liquid.
+
+The amplified signals produced in the CRP LEMs are collected on an anode which consists of 2 sets of gold-plated copper strips with a pitch of \SI{3.125}{\milli\metre}~\cite{idrVol3}.
+These sets of strips provide $x$ and $y$ coordinates (the $z$ coordinate being the drift coordinate in this case).
+In contrast to the single-phase module, only two charge views are provided by the readout. 
+
+Basic parameters of the dual-phase module are listed in \citetab{tab:dpStats}.
+Here one can note, the increased drift length of the dual-phase modules but also the very high design voltage required.
+
+\begin{table}
+  \caption{Basic parameters for a DUNE dual-phase module from~\cite{idrVol3}.}
+  \label{tab:dpStats}
+  \centering
+  \begin{tabular}{c c}
+    \hline
+    \hline
+    Item & Quantity \\
+    \hline
+    Active volume size & $\SI{12}{\metre} \times \SI{12}{\metre} \times \SI{60}{\metre}$ \\
+    Fiducial mass & \SI{10.6}{\kilo\tonne} \\
+    Number of CRPs & 80 \\
+    CRP size & $\SI{3}{\metre} \times \SI{3}{\metre}$ \\
+    Design voltage & \SI{-600}{\kilo\volt} \\
+    Design drift field & \SI{500}{\volt\per\centi\metre} \\
+    Drift length & \SI{12}{\metre} \\
+    Drift speed & \SI{1.6}{\milli\metre\per\micro\second} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+A cut-away diagram of a dual-phase module is shown in \citefig{fig:duneDualPhase}.
+This diagram shows the positioning of the various components within the module with the CRPs at the top of the detector, the cathode at the bottom and the PMTs located below the cathode. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\linewidth]{files/figures/dune_detector/DUNE-dp}
+  \caption{Cut away diagram of a DUNE dual-phase far detector module from~\cite{idrVol3}. The image clearly shows the placement of the anode, cathode and PMTs.}
+  \label{fig:duneDualPhase}
+\end{figure}
+
+The photon detection system consists of 720 PMTs distributed uniformly below the cathode~\cite{idrVol3}.
+All of these PMTs are coated in tetra-phenyl buatdiene (TPB) which shifts the wavelength of the \SI{127}{\nano\metre} scintillation light into the visible part of the spectrum.
 
 \section{Near detector}
 \label{sec:dune:nd}
+
+DUNE will feature a multi-component near detector located at Fermilab, Illinois.
+The detector will be located \SI{575}{\metre} downsteam of the neutrino beam source~\cite{tdrVol1}.
+This near detector will serve several important functions in any neutrino oscillation analysis.
+
+At the most basic level, this detector must have the ability to predict the neutrino spectrum as a function of energy at the far detector.
+In order to this, the detector must be able to accurately constrain the neutrino flux and the neutrino interaction model.
+Additionally, the detector must be able to sample a variety of different neutrino fluxes using the DUNE-PRISM system.
+While doing this, it must retain the ability to monitor any changes in the beam conditions.
+
+In the most na\"ive case we can measure the electron neutrino probability via
+\begin{equation}
+  P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }
+\end{equation}
+where each $\phi$ represents a neutrino flux at a given detector and $F_{\text{far/near}}$ is the ratio of neutrino fluxes at the near and far detectors and $E_{\nu}$ is the true neutrino energy.
+In an ideal detector, the number of detected events at a given detector per unit energy can be expressed as
+\begin{equation}
+\frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, .
+\end{equation}
+However, in reality detectors are not ideal (namely, the reconstructed neutrino energy does not correspond exactly to the true neutrino energy.
+Therefore, we instead find that
+\begin{equation}
+  \frac{ dN_{\nul} }{ dE_{\text{rec}} } = \int \phi_{\nul}(E_{\nu}) \times \sigma_{\nul}^{\text{Ar}} (E_{\nu}) \times T_{\nul}(E_{\nu},E_{\text{rec}}) dE_{\nu}
+\end{equation}
+where $T_{\nul}$ is the matrix linking true and reconstructed neutrino energy in a given detector.
+It is worth noting that $T_{\nul}$ is not diagonal.
+
+\citefig{fig:ndDiag} shows the DUNE near detector situated in the detector hall.
+In this diagram the neutrino beam enters from the right of the diagram.
+Initially, the beam impinges on ND-LAr, a segmented LArTPC. This component is discussed further in \citesec{sec:dune:nd:lar}.
+Following this, it passes through ND-GAr, which is high pressure gas argon TPC which is inside a \SI{0.5}{\tesla} magnetic field. This component is discussed further in \citesec{sec:dune:nd:gar}.
+Finally, the beam strikes the System for on-Axis Neutrino Detection (SAND).
+SAND consists of the magnetised non-argon target and is primarily for beam monitoring.
+This component is discussed further in \citesec{sec:dune:nd:sand}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/ndDiag}
+  \caption{Diagram of the DUNE near detector. In this view, the neutrino beam enters from the right of the picture.}
+  \label{fig:ndDiag}
+\end{figure}
+
+\subsection{ND-LAr}
+\label{sec:dune:nd:lar}
+
+\subsection{ND-GAr}
+\label{sec:dune:nd:gar}
+
+\subsection{SAND}
+\label{sec:dune:nd:sand}
 
 \section{Beam}
 \label{sec:dune:beam}
