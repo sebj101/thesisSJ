@@ -41,15 +41,6 @@ In terms of terminology, the enhanced neutrino beam is produced using the Forwar
 DUNE's proposed oscillation physics milestones are shown in \citetab{tab:physicsMilestones} along with their estimated expected running times.
 DUNE's ability to meet these goals hinges on several design factors.
 
-Firstly, DUNE will gain from the large number of neutrino interactions it will be able to observe which.
-These high statistics derive from the large fiducial mass of the far detector (40~kt eventually) and the high beam power (1.2~MW initially with later planned upgrades to 2.4~MW).
-\citetab{tab:statistics} shows the number of expected neutrino interactions in the far detector for 3.5 years of staged running.
-
-The far detector will consist of four liquid argon time projection chambers (LArTPCs).
-It seems likely that at least one of these modules will use dual-phase LArTPC technology while the others will use single-phase LArTPC technology.
-These modules will combine excellent particle identification and energy resolution with a large, monolithic detector mass. 
-The operational principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
-
 \begin{table}
   \caption[DUNE oscillation physics milestones.]{Table from~\cite{tdrVol2} showing the expected DUNE oscillation physics milestones and their required exposure in years, assuming the true neutrino mass hierarchy is normally ordered and equal running in with both forward and reverse horn currents. The best fit parameters in~\cite{nufit4} are used.}
   \label{tab:physicsMilestones}
@@ -72,29 +63,100 @@ The operational principles of LArTPCs will be discussed further in \citesec{sec:
   \end{tabular}
 \end{table}
 
+Firstly, DUNE will gain from the large number of neutrino interactions it will be able to observe which.
+These high statistics derive from the large fiducial mass of the far detector (40~kt eventually) and the high beam power (1.2~MW initially with later planned upgrades to 2.4~MW).
+\citetab{tab:disappStatistics} shows the number of expected neutrino interactions in the far detector for 3.5 years of staged running for those events identified as the disappearance signal.
+Similarly, \citetab{tab:appStatistics} shows the number of events identified as apperance signal events for 3.5~years of staged running.
+\citefig{fig:fdEventRates} shows the same event rates as a function of energy with the signal and background contributions outlined.
+
 \begin{table}
-  \caption[Expected numbers of DUNE far detector events.]{Expected numbers of signal events for the DUNE far detector in the neutrino energy range \SIrange{0.5}{8}{\giga\electronvolt} for 3.5 years of staged exposures for both FHC and RHC running. The rates shown assume the mass hierarchy is normally ordered, that $\delta_{CP}=0$ and that all other oscillation parameters are at their best fit points in~\cite{nufit4}. Taken from~\cite{tdrVol2}.}
-  \label{tab:statistics}
+  \caption[Expected numbers of DUNE far detector disappearance events.]{Expected number of events identified as \numu and \anumu disappearance signal events. Here, the energy range is \SIrange{0.5}{8}{\giga\electronvolt} and the time period is 3.5~years for each on neutrino and antineutrino beam mode. All oscillation parameters are at their best fit points in~\cite{nufit4} apart from \dcp which is assumed to be 0. The mass hierarchy is assumed to be normal. Taken from~\cite{tdrVol2}.}
+    \label{tab:disappStatistics}
+    \centering
+    \begin{tabular}{c c}
+      \hline
+      True event class & Expected events \\
+      \hline
+      \hline
+      \multicolumn{2}{c}{Neutrino mode} \\
+      \hline
+      \numu CC signal & 6200 \\
+      \anumu CC background & 389 \\
+      NC background & 200 \\
+      $\nutau + \anutau$ CC background & 46 \\
+      $\nue + \anue$ CC background & 8 \\
+      \hline
+      \multicolumn{2}{c}{Anti-neutrino mode} \\
+      \hline
+      \anumu CC signal & 2303 \\
+      \numu CC background & 1129 \\
+      NC background & 101 \\
+      $\nutau + \anutau$ CC background & 27 \\
+      $\nue + \anue$ CC background & 2 \\
+      \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption[Expected numbers of DUNE far detector appearance events.]{Expected number of events identified as \nue and \anue appearance signal events. Here, the energy range is \SIrange{0.5}{8}{\giga\electronvolt} and the time period is 3.5~years for each on neutrino and antineutrino beam mode. All oscillation parameters are at their best fit points in~\cite{nufit4} apart from \dcp which is assumed to be 0. Signal rates are shown for both mass hierarchies. Background rates assume normal hierarchy. Taken from~\cite{tdrVol2}.}
+  \label{tab:appStatistics}
   \centering
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \hline
-    Signal & Expected events \\
+    True event class & Exp. events (NO) & Exp. events (IO) \\
     \hline
     \hline
-    \multicolumn{2}{c}{Neutrino mode} \\
-    $\nu_{\mu}$ & 6200 \\
-    $\bar{\nu}_{\mu}$ & 389 \\
-    $\nu_{e}$ & 1092 \\
-    $\bar{\nu}_{e}$ & 18 \\
+    \multicolumn{3}{c}{Neutrino mode} \\
     \hline
-    \multicolumn{2}{c}{Antineutrino mode} \\
-    $\nu_{\mu}$ & 1129 \\
-    $\bar{\nu}_{\mu}$ & 2303 \\
-    $\nu_{e}$ & 76 \\
-    $\bar{\nu}_{e}$ & 224 \\
+    \nue CC signal & 1092 & 497 \\
+    \anue CC signal & 18 & 31 \\
+    NC background & \multicolumn{2}{c}{81} \\
+    Beam $\nue + \anue$ CC background & \multicolumn{2}{c}{190} \\
+    $\nutau + \anutau$ CC background & \multicolumn{2}{c}{32} \\
+    $\numu + \anumu$ CC background & \multicolumn{2}{c}{14} \\
+    \hline
+    \multicolumn{3}{c}{Anti-neutrino mode} \\
+    \hline
+    \nue CC signal & 76 & 36 \\
+    \anue CC signal & 224 & 470 \\
+    NC background & \multicolumn{2}{c}{38} \\
+    Beam $\nue + \anue$ CC background & \multicolumn{2}{c}{117} \\
+    $\nutau + \anutau$ CC background & \multicolumn{2}{c}{20} \\
+    $\numu + \anumu$ CC background & \multicolumn{2}{c}{5} \\
     \hline
   \end{tabular}
 \end{table}
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[t]{.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/spec_dis_nu_no}
+    \caption{Disappearance events, neutrino mode}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/spec_dis_anu_no}
+    \caption{Disappearance events, antineutrino mode}
+  \end{subfigure}
+  \\
+  \centering
+  \begin{subfigure}[t]{.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/spec_app_nu_no}
+    \caption{Appearance events, neutrino mode}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/spec_app_anu_no}
+    \caption{Appearance events, antineutrino mode}
+  \end{subfigure}
+  \caption[DUNE far detector event rates.]{DUNE far detector event rates for appearance and disappearance channels in neutrino and antineutrino mode from~\cite{tdrVol2}. For each of the subplots, the oscillation parameters are set to the best fit points from~\cite{nufit4} apart from \dcp which is set to 0. For all sub-plots, the mass hierarchy is normal.}
+  \label{fig:fdEventRates}
+\end{figure}
+
+The far detector will consist of four liquid argon time projection chambers (LArTPCs).
+It seems likely that at least one of these modules will use dual-phase LArTPC technology while the others will use single-phase LArTPC technology.
+These modules will combine excellent particle identification and energy resolution with a large, monolithic detector mass. 
+The operational principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
 
 Secondly, DUNE will use a neutrino beam with a wide spread of neutrino energies which, given the values of the mass splittings, will allow it cover both the first and second oscillation maxima.
 It is helpful to measure multiple oscillation maxima because of degeneracies between the oscillation parameters.
@@ -463,7 +525,7 @@ Basic parameters of the dual-phase module are listed in \citetab{tab:dpStats}.
 Here one can note, the increased drift length of the dual-phase modules but also the very high design voltage required.
 
 \begin{table}
-  \caption{Basic parameters for a DUNE dual-phase module from~\cite{idrVol3}.}
+  \caption[Basic parameters for a DUNE dual-phase module.]]{Basic parameters for a DUNE dual-phase module from~\cite{idrVol3}.}
   \label{tab:dpStats}
   \centering
   \begin{tabular}{c c}
@@ -489,7 +551,7 @@ This diagram shows the positioning of the various components within the module w
 \begin{figure}[h]
   \centering
   \includegraphics[width=.75\linewidth]{files/figures/dune_detector/DUNE-dp}
-  \caption{Cut away diagram of a DUNE dual-phase far detector module from~\cite{idrVol3}. The image clearly shows the placement of the anode, cathode and PMTs.}
+  \caption[Diagram of a DUNE dual-phase far detector module.]{Cut away diagram of a DUNE dual-phase far detector module from~\cite{idrVol3}. The image clearly shows the placement of the anode, cathode and PMTs.}
   \label{fig:duneDualPhase}
 \end{figure}
 
@@ -508,7 +570,7 @@ In order to this, the detector must be able to accurately constrain the neutrino
 Additionally, the detector must be able to sample a variety of different neutrino fluxes using the DUNE-PRISM system.
 While doing this, it must retain the ability to monitor any changes in the beam conditions.
 
-In the most na\"ive case we can measure the electron neutrino probability via
+In the most na\"ive case we can measure the electron neutrino appearance probability via
 \begin{equation}
   P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }
 \end{equation}
@@ -536,7 +598,7 @@ This component is discussed further in \citesec{sec:dune:nd:sand}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\linewidth]{files/figures/dune_detector/ndDiag}
-  \caption{Diagram of the DUNE near detector. In this view, the neutrino beam enters from the right of the picture.}
+  \caption[Diagram of the DUNE near detector.]{Diagram of the DUNE near detector. In this view, the neutrino beam enters from the right of the picture.}
   \label{fig:ndDiag}
 \end{figure}
 
@@ -552,4 +614,18 @@ This component is discussed further in \citesec{sec:dune:nd:sand}.
 \section{Beam}
 \label{sec:dune:beam}
 
-\blindtext
+The DUNE neutrino beam will be supplied by a newly built complex located at Fermilab, Illinois.
+Within this complex, bunches of protons will be extracted from the Fermilab Main Injector~\cite{mainInjector} and brought to the target area.
+These protons will have an energy of \SI{120}{\giga\electronvolt}~\cite{duneBeam}.
+\num{1.1d21} protons will be delivered to the target every year, while the beam will have a planned power of \SI{1.2}{\mega\watt}~\cite{duneBeam}.
+
+Within this target area the protons, which will have energies of up to will impinge upon the neutrino production target
+
+\citefig{fig:fdFlux} shows the unoscillated neutrino flux at the DUNE far detector.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.95\linewidth]{files/figures/dune_detector/duneFDFlux}
+  \caption[Neutrino fluxes at the DUNE far detector.]{Neutrino fluxes at the DUNE far detector from~\cite{tdrVol2}. The flux for neutrino mode is shown on the left while the flux for antineutrino mode is shown on the right.}
+  \label{fig:fdFlux}
+\end{figure}
