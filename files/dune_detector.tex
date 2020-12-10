@@ -617,11 +617,32 @@ This component is discussed further in \citesec{sec:dune:nd:sand}.
 The DUNE neutrino beam will be supplied by a newly built complex located at Fermilab, Illinois.
 Within this complex, bunches of protons will be extracted from the Fermilab Main Injector~\cite{mainInjector} and brought to the target area.
 These protons will have an energy of \SI{120}{\giga\electronvolt}~\cite{duneBeam}.
-\num{1.1d21} protons will be delivered to the target every year, while the beam will have a planned power of \SI{1.2}{\mega\watt}~\cite{duneBeam}.
+\num{1.1d21} protons will be delivered to the target every year, while the beam will have a planned inital power of \SI{1.2}{\mega\watt}, before later being upgraded to reach a power of \SI{2.4}{\mega\watt}~\cite{duneBeam}.
 
-Within this target area the protons, which will have energies of up to will impinge upon the neutrino production target
+Within this target area, the protons will impinge upon the neutrino production target located in the target hall.
+The target consists of a cylindrical piece of graphite which is \SI{2.2}{\metre} long and \SI{16}{\milli\metre} in diameter~\cite{duneBeam}.
+Within the target, the vast majority of protons interact, producing secondary particles, primarily $\pi$ and $K$ mesons.
+Simulated near detector neutrino fluxes are shown in \citefig{fig:ndFluxes} along with the decaying particles which produce each flux.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.9\linewidth]{files/figures/dune_detector/duneNDFlux}
+  \caption[Neutrino beam fluxes at the DUNE near detector as a function of neutrino energy.]{Neutrino beam fluxes at the DUNE near detector as a function of energy from~\cite{tdrVol2}. For each flux, the decaying particle producing the neutrino is also shown.}
+  \label{fig:ndFluxes}
+\end{figure}
+
+The secondary particles then enter the three magnetic focussing horns, each of which is operated at a current of \SI{300}{\kilo\ampere}.
+These focussing horns can be operated in either forward or reverse current settings, allowing either positively or negatively charged particles to be selected.
+This allows a beam of either predominantly neutrinos or antineutrinos to be produced.
+
+Following the focussing horns, the particles enter a \SI{194}{\metre} long helium-filled decay pipe where many decay to neutrinos.
+Any particles that do not decay in this region are stopped in the hadron absorber which follows this.
 
 \citefig{fig:fdFlux} shows the unoscillated neutrino flux at the DUNE far detector.
+One can see that the fluxes differ between neutrino mode and antineutrino mode.
+The flux of `right-sign' neutrinos is greater in neutrino mode than for antineutrino mode.
+Additionally, the `wrong-sign' contamination of the beam is greater in antineutrino mode.
+In neutrino mode, the beam is 92\% muon neutrinos with 7\% muon antineutrinos, while in antineutrino mode the beam is 90.4\% muon antineutrinos with 8.6\% muon neutrinos~\cite{tdrVol2}.
 
 \begin{figure}[h]
   \centering
