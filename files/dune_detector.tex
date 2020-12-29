@@ -604,9 +604,33 @@ This component is discussed further in \citesec{sec:dune:nd:sand}.
 
 \subsection{ND-LAr}
 \label{sec:dune:nd:lar}
+As discussed in \citesec{sec:dune:fd}, the target material in the DUNE far detector modules is liquid argon.
+It is therefore important to collect a sample of neutrino interactions at the near detector on the same target material in order to reduced flux and cross-section systematics.
+
+However, due to the intense power of the beam, it is not feasible to use the same technology used in the far detector modules.
+This intense beam (and the DUNE near detector's proximity to it) means that ND-LAr will observe \order{50} neutrino interactions in every \SI{10}{\micro\second} beam spill.
+This equates to a neutrino interaction once every \SI{200}{\nano\second} in the spill which is much short than the \SI{3}{\milli\second} maximum drift time in the single phase far detector modules.
+This large pile-up of events could lead to ambiguities in the charge readout of a monolithic detector, making reconstruction difficult.
+
+To counter this, ND-LAr features 35 LArTPC modules which all sit within the same cryostat.
+These modules are \SI{3.5}{\metre} in height and measure \SI{1}{\metre} in both the beam and drift directions.
+Each of these modules is optically isolated from the others, meaning that the scintillation light from each interaction can be isolated to a single module and used to aid reconstruction.
+Additionally, the smaller module size leads to shorter drift times (\order{\SI{100}{\micro\second}}) which also aids reconstruction.
+Together, these modules form an active volume \SI{3.5}{\metre} in height, \SI{5}{\metre} in the beam direction and \SI{7}{\metre} in the drift direction.
+
+Each module consists of a cathode, field cage, light collection system and pixel based charge readout.
+The light collection system sits at the top of each module while the central cathode splits the module into two drift regions.
+The charge readout lies on the sides of the module transverse to the beam direction.
 
 \subsection{ND-GAr}
 \label{sec:dune:nd:gar}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/ndGarDiag}
+  \caption[Cut-away of the ND-GAr detector.]{Cut-away diagram of the ND-GAr detector, showing the HPgTPC surrounded by the ECAL. Taken from~\cite{ndCdr}.}
+  \label{fig:ndGarDiag}
+\end{figure}
 
 \subsection{SAND}
 \label{sec:dune:nd:sand}
