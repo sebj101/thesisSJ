@@ -622,7 +622,32 @@ These protons will have an energy of \SI{120}{\giga\electronvolt}~\cite{duneBeam
 Within this target area, the protons will impinge upon the neutrino production target located in the target hall.
 The target consists of a cylindrical piece of graphite which is \SI{2.2}{\metre} long and \SI{16}{\milli\metre} in diameter~\cite{duneBeam}.
 Within the target, the vast majority of protons interact, producing secondary particles, primarily $\pi$ and $K$ mesons.
+
+The secondary particles then enter the three magnetic focussing horns, each of which is operated at a current of \SI{300}{\kilo\ampere}.
+These focussing horns can be operated in either forward or reverse current settings, allowing either positively or negatively charged particles to be selected.
+This allows a beam of either predominantly neutrinos or antineutrinos to be produced.
+
+Following the focussing horns, the particles enter a \SI{194}{\metre} long helium-filled decay pipe where many decay to neutrinos.
+Any particles that do not decay in this region are stopped in the hadron absorber which follows this.
 Simulated near detector neutrino fluxes are shown in \citefig{fig:ndFluxes} along with the decaying particles which produce each flux.
+One can see from \citefig{fig:ndFluxes} that the muon neutrino and antineutrino fluxes are primarily produced via the decay of pions.
+This occurs via the channels:
+\begin{align}
+  \piplus &\rightarrow \muplus + \numu \\
+  \piminus &\rightarrow \muminus + \anumu \, ,
+\end{align}
+where $>99.9\%$ of charged pions decay in this manner.
+
+A smaller proportion of the \numu and \anumu flux is produced by the decay of charged kaons.
+This occurs primarily through the channels:
+\begin{align}
+  \kplus &\rightarrow \muplus + \numu \\
+  \kminus &\rightarrow \muminus + \anumu \\
+  \kplus &\rightarrow \pizero + \muplus + \numu \\
+  \kminus &\rightarrow \pizero + \muminus + \anumu \, ,
+\end{align}
+where together these channels account for around 67\% of all charged kaon decays.
+Approximately 5\% of charged kaons decay to a neutral pion and an positron(electron)-electron (anti)neutrino pair which produces some of the intrinsic beam \nue and \anue flux.
 
 \begin{figure}[h]
   \centering
@@ -631,12 +656,12 @@ Simulated near detector neutrino fluxes are shown in \citefig{fig:ndFluxes} alon
   \label{fig:ndFluxes}
 \end{figure}
 
-The secondary particles then enter the three magnetic focussing horns, each of which is operated at a current of \SI{300}{\kilo\ampere}.
-These focussing horns can be operated in either forward or reverse current settings, allowing either positively or negatively charged particles to be selected.
-This allows a beam of either predominantly neutrinos or antineutrinos to be produced.
-
-Following the focussing horns, the particles enter a \SI{194}{\metre} long helium-filled decay pipe where many decay to neutrinos.
-Any particles that do not decay in this region are stopped in the hadron absorber which follows this.
+However, most of the beam \nue and \anue flux is produced via the decay of muons and antimuons via the channels
+\begin{align}
+  \muplus &\rightarrow \positron + \nue + \anumu \\
+  \muminus &\rightarrow \electron + \anue + \numu \, ,
+\end{align}
+which one can see also produces a flux of \numu and \anumu (in antineutrino and neutrino mode respectively).
 
 \citefig{fig:fdFlux} shows the unoscillated neutrino flux at the DUNE far detector.
 One can see that the fluxes differ between neutrino mode and antineutrino mode.
@@ -644,9 +669,13 @@ The flux of `right-sign' neutrinos is greater in neutrino mode than for antineut
 Additionally, the `wrong-sign' contamination of the beam is greater in antineutrino mode.
 In neutrino mode, the beam is 92\% muon neutrinos with 7\% muon antineutrinos, while in antineutrino mode the beam is 90.4\% muon antineutrinos with 8.6\% muon neutrinos~\cite{tdrVol2}.
 
+One can see from \citefig{fig:fdFlux} that both the first ($E_{\nu} > \SI{1.3}{\giga\electronvolt}$) and second ($E_{\nu} < \SI{1.3}{\giga\electronvolt}$) oscillation maxima are covered by the beam flux.
+The importance of this property is stressed in \citesec{sec:dune:overview}.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=.95\linewidth]{files/figures/dune_detector/duneFDFlux}
   \caption[Neutrino fluxes at the DUNE far detector.]{Neutrino fluxes at the DUNE far detector from~\cite{tdrVol2}. The flux for neutrino mode is shown on the left while the flux for antineutrino mode is shown on the right.}
   \label{fig:fdFlux}
 \end{figure}
+
