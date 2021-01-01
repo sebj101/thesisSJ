@@ -622,8 +622,32 @@ Each module consists of a cathode, field cage, light collection system and pixel
 The light collection system sits at the top of each module while the central cathode splits the module into two drift regions.
 The charge readout lies on the sides of the module transverse to the beam direction.
 
+The charge readout system differs significantly from that used in the far detector modules.
+Whereas the DUNE far detector modules have multiple wire planes forming the TPC anode, in ND-LAr the anode is formed from an array of pixels which are used as the charge readout.
+An illustration of an anode tile containing these pixels is shown in \citefig{fig:larpix}.
+The pixels making up the tile have a spacing of \SI{4}{\milli\metre} and the time-binning of the signals is expected to be \SI{2.5}{\micro\second}.
+Combining this figure with the known beam spill width, it is estimated that the position resolution purely from event timing will be approximately \SI{16}{\milli\metre}~\cite{ndCdr}.
+However, incorporating signals from the light collection system is expected to decrease this number.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/larpix}
+  \caption[LArPix anode tile]{Illustration of an anode tile from~\cite{ndCdr}. Each of these tiles contains \num{10240} pixels and each TPC anode is made up of 20 tiles.}
+  \label{fig:larpix}
+\end{figure}
+
 \subsection{ND-GAr}
 \label{sec:dune:nd:gar}
+
+Most higher energy muon neutrino interactions will result in a muon which exits ND-LAr.
+In the DUNE far detector modules, the energy of muons which remain in the detector is determined via their range.
+However, given that most neutrino-induced muons will not stop in ND-LAr their energy can only be estimated using multiple coulomb scattering which has a much lower resolution.
+It is therefore necessary to have a detector downstream of ND-LAr which can measure the momentum of these muons as well as their charge.
+
+A cut-away diagram of ND-GAr is shown in \citefig{fig:ndGarDiag}.
+
+The HPgTPC has advantages over a liquid argon TPC due its lower density.
+This lower density means that a lower energy threshold is required for charged particles to produce tracks.
 
 \begin{figure}[h]
   \centering
