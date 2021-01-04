@@ -247,7 +247,7 @@ Diagrams of this proposal are shown in \citefig{fig:tpcRubbia}.
 The diagram with only one readout view is shown purely for clarity.
 An interaction is shown occuring in the chamber resulting in the production of several charged particles (shown by the arrowed lines emanating from the dashed line).
 The ionisation electrons then drift towards the charge collecting strips where they are read out.
-
+ 
 \begin{figure}[h]
   \begin{minipage}[t]{0.49\textwidth}
     \includegraphics[width=\linewidth]{files/figures/dune_detector/tpcRubbia1}
@@ -642,12 +642,16 @@ However, incorporating signals from the light collection system is expected to d
 Most higher energy muon neutrino interactions will result in a muon which exits ND-LAr.
 In the DUNE far detector modules, the energy of muons which remain in the detector is determined via their range.
 However, given that most neutrino-induced muons will not stop in ND-LAr their energy can only be estimated using multiple coulomb scattering which has a much lower resolution.
-It is therefore necessary to have a detector downstream of ND-LAr which can measure the momentum of these muons as well as their charge.
+It is therefore necessary to have a detector downstream of ND-LAr which can measure the momentum of these muons as well as their charge (in order to measure the wrong-sign background).
 
-A cut-away diagram of ND-GAr is shown in \citefig{fig:ndGarDiag}.
-
-The HPgTPC has advantages over a liquid argon TPC due its lower density.
-This lower density means that a lower energy threshold is required for charged particles to produce tracks.
+A cut-away diagram of ND-GAr is shown in \citefig{fig:ndGarDiag} where the main components are shown.
+At the centre of the detector is pressure vessel within which a high pressure gas time projection chamber (HPgTPC) is located.
+This time projection chamber measure \SI{5.2}{\metre} in diameter and consists of two cylindrical drift volumes, each of \SI{2.5}{\metre}.
+The pressure vessel itself is expected to be $\sim\SI{6}{\metre}$ in diameter and \SI{6}{\metre} long. 
+Exterior to this TPC an electromagnetic calorimeter (ECAL) surrounds the HPgTPC.
+The primary purpose of the ECAL is to reconstruct photons produced in neutrino interactions.
+Of particular interest are photons produced by the decay of \pizero, since these are a background to the identification of \nue and \anue.
+The whole apparatus sits within a \SI{0.5}{\tesla} magnetic field running along the axis of the pressure vessel.
 
 \begin{figure}[h]
   \centering
@@ -655,6 +659,44 @@ This lower density means that a lower energy threshold is required for charged p
   \caption[Cut-away of the ND-GAr detector.]{Cut-away diagram of the ND-GAr detector, showing the HPgTPC surrounded by the ECAL. Taken from~\cite{ndCdr}.}
   \label{fig:ndGarDiag}
 \end{figure}
+
+The need for this detector is shown in \citefig{fig:muonKinematics} and \citefig{fig:muonAccND}.
+One can see from \citefig{fig:muonKinematics} that the majority of muons have energies greater than \SI{1}{\giga\electronvolt}.
+However, \citefig{fig:muonAccND}, left shows that the acceptance for these muons with kinetic energies $>\SI{1}{\giga\electronvolt}$ is very low.
+Only those muons produced at high angle to the neutrino beam are sometimes contained within ND-LAr.
+
+\citefig{fig:muonAccND}, right shows that the muon acceptance is greatly improved with the addition of ND-GAr.
+In order for a muon to be accepted in ND-GAr, a track length of at least \SI{1}{\metre} is required in the HPgTPC.
+Muons are not required to stop because the magnetic field in which ND-GAr sits allows for accurate measurements of momentum from track curvature.
+With ND-GAr, many more high energy forward-going muons are accepted.
+The only kinematic region in which acceptance remains low is those high energy muons which are produced at high angle to the beam and thus do not enter ND-GAr. 
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize={.7\textwidth}, center}
+    \input{files/figures/dune_detector/muonEngAng}
+  \end{adjustbox}
+  \caption[Muon kinematics in the DUNE ND]{Distribution of muon kinematics for muons produced in \numu CC interactions in ND-LAr.}
+  \label{fig:muonKinematics}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}[t]{0.5\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/dune_detector/muonAccNDLAr}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.5\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/dune_detector/muonAccND.tex}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Muon acceptance in the DUNE ND]{Muon acceptance in ND-LAr (left) and ND-LAr and ND-GAr combined (right) as a function of muon energy and angle to the neutrino beam for \numu CC interactions within the ND-LAr volume.}
+  \label{fig:muonAccND}
+\end{figure}
+
+The HPgTPC has advantages over a liquid argon TPC due its lower density.
+This lower density means that a lower energy threshold is required for charged particles to produce tracks.
 
 \subsection{SAND}
 \label{sec:dune:nd:sand}
