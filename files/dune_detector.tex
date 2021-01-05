@@ -695,8 +695,53 @@ The only kinematic region in which acceptance remains low is those high energy m
   \label{fig:muonAccND}
 \end{figure}
 
-The HPgTPC has advantages over a liquid argon TPC due its lower density.
-This lower density means that a lower energy threshold is required for charged particles to produce tracks.
+The HPgTPC is based upon the ALICE TPC, a diagram of which is shown in \citefig{fig:aliceTPC}.
+The design consists of a central cathode which divides the cylinder into two \SI{2.5}{\metre} drift volumes.
+The readout wire chambers are located at either end of the cylinder and will be a mixture of those used in the ALICE TPC with additional newly constructed readout chambers for the innermost portion of the TPC (in the ALICE detector the central portion of the cylindrical plane is occupied by other sub-detectors).
+Ionisation electrons produced by charged particles drift towards the readout chambers which are instrumented with multi-wire proportional chambers (MWPCs).
+Upon reaching these chambers, the primary electrons initiate avalanches leading to a gain in the signal.
+These amplification electrons induce a signal on a series of pads, the readout of which gives two dimensional hit coordinates.
+The third coordinate is provided by the drift time.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/dune_detector/aliceTPC}
+  \caption[Diagram of the ALICE TPC]{Diagram of the ALICE TPC from~\cite{alicePaper}. The two \SI{2.5}{\metre} drift volumes are defined by the central cathode.}
+  \label{fig:aliceTPC}
+\end{figure}
+
+The HPgTPC is filled with a mixture of argon and $\text{CH}_{4}$ in a ratio of $9:1$ at a pressure of \SI{10}{\bar}.
+The high pressure ensures that the HPgTPC has a high enough active mass ($\sim\SI{1.8}{\tonne}$) to record sufficient neutrino interactions.
+However, even at this high pressure the gaseous argon is of a significantly lower density than liquid argon (\SI{0.017}{\gram\per\cubic\centi\metre} versus \SI{1.38}{\gram\per\cubic\centi\metre} for liquid argon).
+
+This lower density means that a lower energy threshold is required for charged particle track reconstruction.
+In particular ND-GAr aims to be able to reconstruct protons and charged pions with kinetic energies of more than \SI{5}{\mega\electronvolt}.
+This is compared to thresholds of \SI{47}{\mega\electronvolt}~\cite{uBooneProtonThreshold} and \SI{37}{\mega\electronvolt}~\cite{uBoonePionThreshold} measured by MicroBooNE in liquid argon for protons and charged pions respectively.
+This low energy region is of interest since at these energies there are disagreements between various neutrino interaction generators in the multiplicity and energy of final state hadrons produced by neutrino interactions.
+
+A diagram of the ECAL is shown in \citefig{fig:ecalDiag}.
+The ECAL consists of three parts, an octogonal barrel exterior to the pressure vessel and two endcaps which are located inside the pressure vessel.
+Both the barrel and endcaps are formed from layers of polystyrene scintillator sandwiched between absorber layers.
+The scintillator is read out by SiPMs.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/ecalDiag}
+  \caption[Diagram of ND-GAr ECAL]{Conceptual design of ND-GAr from~\cite{ndCdr}. The ECAL is shown in blue. The endcaps are located inside the pressure vessel while the barrel is located outside.}
+  \label{fig:ecalDiag}
+\end{figure}
+
+The ECAL will serve several purposes.
+Firstly it will reconstruct photons originating from neutrino decays.
+In the case of those produced by \pizero decays, these represent a background the measurement of \nue and \anue if one photon is not reconstructed.
+Additionally, the ECAL will provide an accurate time for tracks entering the HPgTPC, thus allowing the correct drift time for these particles to be calculated.
+Finally, it will provide a method of particle identification for high energy protons and pions ($p > \SI{1.5}{\giga\electronvolt\per\clight}$) where the track $dE/dx$ is not a useful discriminator.
+In these cases, the ECAL will provide a measurement of $E/p$ for a particle, potentially allowing particle identification.
+
+Both the pressure vessel and the ECAL will be located within a \SI{0.5}{\tesla} magnetic field running parallel to the drift direction.
+This magnetic field allows the sign of charged particles to be determined which can in turn be used to constrain the wrong-sign background of the neutrino beam.
+Additionally, the momentum of a particle can be determined by the curvature of its track in a magnetic field, allowing accurate determination of momentum for tracks leaving the detector.
+Currently, there are several different designs for the magnet producing this field including two solenoids and a design with multiple Helmholtz coils. 
 
 \subsection{SAND}
 \label{sec:dune:nd:sand}
