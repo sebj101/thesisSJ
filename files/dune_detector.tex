@@ -569,28 +569,54 @@ At the most basic level, this detector must have the ability to predict the neut
 In order to this, the detector must be able to accurately constrain the neutrino flux and the neutrino interaction model.
 Additionally, the detector must be able to sample a variety of different neutrino fluxes using the DUNE-PRISM system.
 While doing this, it must retain the ability to monitor any changes in the beam conditions.
+These requirements are shown in \citetab{tab:ndReqs}.
 
-In the most na\"ive case we can measure the electron neutrino appearance probability via
-\begin{equation}
-  P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }
-\end{equation}
-where each $\phi$ represents a neutrino flux at a given detector and $F_{\text{far/near}}$ is the ratio of neutrino fluxes at the near and far detectors and $E_{\nu}$ is the true neutrino energy.
-In an ideal detector, the number of detected events at a given detector per unit energy can be expressed as
-\begin{equation}
-\frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, .
-\end{equation}
-However, in reality detectors are not ideal (namely, the reconstructed neutrino energy does not correspond exactly to the true neutrino energy.
-Therefore, we instead find that
-\begin{equation}
-  \frac{ dN_{\nul} }{ dE_{\text{rec}} } = \int \phi_{\nul}(E_{\nu}) \times \sigma_{\nul}^{\text{Ar}} (E_{\nu}) \times T_{\nul}(E_{\nu},E_{\text{rec}}) dE_{\nu}
-\end{equation}
-where $T_{\nul}$ is the matrix linking true and reconstructed neutrino energy in a given detector.
-It is worth noting that $T_{\nul}$ is not diagonal.
+\begin{table}
+  \caption[Overarching requirements for the DUNE ND]{Overarching requirements for the DUNE ND from~\cite{ndCdr}. Requirements ND-O1 -- ND-O6 are required in order to fulfill ND-O0.}
+  \label{tab:ndReqs}
+  \centering
+  \begin{tabular}{c c}
+    \hline
+    \hline
+    Label & Description \\
+    \hline
+    ND-O0 & Predict the observed neutrino spectrum at FD \\
+    \hline
+    ND-O1 & Transfer measurements to FD \\
+    ND-O2 & Constrain the cross-section model \\
+    ND-O3 & Measure the neutrino flux \\
+    ND-O4 & Obtain measurements with different fluxes \\
+    ND-O5 & Monitor time variations of the neutrino beam \\
+    ND-O6 & Operate in a high rate environment \\
+    \hline
+  \end{tabular}
+\end{table}
+
+%In the most na\"ive case we can measure the electron neutrino appearance probability via
+%\begin{equation}
+%  P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }
+%\end{equation}
+%where each $\phi$ represents a neutrino flux at a given detector and $F_{\text{far/near}}$ is the ratio of neutrino fluxes at the near and far detectors and $E_{\nu}$ is the true neutrino energy.
+%In an ideal detector, the number of detected events at a given detector per unit energy can be expressed as
+%\begin{equation}
+%\frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, .
+%\end{equation}
+%However, in reality detectors are not ideal (namely, the reconstructed neutrino energy does not correspond exactly to the true neutrino energy.
+%Therefore, we instead find that
+%\begin{equation}
+%  \frac{ dN_{\nul} }{ dE_{\text{rec}} } = \int \phi_{\nul}(E_{\nu}) \times \sigma_{\nul}^{\text{Ar}} (E_{\nu}) \times T_{\nul}(E_{\nu},E_{\text{rec}}) dE_{\nu}
+%\end{equation}
+%where $T_{\nul}$ is the matrix linking true and reconstructed neutrino energy in a given detector.
+%It is worth noting that $T_{\nul}$ is not diagonal.
 
 \citefig{fig:ndDiag} shows the DUNE near detector situated in the detector hall.
 In this diagram the neutrino beam enters from the right of the diagram.
 Initially, the beam impinges on ND-LAr, a segmented LArTPC. This component is discussed further in \citesec{sec:dune:nd:lar}.
 Following this, it passes through ND-GAr, which is high pressure gas argon TPC which is inside a \SI{0.5}{\tesla} magnetic field. This component is discussed further in \citesec{sec:dune:nd:gar}.
+
+Both ND-GAr and ND-LAr will move to off-axis positions in order to sample different neutrino fluxes which will reduce DUNE's sensitivity to cross-section model and detector uncertainties.
+This concept is known as DUNE Precision Reaction-Independent Spectrum Measurement (DUNE-PRISM) and is detailed further in \citesec{sec:dune:nd:prism}.
+
 Finally, the beam strikes the System for on-Axis Neutrino Detection (SAND).
 SAND consists of the magnetised non-argon target and is primarily for beam monitoring.
 This component is discussed further in \citesec{sec:dune:nd:sand}.
@@ -724,8 +750,8 @@ However, one can see tracks would still be produced in gaseous argon at \SI{10}{
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=.6\linewidth]{files/figures/dune_detector/generatorProtons}
-  \caption[Comparison of final state proton energies in various neutrino interaction generators]{Comparison of final state proton energies in various neutrino interaction generators from~\cite{ndCdr}. Also shown are the energy thresholds required to produce a \SI{1}{\centi\metre} track in liquid argon and gas argon at a pressure of \SI{10}{\atmosphere}.}
+  \includegraphics[width=.5\linewidth]{files/figures/dune_detector/generatorProtons}
+  \caption[Comparison of final state proton kinetic energies in various neutrino interaction generators]{Comparison of final state proton energies in various neutrino interaction generators from~\cite{ndCdr}. Also shown are the energy thresholds required to produce a \SI{1}{\centi\metre} track in liquid argon and gas argon at a pressure of \SI{10}{\atmosphere}.}
   \label{fig:generatorProtons}
 \end{figure}
 
@@ -752,6 +778,16 @@ Both the pressure vessel and the ECAL will be located within a \SI{0.5}{\tesla} 
 This magnetic field allows the sign of charged particles to be determined which can in turn be used to constrain the wrong-sign background of the neutrino beam.
 Additionally, the momentum of a particle can be determined by the curvature of its track in a magnetic field, allowing accurate determination of momentum for tracks leaving the detector.
 Currently, there are several different designs for the magnet producing this field including two solenoids and a design with multiple Helmholtz coils. 
+
+\subsection{DUNE-PRISM}
+\label{sec:dune:nd:prism}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.5\linewidth]{files/figures/dune_detector/offAxisFluxes}
+  \caption[Beam \numu fluxes at different off-axis angles at the DUNE ND]{Predicted DUNE beam \numu fluxes at the DUNE ND for various off-axis angles from~\cite{ndCdr}. The coloured arrows show the peak neutrino energy for the off-axis angles.}
+  \label{fig:offAxisFluxes}
+\end{figure}
 
 \subsection{SAND}
 \label{sec:dune:nd:sand}
