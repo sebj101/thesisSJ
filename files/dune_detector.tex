@@ -782,9 +782,34 @@ Currently, there are several different designs for the magnet producing this fie
 \subsection{DUNE-PRISM}
 \label{sec:dune:nd:prism}
 
+As mentioned previously, significant disagreements exist between the predictions made by different neutrino interaction generators.
+This problem arises due to an incomplete knowledge of neutrino interactions with nuclei.
+In order for DUNE to successfully reach its predicted sensitivities, systematic uncertainties due to neutrino interaction modelling will have to be controlled.
+
+DUNE plans to reduce its dependence on its neutrino interaction model and detector modelling by employing movable ND components to sample different neutrino beam fluxes.
+These different fluxes provide an additional degree of freedom with which the neutrino interaction model can be constrained.
+This will allow the deconvolution of the neutrino interaction model and flux. 
+Additionally, these additional samples can be combined in linear combinations to produce ND fluxes which are very similar to expected oscillated flux.
+In turn, this allows the oscillation parameters to be determined with a greatly reduced dependence on the neutrino interaction model. 
+
+ND-LAr and ND-GAr can move to off-axis positions in order to sample different fluxes while SAND remains in the same position to continue monitoring the beam.
+A diagram of the ND with ND-LAr and ND-GAr in their maximal off-axis positions (\SI{30.5}{\metre} off-axis) is shown in \citefig{fig:ndDiagOffAxis}.
+This distance corresponds to an off-axis angle of \ang{3.2}.
+The detectors will also make intermediate stops between the maximum off-axis and on-axis positions so as to sample the various fluxes.
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=.5\linewidth]{files/figures/dune_detector/offAxisFluxes}
+  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/ndDiagOffAxis}
+  \caption[Diagram of DUNE ND in off-axis configuration]{Diagram of DUNE ND in the off-axis configuration from~\cite{ndCdr}.}
+  \label{fig:ndDiagOffAxis}
+\end{figure}
+
+A well-known property of neutrino beams is that, as one moves off the beam axis, the peak neutrino energy and spread of energies both fall.
+The DUNE neutrino beam also has this property and several different off-axis \numu fluxes are shown in \citefig{fig:offAxisFluxes}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.55\linewidth]{files/figures/dune_detector/offAxisFluxes}
   \caption[Beam \numu fluxes at different off-axis angles at the DUNE ND]{Predicted DUNE beam \numu fluxes at the DUNE ND for various off-axis angles from~\cite{ndCdr}. The coloured arrows show the peak neutrino energy for the off-axis angles.}
   \label{fig:offAxisFluxes}
 \end{figure}
