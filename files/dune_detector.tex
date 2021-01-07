@@ -318,7 +318,6 @@ These wires are held at a much higher voltage than the cathode plane which cause
 \citefig{fig:tpcOperation} shows three different planes of these wires (the same number as in the DUNE far detector modules), labelled as U, V and Y, which are at different angles to one another.
 The gaps between these wires are small (usually less than \SI{1}{\centi\metre}).
 
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=.8\linewidth]{files/figures/dune_detector/tpcOperation}
@@ -805,17 +804,43 @@ The detectors will also make intermediate stops between the maximum off-axis and
 \end{figure}
 
 A well-known property of neutrino beams is that, as one moves off the beam axis, the peak neutrino energy and spread of energies both fall.
-The DUNE neutrino beam also has this property and several different off-axis \numu fluxes are shown in \citefig{fig:offAxisFluxes}.
+The DUNE neutrino beam also has this property and several different off-axis \numu fluxes are shown in \citefig{fig:offAxisFluxes}, both as a function of off-axis angle and as a function of off-axis detector distance.
+One can see that the DUNE ND will be able to sample fluxes which peak at energies from $\sim\SI{2.5}{\giga\electronvolt}$ all the way down to $\sim\SI{0.5}{\giga\electronvolt}$ at \SI{30.5}{\metre} off-axis.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=.55\linewidth]{files/figures/dune_detector/offAxisFluxes}
-  \caption[Beam \numu fluxes at different off-axis angles at the DUNE ND]{Predicted DUNE beam \numu fluxes at the DUNE ND for various off-axis angles from~\cite{ndCdr}. The coloured arrows show the peak neutrino energy for the off-axis angles.}
+  \begin{minipage}[t]{0.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/offAxisFluxes}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\textwidth}
+    \includegraphics[width=\linewidth]{files/figures/dune_detector/offAxisFlux2d}
+  \end{minipage}
+  \caption[Beam \numu fluxes at different off-axis distances and angles at the DUNE ND]{Left: Predicted DUNE beam \numu fluxes at the DUNE ND for various off-axis angles, from~\cite{ndCdr}. The coloured arrows show the peak neutrino energy for the off-axis angles. Right: Predicted DUNE beam \numu fluxes at the DUNE ND for various off-axis distances, from~\cite{ndCdr}.}
   \label{fig:offAxisFluxes}
+\end{figure}
+
+This sampling of various fluxes will allow problems with the neutrino interaction model to be more easily diagnosed since the various off-axis samples will over-constrain the interaction model.
+For example, for a neutrino interaction model to be judged as correct, its predictions will have to match the data across a range of different energies rather than just at one flux.
+
+Additionally, it will be possible to use the additional samples to overcome issues with the neutrino interaction model in the event that no available model can reproduce the data.
+The different off-axis samples can be linearly combined to match an oscillated FD neutrino energy spectrum.
+Thus, it is possible to measure the expected FD reconstructed neutrino energy spectrum for any set of neutrino oscillation parameters.
+In this manner, any unknown cross-section effect which produces a mismatch between the reconstructed and true neutrino energies can be incorporated into the FD prediction.
+An example of this FD `flux matching' can be seen in \citefig{fig:dunePrismFluxMatch}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/dune_detector/dunePrismFluxMatch}
+  \caption[Example of DUNE-PRISM FD flux matching]{An example of the FD flux matching performed with the DUNE-PRISM technique, from~\cite{ndCdr}. The FD \numu flux is shown as a black line while the linear combination of ND off-axis fluxes is shown in blue.}
+  \label{fig:dunePrismFluxMatch}
 \end{figure}
 
 \subsection{SAND}
 \label{sec:dune:nd:sand}
+
+DUNE-PRISM will necessitate ND-LAr and ND-GAr spending a significant proportion of their running time away from the beam axis.
+In these off-axis positions, they will be insensitive to changes in the neutrino beam.
 
 \section{Beam}
 \label{sec:dune:beam}
