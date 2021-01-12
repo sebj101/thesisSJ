@@ -839,8 +839,60 @@ An example of this FD `flux matching' can be seen in \citefig{fig:dunePrismFluxM
 \subsection{SAND}
 \label{sec:dune:nd:sand}
 
-DUNE-PRISM will necessitate ND-LAr and ND-GAr spending a significant proportion of their running time away from the beam axis.
+DUNE-PRISM will necessitate ND-LAr and ND-GAr spending approximately $50\%$ of their running time away from the beam axis.
 In these off-axis positions, they will be insensitive to changes in the neutrino beam.
+Given that DUNE-PRISM relies on the well known relationship between off-axis angle and neutrino energy, it is important that the beam remains stable while off-axis data is collected.
+
+To this end, the DUNE ND must feature a detector which remains on axis (where sensitivity to changes in the beam is at its maximum) which can rapidly detect changes in the beam.
+It must also measure the changes as a function of a neutrino energy rather than just as an interaction rate.
+The detector that fulfills this role is SAND.
+
+Furthermore, SAND will feature a non-Argon target material.
+This will allow interactions on multiple different nuclei with the same neutrino flux to be measured.
+This may help to constrain systematic uncertainties arising from the neutrino interaction model.
+
+A cut-away diagram of the reference design of SAND is shown in \citefig{fig:sandDiag}.
+In this configuration, the primary target is a 3D scintillator tracker (3DST).
+Exterior to this higher density tracker are a number of low density tracking chambers, the purpose of which is to measure the charge and momentum of outgoing particles.
+There are multiple designs for these chambers: they may be TPCs, straw tube trackers (STTs) or a mixture of the two.
+Exterior to the target and tracking system is the superconducting magnet and ECAL from the KLOE experiment~\cite{kloeEcal}.
+This magnet produces a field of \SI{0.6}{\tesla}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.55\linewidth]{files/figures/dune_detector/sandDiag}
+  \caption[Cut-away diagram of SAND]{Cut-away diagram of SAND from~\cite{ndCdr} showing the various components. The central 3DST is shown in light green, the low-density tracker is shown in magneta, the ECAL is shown in green, the magnet coil is shown in gold and the return yoke is shown in grey.}
+  \label{fig:sandDiag}
+\end{figure}
+
+The 3DST is an active target made up on numerous $\SI{1}{\cm} \times \SI{1}{\cm} \times \SI{1}{\cm}$ plastic scintillator cubes which are each read out via three orthogonal wavelength-shifting fibres.
+A diagram of 8 of these cubes together with the fibres are shown in \citefig{fig:3dst}.
+The complete 3DST will contain \num{10.3d6} scintillator cubes giving a total active mass of \SI{11.8}{\tonne}.
+These 3-dimensional signals allow neutrino interaction vertices to be precisely and accurately reconstructed to check for any movement of the beam centre.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.55\linewidth]{files/figures/dune_detector/3dst}
+  \caption[Assembly of 8 cubes as used in the 3DST]{An assembly of 8 plastic cubes together with wavelength shifting fibres as used in the 3DST. Taken from~\cite{ndCdr}.}
+  \label{fig:3dst}
+\end{figure}
+
+The low density trackers exist to reconstruct those charged particles that escape the 3DST (for example, muons produced in neutrino interactions.
+The curvature of these tracks in the magnetic field can be then be used to reconstruct the particle momentum, and with the correct particle identification, the particle's energy.
+
+The KLOE ECAL is made up of alternating layers of \SI{0.5}{\mm} lead foil and \SI{1}{\mm} diameter scintillating fibres arranged into modules.
+These modules are arrange into a cylindrical barrel and two endcaps.
+A picture of the KLOE ECAL is shown in \citefig{fig:kloeEcal} with the endcap and barrel modules outlined. 
+The barrel is \SI{4.3}{\metre} long with a thickness of \SI{23}{\cm}, while the endcaps have a diameter of \SI{3.9}{\metre} and a thickness of \SI{23}{\cm}.
+The total weight of the ECAL is approximately \SI{100}{\tonne}.
+The KLOE superconducting magnet measures \SI{4.8}{\metre} in diameter and \SI{4.3}{\metre} in length and generates a field of \SI{0.6}{\tesla}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.6\linewidth]{files/figures/dune_detector/kloeEcal}
+  \caption[Image of the KLOE ECAL]{Image of the KLOE calorimeter from~\cite{ndCdr}. An endcap and a barrel module are outlined.}
+  \label{fig:kloeEcal}
+\end{figure}
 
 \section{Beam}
 \label{sec:dune:beam}
@@ -909,4 +961,23 @@ The importance of this property is stressed in \citesec{sec:dune:overview}.
   \caption[Neutrino fluxes at the DUNE far detector.]{Neutrino fluxes at the DUNE far detector from~\cite{tdrVol2}. The flux for neutrino mode is shown on the left while the flux for antineutrino mode is shown on the right.}
   \label{fig:fdFlux}
 \end{figure}
+
+\subsection{Beam flux uncertainties}
+\label{sec:dune:beam:uncertainties}
+
+Uncertainties in the neutrino beam flux primarily arise from two sources: uncertainties in the production of hadrons by protons striking the beam target and uncertainties in the design parameters of the beam such as the horn currents or positioning (commonly referred to as the ``focussing uncertainties''.
+
+The focussing uncertainties are evaluated by varying the beamline parameters within their tolerances and observing the resulting changes in the neutrino fluxes.
+Hadron production uncertainties are estimated using uncertainties from thin target data experiments such as NA49~\cite{na49} with large uncertainties assigned to those interactions that are not covered by data.
+
+\citefig{fig:fluxUncertainties} shows these uncertainties as a function of neutrino energy for the \numu and \anumu fluxes in both neutrino and antineutrino mode.
+One can see that, at nearly all energies, hadron production uncertainties are larger than focussing uncertainties.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/dune_detector/fluxUncertainties}
+  \caption[Far detector flux uncertainties for \numu and \anumu]{Far detector \numu and \anumu flux uncertainties as a function of neutrino energy, from~\cite{tdrVol2}. The uncertainties are separated into those resulting from hadron production and those resulting from the focussing uncertainties.}
+  \label{fig:fluxUncertainties}
+\end{figure}
+
 
