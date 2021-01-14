@@ -510,10 +510,11 @@ The photon detection system will convert incident \SI{127}{\nano\metre} photons 
 
 \subsubsection{Dual-phase}
 \label{sec:dune:fd:modules:dualphase}
-As mentioned previously, the main advantages of the dual-phase TPC design versus the single-phase design are the increased signal-to-noise ratio and the larger drift length, resulting in a reduction in dead material.
+As mentioned previously, the main advantage of the dual-phase TPC design versus the single-phase design is the increased signal-to-noise ratio.
+This allows improvements such as a larger drift length, resulting in a reduction in dead material.
 Additionally, the fact that the dual-phase module comprises only a single drift volume means that fewer readout channels are required than for an equivalent single phase module (\num{153600} for a dual-phase module versus \num{384000} for a single-phase module~\cite{idrVol3}).
 
-Similarly, to the single-phase module, the dual-phase module also features a modular design for the readout.
+Similar to the single-phase module, the dual-phase module also features a modular design for the readout.
 The basic unit of the extraction and readout unit is known as a charge readout plane (CRP).
 Each of these CRPs contains the extraction grid, LEM and anode sandwiched together (see \citesec{sec:dune:fd:lartpc:dualphase} for more information on the operating principles of dual-phase LArTPCs and \citefig{fig:dualPhaseVoltage} for the voltages that the various parts of the CRP are held at).
 Each of these CRPs can be individually raised or lowered such that the extraction grid is just below the surface of the liquid.
@@ -526,7 +527,7 @@ Basic parameters of the dual-phase module are listed in \citetab{tab:dpStats}.
 Here one can note, the increased drift length of the dual-phase modules but also the very high design voltage required.
 
 \begin{table}
-  \caption[Basic parameters for a DUNE dual-phase module.]]{Basic parameters for a DUNE dual-phase module from~\cite{idrVol3}.}
+  \caption[Basic parameters for a DUNE dual-phase module.]{Basic parameters for a DUNE dual-phase module from~\cite{idrVol3}.}
   \label{tab:dpStats}
   \centering
   \begin{tabular}{c c}
@@ -567,10 +568,33 @@ The detector will be located \SI{575}{\metre} downsteam of the neutrino beam sou
 This near detector will serve several important functions in any neutrino oscillation analysis.
 
 At the most basic level, this detector must have the ability to predict the neutrino spectrum as a function of energy at the far detector.
-In order to this, the detector must be able to accurately constrain the neutrino flux and the neutrino interaction model.
-Additionally, the detector must be able to sample a variety of different neutrino fluxes using the DUNE-PRISM system.
-While doing this, it must retain the ability to monitor any changes in the beam conditions.
-These requirements are shown in \citetab{tab:ndReqs}.
+Its ability to do this hinges on several factors.
+
+In order to measure the \dcp, a neutrino experiment must accurately measure (amongst others) the probability of a muon neutrino oscillating into an electron neutrino, $P_{\numu\rightarrow\nue} (E_{\nu})$, where
+\begin{equation}
+  P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }\, ,
+\end{equation}
+where $F_{\text{far/near}}(E_{\nu})$ is the ratio of neutrino fluxes between near and far detectors.
+The number of events per energy spectrum (as is measured in an experiment) can be expressed for an ideal detector as
+\begin{equation}
+  \frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, ,
+\end{equation}
+where $\sigma^{\text{Ar}}_{\nul}$ is the interaction cross-section for a neutrino of flavour $l$ on argon.
+
+However, for a non-ideal detector where true and reconstructed energy, $E_{\text{rec}}$, are not necessarily the same, we have instead
+\begin{equation}
+  \frac{ dN_{\nul} }{ dE_{\text{rec}} } = \int \phi_{\nul}(E_{\nu}) \times \sigma_{\nul}^{\text{Ar}} (E_{\nu}) \times T_{\nul}(E_{\nu},E_{\text{rec}}) dE_{\nu} \, ,
+\end{equation}
+where $T_{\nul}$ is the matrix linking true and reconstructed neutrino energy in a given detector.
+
+Therefore, one can see that the measured appearance signal can be expressed as
+\begin{equation}
+  \frac{ dN_{\nue}^{\text{far}}/dE_{\text{rec}} }{ dN_{\numu}^{\text{near}}/dE_{\text{rec}} } =
+  \frac{ \int P_{\numu\rightarrow\nue} (E_{\nu}) \cdot \phi_{\numu}^{\text{near}}(E_{\nu}) \cdot F_{\text{far/near}}(E_{\nu}) \cdot \sigma^{\text{Ar}}_{\nue}(E_{\nu}) \cdot T_{\nue}^{\text{far}}(E_{\nu}, E_{\text{rec}}) dE_{\nu} }{ \int \phi_{\numu}^{\text{near}}(E_{\nu}) \cdot \sigma^{\text{Ar}}_{\numu}(E_{\nu}) \cdot T_{\nue}^{\text{near}}(E_{\numu}, E_{\text{rec}}) dE_{\nu} }
+\end{equation}
+and thus $P_{\numu\rightarrow\nue} (E_{\nu})$ cannot be easily extracted by taking the ratio of two spectra.
+Instead, the neutrino fluxes, neutrino cross-sections and detector effects must be constrained.
+The overarching requirements of DUNE's near detector are shown in \citetab{tab:ndReqs}.
 
 \begin{table}
   \caption[Overarching requirements for the DUNE ND]{Overarching requirements for the DUNE ND from~\cite{ndCdr}. Requirements ND-O1 -- ND-O6 are required in order to fulfill ND-O0.}
@@ -593,23 +617,6 @@ These requirements are shown in \citetab{tab:ndReqs}.
   \end{tabular}
 \end{table}
 
-%In the most na\"ive case we can measure the electron neutrino appearance probability via
-%\begin{equation}
-%  P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }
-%\end{equation}
-%where each $\phi$ represents a neutrino flux at a given detector and $F_{\text{far/near}}$ is the ratio of neutrino fluxes at the near and far detectors and $E_{\nu}$ is the true neutrino energy.
-%In an ideal detector, the number of detected events at a given detector per unit energy can be expressed as
-%\begin{equation}
-%\frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, .
-%\end{equation}
-%However, in reality detectors are not ideal (namely, the reconstructed neutrino energy does not correspond exactly to the true neutrino energy.
-%Therefore, we instead find that
-%\begin{equation}
-%  \frac{ dN_{\nul} }{ dE_{\text{rec}} } = \int \phi_{\nul}(E_{\nu}) \times \sigma_{\nul}^{\text{Ar}} (E_{\nu}) \times T_{\nul}(E_{\nu},E_{\text{rec}}) dE_{\nu}
-%\end{equation}
-%where $T_{\nul}$ is the matrix linking true and reconstructed neutrino energy in a given detector.
-%It is worth noting that $T_{\nul}$ is not diagonal.
-
 \citefig{fig:ndDiag} shows the DUNE near detector situated in the detector hall.
 In this diagram the neutrino beam enters from the right of the diagram.
 Initially, the beam impinges on ND-LAr, a segmented LArTPC. This component is discussed further in \citesec{sec:dune:nd:lar}.
@@ -619,7 +626,7 @@ Both ND-GAr and ND-LAr will move to off-axis positions in order to sample differ
 This concept is known as DUNE Precision Reaction-Independent Spectrum Measurement (DUNE-PRISM) and is detailed further in \citesec{sec:dune:nd:prism}.
 
 Finally, the beam strikes the System for on-Axis Neutrino Detection (SAND).
-SAND consists of the magnetised non-argon target and is primarily for beam monitoring.
+SAND consists of a magnetised non-argon target and is primarily for beam monitoring.
 This component is discussed further in \citesec{sec:dune:nd:sand}.
 
 \begin{figure}[h]
@@ -636,7 +643,7 @@ It is therefore important to collect a sample of neutrino interactions at the ne
 
 However, due to the intense power of the beam, it is not feasible to use the same technology used in the far detector modules.
 This intense beam (and the DUNE near detector's proximity to it) means that ND-LAr will observe \order{50} neutrino interactions in every \SI{10}{\micro\second} beam spill.
-This equates to a neutrino interaction once every \SI{200}{\nano\second} in the spill which is much short than the \SI{3}{\milli\second} maximum drift time in the single phase far detector modules.
+This equates to a neutrino interaction once every \SI{200}{\nano\second} in the spill, which is much short than the \SI{3}{\milli\second} maximum drift time in the single phase far detector modules.
 This large pile-up of events could lead to ambiguities in the charge readout of a monolithic detector, making reconstruction difficult.
 
 To counter this, ND-LAr features 35 LArTPC modules which all sit within the same cryostat.
@@ -675,7 +682,7 @@ A cut-away diagram of ND-GAr is shown in \citefig{fig:ndGarDiag} where the main 
 At the centre of the detector is pressure vessel within which a high pressure gas time projection chamber (HPgTPC) is located.
 This time projection chamber measure \SI{5.2}{\metre} in diameter and consists of two cylindrical drift volumes, each of \SI{2.5}{\metre}.
 The pressure vessel itself is expected to be $\sim\SI{6}{\metre}$ in diameter and \SI{6}{\metre} long. 
-Exterior to this TPC an electromagnetic calorimeter (ECAL) surrounds the HPgTPC.
+Exterior to this TPC, an electromagnetic calorimeter (ECAL) surrounds the HPgTPC.
 The primary purpose of the ECAL is to reconstruct photons produced in neutrino interactions.
 Of particular interest are photons produced by the decay of \pizero, since these are a background to the identification of \nue and \anue.
 The whole apparatus sits within a \SI{0.5}{\tesla} magnetic field running along the axis of the pressure vessel.
@@ -689,7 +696,7 @@ The whole apparatus sits within a \SI{0.5}{\tesla} magnetic field running along 
 
 The need for this detector is shown in \citefig{fig:muonKinematics} and \citefig{fig:muonAccND}.
 One can see from \citefig{fig:muonKinematics} that the majority of muons have energies greater than \SI{1}{\giga\electronvolt}.
-However, \citefig{fig:muonAccND}, left shows that the acceptance for these muons with kinetic energies $>\SI{1}{\giga\electronvolt}$ is very low.
+However, \citefig{fig:muonAccND}, left, shows that the acceptance for these muons with kinetic energies $>\SI{1}{\giga\electronvolt}$ is very low.
 Only those muons produced at high angle to the neutrino beam are sometimes contained within ND-LAr.
 
 \citefig{fig:muonAccND}, right shows that the muon acceptance is greatly improved with the addition of ND-GAr.
@@ -770,7 +777,7 @@ The scintillator is read out by SiPMs.
 
 The ECAL will serve several purposes.
 Firstly it will reconstruct photons originating from neutrino decays.
-In the case of those produced by \pizero decays, these represent a background the measurement of \nue and \anue if one photon is not reconstructed.
+In the case of those produced by \pizero decays, these represent a background to the measurement of \nue and \anue interactions if one photon is not reconstructed.
 Additionally, the ECAL will provide an accurate time for tracks entering the HPgTPC, thus allowing the correct drift time for these particles to be calculated.
 Finally, it will provide a method of particle identification for high energy protons and pions ($p > \SI{1.5}{\giga\electronvolt\per\clight}$) where the track $dE/dx$ is not a useful discriminator.
 In these cases, the ECAL will provide a measurement of $E/p$ for a particle, potentially allowing particle identification.
@@ -879,11 +886,11 @@ These 3-dimensional signals allow neutrino interaction vertices to be precisely 
   \label{fig:3dst}
 \end{figure}
 
-The low density trackers exist to reconstruct those charged particles that escape the 3DST (for example, muons produced in neutrino interactions.
+The low density trackers exist to reconstruct those charged particles that escape the 3DST (for example, muons produced in neutrino interactions).
 The curvature of these tracks in the magnetic field can be then be used to reconstruct the particle momentum, and with the correct particle identification, the particle's energy.
 
 The KLOE ECAL is made up of alternating layers of \SI{0.5}{\mm} lead foil and \SI{1}{\mm} diameter scintillating fibres arranged into modules.
-These modules are arrange into a cylindrical barrel and two endcaps.
+These modules are arranged into a cylindrical barrel and two endcaps.
 A picture of the KLOE ECAL is shown in \citefig{fig:kloeEcal} with the endcap and barrel modules outlined. 
 The barrel is \SI{4.3}{\metre} long with a thickness of \SI{23}{\cm}, while the endcaps have a diameter of \SI{3.9}{\metre} and a thickness of \SI{23}{\cm}.
 The total weight of the ECAL is approximately \SI{100}{\tonne}.
