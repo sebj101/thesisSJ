@@ -1,5 +1,55 @@
 \chapter{Characterisation of the downstream time of flight system}
 \label{ch:hptpc_dtof_characterisation}
 
-% This just dumps some pseudolatin in so you can see some text in place.
-\blindtext
+The time taken by a particle to traverse a distance $L$ is given by
+\begin{equation}
+  t = L \sqrt{ \frac{m^{2}}{p^{2}} + \frac{1}{c^{2}} } \, ,
+\end{equation}
+where $m$ is the mass of the particle, $p$ is the particle momentum and $c$ is the speed of light in a vacuum.
+
+\citesec{ch:hptpc_dtof_characterisation:dtof} describes the DToF while \citesec{ch:hptpc_dtof_characterisation:characterisation} describes the characterisation of the PMTs and bars.
+
+\section{The downstream time of flight system (DToF)}
+\label{ch:hptpc_dtof_characterisation:dtof}
+
+The DToF consists of 10 bars made up of Nuvia NuDET plastic scintillator which has a wavelength of maximum emission of \SI{425}{\milli\metre} and a decay time constant of \SI{2.5}{\nano\second}~\cite{nuvia}.
+Each one of these bars measures $\SI{10}{\centi\metre} \times \SI{1}{\centi\metre} \times \SI{140}{\centi\metre}$.
+A diagram of one such bar is shown in \citefig{fig:barDiag}.
+The curved cutouts at either end of the bar each accomodate a 5'' Hamamatsu Photonics R6594 PMT~\cite{hamamatsu}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/hptpc_dtof_characterisation/barDiag}
+  \caption[HPTPC DToF bar diagram]{Computer generated drawing of one of the scintillator bars from two views.}
+  \label{fig:barDiag}
+\end{figure}
+
+The bars and PMTs are arranged in two rows of five bars to ensure complete coverage for any particles paimpinging on the detector.
+This gives the DToF a total active area of $\SI{1.40}{\metre} \times \SI{0.78}{\metre}$.
+\citefig{fig:dtofDiag} shows a diagram of the DToF system along with various dimensions of sections of the detector.
+Each of the bars is wrapped individually in a reflective milar sheet in order to maximise the light yield as well as keeping external light out of the bar.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.5\linewidth]{files/figures/hptpc_dtof_characterisation/dstofFront}
+  \caption[Diagram of the HPTPC DToF]{Diagram of the DToF along with measurements.}
+  \label{fig:dtofDiag}
+\end{figure}
+
+Each of the PMTs is attached to the scintillator bar via 3D-printed support which is glued to the bar.
+A layer of optical grease is applied to the end of the scintillator bar where it meets the PMT.
+This ensures good optical coupling between the PMT and scintillator bar and minimises light loss.
+
+The vertical position of a particle striking the DToF can be measured by observing in which bar a signal is observed.
+The horizontal position of the same particle can be inferred by measuring the time difference between signals being observed in PMTs at opposite ends of the same bar.
+
+However, in order to effectively convert this time measurement to one of position, two factors must be measured.
+Firstly, the relationship between the time difference in signals being observed in PMTs and the position of a particle along the bar must be measured.
+Secondly, the time (and therefore position) resolution must be measured.
+
+\section{Characterisation of the bars}
+\label{ch:hptpc_dtof_characterisation:characterisation}
+
+
+
+
