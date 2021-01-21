@@ -24,7 +24,7 @@ The curved cutouts at either end of the bar each accomodate a 5'' Hamamatsu Phot
   \label{fig:barDiag}
 \end{figure}
 
-The bars and PMTs are arranged in two rows of five bars to ensure complete coverage for any particles paimpinging on the detector.
+The bars and PMTs are arranged in two rows of five bars to ensure complete coverage for any particles impinging on the detector.
 This gives the DToF a total active area of $\SI{1.40}{\metre} \times \SI{0.78}{\metre}$.
 \citefig{fig:dtofDiag} shows a diagram of the DToF system along with various dimensions of sections of the detector.
 Each of the bars is wrapped individually in a reflective milar sheet in order to maximise the light yield as well as keeping external light out of the bar.
@@ -46,9 +46,50 @@ The horizontal position of the same particle can be inferred by measuring the ti
 However, in order to effectively convert this time measurement to one of position, two factors must be measured.
 Firstly, the relationship between the time difference in signals being observed in PMTs and the position of a particle along the bar must be measured.
 Secondly, the time (and therefore position) resolution must be measured.
+The procedure and results of these measurements are discussed in \citesec{ch:hptpc_dtof_characterisation:characterisation}.
 
 \section{Characterisation of the bars}
 \label{ch:hptpc_dtof_characterisation:characterisation}
+
+\subsection{PMT characterisation}
+\label{ch:hptpc_dtof_characterisation:characterisation:pmt}
+
+Prior to testing the bars with the PMTs attached, the gains of each PMT are measured.
+This is done in order to determine where to place each PMT within the detector.
+A PMT with a higher gain will have a higher light collection efficiency and so will be more likely to deetect light from a given charged particle.
+These higher gain PMTs are attached to the bars upon which the beam centre impinges and so will observe the highest flux of particles.
+
+The gain of a PMT can be expressed as
+\begin{equation}
+  G = \frac{N_{\text{SE}}}{N_{\text{PE}}} \, ,
+\end{equation}
+where $N_{\text{SE}}$ is the number of output signal electrons and $N_{\text{PE}}$ is the number of photoelectrons liberated from the photocathode.
+This gain measurement is performed by pulsing an LED lamp directly into the photocathode of each PMT with the same voltage used for each LED pulse.
+The output waveform produced by the PMT is then read by an oscilloscope.
+
+$N_{\text{SE}}$ can be determined from the output PMT waveform in the following manner.
+This waveform is in voltage units and can be converted to current by dividing by the resistance of the oscilloscope.
+The relationship between charge, $Q$, and current, $I$, is given by
+\begin{equation}
+  Q = \int I(t) \, dt
+\end{equation}
+where $Q$ is in coulombs, $I$ is amperes and $t$ is in seconds.
+Therefore, $N_{\text{SE}}$ can be expressed as
+\begin{equation}
+  N_{\text{SE}} = \frac{1}{R q_{e}} \int V(t) \, dt
+\end{equation}
+where $q_{e}$ the elementary charge.
+This process is then repeated a number of times.
+An example of the gaussian distribution produced is shown in \citefig{fig:N_se}
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize={\textwidth}, center}
+    \input{files/figures/hptpc_dtof_characterisation/n_se.tex}
+  \end{adjustbox}
+  \caption[Signal electron distribution for a PMT]{Signal electron distribution for a PMT with a gaussian fitted (red).}
+  \label{fig:N_se}
+\end{figure}
+
 
 
 
