@@ -78,19 +78,42 @@ Therefore, $N_{\text{SE}}$ can be expressed as
 \begin{equation}
   N_{\text{SE}} = \frac{1}{R q_{e}} \int V(t) \, dt
 \end{equation}
-where $q_{e}$ the elementary charge.
+where $q_{e}$ is the elementary charge.
 This process is then repeated a number of times.
-An example of the gaussian distribution produced is shown in \citefig{fig:N_se}
+An example of the gaussian distribution produced from a number of waveforms is shown in \citefig{fig:N_se}.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize={\textwidth}, center}
-    \input{files/figures/hptpc_dtof_characterisation/n_se.tex}
+    \input{files/figures/hptpc_dtof_characterisation/n_se}
   \end{adjustbox}
   \caption[Signal electron distribution for a PMT]{Signal electron distribution for a PMT with a gaussian fitted (red).}
   \label{fig:N_se}
 \end{figure}
 
+$N_{\text{PE}}$ can be estimated from the distributions such as the one shown in \citefig{fig:N_se}.
+The mean number of signal electrons produced by the PMT, $\mu_{\text{SE}}$, is proportional to the mean number of photoelectrons, $\mu_{\text{PE}}$.
+The standard deviation of the distribution of $N_{\text{SE}}$, $\sigma_{\text{SE}}$, is proportional to $\sqrt{N_{\text{PE}}}$~\cite{photoelectrons}.
+Therefore, the mean number of photoelectrons produced by the LED pulse can be estimated as
+\begin{equation}
+  N_{\text{PE}} = \left( \frac{ \mu_{\text{SE}} }{ \sigma_{\text{SE}} }  \right)^{2} \, .
+\end{equation}
+The gain of the PMT can then be estimated by taking $N_{\text{SE}} = \mu_{\text{SE}}$.
 
+This process is repeated at multiple different PMT voltages with the gain being measured at each point.
+An example of the relationship between voltage and gain is shown in \citefig{fig:gainEx}.
+In this figure a function of the form
+\begin{equation}
+  G = p_{0} V^{p_{1}}
+\end{equation}
+is fitted.
+Each PMT is tested to ensure that its gain obeyed this relationship.
 
-
+\begin{figure}[h]
+  \centering
+  \begin{adjustbox}{max totalsize={\textwidth}, center}
+    \input{files/figures/hptpc_dtof_characterisation/gainEx}
+  \end{adjustbox}
+  \caption[Example of relationship between PMT voltage and gain]{An example of the relationship between PMT voltage and gain. A curve of the form $p_{0} V^{p_{1}}$ is fitted and shown in red.}
+  \label{fig:gainEx}
+\end{figure}
 
