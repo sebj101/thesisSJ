@@ -78,12 +78,12 @@ Therefore, $N_{\text{SE}}$ can be expressed as
 \begin{equation}
   N_{\text{SE}} = \frac{1}{R q_{e}} \int V(t) \, dt
 \end{equation}
-where $q_{e}$ is the elementary charge.
+where $q_{e}$ is the elementary charge of the electron.
 This process is then repeated a number of times.
 An example of the gaussian distribution produced from a number of waveforms is shown in \citefig{fig:N_se}.
 
 \begin{figure}[h]
-  \begin{adjustbox}{max totalsize={\textwidth}, center}
+  \begin{adjustbox}{max totalsize={.8\textwidth}, center}
     \input{files/figures/hptpc_dtof_characterisation/n_se}
   \end{adjustbox}
   \caption[Signal electron distribution for a PMT]{Signal electron distribution for a PMT with a gaussian fitted (red).}
@@ -110,14 +110,14 @@ Each PMT is tested to ensure that its gain obeyed this relationship.
 
 \begin{figure}[h]
   \centering
-  \begin{adjustbox}{max totalsize={\textwidth}, center}
+  \begin{adjustbox}{max totalsize={.8\textwidth}, center}
     \input{files/figures/hptpc_dtof_characterisation/gainEx}
   \end{adjustbox}
   \caption[Example of relationship between PMT voltage and gain]{An example of the relationship between PMT voltage and gain. A curve of the form $p_{0} V^{p_{1}}$ is fitted and shown in red.}
   \label{fig:gainEx}
 \end{figure}
 
-\subsection{Bar timing resolution measurements}
+\subsection{Measurements of bar time and position resolution}
 \label{ch:hptpc_dtof_characterisation:characterisation:barRes}
 
 In order to measure the time and position resolution of the bars, the PMTs are attached to the bars as stated in \citesec{ch:hptpc_dtof_characterisation:dtof}.
@@ -125,3 +125,54 @@ Following this, the bars are placed into a light-tight box to ensure that the PM
 
 A $\text{Sr}^{90}$ source is the primary tool used to evaluate the time and position resolution of the bars.
 $\text{Sr}^{90}$ decays almost entirely via $\beta$-decay with an end-point of \SI{0.546}{\mega\electronvolt} to $\text{Y}^{90}$ which itself decays via $\beta$-decay with an end-point of \SI{2.28}{\mega\electronvolt}~\cite{strontium}.
+These decay electrons are minimum-ionising particles, which means they have a similar energy loss profile to the particles the DToF is exposed to in the T10 beamline.
+These electrons cause the bar to emit scintillation light which is recorded by the PMTs at either end of the bar.
+
+The $\text{Sr}^{90}$ source is placed at several measured points along the bar's long axis (\SI{16}{\cm}, \SI{32}{\cm}, \SI{48}{\cm} to the left and right of the bar centre).
+The voltage of each PMT is adjusted to normalise the size of the PMT signals such that, when a trigger of \SI{-15}{\milli\volt} is used, the average pulse minimum is \SI{-35}{\milli\volt}.
+At each of these positions, 1000 waveforms are captured from each PMT at three different trigger levels (\SI{-10}{\milli\volt}, \SI{-15}{\milli\volt} and \SI{-20}{\milli\volt}).
+
+The time difference between signal pulses is calculated by making a correlation graph of the two PMT pulses and finding the time of the maximum.
+This maximum is taken as the time difference between signals.
+This process is repeated for trigger and a distribution such as the one shown in \citefig{fig:deltaTEx} is created.
+A gaussian is then fitted to the distribution (shown in red in \citefig{fig:deltaTEx}).
+The difference in arrival times is taken to be equal to the mean of the gaussian while the time resolution is taken to be the standard deviation of the gaussian.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize={.8\textwidth}, center}
+    \input{files/figures/hptpc_dtof_characterisation/deltaTEx}
+  \end{adjustbox}
+  \caption[Example of difference in signal arrival times for a PMT]{Example of the difference in arrival times for a PMT. A $\text{Sr}^{90}$ source is held in a fixed position. A gaussian is fitted to the data points (shown in red).}
+  \label{fig:deltaTEx}
+\end{figure}
+
+By measuring the mean difference in arrival time as a function of the $\text{Sr}^{90}$ position it is possible to derive a relationship between the two.
+An example of such a distribution is shown in \citefig{fig:barTimeDiffRes}.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/hptpc_dtof_characterisation/barTimeDiff}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize={\textwidth}, center}
+      \input{files/figures/hptpc_dtof_characterisation/barRes}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Examples of bar time difference and time resolution as a function of source position]{Examples of bar time difference (left) and time resolution (right) as a function of $\text{Sr}^{90}$ source position for various trigger thresholds.}
+  \label{fig:barTimeDiffRes}
+\end{figure}
+
+
+One can derive two pieces of information from \citefig{fig:barTimeDiffRes}, left.
+Firstly, the relationship between the source position and signal arrival time appears to be linear.
+When a first order polynomial is fitted to the data points, one finds that the signal propagates down the bar at approximately \SI{7.5}{\cm\per\nano\second}.
+This was found to be constant for all bars.
+Secondly, the trigger threshold has no effect on the relationship between source position and signal arrival time difference.
+
+\citefig{fig:barTimeDiffRes}, right, shows that the time resolution remains roughly constant as a function of source position along the bar, with some slight variation depending on the trigger threshold used.
+Lower trigger thresholds appear to slightly degrade the timing resolution.
+Across all bars, the timing resolution is found to average \SI{0.9}{\nano\second}.
+When combined with the measurement of the bar signal propagation, this equates to a position resolution of \SI{7}{\cm}.
