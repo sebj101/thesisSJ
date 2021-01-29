@@ -1,5 +1,38 @@
 \chapter{Measurements of the CERN T10 beam flux}
 \label{ch:hptpc_beam_flux}
 
-% This just dumps some pseudolatin in so you can see some text in place.
-\blindtext
+As mentioned in \citesec{sec:theory:currentState}, one of the targets of the next generation of long baseline neutrino oscillation experiments is the measurement of \dcp.
+In order to make this measurement, systematic uncertainties will have to be significantly reduced.
+In the current generation of neutrino oscillation experiments, uncertainties relating to the neutrino-nucleus interaction model make up a large part of the overall systematic budget.
+For example, NOvA's most recent results assign systematic uncertainties from its interaction model of $3.2-5.8\%$ on its \nue and \anue signal rates~\cite{novaRecent}.
+The T2K experiment has reported systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where cross-section uncertainties are the largest part of this~\cite{t2kRecent}.
+
+Reducing these systematic uncertainties relies upon better modelling of neutrino-nucleus interactions.
+It is also important to have an accurate interaction model in order to infer the neutrino energy from the observed events.
+A illustrative diagram showcasing the dependence on the interaction model is shown in \citefig{fig:fsiDiag}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/fsiDiag}
+  \caption[Simplified diagram of nuclear effects in neutrino nucleus interactions]{Simplified diagram of nuclear effects in neutrino nucleus interactions for a hypothetical quasielastic \numu interaction. Taken from~\cite{nuisanceTalk}.}
+  \label{fig:fsiDiag}
+\end{figure}
+
+As \citefig{fig:fsiDiag} shows, in the simplest a neutrino nucleus interaction (in this case a CC quasi-elastic one) can be thought of as a neutrino interacting with a free nucleon.
+However, within a nucleus the nucleons are not static -- they have some initial momentum which will modify the kinematics of the outgoing particle.
+Additionally within a nucleus, additional effects can occur due to correlations between nucleons.
+Finally, as the outgoing particles propagate through the nucleus they can interact with other nucleons.
+These `final state interactions' (FSI) can modify both the outgoing particles and their kinematics.
+
+Given that in a detector only the outgoing particles can be observed, we are reliant on neutrino interaction models of the initial nuclear state, nuclear effects and FSI in order to correctly reconstruct the neutrino energy.
+For example, at the DUNE experiment the primary neutrino interaction type is resonant single pion production, caused by the interaction of a neutrino with a nucleon within an argon nucleus.
+This can be represented for muon neutrinos as
+\begin{align}
+  \numu + p &\rightarrow \muminus + \Delta^{++} \rightarrow \muminus + p + \piplus \\
+  \numu + n &\rightarrow \muminus + \Delta^{+} \rightarrow \muminus + n + \piplus \\
+  \numu + n &\rightarrow \muminus + \Delta^{+} \rightarrow \muminus + p + \pizero \, .
+\end{align}
+However, the pions emitted in this process can interact with other nucleons as they progress through the nucleus, leading to their absorption.
+If this occurs, the outgoing pion will not be detected and the reconstructed hadronic energy will be biased by the mass of the pion.
+
+
