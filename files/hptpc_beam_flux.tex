@@ -18,7 +18,7 @@ A illustrative diagram showcasing the dependence on the interaction model is sho
   \label{fig:fsiDiag}
 \end{figure}
 
-As \citefig{fig:fsiDiag} shows, in the simplest a neutrino nucleus interaction (in this case a CC quasi-elastic one) can be thought of as a neutrino interacting with a free nucleon.
+As \citefig{fig:fsiDiag} shows, in the simplest case a neutrino nucleus interaction (in this case a CC quasi-elastic one) can be thought of as a neutrino interacting with a free nucleon.
 However, within a nucleus the nucleons are not static -- they have some initial momentum which will modify the kinematics of the outgoing particle.
 Additionally within a nucleus, additional effects can occur due to correlations between nucleons.
 Finally, as the outgoing particles propagate through the nucleus they can interact with other nucleons.
@@ -32,7 +32,31 @@ This can be represented for muon neutrinos as
   \numu + n &\rightarrow \muminus + \Delta^{+} \rightarrow \muminus + n + \piplus \\
   \numu + n &\rightarrow \muminus + \Delta^{+} \rightarrow \muminus + p + \pizero \, .
 \end{align}
+
 However, the pions emitted in this process can interact with other nucleons as they progress through the nucleus, leading to their absorption.
 If this occurs, the outgoing pion will not be detected and the reconstructed hadronic energy will be biased by the mass of the pion.
+
+Models of final state interactions are not consistent between different neutrino interaction generators.
+Of the most commonly used neutrino interaction generators, GENIE~\cite{genie}, NuWro~\cite{nuwro} and NEUT~\cite{neut} all model FSI using intranuclear cascade models tuned on external hadron-nucleus scattering data.
+The generator GiBUU~\cite{gibuu} meanwhile, solves the semi-classical Boltzmann-Uehling-Uhlenbeck equation in order to simulate FSI.
+
+However, proton-nucleus scattering measurements are either sparse or non-existent in the energy region of interest or on the desired nucleus.
+This is shown in \citefig{fig:protonNucleus} which compares data with a semi-empirical model.
+One can see that, for several of the displayed nuclei, large energy regions have no measurements.
+This lack of data leads to different parametrisations being used by different neutrino interaction generators.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/hptpc_beam_flux/DataProtonCrossSections}
+  \caption[Proton-nucleus cross-section data compared with a semi-empirical model]{Total reaction cross-sections for protons on a variety of nuclei. The points represent data from~\cite{protonXSecData} while the curves are a semi-empirical model~\cite{protonXSecModel}. Figure from~\cite{hptpcProposal}.}
+  \label{fig:protonNucleus}
+\end{figure}
+
+\citefig{fig:generatorProtons} shows that these differing parametrisations can lead to discrepant final state kinematics between the generators, particularly at low proton energies.
+\citefig{fig:generatorProtons} also shows that much of the discrepancy lies below the proton track production threshold in liquid argon.
+Mismodelling of these nuclear effects can lead to significant biases in the measurement of neutrino oscillation parameters~\cite{nuclearMismodelOsc}, an undesirable outcome for future long baseline experiments.
+
+High pressure gas TPCs (HPgTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy.
+
 
 
