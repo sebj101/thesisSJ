@@ -1,0 +1,440 @@
+\begin{tikzpicture}
+\pgfdeclareplotmark{cross} {
+\pgfpathmoveto{\pgfpoint{-0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqstroke
+}
+\pgfdeclareplotmark{cross*} {
+\pgfpathmoveto{\pgfpoint{-0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+1\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{+0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-1.\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{-0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-1.\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathlineto{\pgfpoint{-0.3\pgfplotmarksize}{0.3\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqfillstroke
+}
+\pgfdeclareplotmark{newstar} {
+\pgfpathmoveto{\pgfqpoint{0pt}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{44}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{18}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-20}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-54}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-90}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{234}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{198}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{162}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{134}{0.5\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqstroke
+}
+\pgfdeclareplotmark{newstar*} {
+\pgfpathmoveto{\pgfqpoint{0pt}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{44}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{18}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-20}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-54}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{-90}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{234}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{198}{0.5\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{162}{\pgfplotmarksize}}
+\pgfpathlineto{\pgfqpointpolar{134}{0.5\pgfplotmarksize}}
+\pgfpathclose
+\pgfusepathqfillstroke
+}
+\definecolor{c}{rgb}{1,1,1};
+\draw [color=c, fill=c] (0,0) rectangle (20,13.4957);
+\draw [color=c, fill=c] (3,1.75444) rectangle (18,12.1461);
+\definecolor{c}{rgb}{0,0,0};
+\draw [c,line width=0.9] (3,1.75444) -- (3,12.1461) -- (18,12.1461) -- (18,1.75444) -- (3,1.75444);
+\definecolor{c}{rgb}{1,1,1};
+\draw [color=c, fill=c] (3,1.75444) rectangle (18,12.1461);
+\definecolor{c}{rgb}{0,0,0};
+\draw [c,line width=0.9] (3,1.75444) -- (3,12.1461) -- (18,12.1461) -- (18,1.75444) -- (3,1.75444);
+\draw [c,line width=1.8] (3.11538,1.75444) -- (3.11538,1.75887);
+\draw [c,line width=1.8] (3.11538,1.75887) -- (3.11538,1.7633);
+\foreach \P in {(3.11538,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (3.34615,1.75704) -- (3.34615,1.7633);
+\draw [c,line width=1.8] (3.34615,1.7633) -- (3.34615,1.76957);
+\foreach \P in {(3.34615,1.7633)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (3.57692,1.76006) -- (3.57692,1.76773);
+\draw [c,line width=1.8] (3.57692,1.76773) -- (3.57692,1.77541);
+\foreach \P in {(3.57692,1.76773)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (3.80769,1.75444) -- (3.80769,1.75887);
+\draw [c,line width=1.8] (3.80769,1.75887) -- (3.80769,1.7633);
+\foreach \P in {(3.80769,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (4.03846,1.77735) -- (4.03846,1.78989);
+\draw [c,line width=1.8] (4.03846,1.78989) -- (4.03846,1.80242);
+\foreach \P in {(4.03846,1.78989)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (4.26923,1.7633) -- (4.26923,1.77216);
+\draw [c,line width=1.8] (4.26923,1.77216) -- (4.26923,1.78102);
+\foreach \P in {(4.26923,1.77216)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (4.5,1.7633) -- (4.5,1.77216);
+\draw [c,line width=1.8] (4.5,1.77216) -- (4.5,1.78102);
+\foreach \P in {(4.5,1.77216)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (4.73077,1.76006) -- (4.73077,1.76773);
+\draw [c,line width=1.8] (4.73077,1.76773) -- (4.73077,1.77541);
+\foreach \P in {(4.73077,1.76773)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (4.96154,1.75704) -- (4.96154,1.7633);
+\draw [c,line width=1.8] (4.96154,1.7633) -- (4.96154,1.76957);
+\foreach \P in {(4.96154,1.7633)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (5.19231,1.7633) -- (5.19231,1.77216);
+\draw [c,line width=1.8] (5.19231,1.77216) -- (5.19231,1.78102);
+\foreach \P in {(5.19231,1.77216)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (5.42308,1.76006) -- (5.42308,1.76773);
+\draw [c,line width=1.8] (5.42308,1.76773) -- (5.42308,1.77541);
+\foreach \P in {(5.42308,1.76773)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (5.65385,1.75704) -- (5.65385,1.7633);
+\draw [c,line width=1.8] (5.65385,1.7633) -- (5.65385,1.76957);
+\foreach \P in {(5.65385,1.7633)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (5.88462,1.76006) -- (5.88462,1.76773);
+\draw [c,line width=1.8] (5.88462,1.76773) -- (5.88462,1.77541);
+\foreach \P in {(5.88462,1.76773)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (6.11538,1.76006) -- (6.11538,1.76773);
+\draw [c,line width=1.8] (6.11538,1.76773) -- (6.11538,1.77541);
+\foreach \P in {(6.11538,1.76773)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (6.34615,1.77017) -- (6.34615,1.78102);
+\draw [c,line width=1.8] (6.34615,1.78102) -- (6.34615,1.79188);
+\foreach \P in {(6.34615,1.78102)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (6.57692,1.75704) -- (6.57692,1.7633);
+\draw [c,line width=1.8] (6.57692,1.7633) -- (6.57692,1.76957);
+\foreach \P in {(6.57692,1.7633)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (6.80769,1.75444) -- (6.80769,1.75887);
+\draw [c,line width=1.8] (6.80769,1.75887) -- (6.80769,1.7633);
+\foreach \P in {(6.80769,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (7.03846,1.75444) -- (7.03846,1.75887);
+\draw [c,line width=1.8] (7.03846,1.75887) -- (7.03846,1.7633);
+\foreach \P in {(7.03846,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (7.26923,1.75444) -- (7.26923,1.75887);
+\draw [c,line width=1.8] (7.26923,1.75887) -- (7.26923,1.7633);
+\foreach \P in {(7.26923,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (7.5,1.76669) -- (7.5,1.77659);
+\draw [c,line width=1.8] (7.5,1.77659) -- (7.5,1.7865);
+\foreach \P in {(7.5,1.77659)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (7.73077,1.75444) -- (7.73077,1.75887);
+\draw [c,line width=1.8] (7.73077,1.75887) -- (7.73077,1.7633);
+\foreach \P in {(7.73077,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (7.96154,1.75444) -- (7.96154,1.75887);
+\draw [c,line width=1.8] (7.96154,1.75887) -- (7.96154,1.7633);
+\foreach \P in {(7.96154,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (8.19231,1.76669) -- (8.19231,1.77659);
+\draw [c,line width=1.8] (8.19231,1.77659) -- (8.19231,1.7865);
+\foreach \P in {(8.19231,1.77659)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (8.42308,1.7633) -- (8.42308,1.77216);
+\draw [c,line width=1.8] (8.42308,1.77216) -- (8.42308,1.78102);
+\foreach \P in {(8.42308,1.77216)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (8.65385,1.76669) -- (8.65385,1.77659);
+\draw [c,line width=1.8] (8.65385,1.77659) -- (8.65385,1.7865);
+\foreach \P in {(8.65385,1.77659)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (8.88462,1.75704) -- (8.88462,1.7633);
+\draw [c,line width=1.8] (8.88462,1.7633) -- (8.88462,1.76957);
+\foreach \P in {(8.88462,1.7633)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (9.11539,1.76669) -- (9.11539,1.77659);
+\draw [c,line width=1.8] (9.11539,1.77659) -- (9.11539,1.7865);
+\foreach \P in {(9.11539,1.77659)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (9.34615,1.75704) -- (9.34615,1.7633);
+\draw [c,line width=1.8] (9.34615,1.7633) -- (9.34615,1.76957);
+\foreach \P in {(9.34615,1.7633)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (9.57692,1.76669) -- (9.57692,1.77659);
+\draw [c,line width=1.8] (9.57692,1.77659) -- (9.57692,1.7865);
+\foreach \P in {(9.57692,1.77659)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (9.80769,1.75444) -- (9.80769,1.75887);
+\draw [c,line width=1.8] (9.80769,1.75887) -- (9.80769,1.7633);
+\foreach \P in {(9.80769,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (10.0385,1.76669) -- (10.0385,1.77659);
+\draw [c,line width=1.8] (10.0385,1.77659) -- (10.0385,1.7865);
+\foreach \P in {(10.0385,1.77659)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (10.2692,1.77373) -- (10.2692,1.78546);
+\draw [c,line width=1.8] (10.2692,1.78546) -- (10.2692,1.79718);
+\foreach \P in {(10.2692,1.78546)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (10.5,1.77017) -- (10.5,1.78102);
+\draw [c,line width=1.8] (10.5,1.78102) -- (10.5,1.79188);
+\foreach \P in {(10.5,1.78102)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (10.7308,1.79606) -- (10.7308,1.81204);
+\draw [c,line width=1.8] (10.7308,1.81204) -- (10.7308,1.82801);
+\foreach \P in {(10.7308,1.81204)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (10.9615,1.79989) -- (10.9615,1.81647);
+\draw [c,line width=1.8] (10.9615,1.81647) -- (10.9615,1.83305);
+\foreach \P in {(10.9615,1.81647)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (11.1923,1.84305) -- (11.1923,1.86521);
+\draw [c,line width=1.8] (11.1923,1.86521) -- (11.1923,1.88736);
+\foreach \P in {(11.1923,1.86521)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (11.4231,1.89956) -- (11.4231,1.92723);
+\draw [c,line width=1.8] (11.4231,1.92723) -- (11.4231,1.9549);
+\foreach \P in {(11.4231,1.92723)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (11.6538,1.9901) -- (11.6538,2.02471);
+\draw [c,line width=1.8] (11.6538,2.02471) -- (11.6538,2.05931);
+\foreach \P in {(11.6538,2.02471)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (11.8846,2.06926) -- (11.8846,2.10889);
+\draw [c,line width=1.8] (11.8846,2.10889) -- (11.8846,2.14851);
+\foreach \P in {(11.8846,2.10889)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (12.1154,2.14478) -- (12.1154,2.18864);
+\draw [c,line width=1.8] (12.1154,2.18864) -- (12.1154,2.2325);
+\foreach \P in {(12.1154,2.18864)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (12.3462,2.56935) -- (12.3462,2.63169);
+\draw [c,line width=1.8] (12.3462,2.63169) -- (12.3462,2.69404);
+\foreach \P in {(12.3462,2.63169)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (12.5769,3.26538) -- (12.5769,3.34945);
+\draw [c,line width=1.8] (12.5769,3.34945) -- (12.5769,3.43351);
+\foreach \P in {(12.5769,3.34945)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (12.8077,3.77106) -- (12.8077,3.86782);
+\draw [c,line width=1.8] (12.8077,3.86782) -- (12.8077,3.96459);
+\foreach \P in {(12.8077,3.86782)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (13.0385,4.1524) -- (13.0385,4.25771);
+\draw [c,line width=1.8] (13.0385,4.25771) -- (13.0385,4.36303);
+\foreach \P in {(13.0385,4.25771)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (13.2692,4.71254) -- (13.2692,4.82926);
+\draw [c,line width=1.8] (13.2692,4.82926) -- (13.2692,4.94597);
+\foreach \P in {(13.2692,4.82926)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (13.5,5.60904) -- (13.5,5.74195);
+\draw [c,line width=1.8] (13.5,5.74195) -- (13.5,5.87487);
+\foreach \P in {(13.5,5.74195)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (13.7308,7.302) -- (13.7308,7.46101);
+\draw [c,line width=1.8] (13.7308,7.46101) -- (13.7308,7.62002);
+\foreach \P in {(13.7308,7.46101)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (13.9615,8.5655) -- (13.9615,8.74145);
+\draw [c,line width=1.8] (13.9615,8.74145) -- (13.9615,8.91739);
+\foreach \P in {(13.9615,8.74145)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (14.1923,9.58965) -- (14.1923,9.7782);
+\draw [c,line width=1.8] (14.1923,9.7782) -- (14.1923,9.96675);
+\foreach \P in {(14.1923,9.7782)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (14.4231,10.7636) -- (14.4231,10.9656);
+\draw [c,line width=1.8] (14.4231,10.9656) -- (14.4231,11.1676);
+\foreach \P in {(14.4231,10.9656)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (14.6538,11.2369) -- (14.6538,11.4441);
+\draw [c,line width=1.8] (14.6538,11.4441) -- (14.6538,11.6513);
+\foreach \P in {(14.6538,11.4441)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (14.8846,8.75363) -- (14.8846,8.93196);
+\draw [c,line width=1.8] (14.8846,8.93196) -- (14.8846,9.11029);
+\foreach \P in {(14.8846,8.93196)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (15.1154,5.70925) -- (15.1154,5.84385);
+\draw [c,line width=1.8] (15.1154,5.84385) -- (15.1154,5.97846);
+\foreach \P in {(15.1154,5.84385)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (15.3462,3.83168) -- (15.3462,3.92985);
+\draw [c,line width=1.8] (15.3462,3.92985) -- (15.3462,4.02802);
+\foreach \P in {(15.3462,3.92985)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (15.5769,2.95956) -- (15.5769,3.03488);
+\draw [c,line width=1.8] (15.5769,3.03488) -- (15.5769,3.11019);
+\foreach \P in {(15.5769,3.03488)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (15.8077,2.27566) -- (15.8077,2.32598);
+\draw [c,line width=1.8] (15.8077,2.32598) -- (15.8077,2.37631);
+\foreach \P in {(15.8077,2.32598)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (16.0385,2.05672) -- (16.0385,2.09559);
+\draw [c,line width=1.8] (16.0385,2.09559) -- (16.0385,2.13447);
+\foreach \P in {(16.0385,2.09559)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (16.2692,1.87116) -- (16.2692,1.89622);
+\draw [c,line width=1.8] (16.2692,1.89622) -- (16.2692,1.92128);
+\foreach \P in {(16.2692,1.89622)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (16.5,1.8351) -- (16.5,1.85634);
+\draw [c,line width=1.8] (16.5,1.85634) -- (16.5,1.87759);
+\foreach \P in {(16.5,1.85634)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (16.7308,1.80761) -- (16.7308,1.82533);
+\draw [c,line width=1.8] (16.7308,1.82533) -- (16.7308,1.84305);
+\foreach \P in {(16.7308,1.82533)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (16.9615,1.79989) -- (16.9615,1.81647);
+\draw [c,line width=1.8] (16.9615,1.81647) -- (16.9615,1.83305);
+\foreach \P in {(16.9615,1.81647)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (17.1923,1.76006) -- (17.1923,1.76773);
+\draw [c,line width=1.8] (17.1923,1.76773) -- (17.1923,1.77541);
+\foreach \P in {(17.1923,1.76773)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (17.4231,1.75444) -- (17.4231,1.75887);
+\draw [c,line width=1.8] (17.4231,1.75887) -- (17.4231,1.7633);
+\foreach \P in {(17.4231,1.75887)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,mark=*,mark size=1pt] plot coordinates {\P};}
+\draw [c,line width=1.8] (3,1.75887) -- (3.23077,1.75887) -- (3.23077,1.7633) -- (3.46154,1.7633) -- (3.46154,1.76773) -- (3.69231,1.76773) -- (3.69231,1.75887) -- (3.92308,1.75887) -- (3.92308,1.78989) -- (4.15385,1.78989) -- (4.15385,1.77216) --
+ (4.38462,1.77216) -- (4.38462,1.77216) -- (4.61538,1.77216) -- (4.61538,1.76773) -- (4.84615,1.76773) -- (4.84615,1.7633) -- (5.07692,1.7633) -- (5.07692,1.77216) -- (5.30769,1.77216) -- (5.30769,1.76773) -- (5.53846,1.76773) -- (5.53846,1.7633) --
+ (5.76923,1.7633) -- (5.76923,1.76773) -- (6,1.76773) -- (6,1.76773) -- (6.23077,1.76773) -- (6.23077,1.78102) -- (6.46154,1.78102) -- (6.46154,1.7633) -- (6.69231,1.7633) -- (6.69231,1.75887) -- (6.92308,1.75887) -- (6.92308,1.75887) --
+ (7.15385,1.75887) -- (7.15385,1.75887) -- (7.38462,1.75887) -- (7.38462,1.77659) -- (7.61538,1.77659) -- (7.61538,1.75887) -- (7.84615,1.75887) -- (7.84615,1.75887) -- (8.07692,1.75887) -- (8.07692,1.77659) -- (8.30769,1.77659) -- (8.30769,1.77216)
+ -- (8.53846,1.77216) -- (8.53846,1.77659) -- (8.76923,1.77659) -- (8.76923,1.7633) -- (9,1.7633) -- (9,1.77659) -- (9.23077,1.77659) -- (9.23077,1.7633) -- (9.46154,1.7633) -- (9.46154,1.77659) -- (9.69231,1.77659) -- (9.69231,1.75887) --
+ (9.92308,1.75887) -- (9.92308,1.77659) -- (10.1538,1.77659) -- (10.1538,1.78546) -- (10.3846,1.78546) -- (10.3846,1.78102) -- (10.6154,1.78102) -- (10.6154,1.81204) -- (10.8462,1.81204) -- (10.8462,1.81647) -- (11.0769,1.81647) -- (11.0769,1.86521)
+ -- (11.3077,1.86521) -- (11.3077,1.92723) -- (11.5385,1.92723) -- (11.5385,2.02471) -- (11.7692,2.02471) -- (11.7692,2.10889) -- (12,2.10889) -- (12,2.18864) -- (12.2308,2.18864) -- (12.2308,2.63169) -- (12.4615,2.63169) -- (12.4615,3.34945) --
+ (12.6923,3.34945) -- (12.6923,3.86782) -- (12.9231,3.86782) -- (12.9231,4.25771) -- (13.1538,4.25771) -- (13.1538,4.82926) -- (13.3846,4.82926) -- (13.3846,5.74195) -- (13.6154,5.74195) -- (13.6154,7.46101) -- (13.8462,7.46101) -- (13.8462,8.74145)
+ -- (14.0769,8.74145) -- (14.0769,9.7782) -- (14.3077,9.7782) -- (14.3077,10.9656) -- (14.5385,10.9656) -- (14.5385,11.4441) -- (14.7692,11.4441) -- (14.7692,8.93196) -- (15,8.93196) -- (15,5.84385) -- (15.2308,5.84385) -- (15.2308,3.92985) --
+ (15.4615,3.92985) -- (15.4615,3.03488) -- (15.6923,3.03488) -- (15.6923,2.32598) -- (15.9231,2.32598) -- (15.9231,2.09559) -- (16.1538,2.09559) -- (16.1538,1.89622) -- (16.3846,1.89622) -- (16.3846,1.85634) -- (16.6154,1.85634) -- (16.6154,1.82533)
+ -- (16.8462,1.82533) -- (16.8462,1.81647) -- (17.0769,1.81647) -- (17.0769,1.76773) -- (17.3077,1.76773) -- (17.3077,1.75887) -- (17.5385,1.75887) -- (17.5385,1.75444) -- (17.7692,1.75444) -- (17.7692,1.75444) -- (18,1.75444);
+\draw [c,line width=0.9] (3,1.75444) -- (18,1.75444);
+\draw [c,line width=0.9] (3.11166,2.05809) -- (3.11166,1.75444);
+\draw [c,line width=0.9] (3.85608,1.90627) -- (3.85608,1.75444);
+\draw [c,line width=0.9] (4.6005,1.90627) -- (4.6005,1.75444);
+\draw [c,line width=0.9] (5.34491,1.90627) -- (5.34491,1.75444);
+\draw [c,line width=0.9] (6.08933,1.90627) -- (6.08933,1.75444);
+\draw [c,line width=0.9] (6.83375,2.05809) -- (6.83375,1.75444);
+\draw [c,line width=0.9] (7.57816,1.90627) -- (7.57816,1.75444);
+\draw [c,line width=0.9] (8.32258,1.90627) -- (8.32258,1.75444);
+\draw [c,line width=0.9] (9.067,1.90627) -- (9.067,1.75444);
+\draw [c,line width=0.9] (9.81141,1.90627) -- (9.81141,1.75444);
+\draw [c,line width=0.9] (10.5558,2.05809) -- (10.5558,1.75444);
+\draw [c,line width=0.9] (11.3002,1.90627) -- (11.3002,1.75444);
+\draw [c,line width=0.9] (12.0447,1.90627) -- (12.0447,1.75444);
+\draw [c,line width=0.9] (12.7891,1.90627) -- (12.7891,1.75444);
+\draw [c,line width=0.9] (13.5335,1.90627) -- (13.5335,1.75444);
+\draw [c,line width=0.9] (14.2779,2.05809) -- (14.2779,1.75444);
+\draw [c,line width=0.9] (15.0223,1.90627) -- (15.0223,1.75444);
+\draw [c,line width=0.9] (15.7667,1.90627) -- (15.7667,1.75444);
+\draw [c,line width=0.9] (16.5112,1.90627) -- (16.5112,1.75444);
+\draw [c,line width=0.9] (17.2556,1.90627) -- (17.2556,1.75444);
+\draw [c,line width=0.9] (18,2.05809) -- (18,1.75444);
+\draw [c,line width=0.9] (3.11166,2.05809) -- (3.11166,1.75444);
+\draw [c,line width=0.9] (18,2.05809) -- (18,1.75444);
+\draw [anchor=base] (3.11166,1.14713) node[scale=1.52731, color=c, rotate=0]{150};
+\draw [anchor=base] (6.83375,1.14713) node[scale=1.52731, color=c, rotate=0]{200};
+\draw [anchor=base] (10.5558,1.14713) node[scale=1.52731, color=c, rotate=0]{250};
+\draw [anchor=base] (14.2779,1.14713) node[scale=1.52731, color=c, rotate=0]{300};
+\draw [anchor=base] (18,1.14713) node[scale=1.52731, color=c, rotate=0]{350};
+\draw [anchor= east] (18,0.674785) node[scale=1.52731, color=c, rotate=0]{ Proton kinetic energy [MeV]};
+\draw [c,line width=0.9] (3,12.1461) -- (18,12.1461);
+\draw [c,line width=0.9] (3.11166,11.8425) -- (3.11166,12.1461);
+\draw [c,line width=0.9] (3.85608,11.9943) -- (3.85608,12.1461);
+\draw [c,line width=0.9] (4.6005,11.9943) -- (4.6005,12.1461);
+\draw [c,line width=0.9] (5.34491,11.9943) -- (5.34491,12.1461);
+\draw [c,line width=0.9] (6.08933,11.9943) -- (6.08933,12.1461);
+\draw [c,line width=0.9] (6.83375,11.8425) -- (6.83375,12.1461);
+\draw [c,line width=0.9] (7.57816,11.9943) -- (7.57816,12.1461);
+\draw [c,line width=0.9] (8.32258,11.9943) -- (8.32258,12.1461);
+\draw [c,line width=0.9] (9.067,11.9943) -- (9.067,12.1461);
+\draw [c,line width=0.9] (9.81141,11.9943) -- (9.81141,12.1461);
+\draw [c,line width=0.9] (10.5558,11.8425) -- (10.5558,12.1461);
+\draw [c,line width=0.9] (11.3002,11.9943) -- (11.3002,12.1461);
+\draw [c,line width=0.9] (12.0447,11.9943) -- (12.0447,12.1461);
+\draw [c,line width=0.9] (12.7891,11.9943) -- (12.7891,12.1461);
+\draw [c,line width=0.9] (13.5335,11.9943) -- (13.5335,12.1461);
+\draw [c,line width=0.9] (14.2779,11.8425) -- (14.2779,12.1461);
+\draw [c,line width=0.9] (15.0223,11.9943) -- (15.0223,12.1461);
+\draw [c,line width=0.9] (15.7667,11.9943) -- (15.7667,12.1461);
+\draw [c,line width=0.9] (16.5112,11.9943) -- (16.5112,12.1461);
+\draw [c,line width=0.9] (17.2556,11.9943) -- (17.2556,12.1461);
+\draw [c,line width=0.9] (18,11.8425) -- (18,12.1461);
+\draw [c,line width=0.9] (3.11166,11.8425) -- (3.11166,12.1461);
+\draw [c,line width=0.9] (18,11.8425) -- (18,12.1461);
+\draw [c,line width=0.9] (3,1.75444) -- (3,12.1461);
+\draw [c,line width=0.9] (3.462,1.75444) -- (3,1.75444);
+\draw [c,line width=0.9] (3.231,1.97597) -- (3,1.97597);
+\draw [c,line width=0.9] (3.231,2.1975) -- (3,2.1975);
+\draw [c,line width=0.9] (3.231,2.41903) -- (3,2.41903);
+\draw [c,line width=0.9] (3.462,2.64055) -- (3,2.64055);
+\draw [c,line width=0.9] (3.231,2.86208) -- (3,2.86208);
+\draw [c,line width=0.9] (3.231,3.08361) -- (3,3.08361);
+\draw [c,line width=0.9] (3.231,3.30514) -- (3,3.30514);
+\draw [c,line width=0.9] (3.462,3.52667) -- (3,3.52667);
+\draw [c,line width=0.9] (3.231,3.7482) -- (3,3.7482);
+\draw [c,line width=0.9] (3.231,3.96972) -- (3,3.96972);
+\draw [c,line width=0.9] (3.231,4.19125) -- (3,4.19125);
+\draw [c,line width=0.9] (3.462,4.41278) -- (3,4.41278);
+\draw [c,line width=0.9] (3.231,4.63431) -- (3,4.63431);
+\draw [c,line width=0.9] (3.231,4.85584) -- (3,4.85584);
+\draw [c,line width=0.9] (3.231,5.07737) -- (3,5.07737);
+\draw [c,line width=0.9] (3.462,5.29889) -- (3,5.29889);
+\draw [c,line width=0.9] (3.231,5.52042) -- (3,5.52042);
+\draw [c,line width=0.9] (3.231,5.74195) -- (3,5.74195);
+\draw [c,line width=0.9] (3.231,5.96348) -- (3,5.96348);
+\draw [c,line width=0.9] (3.462,6.18501) -- (3,6.18501);
+\draw [c,line width=0.9] (3.231,6.40654) -- (3,6.40654);
+\draw [c,line width=0.9] (3.231,6.62807) -- (3,6.62807);
+\draw [c,line width=0.9] (3.231,6.84959) -- (3,6.84959);
+\draw [c,line width=0.9] (3.462,7.07112) -- (3,7.07112);
+\draw [c,line width=0.9] (3.231,7.29265) -- (3,7.29265);
+\draw [c,line width=0.9] (3.231,7.51418) -- (3,7.51418);
+\draw [c,line width=0.9] (3.231,7.73571) -- (3,7.73571);
+\draw [c,line width=0.9] (3.462,7.95724) -- (3,7.95724);
+\draw [c,line width=0.9] (3.231,8.17876) -- (3,8.17876);
+\draw [c,line width=0.9] (3.231,8.40029) -- (3,8.40029);
+\draw [c,line width=0.9] (3.231,8.62182) -- (3,8.62182);
+\draw [c,line width=0.9] (3.462,8.84335) -- (3,8.84335);
+\draw [c,line width=0.9] (3.231,9.06488) -- (3,9.06488);
+\draw [c,line width=0.9] (3.231,9.28641) -- (3,9.28641);
+\draw [c,line width=0.9] (3.231,9.50793) -- (3,9.50793);
+\draw [c,line width=0.9] (3.462,9.72946) -- (3,9.72946);
+\draw [c,line width=0.9] (3.231,9.95099) -- (3,9.95099);
+\draw [c,line width=0.9] (3.231,10.1725) -- (3,10.1725);
+\draw [c,line width=0.9] (3.231,10.394) -- (3,10.394);
+\draw [c,line width=0.9] (3.462,10.6156) -- (3,10.6156);
+\draw [c,line width=0.9] (3.231,10.8371) -- (3,10.8371);
+\draw [c,line width=0.9] (3.231,11.0586) -- (3,11.0586);
+\draw [c,line width=0.9] (3.231,11.2802) -- (3,11.2802);
+\draw [c,line width=0.9] (3.462,11.5017) -- (3,11.5017);
+\draw [c,line width=0.9] (3.462,11.5017) -- (3,11.5017);
+\draw [c,line width=0.9] (3.231,11.7232) -- (3,11.7232);
+\draw [c,line width=0.9] (3.231,11.9447) -- (3,11.9447);
+\draw [anchor= east] (2.9,1.75444) node[scale=1.52731, color=c, rotate=0]{0};
+\draw [anchor= east] (2.9,2.64055) node[scale=1.52731, color=c, rotate=0]{200};
+\draw [anchor= east] (2.9,3.52667) node[scale=1.52731, color=c, rotate=0]{400};
+\draw [anchor= east] (2.9,4.41278) node[scale=1.52731, color=c, rotate=0]{600};
+\draw [anchor= east] (2.9,5.29889) node[scale=1.52731, color=c, rotate=0]{800};
+\draw [anchor= east] (2.9,6.18501) node[scale=1.52731, color=c, rotate=0]{1000};
+\draw [anchor= east] (2.9,7.07112) node[scale=1.52731, color=c, rotate=0]{1200};
+\draw [anchor= east] (2.9,7.95724) node[scale=1.52731, color=c, rotate=0]{1400};
+\draw [anchor= east] (2.9,8.84335) node[scale=1.52731, color=c, rotate=0]{1600};
+\draw [anchor= east] (2.9,9.72946) node[scale=1.52731, color=c, rotate=0]{1800};
+\draw [anchor= east] (2.9,10.6156) node[scale=1.52731, color=c, rotate=0]{2000};
+\draw [anchor= east] (2.9,11.5017) node[scale=1.52731, color=c, rotate=0]{2200};
+\draw [anchor= east] (1.08,12.1461) node[scale=1.52731, color=c, rotate=90]{Protons / 2.9~MeV};
+\draw [c,line width=0.9] (18,1.75444) -- (18,12.1461);
+\draw [c,line width=0.9] (17.538,1.75444) -- (18,1.75444);
+\draw [c,line width=0.9] (17.769,1.97597) -- (18,1.97597);
+\draw [c,line width=0.9] (17.769,2.1975) -- (18,2.1975);
+\draw [c,line width=0.9] (17.769,2.41903) -- (18,2.41903);
+\draw [c,line width=0.9] (17.538,2.64055) -- (18,2.64055);
+\draw [c,line width=0.9] (17.769,2.86208) -- (18,2.86208);
+\draw [c,line width=0.9] (17.769,3.08361) -- (18,3.08361);
+\draw [c,line width=0.9] (17.769,3.30514) -- (18,3.30514);
+\draw [c,line width=0.9] (17.538,3.52667) -- (18,3.52667);
+\draw [c,line width=0.9] (17.769,3.7482) -- (18,3.7482);
+\draw [c,line width=0.9] (17.769,3.96972) -- (18,3.96972);
+\draw [c,line width=0.9] (17.769,4.19125) -- (18,4.19125);
+\draw [c,line width=0.9] (17.538,4.41278) -- (18,4.41278);
+\draw [c,line width=0.9] (17.769,4.63431) -- (18,4.63431);
+\draw [c,line width=0.9] (17.769,4.85584) -- (18,4.85584);
+\draw [c,line width=0.9] (17.769,5.07737) -- (18,5.07737);
+\draw [c,line width=0.9] (17.538,5.29889) -- (18,5.29889);
+\draw [c,line width=0.9] (17.769,5.52042) -- (18,5.52042);
+\draw [c,line width=0.9] (17.769,5.74195) -- (18,5.74195);
+\draw [c,line width=0.9] (17.769,5.96348) -- (18,5.96348);
+\draw [c,line width=0.9] (17.538,6.18501) -- (18,6.18501);
+\draw [c,line width=0.9] (17.769,6.40654) -- (18,6.40654);
+\draw [c,line width=0.9] (17.769,6.62807) -- (18,6.62807);
+\draw [c,line width=0.9] (17.769,6.84959) -- (18,6.84959);
+\draw [c,line width=0.9] (17.538,7.07112) -- (18,7.07112);
+\draw [c,line width=0.9] (17.769,7.29265) -- (18,7.29265);
+\draw [c,line width=0.9] (17.769,7.51418) -- (18,7.51418);
+\draw [c,line width=0.9] (17.769,7.73571) -- (18,7.73571);
+\draw [c,line width=0.9] (17.538,7.95724) -- (18,7.95724);
+\draw [c,line width=0.9] (17.769,8.17876) -- (18,8.17876);
+\draw [c,line width=0.9] (17.769,8.40029) -- (18,8.40029);
+\draw [c,line width=0.9] (17.769,8.62182) -- (18,8.62182);
+\draw [c,line width=0.9] (17.538,8.84335) -- (18,8.84335);
+\draw [c,line width=0.9] (17.769,9.06488) -- (18,9.06488);
+\draw [c,line width=0.9] (17.769,9.28641) -- (18,9.28641);
+\draw [c,line width=0.9] (17.769,9.50793) -- (18,9.50793);
+\draw [c,line width=0.9] (17.538,9.72946) -- (18,9.72946);
+\draw [c,line width=0.9] (17.769,9.95099) -- (18,9.95099);
+\draw [c,line width=0.9] (17.769,10.1725) -- (18,10.1725);
+\draw [c,line width=0.9] (17.769,10.394) -- (18,10.394);
+\draw [c,line width=0.9] (17.538,10.6156) -- (18,10.6156);
+\draw [c,line width=0.9] (17.769,10.8371) -- (18,10.8371);
+\draw [c,line width=0.9] (17.769,11.0586) -- (18,11.0586);
+\draw [c,line width=0.9] (17.769,11.2802) -- (18,11.2802);
+\draw [c,line width=0.9] (17.538,11.5017) -- (18,11.5017);
+\draw [c,line width=0.9] (17.538,11.5017) -- (18,11.5017);
+\draw [c,line width=0.9] (17.769,11.7232) -- (18,11.7232);
+\draw [c,line width=0.9] (17.769,11.9447) -- (18,11.9447);
+\definecolor{c}{rgb}{1,1,1};
+\draw [color=c, fill=c] (2,12.686) rectangle (18,13.4282);
+\definecolor{c}{rgb}{0,0,0};
+%\draw (10,13.0571) node[scale=1.40004, color=c, rotate=0]{Proton kinetic energy measured in $\mathit{S3}$};
+\end{tikzpicture}

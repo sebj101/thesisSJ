@@ -1,5 +1,8 @@
 \chapter{Measurements of the CERN T10 beam flux}
-\label{ch:hptpc_beam_flux}
+\label{sec:hptpc_beam_flux}
+
+\section{Motivation}
+\label{sec:hptpc_beam_flux:motivation}
 
 As mentioned in \citesec{sec:theory:currentState}, one of the targets of the next generation of long baseline neutrino oscillation experiments is the measurement of \dcp.
 In order to make this measurement, systematic uncertainties will have to be significantly reduced.
@@ -56,7 +59,97 @@ This lack of data leads to different parametrisations being used by different ne
 \citefig{fig:generatorProtons} also shows that much of the discrepancy lies below the proton track production threshold in liquid argon.
 Mismodelling of these nuclear effects can lead to significant biases in the measurement of neutrino oscillation parameters~\cite{nuclearMismodelOsc}, an undesirable outcome for future long baseline experiments.
 
-High pressure gas TPCs (HPgTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy.
+
+High pressure gas TPCs (HPgTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy due to low thresholds required for track reconstruction.
+To this end, a HPgTPC prototype has been constructed and exposed to a charged particle beam at CERN.
+In order to access a flux of low energy protons, the beam was moderated and the HPgTPC was placed in an off-axis position. 
+An overview of the beam test is given in \citesec{sec:hptpc_beam_flux:overview} while measurements of the beam flux are presented in \citesec{sec:hptpc_beam_flux:results}
+
+\section{The 2018 beam test}
+\label{sec:hptpc_beam_flux:overview}
+
+\subsection{The T10 beamline}
+\label{sec:hptpc_beam_flux:overview:t10}
+
+The beam test took place at the T10 beam line in the East Area at CERN.
+The T10 beam is derived from the PS beam, consists primarily of protons, charged pions and electrons and has a momentum range of \SIrange{0.8}{6.5}{\giga\electronvolt\per\clight} (corresponds to a proton kinetic energy range of \SIrange{0.3}{5.6}{\giga\electronvolt})~\cite{t10Report}.
+
+\citefig{fig:t10Calc} shows the calculated intensity of the T10 beam as a function of beam momentum, separated by particle species.
+One can see that charged pions dominate at all momenta, with the effect becoming more pronounced at lower beam momenta.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.6\linewidth]{files/figures/hptpc_beam_flux/t10Comp}
+  \caption[Calculated intensity of the CERN T10 beam as a function of selected beam momentum and particle species.]{Calculated intensity of the CERN T10 beam as a function of selected beam momentum and particle species, from~\cite{t10Report}.}
+  \label{fig:t10Calc}
+\end{figure}
+
+\citefig{fig:unmoderatedBeam}, left, shows the time of flight spectrum for the unmoderated T10 beam at a momentum setting of \SI{0.8}{\giga\electronvolt\per\clight}.
+In this case the baseline is \SI{10.8}{\metre}.
+Within \citefig{fig:unmoderatedBeam}, left, there are several peaks caused by different particle species, including protons.
+The particle identification process will be covered in more detail in \citesec{sec:hptpc_beam_flux:methods}.
+One can see from \citefig{fig:unmoderatedBeam}, right, that even at this momentum setting there is a negligible flux of protons with kinetic energies of less than \SI{0.1}{\giga\electronvolt}.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/utofNoBend}
+    \end{adjustbox}
+  \end{minipage}
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/protonKeNoBend}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Time of flight spectrum and proton kinetic energy for the unmoderated and unbent T10 beam]{Left: time of flight spectrum of the unmoderated and unbent CERN T10 beam across a baseline of \SI{10.8}{\metre}. Right: measured kinetic energies of protons in the unmoderated and unbent CERN T10 beam.}
+  \label{fig:unmoderatedBeam}
+\end{figure}
+
+It is necessary to modify the T10 beam for several reasons, one of them being the lack of the low energy protons.
+Additionally, it is important to reduce the multiplicity of particles entering the HPgTPC due to the speed of the optical readout which could otherwise become overwhelmed.
+Finally, it is desirable to modify the proton-minimum ionising particle (MIP) ratio in order to isolate more particles which are of interest to a cross-section analysis.
+
+Therefore, two modification are made to the beam flux in order to achieve these goals.
+Firstly up to four \SI{10 x 10 x 10}{\cm} acrylic moderator blocks are placed in the beam.
+These blocks have the effect of scattering the incident particles and reducing their energy.
+Additionally, the HPgTPC is moved to an off-axis angle in order to maximise the ratio of protons to MIPs.
+From previous GEANT~\cite{geant} simulations it is determined that the optimal off-axis angle for the HPgTPC is between \ang{2} and \ang{3}.
+
+However, due to space constraints in the beam hall, the HPgTPC could not be moved this far off-axis.
+Instead, the beam was steered approximately \ang{1} off its nominal axis to increase the angle between the beam and the HPgTPC.
+A bird's-eye view diagram of the experimental setup is shown in \citefig{fig:beamSetup}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/hptpc_t10_planview}
+  \caption[Bird's-eye view of the experimental setup within the T10 beam area]{Bird's-eye view of the experimental setup within the T10 beam area, from~\cite{beampaper}.}
+  \label{fig:beamSetup}
+\end{figure}
+
+\subsection{The upstream time of flight detector (\SThree)}
+
+\subsection{The upstream time of flight detector (\SFour)}
 
 
+\section{Methods}
+\label{sec:hptpc_beam_flux:methods}
 
+\section{Results}
+\label{sec:hptpc_beam_flux:results}
+
+\subsection{Flux measurements at \SThree}
+\label{sec:hptpc_beam_flux:results:s3}
+
+\subsection{Flux measurements at \SFour}
+\label{sec:hptpc_beam_flux:results:s4}
+
+\subsection{Comparison with simulation}
+\label{sec:hptpc_beam_flux:results:MCData}
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.7\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/tofS4Sim}
+  \end{adjustbox}
+  \caption[]{}
+  \label{fig:tofS4Sim}
+\end{figure}
