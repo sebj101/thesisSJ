@@ -140,7 +140,7 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
 
 The distances to the various objects in the beamline from an origin point is measured by the CERN Survey, Mechatronics and Measurements (SMM) group to a precision of \SI{0.5}{\mm}.
 Specifically, multiple points on each of \SOne, \STwo, \SThree, \SFour and the HPgTPC prototype were measured.
-From these measurements, the distance between various timing points is calculated and displayed in \citetab{tab:pointDistances}.
+From these measurements, the distance between various timing points is calculated and displayed in \citetab{tab:pointDistances}, calculated using this survey data
 
 \begin{table}
   \centering
@@ -169,9 +169,10 @@ $\theta$ is measured in the $\hat{x}-\hat{z}$ plane with positive angle measured
 
 \citefig{fig:angDistS1} shows the angular distribution of objects within the beamline as viewed from \SOne.
 \citetab{tab:angDistS1} shows the angular extent of various beamline components as measured from \SOne.
+Both of these use the data from the survey in order to calculate the results.
 
 \begin{figure}[h]
-  \begin{adjustbox}{max totalsize=.7\textwidth, center}
+  \begin{adjustbox}{max totalsize=.8\textwidth, center}
     \input{files/figures/hptpc_beam_flux/angDistS1}
   \end{adjustbox}
   \caption[Angular distribution of objects in the T10 beamline]{Angular distribution of objects within the T10 beamline. The origin here is at \SOne.}
@@ -180,7 +181,7 @@ $\theta$ is measured in the $\hat{x}-\hat{z}$ plane with positive angle measured
 
 \begin{table}
   \centering
-  \caption[]{}
+  \caption[Angular extent of components within the T10 beamline with \SOne as the origin]{Angular extent of components within the T10 beamline with \SOne as the origin}
   \label{tab:angDistS1}
   \begin{tabular}{c c c c c}
     \hline
@@ -199,17 +200,43 @@ $\theta$ is measured in the $\hat{x}-\hat{z}$ plane with positive angle measured
 \subsection{The upstream beam counters (\SOne and \STwo)}
 \label{sec:hptpc_beam_flux:overview:s1s2}
 
+
+
 \subsection{The upstream time of flight detector (\SThree)}
 \label{sec:hptpc_beam_flux:overview:s3}
 
 \subsection{The downstream time of flight detector (\SFour)}
 \label{sec:hptpc_beam_flux:overview:s4}
 
+The design of \SFour is primarily discussed in \citesec{sec:hptpc_dtof_characterisation:dtof}, however it will be briefly revisited here.
+\SFour consists of 10 scintillator bars which together form an active area of \SI{1.40 x 0.78}{\metre}.
+A diagram of one such bar is shown in \citefig{fig:barDiag}.
+Each of these scintillator bars has a PMT attached to each end and these observe the scintillation light produced by charged particles traversing the bars.
+A diagram of \SFour is shown in \citefig{fig:dtofDiag}.
+
 \section{Methods}
 \label{sec:hptpc_beam_flux:methods}
 
 In a beamline such as the T10 beamline at CERN, charged particles are selected using by momentum using a magnetic field.
 This results in a beam of particles that are all of the same momentum but of different species.
+Different particles of the same momentum will take different times to cover the same distance.
+\citefig{fig:tofVsMom}, left and right, show the time of flight for various particles as a function of particle momentum for the $\SOne - \SThree$ and  $\STwo - \SFour$ distances respectively.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\linewidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s1s3Times}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\linewidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s2s4Times}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[]{}
+  \label{fig:tofVsMom}
+\end{figure}
 
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
