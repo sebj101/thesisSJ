@@ -131,9 +131,70 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
 \begin{itemize}
     \item \SOne, a \SI{40 x 40 x 5}{\mm} plastic scintillator cross, described in \citesec{sec:hptpc_beam_flux:overview:s1s2};
     \item \STwo, a \SI{120 x 120 x 5}{\mm} plastic scintillator tile, used for coincidence measurements with \SOne, described in \citesec{sec:hptpc_beam_flux:overview:s1s2};
-    \item \SThree, a panel of plastic scintillator bars placed directly upstream of the TPC vessel, described in \citesec{sec:hptpc_beam_flux:overview:s3};
-    \item \SFour, a panel of plastic scintillator bars placed directly downstream of the HPgTPC, which is described in \citesec{sec:hptpc_dtof_characterisation:dtof} and \citesec{sec:hptpc_beam_flux:overview:s4}.
+    \item \SThree, a large panel of plastic scintillator bars placed directly upstream of the TPC vessel, described in \citesec{sec:hptpc_beam_flux:overview:s3};
+    \item \SFour, a large panel of plastic scintillator bars placed directly downstream of the HPgTPC, which is described in \citesec{sec:hptpc_beam_flux:overview:s4} (its characterisation is described in \citesec{sec:hptpc_dtof_characterisation}).
 \end{itemize}
+
+\subsection{Survey and coordinate system}
+\label{sec:hptpc_beam_flux:overview:survey}
+
+The distances to the various objects in the beamline from an origin point is measured by the CERN Survey, Mechatronics and Measurements (SMM) group to a precision of \SI{0.5}{\mm}.
+Specifically, multiple points on each of \SOne, \STwo, \SThree, \SFour and the HPgTPC prototype were measured.
+From these measurements, the distance between various timing points is calculated and displayed in \citetab{tab:pointDistances}.
+
+\begin{table}
+  \centering
+  \caption[Calculated distances between objects within the T10 beamline during the beam test]{Calculated distances between objects within the T10 beamline during the beam test}
+  \label{tab:pointDistances}
+  \begin{tabular}{c c}
+    \hline
+    \hline
+    Points & Distance between centres / m \\
+    \hline
+    $\text{Beam monitor} - \SOne$ & \num{0.288(1)} \\
+    $\SOne - \STwo$ & \num{1.419(1)} \\
+    $\SOne - \SThree$ & \num{10.756(1)} \\
+    $\SThree - \text{TPC US side}$ & \num{1.323(2)} \\
+    $\text{TPC DS side} - \SFour$ & \num{0.918(2)} \\
+    $\STwo - \SFour$ & \num{12.651(1)} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+The coordinate systeam used in this analysis is a right-handed coordinate system defined by the following directions: the $+\hat{z}$ direction is defined as the nominal beam axis, the $+\hat{y}$ direction is defined as vertically upwards and the $\hat{x}$ direction is defined as the horizontal direction which is perpendicular to the beam direction.
+The origin is take to be at \SOne.
+The $\hat{x}$ and $\hat{z}$ axes are labelled in \citefig{fig:beamSetup}.
+In this analysis, the results are given in terms of the angles $\theta$ and $\phi$.
+$\theta$ is measured in the $\hat{x}-\hat{z}$ plane with positive angle measured in the $+\hat{x}$ direction while $\phi$ is measured in the $\hat{y}-\hat{z}$ with positive angles measured in the $+\hat{y}$ direction.
+
+\citefig{fig:angDistS1} shows the angular distribution of objects within the beamline as viewed from \SOne.
+\citetab{tab:angDistS1} shows the angular extent of various beamline components as measured from \SOne.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.7\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/angDistS1}
+  \end{adjustbox}
+  \caption[Angular distribution of objects in the T10 beamline]{Angular distribution of objects within the T10 beamline. The origin here is at \SOne.}
+  \label{fig:angDistS1}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption[]{}
+  \label{tab:angDistS1}
+  \begin{tabular}{c c c c c}
+    \hline
+    \hline
+    Object & $\theta_{\text{min}}$ & $\theta_{\text{max}}$ & $\phi_{\text{min}}$ & $\theta_{\text{max}}$ \\
+    \hline
+    \STwo & $\ang{-3.96} \pm \ang{0.03}$ & $\ang{0.36} \pm \ang{0.03}$ & $\ang{-2.01} \pm \ang{0.03}$ & $\ang{2.94} \pm \ang{0.03}$\\
+    \SThree & $\ang{-5.923} \pm \ang{0.004}$ & $\ang{3.040} \pm \ang{0.004}$ & $\ang{-3.215} \pm \ang{0.004}$ & $\ang{3.344} \pm \ang{0.004}$ \\
+    \SFour & $\ang{-6.083} \pm \ang{0.003}$ & $\ang{-0.401} \pm \ang{0.003}$ & $\ang{-1.426} \pm \ang{0.003}$ & $\ang{1.771} \pm \ang{0.003}$ \\
+    TPC US face & $\ang{-3.59} \pm \ang{0.01}$ & $\ang{-1.44} \pm \ang{0.01}$ & $\ang{-2.66} \pm \ang{0.01}$ & $\ang{2.58} \pm \ang{0.01}$ \\
+    TPC DS face & $\ang{-3.778} \pm \ang{0.009}$ & $\ang{-1.806} \pm \ang{0.009}$ & $\ang{-2.440} \pm \ang{0.009}$ & $\ang{2.361} \pm \ang{0.009}$ \\
+    \hline 
+  \end{tabular}
+\end{table}
 
 \subsection{The upstream beam counters (\SOne and \STwo)}
 \label{sec:hptpc_beam_flux:overview:s1s2}
@@ -146,6 +207,9 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
 
 \section{Methods}
 \label{sec:hptpc_beam_flux:methods}
+
+In a beamline such as the T10 beamline at CERN, charged particles are selected using by momentum using a magnetic field.
+This results in a beam of particles that are all of the same momentum but of different species.
 
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
@@ -166,3 +230,23 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
   \caption[]{}
   \label{fig:tofS4Sim}
 \end{figure}
+
+\begin{table}
+  \centering
+  %% NEED TO CHANGE CAPTION SO IT IS NOT THE SAME AS THE BEAM FLUX PAPER
+  \caption[Comparison of number of protons reaching \SThree and \SFour in data and Monte Carlo]{Ratio of number of protons reaching \SFour to number protons reaching \SThree for different numbers of moderator blocks in MC and data. In each instance, the combined statistical and systematic errors are shown.}
+  \begin{tabular}{c|c c c}
+    \hline
+    \hline
+    Number of moderator blocks & Monte Carlo & Data & Data/MC\\
+    \hline
+    $0$ & $0.027 \pm 0.003$ & $0.049 \pm 0.007$ & $1.8 \pm 0.3$ \\
+    $1$ & $0.067 \pm 0.005$ & $0.09 \pm 0.01$ & $1.3 \pm 0.2$ \\
+    $2$ & $0.084 \pm 0.007$ & $0.10 \pm 0.01$ & $1.2 \pm 0.2$ \\
+    $3$ & $0.06 \pm 0.01$ & $0.036 \pm 0.007$ & $0.7 \pm 0.2$ \\
+    $4$ & $0.011 \pm 0.001$ & $0.008 \pm 0.001$ & $0.7 \pm 0.1$ \\
+    \hline
+  \end{tabular}
+  \label{tab:s3s4Ratios}
+\end{table}
+
