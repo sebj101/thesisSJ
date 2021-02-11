@@ -134,6 +134,7 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
     \item \SThree, a large panel of plastic scintillator bars placed directly upstream of the TPC vessel, described in \citesec{sec:hptpc_beam_flux:overview:s3};
     \item \SFour, a large panel of plastic scintillator bars placed directly downstream of the HPgTPC, which is described in \citesec{sec:hptpc_beam_flux:overview:s4} (its characterisation is described in \citesec{sec:hptpc_dtof_characterisation}).
 \end{itemize}
+The moderator blocks were placed on a tripod stand in between \SOne and \STwo.
 
 \subsection{Survey and coordinate system}
 \label{sec:hptpc_beam_flux:overview:survey}
@@ -197,9 +198,45 @@ Both of these use the data from the survey in order to calculate the results.
   \end{tabular}
 \end{table}
 
+\citefig{fig:beamlinePics} shows images of the beamline with the various components of the ToF systems as well as the HPTPC and moderator blocks labelled.
+In this particular image, all four moderator blocks are placed on the tripod stand.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/S1S2S3S4}
+  \caption[Images of the test beam setup with various objects labelled]{Images of the T10 beamline with the apparatus used in the beam test labelled. Left: the downstream part of the beamline. Right: The upstream part of the beamline.}
+  \label{fig:beamlinePics}
+\end{figure}
+
 \subsection{The upstream beam counters (\SOne and \STwo)}
 \label{sec:hptpc_beam_flux:overview:s1s2}
 
+The \SOne beam counter consists of a cross formed from two pieces of plastic scintillator and is shown in the left hand image of \citefig{fig:s1s2Pic}.
+This cross measures \SI{40 x 40 x 5}{\milli\metre} and is attached to four 1'' Hamamatsu Photonics R4998 PMTs at each end which are used to read out the light signals.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/hptpc_beam_flux/S1S2FrontOn}
+  \caption[The upstream beam counters \SOne and \STwo]{Images of the upstream beam counters \SOne (left) and \STwo (right)}
+  \label{fig:s1s2Pic}
+\end{figure}
+
+The time resolution of the \SOne beam counter is measured using the DAQ of the upstream ToF and found to be around \SI{30}{\pico\second}.
+This measurement is made by taking the average distribution of the four PMT hit times. However, because this measurement is not centred at zero, we instead calculate the quantity
+\begin{equation}
+t_{\text{ave}} = \frac{1}{4} ((t_{\text{PMT1}}+t_{\text{PMT2}}) - (t_{\text{PMT3}}+t_{\text{PMT4}}))
+\end{equation}
+where the $t_{\text{PMT}n}$ refer to the four PMTs used to read out \SOne.
+This quantity has the same spread as the average hit time but is centred at zero.
+An example of the distribution produced is shown in \citefig{fig:s1Res}.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.7\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/s1TimeRes}
+  \end{adjustbox}
+  \caption[Example of \SOne time resolution measurement]{An example of an \SOne time resolution measurement made using the quantity $t_{\text{ave}}$.}
+  \label{fig:s1Res}
+\end{figure}
 
 
 \subsection{The upstream time of flight detector (\SThree)}
@@ -220,7 +257,14 @@ A diagram of \SFour is shown in \citefig{fig:dtofDiag}.
 In a beamline such as the T10 beamline at CERN, charged particles are selected using by momentum using a magnetic field.
 This results in a beam of particles that are all of the same momentum but of different species.
 Different particles of the same momentum will take different times to cover the same distance.
+The time of flight, $t$, of a particle of mass, $m$, with a momentum, $p$, is given by
+\begin{equation}
+t = L \sqrt{ \frac{1}{c^{2}} + \frac{m^{2}}{p^{2}} }\, ,
+\end{equation}
+where $L$ is the distance travelled by the particle.
 \citefig{fig:tofVsMom}, left and right, show the time of flight for various particles as a function of particle momentum for the $\SOne - \SThree$ and  $\STwo - \SFour$ distances respectively.
+Given the beam momentum is known, by measuring a particle's time of flight it should be possible to identify the particle in question.
+One can see that, assuming a time resolution of around \SI{1}{\nano\second}, it should be possible to distinguish between deuterons, protons and pions/muons at the momenta used in this study.
 
 \begin{figure}[h]
   \begin{minipage}[t]{.5\linewidth}
@@ -234,12 +278,16 @@ Different particles of the same momentum will take different times to cover the 
       \input{files/figures/hptpc_beam_flux/s2s4Times}
     \end{adjustbox}
   \end{minipage}
-  \caption[]{}
+  \caption[Predicted time of flight as a function of momentum for various particle types across the distances used in the HPgTPC beam test]{Predicted time of flight as a function of momentum for various particle types across the distances used in the HPgTPC beam test. Right: the $\SOne - \SThree$ distance. Left: the $\STwo - \SFour$ distance.}
   \label{fig:tofVsMom}
 \end{figure}
 
+
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
+
+Beam flux measurements made with the \SThree detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3} while those made with the \SFour detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3}.
+A comparison of the data with simulation is shown in \citesec{sec:hptpc_beam_flux:results:MCData}.
 
 \subsection{Flux measurements at \SThree}
 \label{sec:hptpc_beam_flux:results:s3}
