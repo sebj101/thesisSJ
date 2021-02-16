@@ -136,6 +136,8 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
 \end{itemize}
 The moderator blocks were placed on a tripod stand in between \SOne and \STwo.
 
+
+
 \subsection{Survey and coordinate system}
 \label{sec:hptpc_beam_flux:overview:survey}
 
@@ -182,7 +184,7 @@ Both of these use the data from the survey in order to calculate the results.
 
 \begin{table}
   \centering
-  \caption[Angular extent of components within the T10 beamline with \SOne as the origin]{Angular extent of components within the T10 beamline with \SOne as the origin}
+  \caption[Angular extent of components within the T10 beamline with \SOne as the origin]{Angular extent of components within the T10 beamline with \SOne as the origin.}
   \label{tab:angDistS1}
   \begin{tabular}{c c c c c}
     \hline
@@ -204,9 +206,38 @@ In this particular image, all four moderator blocks are placed on the tripod sta
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/S1S2S3S4}
-  \caption[Images of the test beam setup with various objects labelled]{Images of the T10 beamline with the apparatus used in the beam test labelled. Left: the downstream part of the beamline. Right: The upstream part of the beamline.}
+  \caption[Images of the test beam setup with various objects labelled]{Images of the T10 beamline with the apparatus used in the beam test labelled. Left: the downstream part of the beamline. Right: The upstream part of the beamline. Image from~\cite{beampaper}.}
   \label{fig:beamlinePics}
 \end{figure}
+
+\SThree and \SFour each have their own independent DAQ systems which process data from \SOne and \STwo plus either \SThree or \SFour.
+The data from these two systems is synchronised offline using a signal from the PS indicating the arrival of a beam spill which is recorded by both DAQs.
+
+T10 receives $1-3$ spills from the PS every supercycle, which has a normal duration of \SI{33}{\second}.
+The duration of each of these spills is approximately \SI{0.4}{\second}.
+The minimum separation in time of these spills is \SI{1}{\second} which means that the beam spill arrival signal has a frequency of less than \SI{1}{\hertz}.
+This means that spills in the two DAQs can be matched by using this signal in combination with the DAQ file timestamps.
+
+\citetab{tab:nSpills} shows the number of recorded spills used for each moderator block configuration for the variable block analysis.
+One can see that significantly more spills are recorded in the 4 block configuration.
+This is because this is the configuration that was used for the majority of the beam test.
+
+\begin{table}
+  \caption[Number of recorded spills for each moderator block configuration used in T10 beam flux analysis]{Number of recorded spills for each moderator block configuration used in T10 beam flux analysis}
+  \label{tab:nSpills}
+  \begin{tabular}{c c}
+    \hline
+    \hline
+    Number of moderator blocks & Recorded spills \\
+    \hline
+    0 & 257 \\
+    1 & 254 \\
+    2 & 267 \\
+    3 & 220 \\
+    4 & 3884 \\
+    \hline
+  \end{tabular}
+\end{table}
 
 \subsection{The upstream beam counters (\SOne and \STwo)}
 \label{sec:hptpc_beam_flux:overview:s1s2}
@@ -217,30 +248,60 @@ This cross measures \SI{40 x 40 x 5}{\milli\metre} and is attached to four 1'' H
 \begin{figure}[h]
   \centering
   \includegraphics[width=.7\linewidth]{files/figures/hptpc_beam_flux/S1S2FrontOn}
-  \caption[The upstream beam counters \SOne and \STwo]{Images of the upstream beam counters \SOne (left) and \STwo (right)}
+  \caption[The upstream beam counters \SOne and \STwo]{Images of the upstream beam counters \SOne (left) and \STwo (right) from~\cite{beampaper}.}
   \label{fig:s1s2Pic}
 \end{figure}
 
 The time resolution of the \SOne beam counter is measured using the DAQ of the upstream ToF and found to be around \SI{30}{\pico\second}.
 This measurement is made by taking the average distribution of the four PMT hit times. However, because this measurement is not centred at zero, we instead calculate the quantity
 \begin{equation}
-t_{\text{ave}} = \frac{1}{4} ((t_{\text{PMT1}}+t_{\text{PMT2}}) - (t_{\text{PMT3}}+t_{\text{PMT4}}))
+  t_{\text{ave}} = \frac{1}{4} ((t_{\text{PMT1}}+t_{\text{PMT2}}) - (t_{\text{PMT3}}+t_{\text{PMT4}}))
+  \label{eq:tAve}
 \end{equation}
 where the $t_{\text{PMT}n}$ refer to the four PMTs used to read out \SOne.
 This quantity has the same spread as the average hit time but is centred at zero.
-An example of the distribution produced is shown in \citefig{fig:s1Res}.
+An example of the distribution produced is shown in \citefig{fig:s1Res} which contains the data from one run.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.7\textwidth, center}
     \input{files/figures/hptpc_beam_flux/s1TimeRes}
   \end{adjustbox}
-  \caption[Example of \SOne time resolution measurement]{An example of an \SOne time resolution measurement made using the quantity $t_{\text{ave}}$.}
+  \caption[Example of \SOne time resolution measurement]{An example of an \SOne time resolution measurement made using the quantity $t_{\text{ave}}$, defined in \citeeq{eq:tAve}.}
   \label{fig:s1Res}
 \end{figure}
 
+\STwo consists of a single piece of plastic scintillator, measuring \SI{120 x 120 x 5}{\milli\metre} which is read out, via a light guide, by a 2'' Hamamatsu Photonics R1309 PMT~\cite{hamamatsu}.
+An image of \STwo is shown on the right of \citefig{fig:s1s2Pic} where the light guide is also indicated.
+\STwo is situated \SI{1.419(1)}{\metre} downstream of \SOne and away from the nominal beam axis.
+This off-axis positioning means that all of the beam particles impinging on the HPgTPC should pass through \STwo.
+
+The analog signals produced by the PMTs in \SOne and \STwo are fed into LeCroy 620AL NIM discriminator units with a threshold of \SI{30}{\milli\volt}.
+These discriminated signals were then fed into a NIM coincidence unit.
+The output of this unit was recorded by the DAQ system of the downstream time of flight panel (\SFour).
+The signals from \SOne and \STwo were fed individually into the DAQ system of the upstream time of flight panel (\SThree).
 
 \subsection{The upstream time of flight detector (\SThree)}
 \label{sec:hptpc_beam_flux:overview:s3}
+
+\SThree (also referred to as the upstream time of flight system) is situated \SI{1.323(2)}{\metre} upstream of the upstream side of the TPC and \SI{10.756(1)}{\metre} in the beamline.
+It consists of 22 bars of EJ-200~\cite{ej200} plastic scintillator.
+20 of these bars measure \SI{168 x 6 x 1}{\centi\metre} while the remaining 2 measure \SI{150 x 6 x 1}{\centi\metre}~\cite{s3Paper}.
+The bars are arranged in a staggered setup with an overlap between the bars of \SI{5}{\milli\metre} while the two smaller bars are placed at the top and bottom of the panel.
+The total active area of the detector is \SI{2.0214}{\centi\metre\square}.
+Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimensions.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.6\linewidth}
+    \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/uToF_sketch}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.35\linewidth}
+    \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/uTOF_rot}
+  \end{minipage}
+  \caption[Schematic diagrams of \SThree]{\SThree schematic diagrams of \SThree from~\cite{s3Paper} along with dimensions.}
+  \label{fig:s3Diag}
+\end{figure}
+
 
 \subsection{The downstream time of flight detector (\SFour)}
 \label{sec:hptpc_beam_flux:overview:s4}
