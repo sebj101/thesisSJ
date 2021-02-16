@@ -291,15 +291,40 @@ The total active area of the detector is \SI{2.0214}{\centi\metre\square}.
 Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimensions.
 
 \begin{figure}[h]
-  \begin{minipage}[t]{.6\linewidth}
+  \begin{minipage}[t]{.55\linewidth}
     \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/uToF_sketch}
   \end{minipage}
   \hfill
-  \begin{minipage}[t]{.35\linewidth}
+  \begin{minipage}[t]{.41\linewidth}
     \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/uTOF_rot}
   \end{minipage}
-  \caption[Schematic diagrams of \SThree]{\SThree schematic diagrams of \SThree from~\cite{s3Paper} along with dimensions.}
+  \caption[Schematic diagrams of \SThree]{Front-on and rotated Schematic diagrams of \SThree from~\cite{s3Paper} along with dimensions.}
   \label{fig:s3Diag}
+\end{figure}
+
+EJ-200 plastic scintillator (of which the bars are made) has a brightness of \num{10000}~photons/MeV deposited.
+Additionally, it has a large optical attenuation length (\SI{4}{\metre}) along with a fast rise time and decay time constant (\SI{0.9}{\nano\second} and \SI{2.1}{\nano\second} respectively.
+The scintillation emission spectrum peaks at a wavelength of \SI{435}{\nano\metre}~\cite{ej200}.
+In order to increase the light collection capabilities of the bars while excluding background light, they are wrapped in aluminium foil which has a reflectivity of 60\%.
+
+The scintillation photons produced by the bars are detected by S13360-6050PE Hamamatsu Photonics~\cite{hamamatsu} silicon photomultipliers (SiPMs) arranged at either end of the bar.
+These photosensors, each measuring \SI{6 x 6}{\milli\metre}, are arranged in groups of eight and then coupled to the end of the bar.
+These photomultipliers have a wavelength range that is well suited to the scintillation light produced by the bars (the sensitivity of the SiPMs at a wavelength of \SI{450}{\nano\metre} is 40\%~\cite{hamamatsu}).
+The anode signals produced by these SiPMs are read out, summed and shaped by a dedicated circuit as described in~\cite{s3SiPM}.
+
+These signals, along with those from \SOne and \STwo, are then fed into a DAQ based upon the SAMPIC chip, further details of which are given in~\cite{sampic}.
+
+\SThree triggers are formed in the following manner, shown graphically in \citefig{fig:s3Trigger}, and are intended to identify the prescence of a beam particle travelling between \SOne and \SThree.
+An \SOne signal is considered to have occurred when at least three of the four \SOne PMTs register a signal above the threshold of \SI{30}{\milli\volt}.
+An \SThree signal is deemed to have occurred if the SiPMs on either end of a given bar register a signal above a threshold of \SI{30}{\milli\volt}.
+If an \SOne signal and an \SThree signal occur within a time window of \SI{70}{\nano\second}, the DAQ is triggered and writes the event.
+The DAQ also acquires signals from the coincidence of \SOne and \STwo as well as the signal indicating the start of the beam spill.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.8\linewidth]{files/figures/hptpc_beam_flux/utofTrig}
+  \caption[Trigger logic for the upstream time of flight DAQ]{Trigger logic showing the necessary conditions for the identification of a $\SOne-\SThree$ beam particle by the upstream ToF DAQ.}
+  \label{fig:s3Trigger}
 \end{figure}
 
 
