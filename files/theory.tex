@@ -20,18 +20,20 @@ Examples of these interactions are shown in \citefig{fig:nuIntEx}.
   \centering
   \begin{subfigure}[t]{.49\textwidth}
     \centering
-    \feynmandiagram [horizontal=a to b] {
+    \feynmandiagram [vertical=a to b] {
       i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\(l^{-}\)],
-      a -- [boson, edge label = \wplus] b
+      a -- [boson, edge label = \wplus] b,
+      f1 [particle=\nul] -- [anti fermion] b -- [anti fermion] f2 [particle=\(l^{-}\)]
     };
     \caption{Example of a neutrino charged current interaction}
   \end{subfigure}
   \hfill
   \begin{subfigure}[t]{.49\textwidth}
     \centering
-    \feynmandiagram [horizontal=a to b] {
+    \feynmandiagram [vertical=a to b] {
       i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\nul],
-      a -- [boson, edge label = \zboson] b
+      a -- [boson, edge label = \zboson] b,
+      f1 [particle=\(l^{-}\)]  -- [anti fermion] b -- [anti fermion] f2 [particle=\(l^{-}\)]
     };    
     \caption{Example of a neutrino neutral current interaction}
   \end{subfigure}
@@ -45,6 +47,18 @@ These flavours are defined by the charged lepton produced by the neutrino when i
 %%%% Actual theory stuff %%%%%%%%%%
 \subsection{Neutrino oscillations}
 \label{sec:theory:theory:oscillations}
+
+%%%% START BORIS KAYSER STUFF HERE %%%%%
+
+The Standard Model describes the coupling of leptons to the \wboson with the Lagrangian
+\begin{equation}
+  \lagr_{W} = - \frac{g}{\sqrt{2}} \sum_{\substack{\alpha = e, \mu, \tau \\ i = 1, 2, 3}}
+  \left( \overline{l_{L\alpha}} \gamma^{\lambda} U_{\alpha i} \nu_{Li} \wminus_{\lambda} +
+  \overline{\nu_{Li}} \gamma^{\lambda} U^{*}_{\alpha i} l_{L\alpha} \wplus_{\lambda} \right) \, ,
+\end{equation}
+where a subscripted $L$ refers to the left-handed chiral projection of a fermions.
+
+%%%% HERE ENDS BORIS KAYSER STUFF %%%%%
 
 It is widely accepted today that the neutrino flavour eigenstates are formed from linear combinations of the mass eigenstates in the relation
 \begin{equation} 
@@ -87,7 +101,7 @@ This allows $U$ to be expressed as the product of three rotation matrices (where
     s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\dcp} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\dcp} & c_{23}c_{13}
   \end{pmatrix}
 \end{align}
-where $s_{ij} = \sthetai{ij}$, $c_{ij} = \cthetai{ij}$, $\thetai{ij} = [0, \pi/2]$ and $\dcp = [0, 2\pi]$~\cite{pmnsMatrix}.
+where $s_{ij} = \sthetai{ij}$, $c_{ij} = \cthetai{ij}$, $\thetai{ij} \in [0, \pi/2]$ and $\dcp \in [0, 2\pi]$~\cite{pmnsMatrix}.
 
 Thus the angles can be expressed in terms of the elements of the mixing matrix in the following way~\cite{pdg2018}:
 \begin{gather*}
