@@ -55,8 +55,80 @@ The Standard Model describes the coupling of leptons to the \wboson with the Lag
   \lagr_{W} = - \frac{g}{\sqrt{2}} \sum_{\substack{\alpha = e, \mu, \tau \\ i = 1, 2, 3}}
   \left( \overline{l_{L\alpha}} \gamma^{\lambda} U_{\alpha i} \nu_{Li} \wminus_{\lambda} +
   \overline{\nu_{Li}} \gamma^{\lambda} U^{*}_{\alpha i} l_{L\alpha} \wplus_{\lambda} \right) \, ,
+  \label{eq:lagr}
 \end{equation}
-where a subscripted $L$ refers to the left-handed chiral projection of a fermions.
+where a subscripted $L$ refers to a left-handed chiral projection, $l_{\alpha}$ are charged leptons of flavour $\alpha$, $\nu_{i}$ are mass eigenstates, $g$ is the semiweak coupling constant and $U$ is the lepton mixing matrix.
+
+Here we will assume that $U$ is a unitary $3 \times 3$ matrix (and that there are therefore only 3 ``active'' neutrino flavours (neutrinos that couple to the $W$ and $Z$ bosons) and 3 neutrino mass eigenstates.
+This matrix, also sometimes known as the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix, can be written as
+\begin{equation}
+  U =
+  \begin{pmatrix}
+    U_{e1}     & U_{e2}     & U_{e3} \\
+    U_{\mu 1}  & U_{\mu 2}  & U_{\mu 3} \\
+    U_{\tau 1} & U_{\tau 2} & U_{\tau 3}
+  \end{pmatrix} \, .
+\end{equation}
+From the properties of unitary matrices it can be determined that a complex $N \times N$ matrix, contains at most $N^{2}$ independent parameters.
+These are commonly represented as a combination of real mixing angles and complex phases.
+
+It is possible to reduce the number of physically meaningful parameters further by redefining the charge lepton states in the manner $\bra{l_{\alpha}} \rightarrow \bra{l_{\alpha}'} = \bra{l_{\alpha}} e^{-i\phi_{\alpha}}$ which does not affect the physics.
+Each of the $N$ charged lepton states may be redefined in this fashion, resulting in the removal of $N$ physically meaningful parameters~\cite{kayser2008neutrino}.
+Therefore $U$ has $N(N-1)$ physically meaningful parameters of which $N(N-1)/2$ are real ``mixing angles'' while the remainder are complex phases.
+
+As a result, $U$ can be represented as the following product of matrices:
+\begin{align}
+  U &=
+  \begin{pmatrix}
+    1 & 0       & 0 \\
+    0 & c_{23}  & s_{23} \\
+    0 & -s_{23} & c_{23}  
+  \end{pmatrix}
+  \times
+  \begin{pmatrix}
+    c_{13}             & 0 & s_{13}e^{-i\delta} \\
+    0                  & 1 & 0 \\
+    -s_{13}e^{i\delta} & 0 & c_{13}
+  \end{pmatrix}
+  \times
+  \begin{pmatrix}
+    c_{12}  & s_{12} & 0 \\
+    -s_{12} & c_{12} & 0 \\
+    0       & 0      & 1
+  \end{pmatrix}
+  \\
+  &\times
+  \begin{pmatrix}
+    e^{i\omega_{1}/2} & 0                 & 0 \\
+    0                 & e^{i\omega_{2}/2} & 0 \\
+    0                 & 0                 & 1
+  \end{pmatrix} \, ,
+\end{align}
+where $c_{ij} \equiv \cthetai{ij}$, $s_{ij} \equiv \sthetai{ij}$ and $\thetai{13}$, $\thetai{12}$, $\thetai{23}$ are the mixing angles.
+The complex phases here are $\delta$, $\omega_{1}$ and $\omega_{2}$.
+
+Unlike the other fermions it is possible that neutrinos may be their own antiparticles.
+In this case, neutrinos would be termed Majorana particles (in the case that neutrinos are not their own antiparticles they are referred to as Dirac particles).
+In the case that $\overline{\nu}_{i} \neq \nu_{i}$ it is possible to redefine the $\nu_{i}$ such that $\delta$ is the only remaining physically significant complex phase~\cite{cpvMajorana}.
+
+From \citeeq{eq:lagr} we can see that the amplitude for the decay $\wplus \rightarrow \overline{l_{\alpha}} + \nu_{i}$ is proportional to the matrix element $U_{\alpha i}^{*}$.
+If we then define the neutrino of flavour $\alpha$ (where $\alpha = e, \mu, \tau$) to be the state produced with a charged lepton $\overline{l_{\alpha}}$ we find that,
+\begin{equation}
+  \ket{\nu_{\alpha}} = \sum_{i=1}^{3} U^{*}_{\alpha i} \ket{\nu_{i}} \, .
+\end{equation}
+This can be inverted to give the mass eigenstate in terms of the flavour states
+\begin{equation}
+  \ket{\nu_{i}} = \sum_{\alpha=e, \mu, \tau} U_{\alpha i} \ket{\nu_{\alpha}} \, ,
+\end{equation}
+where the fractional flavour content of the state is $|U_{\alpha i}|^{2}$.
+
+We then consider this neutrino interacting and producing some lepton $l_{\beta}$.
+From \citeeq{eq:lagr}, we can see that the amplitude for this process is proportional to
+\begin{equation}
+  \sum_{i=1}^{3} U_{\beta i}U_{\alpha i}^{*} = \delta_{\beta \alpha}
+\end{equation}
+where the unitarity of $U$ has been used.
+Here we can see that if a neutrino is produced with an associated lepton of flavour $\alpha$ and this neutrino interacts to produce a charged lepton, this charged lepton must also be of flavour $\alpha$.
 
 %%%% HERE ENDS BORIS KAYSER STUFF %%%%%
 
