@@ -107,7 +107,7 @@ As a result, $U$ can be represented as the following product of matrices:
 where $c_{ij} \equiv \cthetai{ij}$, $s_{ij} \equiv \sthetai{ij}$ and $\thetai{13}$, $\thetai{12}$, $\thetai{23}$ are the mixing angles.
 The complex phases here are $\delta$, $\omega_{1}$ and $\omega_{2}$.
 
-Unlike the other fermions it is possible that neutrinos may be their own antiparticles.
+Unlike the other fermions it is possible that neutrinos may be their own antiparticles, due to their lack of electric charge.
 In this case, neutrinos would be termed Majorana particles (in the case that neutrinos are not their own antiparticles they are referred to as Dirac particles).
 In the case that $\overline{\nu}_{i} \neq \nu_{i}$ it is possible to redefine the $\nu_{i}$ such that $\delta$ is the only remaining physically significant complex phase~\cite{cpvMajorana}.
 
@@ -130,6 +130,103 @@ From \citeeq{eq:lagr}, we can see that the amplitude for this process is proport
 where the unitarity of $U$ has been used.
 Here we can see that if a neutrino is produced with an associated lepton of flavour $\alpha$ and this neutrino interacts to produce a charged lepton, this charged lepton must also be of flavour $\alpha$.
 
+\subsubsection{Vacuum oscillation case (BK)}
+
+Let us now calculate the interaction probability for a neutrino that is created as flavour $\alpha$ and then interacts, after propagating a distance $L$, as though it is a neutrino of flavour $\beta$.
+If $\alpha \neq \beta$, the neutrino has oscillated.
+
+The amplitude of this reaction can be visualised using \citefig{fig:oscillationDiag1}.
+Here a neutrino of flavour $\alpha$ is initially produced along with a charged lepton $\overline{l_{\alpha}}$.
+The neutrino then propagates some distance $L$ before interacting in a target, resulting in the emission of charged lepton $l_{\beta}$
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (w1);
+      \vertex [below left=of w1] (source1) {Source};
+      \vertex [above left=of w1] (source2) {};
+      \vertex [right=of w1, dot, label=270:\(\nu_{\alpha}\)] (nuAlpha) {};
+      \vertex [above=of nuAlpha] (lAlpha) {\( \overline{l_{\alpha}} \)};
+      \vertex [right=3cm of nuAlpha, dot, label=270:\(\nu_{\beta}\)] (nuBeta) {};
+      \vertex [above=of nuBeta] (lBeta) {\( l_{\beta} \)};
+      \vertex [right=of nuBeta] (w2);
+      \vertex [below right=of w2] (target1) {Target};
+      \vertex [above right=of w2] (target2) {}; 
+      
+      \diagram* {
+        (source1) -- [fermion] (w1) -- [fermion] (source2),
+        (w1) -- [boson, edge label'=\(W\)] (nuAlpha),
+        (nuAlpha) -- [fermion] (lAlpha),
+        (nuAlpha) -- [fermion, edge label=\(\nu\)] (nuBeta),
+        (nuBeta) -- [fermion] (lBeta),
+        (nuBeta) -- [boson, edge label'=\(W\)] (w2),
+        (target1) -- [fermion] (w2) -- [fermion] (target2)
+      };
+
+      \draw [decoration={brace, mirror}, decorate] ([yshift=-15pt]nuAlpha.south) -- ([yshift=-15pt]nuBeta.south) node [pos=0.5, below] {\(L\)};
+      %\draw [decoration={brace}, decorate] (source1.south west) -- (source2.north west) node [pos=0.5, left] {\(L\)};      
+    \end{feynman}
+  \end{tikzpicture}
+  \caption[Simplified diagram showing neutrino oscillation]{Simplified diagram showing neutrino oscillation.}
+  \label{fig:oscillationDiag1}
+\end{figure}
+
+If we choose to move to the mass eigenstate basis, in order to calculate the amplitude we must now sum over the various mass eigenstates.
+The diagram for the propagation of the mass eigenstate $\nu_{i}$ is shown in \citefig{fig:oscillationDiag2}.
+As mentioned above, the amplitude for a neutrino of mass eigenstate $i$ to be produced in association with a lepton $\overline{l_{\alpha}}$ is given by $U_{\alpha i}^{*}$.
+Upon reaching the target and interacting, the amplitude for the state $\nu_{i}$ to produce a lepton $l_{\beta}$ is given $U_{\beta i}$.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{feynman}
+      \vertex (w1);
+      \vertex [below left=of w1] (source1) {Source};
+      \vertex [above left=of w1] (source2) {};
+      \vertex [right=of w1, dot, label=270:\( U_{\alpha i}^{*} \)] (nuAlpha) {};
+      \vertex [above=of nuAlpha] (lAlpha) {\( \overline{l_{\alpha}} \)};
+      \vertex [right=3cm of nuAlpha, dot, label=270:\( U_{\beta i} \)] (nuBeta) {};
+      \vertex [above=of nuBeta] (lBeta) {\( l_{\beta} \)};
+      \vertex [right=of nuBeta] (w2);
+      \vertex [below right=of w2] (target1) {Target};
+      \vertex [above right=of w2] (target2) {}; 
+      
+      \diagram* {
+        (source1) -- [fermion] (w1) -- [fermion] (source2),
+        (w1) -- [boson, edge label'=\(W\)] (nuAlpha),
+        (nuAlpha) -- [fermion] (lAlpha),
+        (nuAlpha) -- [fermion, edge label=\(\nu\)] (nuBeta),
+        (nuBeta) -- [fermion] (lBeta),
+        (nuBeta) -- [boson, edge label'=\(W\)] (w2),
+        (target1) -- [fermion] (w2) -- [fermion] (target2)
+      };
+
+      \draw [decoration={brace, mirror}, decorate] ([yshift=-17pt]nuAlpha.south) -- ([yshift=-17pt]nuBeta.south) node [pos=0.5, below] {\( \text{Prop}(\nu_{i}) \)};
+      %\draw [decoration={brace}, decorate] (source1.south west) -- (source2.north west) node [pos=0.5, left] {\(L\)};      
+    \end{feynman}
+  \end{tikzpicture}
+  \caption[Simplified diagram showing propagation of a mass eigenstate]{Simplified diagram showing propagation of a mass eigenstate, showing the factors picked up at the neutrino vertices.}
+  \label{fig:oscillationDiag2}
+\end{figure}
+
+The final factor that must be taken into consideration in order to calculate this amplitude is the mass eigenstate propagator $\text{Prop}(\nu_{i})$.
+From quantum mechanics, this can be given as $e^{-i \lambda \tau}$ where $\lambda = m - i \Gamma /2$ where $m$ is the mass of the particle, $\Gamma$ is the width of the particle and $\tau$ is the proper time that elapses for the particle in its rest frame during propagation. 
+Here we make the approximation that $\Gamma$ is extremely small for neutrinos to therefore find
+\begin{equation}
+  \text{Prop}(\nu_{i}) = e^{-i m_{i} \tau_{i}} \, .
+\end{equation}
+Using Lorentz invariance, we can transform to the lab frame to find
+\begin{equation}
+  \text{Prop}(\nu_{i}) = e^{-i (E_{i}t - p_{i}L) } \, 
+\end{equation}
+where $L$ is the lab frame distance of propagation and $E_{i}$ and $p_{i}$ are the lab frame energy and momentum respectively.
+
+The amplitude for the oscillation process, $\text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta})$ can therefore be expressed as
+\begin{equation}
+  \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) = \sum_{i=1}^{3} U^{*}_{\alpha i} e^{-i (E_{i}t - p_{i}L) } U_{\beta i} 
+\end{equation}
+and the probability of oscillation, $P(\nu_{\alpha} \rightarrow \nu_{\beta})$ is just $|\text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta})|^{2}$.
 %%%% HERE ENDS BORIS KAYSER STUFF %%%%%
 
 It is widely accepted today that the neutrino flavour eigenstates are formed from linear combinations of the mass eigenstates in the relation

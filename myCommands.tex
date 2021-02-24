@@ -84,6 +84,21 @@
 \DeclareSIUnit\clight{\text{\ensuremath{c}}}
 \DeclareSIUnit\atmosphere{\text{atm}}
 
+%%% Tikz picture brackets
+\tikzset{
+  ncbar angle/.initial=90,
+  ncbar/.style={
+    to path=(\tikztostart)
+    -- ($(\tikztostart)!#1!\pgfkeysvalueof{/tikz/ncbar angle}:(\tikztotarget)$)
+    -- ($(\tikztotarget)!($(\tikztostart)!#1!\pgfkeysvalueof{/tikz/ncbar angle}:(\tikztotarget)$)!\pgfkeysvalueof{/tikz/ncbar angle}:(\tikztostart)$)
+    -- (\tikztotarget)
+  },
+  ncbar/.default=0.5cm,
+}
 
+\tikzset{square left brace/.style={ncbar=0.5cm}}
+\tikzset{square right brace/.style={ncbar=-0.5cm}}
 
+\tikzset{round left paren/.style={ncbar=0.5cm,out=120,in=-120}}
+\tikzset{round right paren/.style={ncbar=0.5cm,out=60,in=-60}}
 
