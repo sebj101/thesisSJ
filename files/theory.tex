@@ -113,9 +113,9 @@ In the case that $\overline{\nu}_{i} \neq \nu_{i}$ it is possible to redefine th
 In this case it is possible to write $U$ as
 \begin{equation}
   \begin{pmatrix}
-    c_{12}c_{13} & s_{12}c_{13} & s_{13} e^{-i\dcp} \\
-    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\dcp} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\dcp} & s_{23}c_{13} \\
-    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\dcp} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\dcp} & c_{23}c_{13} 
+    c_{12}c_{13} & s_{12}c_{13} & s_{13} e^{-i\delta} \\
+    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\delta} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta} & s_{23}c_{13} \\
+    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\delta} & -c_{12}s_{23}-s_{12}c_{23}s_{13}e^{i\delta} & c_{23}c_{13} 
   \end{pmatrix} \, .
 \end{equation}
 Thus the angles can be expressed in terms of the elements of the mixing matrix in the following way~\cite{pdg2018}:
@@ -295,19 +295,25 @@ Both energy and length transform in the same manner under Lorentz transformation
 \end{align}
 which means that we may write
 \begin{equation}
-\frac{L}{E} = {L_{0}}{E_{0}^{\nu}} \, .
+\frac{L}{E} = \frac{L_{0}}{E_{0}^{\nu}} \, .
 \end{equation}
 In turn this allows us to write our oscillation amplitude as
 \begin{equation}
   \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) = \sum_{i=1}^{3} U_{\alpha i}^{*} e^{ -i(m_{i}^{\nu})^{2}\frac{L}{2E} } U_{\beta i} \, .
 \end{equation}
-
-This can then be used to find the oscillation probability as
+This can then be used to write the oscillation probability as
 \begin{align}
-  \text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \\
-  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \\
-  & + 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E)
+  \text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \nonumber \\
+  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \nonumber \\
+  & + 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E) \, .
+  \label{eq:oscProbAllOut}
 \end{align}
+
+What does \citeeq{eq:oscProbAllOut} tell us about neutrino oscillations?
+We can see that two conditions must be present in order for oscillations to be observed.
+Firstly, there must be mass differences between the various mass eigenstates which tells us that neutrinos have non-zero mass.
+Secondly, we must be non-trivial mixing between the lepton generations.
+That is to say, $U$ cannot be diagonal if neutrino oscillations are observed.
 
 %%%% HERE ENDS BORIS KAYSER STUFF %%%%
 
@@ -564,7 +570,6 @@ This effect is known as the MSW resonance.
 We can also observe that as $A \rightarrow \infty$ (in extremely high matter densities, for example), $\sin 2\theta_{m} \rightarrow 0$ meaning that no oscillations occur.
 Additionally, it can be observed that $A$ depends on the sign of \deltami{}.
 Thus, the MSW effect can be used to determine the sign of the mass differences.
-This is in contrast to the vacuum oscillation case where it is not possible to determine the sign of \deltami{}.
 
 \subsubsection{Three neutrino oscillations}
 \label{sec:theory:theory:threeNeutrino}
