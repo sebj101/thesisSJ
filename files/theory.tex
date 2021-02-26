@@ -314,7 +314,42 @@ We can see that two conditions must be present in order for oscillations to be o
 Firstly, there must be mass differences between the various mass eigenstates which tells us that neutrinos have non-zero mass.
 Secondly, we must be non-trivial mixing between the lepton generations.
 That is to say, $U$ cannot be diagonal if neutrino oscillations are observed.
+Additionally, we see that neutrino oscillations can only tell us about the relative difference in neutrino mass eigenstates, they cannot tell us the absolute values of the mass eigenstates.
 
+The phase difference $\deltami{ij}L/4E$ defines the length and energy scales at which oscillations come into play.
+If we reinsert the missing factors of $\hbar$ and $c$ we find
+\begin{equation}
+  \frac{ \deltami{ij} L }{ 4E } = 1.27 \frac{ \deltami{ij} [\si{\electronvolt}]^{2} L [\si{\kilo\metre}]}{ E [\si{\giga\electronvolt}] } \, .
+  \label{eq:phaseDiff}
+\end{equation}
+For example, consider a \SI{1}{\giga\electronvolt} atmospheric neutrino travelling the diameter of the Earth (approximately \SI{12000}{\kilo\metre}).
+The effects of oscillations will be visible if \citeeq{eq:phaseDiff} is $\geq \order{1}$.
+Therefore, such an experiment can probe mass splittings down to the level of around \SI{7d-5}{\electronvolt\squared}.
+
+\citeeq{eq:oscProbAllOut} shows the oscillation probability for neutrinos only.
+For antineutrinos the equivalent probability is written as
+\begin{align}
+  \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \nonumber \\
+  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \nonumber \\
+  & - 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E) \, .
+\end{align}
+Thus we can see that, in order that $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$, $U$ cannot be real.
+Given that the process $\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}$ is the Charge-Parity (CP) mirror of $\nu_{\alpha} \rightarrow \nu_{\beta}$, if $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$ then we have CP-violation in the lepton sector.
+
+We can define the CP-violating difference for two flavours, $\alpha$ and $\beta$, as
+\begin{equation}
+  \Delta_{\alpha \beta} = \text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) - \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) \, .
+  \label{eq:cpViolation}
+\end{equation}
+Under Charge-Parity-Time (CPT) transformation, the process $\nu_{\alpha} \rightarrow \nu_{\beta}$ becomes $\nu_{\alpha} \rightarrow \nu_{\alpha}$.
+If CPT invariance holds then the probability of these two processes should be equal.
+Using this fact we can rewrite \citeeq{eq:cpViolation} as
+\begin{equation}
+  \Delta_{\alpha \beta} = \text{P}(\overline{\nu}_{\beta} \rightarrow \overline{\nu}_{\alpha}) - \text{P}(\nu_{\beta} \rightarrow \nu_{\alpha}) = -\Delta_{\beta \alpha} \, .
+\end{equation}
+From the above, one can see that $\Delta_{\alpha \alpha} = 0$.
+Thus one cannot observe CP violating differences by making so-called `disappearance' measurements.
+  
 %%%% HERE ENDS BORIS KAYSER STUFF %%%%
 
 \subsubsection{Two neutrino case}
@@ -336,12 +371,12 @@ In terms of the mass contents of the pure flavour states, we find that
 \end{align}
 Using this and \citeeq{eq:oscillationProb}, we find that
 \begin{equation}
-  P_{\nu_{\alpha}\rightarrow\nu_{\beta}} = \sstwothetai{} \left(\frac{\deltami{} L}{4E} \right) \, ,
+  \text{P}(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sstwothetai{} \left(\frac{\deltami{} L}{4E} \right) \, ,
 \end{equation}
 for $\alpha \neq \beta$ where \deltami{} is the mass difference between the mass eigenstates.
 Restoring factors of $\hbar$ and $c$, this becomes
 \begin{equation}
-  P(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sstwothetai{} \sin^{2} \left( 1.27 \frac{\deltami{} [\text{eV}]^{2} L [\text{km}]}{E[\text{GeV}]} \right) \, .
+  \text{P}(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sstwothetai{} \sin^{2} \left( 1.27 \frac{\deltami{} [\text{eV}]^{2} L [\text{km}]}{E[\text{GeV}]} \right) \, .
   \label{eq:twoNuProb}
 \end{equation}
 
