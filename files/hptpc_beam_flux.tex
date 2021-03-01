@@ -382,6 +382,25 @@ The process used for the identification of particles in \SThree as well as corre
 \subsection{Analysis methods}
 \label{sec:hptpc_beam_flux:methods:general}
 
+In this study two measurements of the beam flux are made, one with \SThree and one with \SFour.
+In both cases we measure the time of flight of particle $t_{f}-t_{i}$ where $t_{i}$ is time at which the particle is detected at the initial upstream timing point and $t_{f}$ is the time at which the particle is detected at some final downstream timing point.
+In the case of the UToF system, the measured time difference is $t_{\SThree} - t_{\SOne}$, while for the DToF system it is $t_{\SFour} - t_{\STwo}$.
+
+An example time of flight spectrum is shown in \citefig{fig:s3Tof}.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize={.75\linewidth}, center}
+    \input{files/figures/hptpc_beam_flux/utofS1}
+  \end{adjustbox}
+  \caption[Time of flight spectra for particles travelling between \SOne and \SThree for various numbers of moderator blocks]{Time of flight spectra for particles travelling between \SOne and \SThree for various numbers of moderator blocks}
+  \label{fig:s3Tof}
+\end{figure}
+
+In this study, in order to identify the species of particle detected it is important to measure the time of flight of said given particle accurately.
+With that in mind, it is important to calibrate the equipment used for cabling and equipment delays.
+This is done by shifting the value of $t_{f}-t_{i}$ such that 
+This procedure is repeated for both ToF DAQs.
+
 \subsection{\SThree specific methods}
 \label{sec:hptpc_beam_flux:methods:s3}
 
