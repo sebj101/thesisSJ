@@ -298,7 +298,7 @@ Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimen
   \begin{minipage}[t]{.41\linewidth}
     \includegraphics[width=\linewidth]{files/figures/hptpc_beam_flux/uTOF_rot}
   \end{minipage}
-  \caption[Schematic diagrams of \SThree]{Front-on and rotated Schematic diagrams of \SThree from~\cite{s3Paper} along with dimensions.}
+  \caption[Schematic diagrams of \SThree]{Front-on and rotated schematic diagrams of \SThree from~\cite{s3Paper} along with dimensions.}
   \label{fig:s3Diag}
 \end{figure}
 
@@ -337,6 +337,14 @@ A diagram of one such bar is shown in \citefig{fig:barDiag}.
 Each of these scintillator bars has a PMT attached to each end and these observe the scintillation light produced by charged particles traversing the bars.
 A diagram of \SFour is shown in \citefig{fig:dtofDiag}.
 
+The anode signal of each of the PMTs is fed into a LeCroy 620AL NIM discriminator with a threshold of \SI{-20}{\milli\volt}.
+Any PMT signals above this threshold are digitised using a time-to-digital converted (TDC)
+Additionally, the signal indicating the start of a beam spill as well as a signal indicating a coincidence between \SOne and \STwo were fed into the TDC.
+A particle (either beam induced or otherwise) is considered to have been observed in \SFour if a signal above the discriminator threshold is recorded in both PMTs on the same bar, within \SI{20}{\nano\second} of each other.
+
+Unlike the UToF DAQ system, the DToF DAQ is operated in self-triggering mode and thus acquired data both inside and outside the beam spill.
+
+
 \section{Methods}
 \label{sec:hptpc_beam_flux:methods}
 
@@ -349,7 +357,7 @@ t = L \sqrt{ \frac{1}{c^{2}} + \frac{m^{2}}{p^{2}} }\, ,
 \end{equation}
 where $L$ is the distance travelled by the particle.
 \citefig{fig:tofVsMom}, left and right, show the time of flight for various particles as a function of particle momentum for the $\SOne - \SThree$ and  $\STwo - \SFour$ distances respectively.
-Given the beam momentum is known, by measuring a particle's time of flight it should be possible to identify the particle in question.
+If the beam momentum is known, by measuring a particle's time of flight it should be possible to identify the particle in question.
 One can see that, assuming a time resolution of around \SI{1}{\nano\second}, it should be possible to distinguish between deuterons, protons and pions/muons at the momenta used in this study.
 
 \begin{figure}[h]
@@ -368,6 +376,17 @@ One can see that, assuming a time resolution of around \SI{1}{\nano\second}, it 
   \label{fig:tofVsMom}
 \end{figure}
 
+The basic methods by which the time of flight systems are calibrated are discussed in \citesec{sec:hptpc_beam_flux:methods:general}.
+The process used for the identification of particles in \SThree as well as corrections specific to \SThree are discussed in \citesec{sec:hptpc_beam_flux:methods:s3} while the same topics involving \SFour are discussed in \citesec{sec:hptpc_beam_flux:methods:s4}.
+
+\subsection{Analysis methods}
+\label{sec:hptpc_beam_flux:methods:general}
+
+\subsection{\SThree specific methods}
+\label{sec:hptpc_beam_flux:methods:s3}
+
+\subsection{\SFour specific methods}
+\label{sec:hptpc_beam_flux:methods:s4}
 
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
