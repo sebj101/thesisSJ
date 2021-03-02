@@ -223,6 +223,7 @@ One can see that significantly more spills are recorded in the 4 block configura
 This is because this is the configuration that was used for the majority of the beam test.
 
 \begin{table}
+  \centering
   \caption[Number of recorded spills for each moderator block configuration used in T10 beam flux analysis]{Number of recorded spills for each moderator block configuration used in T10 beam flux analysis}
   \label{tab:nSpills}
   \begin{tabular}{c c}
@@ -353,7 +354,8 @@ This results in a beam of particles that are all of the same momentum but of dif
 Different particles of the same momentum will take different times to cover the same distance.
 The time of flight, $t$, of a particle of mass, $m$, with a momentum, $p$, is given by
 \begin{equation}
-t = L \sqrt{ \frac{1}{c^{2}} + \frac{m^{2}}{p^{2}} }\, ,
+  t = L \sqrt{ \frac{1}{c^{2}} + \frac{m^{2}}{p^{2}} }\, ,
+  \label{eq:tof}
 \end{equation}
 where $L$ is the distance travelled by the particle.
 \citefig{fig:tofVsMom}, left and right, show the time of flight for various particles as a function of particle momentum for the $\SOne - \SThree$ and  $\STwo - \SFour$ distances respectively.
@@ -386,10 +388,22 @@ In this study two measurements of the beam flux are made, one with \SThree and o
 In both cases we measure the time of flight of particle $t_{f}-t_{i}$ where $t_{i}$ is time at which the particle is detected at the initial upstream timing point and $t_{f}$ is the time at which the particle is detected at some final downstream timing point.
 In the case of the UToF system, the measured time difference is $t_{\SThree} - t_{\SOne}$, while for the DToF system it is $t_{\SFour} - t_{\STwo}$.
 
-An example time of flight spectrum is shown in \citefig{fig:s3Tof}.
+The particular particle type distinction that is made in this study is between protons and MIPs.
+At the momenta and with the beamline used in this study, MIPs are primarily charged pions and electrons.
+At a momentum of \SI{0.8}{\giga\electronvolt\per\clight} a charged pion will take \SI{36.4}{\nano\second} to traverse the $\SOne - \SThree$ distance while a proton will take \SI{55.3}{\nano\second}.
+At the same momentum, a charged pion will take \SI{42.8}{\nano\second} to travel the $\STwo - \SFour$ distance while a proton will take \SI{65.0}{\nano\second}.
+
+Example time of flight spectra are shown in \citefig{fig:s3Tof}, divided between the various moderator block configurations.
+Here one can see that there are two distinct populations, a faster peak situated at approximately \SI{36}{\nano\second}, caused by MIPs (primarily pions, muons and positrons) and a broader double peaked structure located between \SI{50}{\nano\second} and \SI{110}{\nano\second} which is caused by protons.
+One can see that these positions agree with the theoretical expectation above.
+
+\citefig{fig:s3Tof} also shows that the proton population has a distinct double peaked structure.
+This is caused by the steering of the beam which was undertaken in order to increase the off-axis angle of the HPgTPC.
+This steering in turn leads to a portion of the beam scattering in the steering magnets.
+This scattered portion of the beam forms the slower, broader proton peak while the unscattered portion forms the quicker proton peak.
 
 \begin{figure}[h]
-  \begin{adjustbox}{max totalsize={.75\linewidth}, center}
+  \begin{adjustbox}{max totalsize={.8\linewidth}, center}
     \input{files/figures/hptpc_beam_flux/utofS1}
   \end{adjustbox}
   \caption[Time of flight spectra for particles travelling between \SOne and \SThree for various numbers of moderator blocks]{Time of flight spectra for particles travelling between \SOne and \SThree for various numbers of moderator blocks}
@@ -398,11 +412,80 @@ An example time of flight spectrum is shown in \citefig{fig:s3Tof}.
 
 In this study, in order to identify the species of particle detected it is important to measure the time of flight of said given particle accurately.
 With that in mind, it is important to calibrate the equipment used for cabling and equipment delays.
-This is done by shifting the value of $t_{f}-t_{i}$ such that 
-This procedure is repeated for both ToF DAQs.
+This is done by shifting the value of $t_{f}-t_{i}$ such that, for the unmoderated beam, the MIP peak is located at its expected value according to \citeeq{eq:tof}.
+This procedure is performed for each ToF DAQs.
+The resulting required shift for $t_{\SThree} - t_{\SOne}$ is \SI{65.0}{\nano\second} while for $t_{\SFour} - t_{\STwo}$ the required shift is \SI{43.7}{\nano\second}.
 
 \subsection{\SThree specific methods}
 \label{sec:hptpc_beam_flux:methods:s3}
+
+
+
+\subsubsection{Particle identification}
+\label{sec:hptpc_beam_flux:methods:s3:pid}
+
+The UToF DAQ (see \citesec{sec:hptpc_beam_flux:overview:s3}) stores information about the size and time of signals observed by the SiPMs in \SThree.
+As such, both timing and signal size cuts can be used to select protons and MIPs
+This signal amplitude information is relevant due to the differing energy deposition of protons and MIPs at these momenta.
+
+\citefig{fig:energyLoss} shows the mean energy loss for a variety of different materials as a function of $\beta \gamma$.
+One can see that for all the materials, the minimum energy loss per unit distance occurs at $\beta\gamma \approx 3$ with a rapid rise at low values and a slower one at higher values.
+For a charged pion with a momentum of \SI{0.8}{\giga\electronvolt\per\clight}, $\beta\gamma = 5.73$.
+However, for a proton with the same momentum $\beta\gamma = 0.85$.
+This leads protons to deposit more energy in the scintillator bars than the lighter MIPs.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.6\linewidth]{files/figures/hptpc_beam_flux/energyLoss}
+  \caption[Mean energy loss for a variety of different materials.]{Mean energy loss for variety of different materials. Taken from~\cite{pdg2020}.}
+  \label{fig:energyLoss}
+\end{figure}
+
+\citefig{fig:tvsa} shows the relationship between $t_{\SThree} - t_{\SOne}$ and signal amplitude for one of the bars in \SThree.
+
+\begin{figure}[t]
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/tvsa0}
+    \end{adjustbox}
+    \caption{0 blocks}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/tvsa1}      
+    \end{adjustbox}
+    \caption{1 block}
+  \end{subfigure} \\
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/tvsa2}
+    \end{adjustbox}
+    \caption{2 blocks}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/tvsa3}
+    \end{adjustbox}
+    \caption{3 blocks}
+  \end{subfigure} \\
+
+  \begin{subfigure}[t]{\textwidth}
+    \begin{adjustbox}{max totalsize=.5\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/tvsa4}
+    \end{adjustbox}
+    \caption{4 blocks}
+  \end{subfigure}
+
+  \caption[Signal amplitude versus time of flight in \SThree]{Signal amplitude versus time of flight in \SThree for various numbers of moderator blocks. Also shown are the timing and signal amplitude cuts used to select protons (red) and MIPs (green).}
+  \label{fig:tvsa}
+\end{figure}
+
+\subsubsection{Dead time correction}
+\label{sec:hptpc_beam_flux:methods:s3:deadtime}
+
 
 \subsection{\SFour specific methods}
 \label{sec:hptpc_beam_flux:methods:s4}
