@@ -402,6 +402,9 @@ This is caused by the steering of the beam which was undertaken in order to incr
 This steering in turn leads to a portion of the beam scattering in the steering magnets.
 This scattered portion of the beam forms the slower, broader proton peak while the unscattered portion forms the quicker proton peak.
 
+The 0 block sample also contains a third peak located at approximately \SI{95}{\nano\second} which is not visible in the other samples.
+This is caused by deuterons which are moderated out in the other samples.
+
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize={.8\linewidth}, center}
     \input{files/figures/hptpc_beam_flux/utofS1}
@@ -420,7 +423,6 @@ The resulting required shift for $t_{\SThree} - t_{\SOne}$ is \SI{65.0}{\nano\se
 \label{sec:hptpc_beam_flux:methods:s3}
 
 
-
 \subsubsection{Particle identification}
 \label{sec:hptpc_beam_flux:methods:s3:pid}
 
@@ -434,7 +436,6 @@ For a charged pion with a momentum of \SI{0.8}{\giga\electronvolt\per\clight}, $
 However, for a proton with the same momentum $\beta\gamma = 0.85$.
 This leads protons to deposit more energy in the scintillator bars than the lighter MIPs.
 
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=.6\linewidth]{files/figures/hptpc_beam_flux/energyLoss}
@@ -442,7 +443,17 @@ This leads protons to deposit more energy in the scintillator bars than the ligh
   \label{fig:energyLoss}
 \end{figure}
 
-\citefig{fig:tvsa} shows the relationship between $t_{\SThree} - t_{\SOne}$ and signal amplitude for one of the bars in \SThree.
+This greater energy deposition within the bars leads to an increased amount of scintillation light and so an increased signal size in the SiPMs.
+Therefore, it is possible to use the SiPM signal size to discriminate between particle species.
+
+\citefig{fig:tvsa} shows the relationship between $t_{\SThree} - t_{\SOne}$ and signal amplitude (here labelled as A1) for one of the bars in \SThree along with timing and signal cuts used to select particle types.
+One can see that two populations are visible for all the different numbers of moderator blocks apart from \citefig{fig:tvsa:0} where three populations can be seen.
+This third, slowest population is cause by deuterons.
+
+The quicker population, produced by MIPs, does not appear to move with increasing numbers of moderator blocks.
+This is because, even after moderation with 4 blocks, the particles are still in the minimum ionising regime.
+However, the proton peak moves to higher amplitudes as the number of moderator blocks increases.
+In this case, the protons already have $\beta\gamma < 3$ and looking at \citefig{fig:energyLoss} one can see that as $\beta\gamma$ falls further the energy loss and thus the amplitude will also rise.
 
 \begin{figure}[t]
   \begin{subfigure}[t]{.5\textwidth}
@@ -450,6 +461,7 @@ This leads protons to deposit more energy in the scintillator bars than the ligh
       \input{files/figures/hptpc_beam_flux/tvsa0}
     \end{adjustbox}
     \caption{0 blocks}
+    \label{fig:tvsa:0}
   \end{subfigure}
   \hfill
   \begin{subfigure}[t]{.5\textwidth}
