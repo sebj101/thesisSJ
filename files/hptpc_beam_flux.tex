@@ -453,7 +453,11 @@ This third, slowest population is cause by deuterons.
 The quicker population, produced by MIPs, does not appear to move with increasing numbers of moderator blocks.
 This is because, even after moderation with 4 blocks, the particles are still in the minimum ionising regime.
 However, the proton peak moves to higher amplitudes as the number of moderator blocks increases.
-In this case, the protons already have $\beta\gamma < 3$ and looking at \citefig{fig:energyLoss} one can see that as $\beta\gamma$ falls further the energy loss and thus the amplitude will also rise.
+In this case, the protons already have $\beta\gamma < 3$ when the beam momentum is \SI{0.8}{\giga\electronvolt\per\clight}.
+Looking at \citefig{fig:energyLoss} one can see that as $\beta\gamma$ falls further, as will occur when the protons are moderated, the energy loss and thus the amplitude rises.
+Therefore, an amplitude cut can be used to select protons while reducing the number of background events.
+Given that the gain of each SiPM array varies, the proton amplitude cut is determined by eye for each one individually.
+The cut values vary in the range \SI{0.125}{\volt} to \SI{0.3}{\volt}.
 
 \begin{figure}[t]
   \begin{subfigure}[t]{.5\textwidth}
@@ -491,12 +495,43 @@ In this case, the protons already have $\beta\gamma < 3$ and looking at \citefig
     \caption{4 blocks}
   \end{subfigure}
 
-  \caption[Signal amplitude versus time of flight in \SThree]{Signal amplitude versus time of flight in \SThree for various numbers of moderator blocks. Also shown are the timing and signal amplitude cuts used to select protons (red) and MIPs (green).}
+  \caption[Signal amplitude versus time of flight in \SThree]{Signal amplitude versus time of flight in \SThree for various numbers of moderator blocks. Also shown are the timing and signal amplitude cuts used to select protons (red) and MIPs (green) for this particular SiPM.}
   \label{fig:tvsa}
 \end{figure}
 
+Particles for which $\SI{35.75}{\nano\second} < t_{\SThree} - t_{\SOne} < \SI{37.75}{\nano\second}$ are identified as MIPs while those for which $\SI{53}{\nano\second} < t_{\SThree} - t_{\SOne} < \SI{115}{\nano\second}$ and which are above the amplitude threshold are identified as protons.
+For the unmoderated sample, the upper bound of the timing cut is lowered to \SI{80}{\nano\second} in order to exclude deuterons.
+The timing and amplitude cuts used for each sample for one SiPM are shown in \citefig{fig:tvsa}.
+
 \subsubsection{Dead time correction}
 \label{sec:hptpc_beam_flux:methods:s3:deadtime}
+
+\citefig{fig:spillStructureComp} shows that significant differences are observed between the spill structure measured in \SThree and \SFour.
+These differences do not originate from physical processes but rather the large, unknown dead time of the UToF DAq.
+As \citefig{fig:spillStructureComp} shows, the UToF DAQ initially acquires hits at the start of the spill before failing to record much of the data from later in the spill.
+The DToF DAQ, which has a negligible deadtime, continues to record a similar number of hits before declining gradually.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.75\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/spillStructureComp}
+  \end{adjustbox}
+  \caption[Spill structure comparison in \SThree and \SFour]{Spill structure comparison in \SThree and \SFour for the unmoderated T10 beam.}
+  \label{fig:spillStructureComp}
+\end{figure}
+
+In order to correct for this, it is necessary to identify a signal that is recorded by both DAQs that is linked to the number of particles per spill.
+The $\SOne-\STwo$ coincidence signal fulfills this requirement.
+In this case, hits registered in the UToF DAQ can be weighted such that the number of $\SOne-\STwo$ signals across the two DAQs match.
+Because the UToF DAQ deadtime is clearly related to the time since the start of the spill, it is important to verify that the particle content of the spill does not change as a function of time within the spill.
+\citefig{fig:proMipRatio} verifies that the ratio of protons to MIPs remains constant as a function of time across the spill.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.75\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/protonMipRatioSpill}
+  \end{adjustbox}
+  \caption[Proton/MIP ratio as a function of time since spill start]{Proton/MIP ratio as a function of time since spill start for 2 moderator block data.}
+  \label{fig:proMipRatio}
+\end{figure}
 
 
 \subsection{\SFour specific methods}
