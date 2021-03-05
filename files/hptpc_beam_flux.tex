@@ -59,7 +59,6 @@ This lack of data leads to different parametrisations being used by different ne
 \citefig{fig:generatorProtons} also shows that much of the discrepancy lies below the proton track production threshold in liquid argon.
 Mismodelling of these nuclear effects can lead to significant biases in the measurement of neutrino oscillation parameters~\cite{nuclearMismodelOsc}, an undesirable outcome for future long baseline experiments.
 
-
 High pressure gas TPCs (HPgTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy due to low thresholds required for track reconstruction.
 To this end, a HPgTPC prototype has been constructed and exposed to a charged particle beam at CERN.
 In order to access a flux of low energy protons, the beam was moderated and the HPgTPC was placed in an off-axis position. 
@@ -135,8 +134,6 @@ These timing points are shown in \citefig{fig:beamSetup} and, from upstream to d
     \item \SFour, a large panel of plastic scintillator bars placed directly downstream of the HPgTPC, which is described in \citesec{sec:hptpc_beam_flux:overview:s4} (its characterisation is described in \citesec{sec:hptpc_dtof_characterisation}).
 \end{itemize}
 The moderator blocks were placed on a tripod stand in between \SOne and \STwo.
-
-
 
 \subsection{Survey and coordinate system}
 \label{sec:hptpc_beam_flux:overview:survey}
@@ -422,6 +419,23 @@ The resulting required shift for $t_{\SThree} - t_{\SOne}$ is \SI{65.0}{\nano\se
 \subsection{\SThree specific methods}
 \label{sec:hptpc_beam_flux:methods:s3}
 
+One can see that the calibration has been performed correctly for \SThree in \citefig{fig:s3MassDistribution} which shows the reconstructed mass spectrum for the unmoderated beam.
+This distribution is formed using the following equation:
+\begin{equation}
+  m^{2} = p^{2} \left( \left( \frac{t_{\SThree} - t_{\SOne}}{x_{\SThree} - x_{\SOne}} \right)^{2} - 1 \right) \, ,
+  \label{eq:massDistribution}
+\end{equation}
+where $p$ has been set to \SI{0.8}{\giga\electronvolt\per\clight} and $x_{\SThree} - x_{\SOne}$ is equal to the distance between \SOne and \SThree.
+One can observe that the predicted particle positions match well with the data.
+Additionally, one can see that the MIP portion of the beam is made up predominantly of positrons, with a smaller component made up on pions.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/s3TofMass}
+  \end{adjustbox}
+  \caption[Reconstructed mass spectrum for \SThree]{Reconstructed mass spectrum for \SThree for the data taken without moderator blocks. The vertical red arrows show the predicted positions of the various particle species. Insert: Zoomed view of the MIP region of the same spectrum.}
+  \label{fig:s3MassDistribution}
+\end{figure}
 
 \subsubsection{Particle identification}
 \label{sec:hptpc_beam_flux:methods:s3:pid}
@@ -533,7 +547,14 @@ Because the UToF DAQ deadtime is clearly related to the time since the start of 
   \label{fig:proMipRatio}
 \end{figure}
 
-The relationship between the number of $\SOne-\STwo$ hits for various numbers of moderator blocks is shown in \citefig{fig:s1s2DeadtimeComp}.
+The relationship between the number of $\SOne-\STwo$ hits in the two DAQs for various numbers of moderator blocks is shown in \citefig{fig:s1s2DeadtimeComp}.
+Here the horizontal axis displays the number of $\SOne-\STwo$ signals recorded by the DToF DAQ for a given beam spill, $(\SOne\STwo)_{\text{DToF}}$.
+Similarly, $(\SOne\STwo)_{\text{UToF}}$ is the number of $\SOne-\STwo$ signals recorded by the UToF DAQ in the same spill.
+Each of these distributions has a polynomial of the form
+\begin{equation}
+  (\SOne\STwo)_{\text{UToF}}/(\SOne\STwo)_{\text{DToF}} = p0 \times (\SOne\STwo)_{\text{DToF}} + p1
+\end{equation}
+fitted where $p0$ and $p1$ are the parameters to be determined.
 
 \begin{figure}[t]
   \begin{subfigure}[t]{.5\textwidth}
@@ -569,11 +590,57 @@ The relationship between the number of $\SOne-\STwo$ hits for various numbers of
     \caption{4 blocks}
   \end{subfigure}
   
-  \caption[Comparison of $\SOne-\STwo$ hits in the two ToF DAQs]{Comparison of $\SOne-\STwo$ hits in the two ToF DAQs with a first-order polynomial fitted in each case.}
+  \caption[Comparison of $\SOne-\STwo$ hits in the two ToF DAQs]{Comparison of $\SOne-\STwo$ hits in the two ToF DAQs. A first-order polynomial (red) fitted in each case.}
+  \label{fig:s1s2DeadtimeComp}
 \end{figure}
 
+Having determined this relationship, \SThree events are weighted with weight, $w$.
+This is based upon $(\SOne\STwo)_{\text{DToF}}$ in the spill and according to the relationship
+\begin{equation}
+  \frac{1}{w} = p0 \times (\SOne\STwo)_{\text{DToF}} + p1 \,.
+\end{equation}
+  
 \subsection{\SFour specific methods}
 \label{sec:hptpc_beam_flux:methods:s4}
+
+\citefig{fig:s4Tof} shows the time of flight spectra for those particles detected in \STwo and \SFour.
+For all of the samples apart from the four moderator block sample, two clear peaks are visible.
+A quicker peak produced my MIPs is located at around \SI{42}{\nano\second} and does not move with increasing numbers of moderator blocks.
+A second broader peak, produced by protons, is visible between \SI{65}{\nano\second} and \SI{100}{\nano\second}.
+This second peak moves to slower times as more moderator blocks are added, before largely disappearing in the four moderator block configuration.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.9\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/s4Tof}
+  \end{adjustbox}
+  \caption[Time of flight spectra measured in \SFour]{Time of flight spectra for the various moderator block configurations measured in \SFour. Here, the spectrum has been corrected for the bar efficiencies (see \citesec{sec:hptpc_beam_flux:methods:s4:efficiency}) and a flat background has been subtracted.}
+  \label{fig:s4Tof}
+\end{figure}
+
+\citefig{fig:s4MassDistribution} shows the reconstructed mass distribution using the \STwo to \SFour time of flight.
+This was produced using \citeeq{eq:massDistribution} with $p$ set to \SI{0.8}{\giga\electronvolt\per\clight}.
+Here, one can see that the MIP peak matches well with the pion mass but the proton peak in data lies at a higher mass than the prediction.
+This is due to protons losing energy in the walls of the HPgTPC pressure vessel which in turn, leads to this.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.9\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/s4TofMass}
+  \end{adjustbox}
+  \caption[Reconstructed mass spectrum for \SFour]{Reconstructed mass spectrum for \SFour for the data taken without moderator blocks. The vertical arrows show the predicted positions of the various particle species.}
+  \label{fig:s4MassDistribution}
+\end{figure}
+
+%%% Time of flight spectra and mass distribution
+\subsubsection{Particle identification}
+\label{sec:hptpc_beam_flux:methods:s4:pid}
+
+Unlike \SThree, \SFour did not record the PMT signal sizes during the beam test.
+Therefore, only timing information is used to distinguish between protons and MIPs.
+Particles for which $\SI{36}{\nano\second} < t_{\SFour} - t_{\STwo} < \SI{51}{\nano\second}$ are identified as MIPs, while those for which $\SI{62}{\nano\second} < t_{\SFour} - t_{\STwo} < \SI{125}{\nano\second}$ are considered to be protons.
+
+%%% Efficiency correction
+\subsubsection{Efficiency correction}
+\label{sec:hptpc_beam_flux:methods:s4:efficiency}
 
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
