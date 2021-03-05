@@ -533,6 +533,44 @@ Because the UToF DAQ deadtime is clearly related to the time since the start of 
   \label{fig:proMipRatio}
 \end{figure}
 
+The relationship between the number of $\SOne-\STwo$ hits for various numbers of moderator blocks is shown in \citefig{fig:s1s2DeadtimeComp}.
+
+\begin{figure}[t]
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s1s2Ratio0}
+    \end{adjustbox}
+    \caption{0 blocks}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s1s2Ratio1}      
+    \end{adjustbox}
+    \caption{1 block}
+  \end{subfigure} \\
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s1s2Ratio2}
+    \end{adjustbox}
+    \caption{2 blocks}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s1s2Ratio3}
+    \end{adjustbox}
+    \caption{3 blocks}
+  \end{subfigure} \\
+  \begin{subfigure}[t]{\textwidth}
+    \begin{adjustbox}{max totalsize=.5\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/s1s2Ratio4}
+    \end{adjustbox}
+    \caption{4 blocks}
+  \end{subfigure}
+  
+  \caption[Comparison of $\SOne-\STwo$ hits in the two ToF DAQs]{Comparison of $\SOne-\STwo$ hits in the two ToF DAQs with a first-order polynomial fitted in each case.}
+\end{figure}
 
 \subsection{\SFour specific methods}
 \label{sec:hptpc_beam_flux:methods:s4}
