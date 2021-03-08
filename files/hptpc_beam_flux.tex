@@ -642,6 +642,106 @@ Particles for which $\SI{36}{\nano\second} < t_{\SFour} - t_{\STwo} < \SI{51}{\n
 \subsubsection{Efficiency correction}
 \label{sec:hptpc_beam_flux:methods:s4:efficiency}
 
+The light collection efficiency of the \SFour bars varies both between bars and as a function of position along the bar.
+It is necessary to correct for these differences using a `standard candle', which in this case is the cosmic ray flux.
+\SFour hits occurring outside of beam spills are taken to be cosmic in origin.
+For each separate moderator block sample, the number of hits occurring outside of beam spills is measured as a function of bar number and position.
+It is necessary to perform this process separately for each sample because of changes in the PMT voltages that may have occurred.
+
+It is assumed that the flux of cosmic rays should be equivalent through each part of \SFour is equal.
+Each \SFour bar is divided into \SI{7}{\centi\metre} segments and the bin values are scaled such that the bin with the greatest recorded number of hits has a value of 1.
+This creates a map of the relative efficiency of the various \SFour bars.
+These efficiency maps are shown in \citefig{fig:barEff}.
+One can see that the bar efficiency is typically highest towards the middle of each bar (\SI{70}{\centi\metre}).
+This is due to the requirement for coincident PMT signals to be observed in order for a hit to be recorded.
+The fact that bars with higher efficiency are typically in the middle of \SFour is by construction; this is where the beam centre is and therefore where the best performing bars are placed.
+Bar 10 was excluded from the analysis due its very low efficiency.
+
+\begin{figure}[t]
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/barEff0}
+    \end{adjustbox}
+    \caption{0 blocks}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/barEff1}      
+    \end{adjustbox}
+    \caption{1 block}
+  \end{subfigure} \\
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/barEff2}
+    \end{adjustbox}
+    \caption{2 blocks}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/barEff3}
+    \end{adjustbox}
+    \caption{3 blocks}
+  \end{subfigure} \\
+
+  \begin{subfigure}[t]{\textwidth}
+    \begin{adjustbox}{max totalsize=.5\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/barEff4}
+    \end{adjustbox}
+    \caption{4 blocks}
+  \end{subfigure}
+
+  \caption[\SFour relative bar efficiencies]{\SFour relative bar efficiencies calculated using out-of-spill cosmic rays for each moderator block.}
+  \label{fig:barEff}
+\end{figure}
+
+Beam events are weighted depending on the bar number and position where they are recorded with a weight which is the inverse of the efficiency for that particular bin.
+Additionally, a further weight of \num{1.25} is applied to all events.
+This weight represents the absolute efficiency of the bars and is derived from tests performed on \SFour bars with the $^{90}\text{Sr}$ source.
+Using this source it was determined that the maximum measured rate of signals produced by the source was equal to \num{0.8} of the true rate.
+
+\subsection{Background subtraction}
+\label{sec:hptpc_beam_flux:methods:s4:bkg}
+
+The other correction applied to the \SFour data consists of a background subtraction.
+The background is determine by fitting a sum of signal and background functions to the time of flight spectra.
+The signal functions are taken to be gaussians while the background is taken to be flat.
+An example of a time of flight distribution with the combined signal and background function fitted is shown in \citefig{fig:bkgSub}.
+These backgrounds are subtracted from the proton and MIP counts presented in \citesec{sec:hptpc_beam_flux:results:s4}.
+
+\begin{figure}[h]
+  \begin{adjustbox}{max totalsize=.8\textwidth, center}
+    \input{files/figures/hptpc_beam_flux/bkgSubPaper}
+  \end{adjustbox}
+  \caption[Example of a time of flight distribution with signal and background functions fitted]{Example of a time of flight distribution measured in \SFour with signal and background functions fitted (red).}
+  \label{fig:bkgSub}
+\end{figure}
+
+The background rates are shown in \citetab{tab:bkgRates}.
+The rates initially increase as more moderator blocks are added.
+For the 3 and 4 moderator block samples, the background rates fall however.
+This follows the same pattern as the total number of particles (see \citesec{sec:hptpc_beam_flux:results:s4}).
+
+\begin{table}
+  \caption[\SFour background rates for each moderator block sample]{\SFour background rates for each moderator block sample. The number of background events per spill in found by multiplying the numbers by the timing window in question.}
+  \centering
+  \begin{tabular}{c c}
+    \hline
+    \hline 
+    Number of moderator blocks & Background events / spill / \si{\nano\second} \\
+    \hline
+    0 & \num{0.037(4)} \\
+    1 & \num{0.066(5)} \\
+    2 & \num{0.165(7)} \\
+    3 & \num{0.124(9)} \\
+    4 & \num{0.085(2)} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
 
