@@ -100,7 +100,7 @@ One can see from \citefig{fig:unmoderatedBeam}, right, that even at this momentu
       \input{files/figures/hptpc_beam_flux/protonKeNoBend}
     \end{adjustbox}
   \end{minipage}
-  \caption[Time of flight spectrum and proton kinetic energy for the unmoderated and unbent T10 beam]{Left: time of flight spectrum of the unmoderated and unbent CERN T10 beam across a baseline of \SI{10.8}{\metre}. Right: measured kinetic energies of protons in the unmoderated and unbent CERN T10 beam.}
+  \caption[Time of flight spectrum and proton kinetic energy for the unmoderated and unbent T10 beam]{Left: Time of flight spectrum of the unmoderated and unbent CERN T10 beam across a baseline of \SI{10.8}{\metre}. Right: Measured kinetic energies of protons in the unmoderated and unbent CERN T10 beam.}
   \label{fig:unmoderatedBeam}
 \end{figure}
 
@@ -721,10 +721,16 @@ These backgrounds are subtracted from the proton and MIP counts presented in \ci
 The background rates are shown in \citetab{tab:bkgRates}.
 The rates initially increase as more moderator blocks are added.
 For the 3 and 4 moderator block samples, the background rates fall however.
-This follows the same pattern as the total number of particles (see \citesec{sec:hptpc_beam_flux:results:s4}).
+This follows the same pattern as the total number of beam particles measured in \SFour (see \citesec{sec:hptpc_beam_flux:results:s4}).
+
+The ratio of signal protons to background events in the proton timing window falls as the number of moderator blocks increases.
+This is due to increased scattering from the moderator blocks as more are added.
+This scattering means that an increased number of particles strike \SFour without striking \STwo, a process that leads to false coincidences.
+These false coincidences contribute to the background rate.
 
 \begin{table}
   \caption[\SFour background rates for each moderator block sample]{\SFour background rates for each moderator block sample. The number of background events per spill in found by multiplying the numbers by the timing window in question.}
+  \label{tab:bkgRates}
   \centering
   \begin{tabular}{c c}
     \hline
@@ -740,16 +746,74 @@ This follows the same pattern as the total number of particles (see \citesec{sec
   \end{tabular}
 \end{table}
 
-
-
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
 
 Beam flux measurements made with the \SThree detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3} while those made with the \SFour detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3}.
 A comparison of the data with simulation is shown in \citesec{sec:hptpc_beam_flux:results:MCData}.
+The results presented here are all given in terms of the angles $\theta$ and $\phi$, defined in \citesec{sec:hptpc_beam_flux:overview:survey}.
 
 \subsection{Flux measurements at \SThree}
 \label{sec:hptpc_beam_flux:results:s3}
+
+\citefig{fig:protonKeData} left, shows the kinetic energies of protons calculated using the \SOne to \SThree time of flight for varying numbers of moderator blocks.
+One can clearly see that the energy range of protons is changed from \SIrange{210}{320}{\mega\electronvolt} for the unmoderated beam to \SIrange{60}{110}{\mega\electronvolt} when four moderator blocks are place in the beamline.
+
+\citefig{fig:protonKeData} right, shows the subset of those protons that are determined to impinge upon the TPC by the angle at which they are travelling (see \citetab{tab:angDistS1} for the relevant angles for the TPC).
+Here, one can see that the rate of low energy protons of protons (those with kinetic energies of less than \SI{80}{\mega\electronvolt}) impingin on the TPC is increased from negligible levels for the 0, 1, and 2 block samples to \num{9.7(1)} per spill for the 4 moderator block sample.
+These protons will then lose further energy within the walls of the HPgTPC vessel, resulting in a flux of protons with less than \SI{50}{\mega\electronvolt} within the TPC.
+This the desired energy regime where various neutrino interaction generators become discrepant (see \citefig{fig:generatorProtons}).
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\linewidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/proKeS3}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\linewidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/protonKeTpc}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Proton kinetic energies measured in \SThree]{Left: Proton kinetic energies measured in \SThree for various numbers of moderator blocks. Right: Proton kinetic energies measured in \SThree for the subset of protons which are judged to have impinged on the TPC.}
+  \label{sig:protonKeData}
+\end{figure}
+
+Additionally, \citefig{fig:protonKeData} right, shows that the the addition of moderator blocks also has a substantial effect on the multiplicity of protons impinging on the TPC.
+One can see that adding moderator blocks initially increases the number of protons impinging on the TPC from \num{19.0(9)} per spill for the unmoderated beam to \num{108(3)} per spill for the three moderator block sample.
+Adding the fourth moderator block removes the flux of protons with kinetic energies greater than \SI{100}{\mega\electronvolt} and reduces the number of protons striking the TPC to \num{21.4(2)} per spill.
+
+\citefig{fig:protonMipS3} left, shows the number or protons detected in \SThree as a function of number of moderator blocks and off-axis angle $\theta$.
+Similarly, \citefig{fig:protonMipS3} right, shows the same distribution but for protons.
+For both of these distributions as more moderator blocks are added the peak value falls and the distribution broadens.
+As a result, at off-axis angles the number of protons and MIPs increases as more moderator blocks are added.
+One can tell by looking at \citetab{tab:angDistS1} that the TPC lies in this off-axis region.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/thetaS1mip}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/thetaS1pro}
+    \end{adjustbox}      
+  \end{minipage}
+  \caption[Proton and MIP distributions as a function of $\theta$]{Left: MIP rates as a function of $\theta$ as measured in \SThree. Right: Proton rates as a function of $\theta$ as measured in \SThree. The errors shown in the legends are statistical.}
+  \label{fig:protonMipS3}
+\end{figure}
+
+As shown by comparing \citefig{fig:unmoderatedBeam} left, and \citefig{fig:s3Tof}, the steering of the beam leads to scattering within the steering magnets.
+This scattering also leads to a broadening of the steered beam.
+For the unmoderated and unsteered beam, the horizontal FWHM at \SThree is measured as \SI{9.6}{\centi\metre} while the vertical FWHM is measured as \SI{11.0}{\centi\metre}.
+By comparison, the unmoderated and steered beam has a measured horizontal FWHM at \SThree of \SI{16.8}{\centi\metre}.
+
+%\begin{figure}[h]
+%  \begin{minipage}[t]{.5\textwidth}
+%\end{figure}
 
 \subsection{Flux measurements at \SFour}
 \label{sec:hptpc_beam_flux:results:s4}
@@ -764,7 +828,7 @@ A comparison of the data with simulation is shown in \citesec{sec:hptpc_beam_flu
   \caption[]{}
   \label{fig:tofS4Sim}
 \end{figure}
-
+ 
 \begin{table}
   \centering
   %% NEED TO CHANGE CAPTION SO IT IS NOT THE SAME AS THE BEAM FLUX PAPER
