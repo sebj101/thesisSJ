@@ -811,12 +811,65 @@ This scattering also leads to a broadening of the steered beam.
 For the unmoderated and unsteered beam, the horizontal FWHM at \SThree is measured as \SI{9.6}{\centi\metre} while the vertical FWHM is measured as \SI{11.0}{\centi\metre}.
 By comparison, the unmoderated and steered beam has a measured horizontal FWHM at \SThree of \SI{16.8}{\centi\metre}.
 
-%\begin{figure}[h]
-%  \begin{minipage}[t]{.5\textwidth}
-%\end{figure}
+\citefig{fig:s3Ratios} left, shows the ratio $N_{\text{proton}}/N_{\text{MIP}}$ as a function of $\theta$ and the number of moderator blocks.
+For all samples, the ratio rises from a low at the steered beam centre (\ang{1}) at more off-axis angles.
+The ratio then peaks at values ranging from roughly \ang{-1} for the unmoderated beam to \ang{-2} for the 3 block sample, with the peak moving to lower angles as more moderator blocks are added.
+For the 4 block sample, no clear peak is visible.
+Overall, the addition of more moderator blocks reduces the proton/MIP ratio from a peak value of around 0.35 for the unmoderated beam to approximately 0.02 for the 4 block sample.
+Thus one can see that the reducing the energy of protons incident on the TPC can at the price of reducing the beam purity.
+A similar pattern is seen in \citefig{fig:s3Ratios} right with the peak gradually shifting to greater off-axis angles with increasing numbers of moderator blocks being added.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/thetaS1ratio}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/phiS1ratio}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Proton/MIP ratios as a function of off-axis angle and number of moderator blocks]{Left: Proton/MIP ratio as a function of $\theta$ and number of moderator blocks. Right: Proton/MIP ratio as a function of $\phi$ and number of moderator blocks. The TPC covers the horizontal angles \ang{-3.6} to \ang{-1.4} and vertical angles \ang{-2.6} to \ang{+2.6}.}
+  \label{fig:s3Ratios}
+\end{figure}
 
 \subsection{Flux measurements at \SFour}
 \label{sec:hptpc_beam_flux:results:s4}
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/thetaS4Mip}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/thetaS4pro}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[\SFour particle rates as a function of $\theta$ and moderator blocks]{Left: Right: }
+  \label{fig:s4Rates}
+\end{figure}
+
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/thetaS4ratio.tex}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/phiS4ratio.tex}
+    \end{adjustbox}
+  \end{minipage}
+  \caption[Proton/MIP ratios as measured in \SFour as a function of $\theta$ and $\phi$]{Proton/MIP ratios as measured in \SFour as a function of $\theta$ and $\phi$}
+  \label{fig:s4Ratios}
+\end{figure}
 
 \subsection{Comparison with simulation}
 \label{sec:hptpc_beam_flux:results:MCData}
@@ -825,7 +878,7 @@ By comparison, the unmoderated and steered beam has a measured horizontal FWHM a
   \begin{adjustbox}{max totalsize=.7\textwidth, center}
     \input{files/figures/hptpc_beam_flux/tofS4Sim}
   \end{adjustbox}
-  \caption[]{}
+  \caption[Comparison of simulated and measure proton time of flight from \STwo to \SFour]{Comparison of simulated and measure proton time of flight from \STwo to \SFour. The data are shown as points while the simulation results are shown as solid lines.}
   \label{fig:tofS4Sim}
 \end{figure}
  
