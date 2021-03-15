@@ -701,7 +701,7 @@ Additionally, a further weight of \num{1.25} is applied to all events.
 This weight represents the absolute efficiency of the bars and is derived from tests performed on \SFour bars with the $^{90}\text{Sr}$ source.
 Using this source it was determined that the maximum measured rate of signals produced by the source was equal to \num{0.8} of the true rate.
 
-\subsection{Background subtraction}
+\subsubsection{Background subtraction}
 \label{sec:hptpc_beam_flux:methods:s4:bkg}
 
 The other correction applied to the \SFour data consists of a background subtraction.
@@ -903,7 +903,7 @@ This step ensures that the input distributions match the true beam conditions as
 The simulation is validated in multiple ways.
 The simulated and measured time of flight spectra are compared.
 Additionally, the ratio of protons detected in \SThree and \SFour is compared in data and MC.
-The systematic uncertainties on the latter measurement are discussed in \citesec{sec:hptpc_beam_flux:results:MCData:systs}.
+The systematic uncertainties on the latter measurement are discussed in \citesec{sec:hptpc_beam_flux:results:MCData:systs}, while the validation is discussed in \citesec{sec:hptpc_beam_flux:results:MCData:validation}.
 The results of the simulation are discussed in \citesec{sec:hptpc_beam_flux:results:MCData:results}
 
 \subsubsection{Systematic uncertainties}
@@ -912,7 +912,7 @@ The results of the simulation are discussed in \citesec{sec:hptpc_beam_flux:resu
 Systematic uncertainties on the number of protons measured in \SThree and \SFour are estimated for both simulation and data.
 These uncertainties are tabulated in \citetab{tab:systs}.
 
-The systematic uncertainty on the number of simulated protons reaching \SFour, $n_{\SFour,~\text{MC}}$ is evaluated by varying the initial geometric conditions of the simulation and observing the fractional chnge in $n_{\SFour,~\text{MC}}$.
+The systematic uncertainty on the number of simulated protons reaching \SFour, $n_{\SFour,~\text{MC}}$, is evaluated by varying the initial geometric conditions of the simulation and observing the fractional change in $n_{\SFour,~\text{MC}}$.
 Additionally, the simulation is rerun with an additional \SI{1}{\centi\metre} thick piece of acrylic in the beamline and the change in $n_{\SFour,~\text{MC}}$ observed.
 We allow this systematic to act as a proxy for the uncertainty on the prescence of unknown light materials in the beamline.
 
@@ -944,39 +944,30 @@ We allow this systematic to act as a proxy for the uncertainty on the prescence 
   \end{tabular}
 \end{table}
 
-%%% NEED TO THINK OF A DECENT SECTION ORDERING NAME
-\subsubsection{Results???}
-\label{sec:hptpc_beam_flux:results:MCData:results}
+For data, the error on the absolute efficiency of \SThree is evaluated by taking the $\pm 1 \sigma$ uncertainty on the fitted relationship between $(\SOne\STwo)_{\text{UToF}}/(\SOne\STwo)_{\text{DToF}}$ and $(\SOne\STwo)_{\text{DToF}}$ (see \citesec{sec:hptpc_beam_flux:methods:s3:deadtime}) and evaluating the fractional change in the number of protons detected by \SThree.
 
-\citefig{fig:protonTpcSim} shows the momenta and kinetic energies of those simulated protons that enter the TPC active volume.
-These plots show that the use of 4 moderator blocks is well motivated, given that for this sample, the eflux of protons entering the TPC active volume is almost entirely within the region of interest (proton kinetic energy of less than \SI{50}{\mega\electronvolt}).
-The 3 moderator block sample also had a reasonable flux within this energy range.
-However, the total number of protons entering the TPC active volume for the 3 moderator block sample is significantly more than for the 4 block sample.
-Given that part of the motivation for modifying the beam is to reduce the multiplicity of particles entering the TPC, this again provides justification for the choice of 4 moderator blocks.
+The error on the absolute efficiency of \SFour is evaluated from the calibration tests performed on the bars with a $^{90}\text{Sr}$ source (see \citesec{sec:hptpc_dtof_characterisation:characterisation:barRes}).
+From these tests an absolute efficiency of 0.8 was determined.
+However, the readout used in these tests is significantly different to that used in the beam test and therefore there is a significant uncertainty attached to this number.
+This uncertainty was evaluated by taking the standard deviation in the absolute efficiency measured using the $^{90}\text{Sr}$ source.
 
-\begin{figure}[h]
-  \begin{minipage}[t]{.5\textwidth}
-    \begin{adjustbox}{max totalsize=\textwidth, center}
-      \input{files/figures/hptpc_beam_flux/momTpcSim}
-    \end{adjustbox}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[t]{.5\textwidth}
-    \begin{adjustbox}{max totalsize=\textwidth, center}
-      \input{files/figures/hptpc_beam_flux/keTpcSim}
-    \end{adjustbox}    
-  \end{minipage}
-  \caption[Momentum and kinetic energy distributions of simulated protons reaching the active volume of the TPC]{Left: Momentum distributions of simulated protons reaching the active volume of the TPC. Right: Kinetic energy distributions of simulated protons reaching the active volume of the TPC. The errors shown in the legend are the statistical errors.}
-  \label{fig:protonTpcSim}
-\end{figure}
+The uncertainty on the \SFour relative efficiency correction (see \citesec{sec:hptpc_beam_flux:methods:s4:efficiency}) is evaluated by altering the number of horizontal bins used to correct each bar from 20 to 10 and calculating the resulting change in the number of detected \SFour protons.
 
+Finally, the uncertainty on the \SFour background subtraction (see \citesec{sec:hptpc_beam_flux:methods:s4:bkg}) is calculated by varying the flat background within the $\pm 1 \sigma$ fit errors and determining the resulting fractional change in the number of \SFour protons.
+One can see that this uncertainty has the greatest effect in the 4 moderator block case.
+This is due to the the very small number of protons detected relative to the background.
+
+\subsubsection{Validation of simulation}
+\label{sec:hptpc_beam_flux:results:MCData:validation}
+
+The simulation is validated against data by comparing the number of protons reaching \SThree and \SFour for both.
 The kinetic energy spectrum of simulated protons judged to have been detected in \SFour is shown in \citefig{fig:protonS4Sim}.
-Protons are judged as being detected in \SFour if they pass through the relevant geometry volume within the timing windows from \citesec{sec:hptpc_beam_flux:methods:s4:pid} and have a kinetic energy of more than \SI{10}{\mega\electronvolt} (momentum of \SI{140}{\mega\electronvolt\per\clight}).
+Protons are judged to have been detected in \SFour if they pass through the relevant geometry volume within the timing windows from \citesec{sec:hptpc_beam_flux:methods:s4:pid} and have a kinetic energy of more than \SI{10}{\mega\electronvolt} (momentum of \SI{140}{\mega\electronvolt\per\clight}).
 For all samples a significant reduction in kinetic energy is observed from the nominal beam energy due to energy loss within the walls of the pressure vessel.
 In particular, for the 4 block sample, very few particles survive through the second vessel wall.
 
 \begin{figure}[h]
-  \begin{adjustbox}{max totalsize=.6\textwidth, center}
+  \begin{adjustbox}{max totalsize=.7\textwidth, center}
     \input{files/figures/hptpc_beam_flux/proKeS4Mc}
   \end{adjustbox}
   \caption[Kinetic energy distributions for simulated protons reaching \SFour.]{Kinetic energy distributions for simulated protons reaching \SFour. A detection threshold of \SI{10}{\mega\electronvolt} is applied. }
@@ -995,10 +986,13 @@ This confirms that the energy loss in the pressure vessel is consistent between 
   \label{fig:tofS4Sim}
 \end{figure}
 
+\citetab{tab:s3s4Ratios} shows the number of protons reaching \SFour divided by the number of protons reaching \SThree for both data and MC, for each moderator block sample.
+In each case, the systematic errors detailed in \citesec{sec:hptpc_beam_flux:results:MCData:systs} are combined with the statistical errors to give the error shown.
+One can see that there is some agreement between the data and MC which indicates both that the corrections detailed in \citesec{sec:hptpc_beam_flux:methods} are well-motivated and that the simulation represents the data well.
+
 \begin{table}
   \centering
-  %% NEED TO CHANGE CAPTION SO IT IS NOT THE SAME AS THE BEAM FLUX PAPER
-  \caption[Comparison of number of protons reaching \SThree and \SFour in data and Monte Carlo]{Ratio of number of protons reaching \SFour to number protons reaching \SThree for different numbers of moderator blocks in MC and data. In each instance, the combined statistical and systematic errors are shown.}
+  \caption[Comparison of number of protons reaching \SThree and \SFour in data and Monte Carlo]{Ratio of protons reaching \SFour to the number of protons reaching \SThree in data and Monte Carlo. Here, the errors are combined statistical and sytematic.}
   \begin{tabular}{c|c c c}
     \hline
     \hline
@@ -1013,4 +1007,30 @@ This confirms that the energy loss in the pressure vessel is consistent between 
   \end{tabular}
   \label{tab:s3s4Ratios}
 \end{table}
+
+\subsubsection{Simulation results}
+\label{sec:hptpc_beam_flux:results:MCData:results}
+
+\citefig{fig:protonTpcSim} shows the momenta and kinetic energies of those simulated protons that enter the TPC active volume.
+These plots show that the use of 4 moderator blocks is well motivated, given that for this sample, the flux of protons entering the TPC active volume is almost entirely within the region of interest (proton kinetic energy of less than \SI{50}{\mega\electronvolt}).
+In fact, \num{4.9(1)} protons per spill with energies below \SI{50}{\mega\electronvolt} entered the TPC active volume in the 4 moderator block case
+The 3 moderator block sample also had a significant proton flux within this energy range.
+However, the total number of protons entering the TPC active volume for the 3 moderator block sample (\num{62(2)} per spill) is significantly more than for the 4 block sample (\num{7.0(1)} per spill).
+Given that part of the motivation for modifying the beam is to reduce the multiplicity of particles entering the TPC, this again provides justification for the choice of 4 moderator blocks.
+
+\begin{figure}[h]
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/momTpcSim}
+    \end{adjustbox}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{.5\textwidth}
+    \begin{adjustbox}{max totalsize=\textwidth, center}
+      \input{files/figures/hptpc_beam_flux/keTpcSim}
+    \end{adjustbox}    
+  \end{minipage}
+  \caption[Momentum and kinetic energy distributions of simulated protons reaching the active volume of the TPC]{Left: Momentum distributions of simulated protons reaching the active volume of the TPC. Right: Kinetic energy distributions of simulated protons reaching the active volume of the TPC. The errors shown in the legend are the statistical errors.}
+  \label{fig:protonTpcSim}
+\end{figure}
 
