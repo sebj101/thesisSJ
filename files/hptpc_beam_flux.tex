@@ -113,7 +113,6 @@ Firstly up to four \SI{10 x 10 x 10}{\cm} acrylic moderator blocks are placed in
 These blocks have the effect of scattering the incident particles and reducing their energy.
 Additionally, the HPgTPC is moved to an off-axis angle in order to maximise the ratio of protons to MIPs.
 From previous GEANT~\cite{geant} simulations it is determined that the optimal off-axis angle for the HPgTPC is between \ang{2} and \ang{3}.
-
 However, due to space constraints in the beam hall, the HPgTPC could not be moved this far off-axis.
 Instead, the beam was steered approximately \ang{1} off its nominal axis to increase the angle between the beam and the HPgTPC.
 A bird's-eye view diagram of the experimental setup, which shows the beam position relative to the HPgTPC, is shown in \citefig{fig:beamSetup}.
@@ -342,6 +341,30 @@ A particle (either beam induced or otherwise) is considered to have been observe
 
 Unlike the UToF DAQ system, the DToF DAQ is operated in self-triggering mode and thus acquired data both inside and outside the beam spill.
 
+
+\subsection{The HPTPC prototype}
+\label{sec:hptpc_beam_flux:overview:hptpc}
+
+The relevant specifications of the HPTPC prototype for this study are the location and wall thickness of the pressure vessel.
+The upstream face of HPTPC is located \SI{1.323(2)}{\metre} downstream of the \SThree panel while the downstream face is located \SI{0.918(2)}{\metre} upstream of \SFour.
+\citefig{fig:angDistS1} shows that, from the point of view of the beam, most of the  TPC volume is covered by \STwo, \SThree and \SFour.
+The angular position of the TPC is at approximately $\theta = \ang{-2.5}$.
+With the beam steering, this means that the centre of the TPC lies approximately \ang{3.5} off-axis.
+
+The pressure vessel itself is made out of 304L stainless steel, has an outer diameter of \SI{142}{\centi\metre} and a vessel wall thickness of \SI{1}{\centi\metre}~\cite{deisting2021high}.
+This vessel wall thickness is equivalent to the range of proton with a kinetic energy of roughly \SI{80}{\mega\electronvolt}~\cite{protonRangeTables}.
+
+The main cylindrical body of the vessel is \SI{73.6}{\centi\metre} in length while the rounded sections at the end of this volume each have a length of \SI{32.5}{\centi\metre}~\cite{deisting2021high}.
+Interior to the cylindrical body is the active volume of the TPC.
+This active TPC volume measures \SI{111}{\centi\metre} in diameter and \SI{48}{\centi\metre} in the drift direction and is formed by a series of copper rings which make up the field cage.
+A diagram of the HPTPC, showing a cross-sectional view of the active volume, is shown in \citefig{fig:hptpc}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.7\linewidth]{files/figures/hptpc_beam_flux/vesselView}
+  \caption[Cross-sectional view of the HPTPC prototype]{Cross-sectional view of the HPTPC prototype with the door open, from~\cite{beampaper}. The drift volume formed by the copper rings is clearly visible. The direction of the beam during the beam test is indicated.}
+  \label{fig:hptpc}
+\end{figure}
 
 \section{Methods}
 \label{sec:hptpc_beam_flux:methods}
