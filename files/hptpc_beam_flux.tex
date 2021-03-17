@@ -4,11 +4,12 @@
 \section{Motivation}
 \label{sec:hptpc_beam_flux:motivation}
 
-As mentioned in \citesec{sec:theory:currentState}, one of the targets of the next generation of long baseline neutrino oscillation experiments is the measurement of \dcp.
-In order to make this measurement, systematic uncertainties will have to be significantly reduced.
+As mentioned in \citesec{sec:theory:currentState}, the targets of the next generation of long baseline neutrino oscillation experiments include the measurement of non-zero \dcp and the neutrino mass hierarchy.
+In order to make these measurements, systematic uncertainties will have to be significantly reduced.
+
 In the current generation of neutrino oscillation experiments, uncertainties relating to the neutrino-nucleus interaction model make up a large part of the overall systematic budget.
 For example, NOvA's most recent results assign systematic uncertainties from its interaction model of $3.2-5.8\%$ on its \nue and \anue signal rates~\cite{novaRecent}.
-The T2K experiment has reported systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where cross-section uncertainties are the largest part of this~\cite{t2kRecent}.
+The T2K experiment has reports systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where cross-section uncertainties are the largest part of this~\cite{t2kRecent}.
 
 Reducing these systematic uncertainties relies upon better modelling of neutrino-nucleus interactions.
 It is also important to have an accurate interaction model in order to infer the neutrino energy from the observed events.
@@ -22,46 +23,46 @@ A illustrative diagram showcasing the dependence on the interaction model is sho
 \end{figure}
 
 As \citefig{fig:fsiDiag} shows, in the simplest case a neutrino nucleus interaction (in this case a CC quasi-elastic one) can be thought of as a neutrino interacting with a free nucleon.
-However, within a nucleus the nucleons are not static -- they have some initial momentum which will modify the kinematics of the outgoing particle.
-Additionally within a nucleus, additional effects can occur due to correlations between nucleons.
+However, within a nucleus the nucleons are not static -- they have some initial Fermi momentum which will modify the kinematics of the outgoing particle.
+Additionally, within a nucleus, additional effects can occur due to correlations between nucleons.
 Finally, as the outgoing particles propagate through the nucleus they can interact with other nucleons.
 These `final state interactions' (FSI) can modify both the outgoing particles and their kinematics.
 
-Given that in a detector only the outgoing particles can be observed, we are reliant on neutrino interaction models of the initial nuclear state, nuclear effects and FSI in order to correctly reconstruct the neutrino energy.
+Given that in a detector only the outgoing particles are observed, we are reliant on neutrino interaction models of the initial nuclear state, nuclear effects and FSI in order to correctly reconstruct the neutrino energy.
 For example, at the DUNE experiment the primary neutrino interaction type is resonant single pion production, caused by the interaction of a neutrino with a nucleon within an argon nucleus.
-This can be represented for muon neutrinos as
+An example of this kind of reaction is 
 \begin{align}
-  \numu + p &\rightarrow \muminus + \Delta^{++} \rightarrow \muminus + p + \piplus \\
-  \numu + n &\rightarrow \muminus + \Delta^{+} \rightarrow \muminus + n + \piplus \\
-  \numu + n &\rightarrow \muminus + \Delta^{+} \rightarrow \muminus + p + \pizero \, .
-\end{align}
+  \numu + p &\rightarrow \muminus + \Delta^{++} \rightarrow \muminus + p + \piplus \, .
+ \end{align}
 
-However, the pions emitted in this process can interact with other nucleons as they progress through the nucleus, leading to their absorption.
+However, the pion emitted in this process can interact with other nucleons as it traverses the nucleus, leading to its absorption.
 If this occurs, the outgoing pion will not be detected and the reconstructed hadronic energy will be biased by the mass of the pion.
 
-Models of final state interactions are not consistent between different neutrino interaction generators.
+Models of FSI are not consistent between different neutrino interaction generators.
 Of the most commonly used neutrino interaction generators, GENIE~\cite{genie}, NuWro~\cite{nuwro} and NEUT~\cite{neut} all model FSI using intranuclear cascade models tuned on external hadron-nucleus scattering data.
 The generator GiBUU~\cite{gibuu} meanwhile, solves the semi-classical Boltzmann-Uehling-Uhlenbeck equation in order to simulate FSI.
 
 However, proton-nucleus scattering measurements are either sparse or non-existent in the energy region of interest or on the desired nucleus.
-This is shown in \citefig{fig:protonNucleus} which compares data with a semi-empirical model.
-One can see that, for several of the displayed nuclei, large energy regions have no measurements.
+This is shown in \citefig{fig:protonNucleus} which compares proton cross-section data with a semi-empirical model.
+One can see that, for several of the displayed nuclei, large energy regions have no measurements or the data do not match the model well.
 This lack of data leads to different parametrisations being used by different neutrino interaction generators.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=.8\linewidth]{files/figures/hptpc_beam_flux/DataProtonCrossSections}
-  \caption[Proton-nucleus cross-section data compared with a semi-empirical model]{Total reaction cross-sections for protons on a variety of nuclei. The points represent data from~\cite{protonXSecData} while the curves are a semi-empirical model~\cite{protonXSecModel}. Figure from~\cite{hptpcProposal}.}
+  \caption[Proton-nucleus cross-section data compared with a semi-empirical model]{Total reaction cross-sections for protons on a variety of nuclei. The points represent data from~\cite{protonXSecData} while the curves are a semi-empirical model from~\cite{protonXSecModel}. Figure from~\cite{hptpcProposal}.}
   \label{fig:protonNucleus}
 \end{figure}
 
 \citefig{fig:generatorProtons} shows that these differing parametrisations can lead to discrepant final state kinematics between the generators, particularly at low proton energies.
-\citefig{fig:generatorProtons} also shows that much of the discrepancy lies below the proton track production threshold in liquid argon.
+\citefig{fig:generatorProtons} also shows that much of the discrepancy lies below the proton track reconstruction threshold in liquid argon.
 Mismodelling of these nuclear effects can lead to significant biases in the measurement of neutrino oscillation parameters~\cite{nuclearMismodelOsc}, an undesirable outcome for future long baseline experiments.
 
-High pressure gas TPCs (HPgTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy due to low thresholds required for track reconstruction.
-To this end, a HPgTPC prototype has been constructed and exposed to a charged particle beam at CERN.
-In order to access a flux of low energy protons, the beam was moderated and the HPgTPC was placed in an off-axis position. 
+High pressure gas TPCs (HPTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy due to low thresholds required for track reconstruction.
+To this end, a HPTPC prototype has been constructed and exposed to a charged particle beam at CERN during the summer of 2018.
+This wss in an effort to make a measurement of the proton-argon cross-section at low energies (proton kinetic energies of less than \SI{50}{\mega\electronvolt}).
+
+In order to access a flux of low energy protons that would have otherwise been unavailable, the beam was moderated and the HPTPC was placed in an off-axis position. 
 An overview of the beam test is given in \citesec{sec:hptpc_beam_flux:overview} while measurements of the beam flux are presented in \citesec{sec:hptpc_beam_flux:results}
 
 \section{The 2018 beam test}
@@ -74,7 +75,7 @@ The beam test took place at the T10 beam line in the East Area at CERN.
 The T10 beam is derived from the PS beam, consists primarily of protons, charged pions and electrons and has a momentum range of \SIrange{0.8}{6.5}{\giga\electronvolt\per\clight} (corresponds to a proton kinetic energy range of \SIrange{0.3}{5.6}{\giga\electronvolt})~\cite{t10Report}.
 
 \citefig{fig:t10Calc} shows the calculated intensity of the T10 beam as a function of beam momentum, separated by particle species.
-One can see that charged pions dominate at all momenta, with the effect becoming more pronounced at lower beam momenta.
+One can see that charged pions predominate over protons at all momenta, with the effect becoming more pronounced at lower beam momenta.
 
 \begin{figure}[h]
   \centering
@@ -83,11 +84,11 @@ One can see that charged pions dominate at all momenta, with the effect becoming
   \label{fig:t10Calc}
 \end{figure}
 
-\citefig{fig:unmoderatedBeam}, left, shows the time of flight spectrum for the unmoderated T10 beam at a momentum setting of \SI{0.8}{\giga\electronvolt\per\clight}.
+\citefigL{fig:unmoderatedBeam}, shows the time of flight spectrum for the unmoderated T10 beam at a momentum setting of \SI{0.8}{\giga\electronvolt\per\clight}.
 In this case the baseline is \SI{10.8}{\metre}.
-Within \citefig{fig:unmoderatedBeam}, left, there are several peaks caused by different particle species, including protons.
+Within \citefigL{fig:unmoderatedBeam}, there are several peaks caused by different particle species, including protons.
 The particle identification process will be covered in more detail in \citesec{sec:hptpc_beam_flux:methods}.
-One can see from \citefig{fig:unmoderatedBeam}, right, that even at this momentum setting there is a negligible flux of protons with kinetic energies of less than \SI{0.1}{\giga\electronvolt}.
+One can see from \citefigR{fig:unmoderatedBeam}, that even at this momentum setting there is a negligible flux of protons with kinetic energies of less than \SI{0.1}{\giga\electronvolt}.
 
 \begin{figure}[h]
   \begin{minipage}[t]{.5\textwidth}
@@ -100,22 +101,22 @@ One can see from \citefig{fig:unmoderatedBeam}, right, that even at this momentu
       \input{files/figures/hptpc_beam_flux/protonKeNoBend}
     \end{adjustbox}
   \end{minipage}
-  \caption[Time of flight spectrum and proton kinetic energy for the unmoderated and unbent T10 beam]{Left: Time of flight spectrum of the unmoderated and unbent CERN T10 beam across a baseline of \SI{10.8}{\metre}. Right: Measured kinetic energies of protons in the unmoderated and unbent CERN T10 beam.}
+  \caption[Time of flight spectrum and proton kinetic energy for the unmoderated and unsteered T10 beam]{Left: Time of flight spectrum of the unmoderated and unsteered CERN T10 beam across a baseline of \SI{10.8}{\metre}. Right: Measured kinetic energies of protons in the unmoderated and unbent CERN T10 beam.}
   \label{fig:unmoderatedBeam}
 \end{figure}
 
 It is necessary to modify the T10 beam for several reasons, one of them being the lack of the low energy protons.
-Additionally, it is important to reduce the multiplicity of particles entering the HPgTPC due to the speed of the optical readout which could otherwise become overwhelmed.
+Additionally, it is important to reduce the multiplicity of particles entering the HPTPC due to the speed of the optical readout which could otherwise become overwhelmed.
 Finally, it is desirable to modify the proton-minimum ionising particle (MIP) ratio in order to isolate more particles which are of interest to a cross-section analysis.
 
 Therefore, two modification are made to the beam flux in order to achieve these goals.
-Firstly up to four \SI{10 x 10 x 10}{\cm} acrylic moderator blocks are placed in the beam.
+Firstly, up to four \SI{10 x 10 x 10}{\cm} acrylic moderator blocks are placed in the beam.
 These blocks have the effect of scattering the incident particles and reducing their energy.
-Additionally, the HPgTPC is moved to an off-axis angle in order to maximise the ratio of protons to MIPs.
-From previous GEANT~\cite{geant} simulations it is determined that the optimal off-axis angle for the HPgTPC is between \ang{2} and \ang{3}.
-However, due to space constraints in the beam hall, the HPgTPC could not be moved this far off-axis.
-Instead, the beam was steered approximately \ang{1} off its nominal axis to increase the angle between the beam and the HPgTPC.
-A bird's-eye view diagram of the experimental setup, which shows the beam position relative to the HPgTPC, is shown in \citefig{fig:beamSetup}.
+Additionally, the HPTPC is moved to an off-axis angle in order to maximise the ratio of protons to MIPs.
+From previous GEANT~\cite{geant} simulations it is determined that the optimal off-axis angle for the HPTPC is between \ang{2} and \ang{3}.
+However, due to space constraints in the beam hall, the HPTPC cannot be moved this far off-axis.
+Instead, the beam is steered approximately \ang{1} off its nominal axis to increase the angle between the beam and the HPTPC.
+A bird's-eye view diagram of the experimental setup, which shows the beam position relative to the HPTPC, is shown in \citefig{fig:beamSetup}.
 
 \begin{figure}[h]
   \centering
@@ -124,26 +125,26 @@ A bird's-eye view diagram of the experimental setup, which shows the beam positi
   \label{fig:beamSetup}
 \end{figure}
 
-The effectiveness of this off-axis technique was assessed using several timing points which were used to measure the particle species and energies upstream and downstream of the HPgTPC prototype.
-These timing points are shown in \citefig{fig:beamSetup} and, from upstream to downstream, consist of:
+The effectiveness of this off-axis technique is assessed using several timing points which are used to measure the particle species and energies upstream and downstream of the HPTPC prototype.
+These timing points are labelled in \citefig{fig:beamSetup} and, from upstream to downstream, consist of:
 \begin{itemize}
     \item \SOne, a \SI{40 x 40 x 5}{\mm} plastic scintillator cross, described in \citesec{sec:hptpc_beam_flux:overview:s1s2};
     \item \STwo, a \SI{120 x 120 x 5}{\mm} plastic scintillator tile, used for coincidence measurements with \SOne, described in \citesec{sec:hptpc_beam_flux:overview:s1s2};
     \item \SThree, a large panel of plastic scintillator bars placed directly upstream of the TPC vessel, described in \citesec{sec:hptpc_beam_flux:overview:s3};
-    \item \SFour, a large panel of plastic scintillator bars placed directly downstream of the HPgTPC, which is described in \citesec{sec:hptpc_beam_flux:overview:s4} (its characterisation is described in \citesec{sec:hptpc_dtof_characterisation}).
+    \item \SFour, a large panel of plastic scintillator bars placed directly downstream of the HPTPC, which is described in \citesec{sec:hptpc_beam_flux:overview:s4} (its characterisation is described in \citesec{sec:hptpc_dtof_characterisation}).
 \end{itemize}
-The moderator blocks were placed on a tripod stand in between \SOne and \STwo.
+The moderator blocks are placed on a tripod stand in between \SOne and \STwo.
 
 \subsection{Survey and coordinate system}
 \label{sec:hptpc_beam_flux:overview:survey}
 
-The distances to the various objects in the beamline from an origin point is measured by the CERN Survey, Mechatronics and Measurements (SMM) group to a precision of \SI{0.5}{\mm}.
-Specifically, multiple points on each of \SOne, \STwo, \SThree, \SFour and the HPgTPC prototype were measured.
-From these measurements, the distance between various timing points is calculated and displayed in \citetab{tab:pointDistances}, calculated using this survey data
+The distances to the various objects in the beamline from an origin point are measured by the CERN Survey, Mechatronics and Measurements (SMM) group to a precision of \SI{0.5}{\mm}.
+Specifically, multiple points on each of \SOne, \STwo, \SThree, \SFour and the HPTPC prototype are measured.
+From these measurements, the distance between various timing points is calculated and displayed in \citetab{tab:pointDistances}.
 
 \begin{table}
   \centering
-  \caption[Calculated distances between objects within the T10 beamline during the beam test]{Calculated distances between objects within the T10 beamline during the beam test}
+  \caption[Calculated distances between objects within the T10 beamline during the beam test]{Calculated distances between objects within the T10 beamline during the beam test.}
   \label{tab:pointDistances}
   \begin{tabular}{c c}
     \hline
@@ -160,21 +161,21 @@ From these measurements, the distance between various timing points is calculate
   \end{tabular}
 \end{table}
 
-The coordinate systeam used in this analysis is a right-handed coordinate system defined by the following directions: the $+\hat{z}$ direction is defined as the nominal beam axis, the $+\hat{y}$ direction is defined as vertically upwards and the $\hat{x}$ direction is defined as the horizontal direction which is perpendicular to the beam direction.
-The origin is take to be at \SOne.
+The coordinate systeam used in this analysis is a right-handed coordinate system defined by the following directions: the $+\hat{z}$ direction is defined as the nominal beam direction (prior to any steering of the beam), the $+\hat{y}$ direction is defined as vertically upwards and the $\hat{x}$ direction is defined as the horizontal direction which is perpendicular to the beam direction.
+The origin is taken to be at \SOne.
 The $\hat{x}$ and $\hat{z}$ axes are labelled in \citefig{fig:beamSetup}.
 In this analysis, the results are given in terms of the angles $\theta$ and $\phi$.
 $\theta$ is measured in the $\hat{x}-\hat{z}$ plane with positive angle measured in the $+\hat{x}$ direction while $\phi$ is measured in the $\hat{y}-\hat{z}$ with positive angles measured in the $+\hat{y}$ direction.
 
-\citefig{fig:angDistS1} shows the angular distribution of objects within the beamline as viewed from \SOne.
 \citetab{tab:angDistS1} shows the angular extent of various beamline components as measured from \SOne.
+\citefig{fig:angDistS1} shows the angular distribution of objects within the beamline as viewed from \SOne.
 Both of these use the data from the survey in order to calculate the results.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.8\textwidth, center}
     \input{files/figures/hptpc_beam_flux/angDistS1}
   \end{adjustbox}
-  \caption[Angular distribution of objects in the T10 beamline]{Angular distribution of objects within the T10 beamline. The origin here is at \SOne.}
+  \caption[Angular distribution of objects in the T10 beamline]{Angular distribution of objects within the T10 beamline. US and DS refer to the upstream and downstream faces of the TPC respectively. The origin here is at \SOne.}
   \label{fig:angDistS1}
 \end{figure}
 
@@ -196,7 +197,7 @@ Both of these use the data from the survey in order to calculate the results.
   \end{tabular}
 \end{table}
 
-\citefig{fig:beamlinePics} shows images of the beamline with the various components of the ToF systems as well as the HPTPC and moderator blocks labelled.
+\citefig{fig:beamlinePics} shows images of the beamline with the various timing points as well as the HPTPC and moderator blocks labelled.
 In this particular image, all four moderator blocks are placed on the tripod stand.
 
 \begin{figure}[h]
@@ -207,7 +208,8 @@ In this particular image, all four moderator blocks are placed on the tripod sta
 \end{figure}
 
 \SThree and \SFour each have their own independent DAQ systems which process data from \SOne and \STwo plus either \SThree or \SFour.
-The data from these two systems is synchronised offline using a signal from the PS indicating the arrival of a beam spill which is recorded by both DAQs.
+The data from these two systems is synchronised offline using a signal from the PS indicating the arrival of a beam spill, which is recorded by both DAQs.
+The system consisting of \SOne, \STwo and \SThree is sometimes referred to as the upstream time of flight (UToF) system, while the systems consisting of \SOne, \STwo and \SFour is referred to as the downstream time of flight (DToF) system.
 
 T10 receives $1-3$ spills from the PS every supercycle, which has a normal duration of \SI{33}{\second}.
 The duration of each of these spills is approximately \SI{0.4}{\second}.
@@ -220,7 +222,7 @@ This is because this is the configuration that was used for the majority of the 
 
 \begin{table}
   \centering
-  \caption[Number of recorded spills for each moderator block configuration used in T10 beam flux analysis]{Number of recorded spills for each moderator block configuration used in T10 beam flux analysis}
+  \caption[Number of recorded spills for each moderator block configuration used in T10 beam flux analysis]{Number of recorded spills for each moderator block configuration used in T10 beam flux analysis.}
   \label{tab:nSpills}
   \begin{tabular}{c c}
     \hline
@@ -249,13 +251,13 @@ This cross measures \SI{40 x 40 x 5}{\milli\metre} and is attached to four 1'' H
   \label{fig:s1s2Pic}
 \end{figure}
 
-The time resolution of the \SOne beam counter is measured using the DAQ of the upstream ToF and found to be around \SI{30}{\pico\second}.
+The time resolution of the \SOne beam counter is measured using the UToF DAQ and found to be around \SI{30}{\pico\second}.
 This measurement is made by taking the average distribution of the four PMT hit times. However, because this measurement is not centred at zero, we instead calculate the quantity
 \begin{equation}
   t_{\text{ave}} = \frac{1}{4} ((t_{\text{PMT1}}+t_{\text{PMT2}}) - (t_{\text{PMT3}}+t_{\text{PMT4}}))
   \label{eq:tAve}
 \end{equation}
-where the $t_{\text{PMT}n}$ refer to the four PMTs used to read out \SOne.
+where the $t_{\text{PMT}n}$ refer to the hit time of four PMTs used to read out \SOne.
 This quantity has the same spread as the average hit time but is centred at zero.
 An example of the distribution produced is shown in \citefig{fig:s1Res} which contains the data from one run.
 
@@ -267,23 +269,23 @@ An example of the distribution produced is shown in \citefig{fig:s1Res} which co
   \label{fig:s1Res}
 \end{figure}
 
-\STwo consists of a single piece of plastic scintillator, measuring \SI{120 x 120 x 5}{\milli\metre} which is read out, via a light guide, by a 2'' Hamamatsu Photonics R1309 PMT~\cite{hamamatsu}.
+\STwo consists of a single piece of plastic scintillator, which measures \SI{120 x 120 x 5}{\milli\metre} and is read out, via a light guide, by a 2'' Hamamatsu Photonics R1309 PMT~\cite{hamamatsu}.
 An image of \STwo is shown on the right of \citefig{fig:s1s2Pic} where the light guide is also indicated.
 \STwo is situated \SI{1.419(1)}{\metre} downstream of \SOne and away from the nominal beam axis.
-This off-axis positioning means that all of the beam particles impinging on the HPgTPC should pass through \STwo.
+This off-axis positioning means that all of the beam particles impinging on the HPTPC should pass through \STwo.
 
 The analog signals produced by the PMTs in \SOne and \STwo are fed into LeCroy 620AL NIM discriminator units with a threshold of \SI{30}{\milli\volt}.
-These discriminated signals were then fed into a NIM coincidence unit.
-The output of this unit was recorded by the DAQ system of the downstream time of flight panel (\SFour).
-The signals from \SOne and \STwo were fed individually into the DAQ system of the upstream time of flight panel (\SThree).
+These discriminated signals are then fed into a NIM coincidence unit.
+The output of this coincidence unit is recorded by the DToF DAQ.
+The signals from \SOne and \STwo are fed individually into the UToF DAQ.
 
 \subsection{The upstream time of flight detector (\SThree)}
 \label{sec:hptpc_beam_flux:overview:s3}
 
-\SThree (also referred to as the upstream time of flight system) is situated \SI{1.323(2)}{\metre} upstream of the upstream side of the TPC and \SI{10.756(1)}{\metre} in the beamline.
+\SThree is situated \SI{1.323(2)}{\metre} upstream of the upstream side of the TPC and \SI{10.756(1)}{\metre} downstream of \SOne.
 It consists of 22 bars of EJ-200~\cite{ej200} plastic scintillator.
-20 of these bars measure \SI{168 x 6 x 1}{\centi\metre} while the remaining 2 measure \SI{150 x 6 x 1}{\centi\metre}~\cite{s3Paper}.
-The bars are arranged in a staggered setup with an overlap between the bars of \SI{5}{\milli\metre} while the two smaller bars are placed at the top and bottom of the panel.
+20 of these bars measure \SI{168 x 6 x 1}{\centi\metre} while the remaining 2 measure \SI{150 x 6 x 1}{\centi\metre} and are placed at the top and bottom of the panel~\cite{s3Paper}.
+The bars are arranged in a staggered setup with an overlap between the bars of \SI{5}{\milli\metre}.
 The total active area of the detector is \SI{2.0214}{\centi\metre\square}.
 Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimensions.
 
@@ -300,18 +302,18 @@ Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimen
 \end{figure}
 
 EJ-200 plastic scintillator (of which the bars are made) has a brightness of \num{10000}~photons/MeV deposited.
-Additionally, it has a large optical attenuation length (\SI{4}{\metre}) along with a fast rise time and decay time constant (\SI{0.9}{\nano\second} and \SI{2.1}{\nano\second} respectively.
+Additionally, it has a large optical attenuation length (\SI{4}{\metre}) along with a fast rise time and decay time constant (\SI{0.9}{\nano\second} and \SI{2.1}{\nano\second} respectively).
 The scintillation emission spectrum peaks at a wavelength of \SI{435}{\nano\metre}~\cite{ej200}.
 In order to increase the light collection capabilities of the bars while excluding background light, they are wrapped in aluminium foil which has a reflectivity of 60\%.
 
-The scintillation photons produced by the bars are detected by S13360-6050PE Hamamatsu Photonics~\cite{hamamatsu} silicon photomultipliers (SiPMs) arranged at either end of the bar.
+The scintillation photons produced by the bars are detected by S13360-6050PE Hamamatsu Photonics~\cite{hamamatsu} silicon photomultipliers (SiPMs) at either end of the bar.
 These photosensors, each measuring \SI{6 x 6}{\milli\metre}, are arranged in groups of eight and then coupled to the end of the bar.
 These photomultipliers have a wavelength range that is well suited to the scintillation light produced by the bars (the sensitivity of the SiPMs at a wavelength of \SI{450}{\nano\metre} is 40\%~\cite{hamamatsu}).
 The anode signals produced by these SiPMs are read out, summed and shaped by a dedicated circuit as described in~\cite{s3SiPM}.
 
 These signals, along with those from \SOne and \STwo, are then fed into a DAQ based upon the SAMPIC chip, further details of which are given in~\cite{sampic}.
 
-\SThree triggers are formed in the following manner, shown graphically in \citefig{fig:s3Trigger}, and are intended to identify the prescence of a beam particle travelling between \SOne and \SThree.
+\SThree triggers are formed in the following manner, shown graphically in \citefig{fig:s3Trigger}, and are intended to identify the presence of a beam particle travelling between \SOne and \SThree.
 An \SOne signal is considered to have occurred when at least three of the four \SOne PMTs register a signal above the threshold of \SI{30}{\milli\volt}.
 An \SThree signal is deemed to have occurred if the SiPMs on either end of a given bar register a signal above a threshold of \SI{30}{\milli\volt}.
 If an \SOne signal and an \SThree signal occur within a time window of \SI{70}{\nano\second}, the DAQ is triggered and writes the event.
@@ -335,8 +337,8 @@ Each of these scintillator bars has a PMT attached to each end and these observe
 A diagram of \SFour is shown in \citefig{fig:dtofDiag}.
 
 The anode signal of each of the PMTs is fed into a LeCroy 620AL NIM discriminator with a threshold of \SI{-20}{\milli\volt}.
-Any PMT signals above this threshold are digitised using a time-to-digital converted (TDC)
-Additionally, the signal indicating the start of a beam spill as well as a signal indicating a coincidence between \SOne and \STwo were fed into the TDC.
+Any PMT signals above this threshold are digitised using a time-to-digital converter (TDC).
+Additionally, the signal indicating the start of a beam spill as well as a signal indicating a coincidence between \SOne and \STwo are fed into the TDC.
 A particle (either beam induced or otherwise) is considered to have been observed in \SFour if a signal above the discriminator threshold is recorded in both PMTs on the same bar, within \SI{20}{\nano\second} of each other.
 
 Unlike the UToF DAQ system, the DToF DAQ is operated in self-triggering mode and thus acquired data both inside and outside the beam spill.
@@ -352,12 +354,13 @@ The angular position of the TPC is at approximately $\theta = \ang{-2.5}$.
 With the beam steering, this means that the centre of the TPC lies approximately \ang{3.5} off-axis.
 
 The pressure vessel itself is made out of 304L stainless steel, has an outer diameter of \SI{142}{\centi\metre} and a vessel wall thickness of \SI{1}{\centi\metre}~\cite{deisting2021high}.
+These vessel walls allow the HPTPC to be rated to 6~bar of absolute pressure.
 This vessel wall thickness is equivalent to the range of proton with a kinetic energy of roughly \SI{80}{\mega\electronvolt}~\cite{protonRangeTables}.
 
 The main cylindrical body of the vessel is \SI{73.6}{\centi\metre} in length while the rounded sections at the end of this volume each have a length of \SI{32.5}{\centi\metre}~\cite{deisting2021high}.
 Interior to the cylindrical body is the active volume of the TPC.
 This active TPC volume measures \SI{111}{\centi\metre} in diameter and \SI{48}{\centi\metre} in the drift direction and is formed by a series of copper rings which make up the field cage.
-A diagram of the HPTPC, showing a cross-sectional view of the active volume, is shown in \citefig{fig:hptpc}.
+A diagram of the HPTPC, displaying a cross-sectional view of the active volume, is shown in \citefig{fig:hptpc}.
 
 \begin{figure}[h]
   \centering
@@ -366,19 +369,21 @@ A diagram of the HPTPC, showing a cross-sectional view of the active volume, is 
   \label{fig:hptpc}
 \end{figure}
 
+During the beam test, the HPTPC was filled with either pure argon or a mixture of argon and a small amount of quencher.
+
 \section{Methods}
 \label{sec:hptpc_beam_flux:methods}
 
-In a beamline such as the T10 beamline at CERN, charged particles are selected using by momentum using a magnetic field.
+In a secondary beamline such as the T10 beamline at CERN, charged particles are selected by momentum.
 This results in a beam of particles that are all of the same momentum but of different species.
-Different particles of the same momentum will take different times to cover the same distance.
+Different particles of the same momentum (but different masses) will take different times to cover the same distance.
 The time of flight, $t$, of a particle of mass, $m$, with a momentum, $p$, is given by
 \begin{equation}
   t = L \sqrt{ \frac{1}{c^{2}} + \frac{m^{2}}{p^{2}} }\, ,
   \label{eq:tof}
 \end{equation}
 where $L$ is the distance travelled by the particle.
-\citefig{fig:tofVsMom}, left and right, show the time of flight for various particles as a function of particle momentum for the $\SOne - \SThree$ and  $\STwo - \SFour$ distances respectively.
+\citefig{fig:tofVsMom} left and right, show the predicted time of flight for various particles as a function of particle momentum for the $\SOne - \SThree$ and  $\STwo - \SFour$ distances respectively.
 If the beam momentum is known, by measuring a particle's time of flight it should be possible to identify the particle in question.
 One can see that, assuming a time resolution of around \SI{1}{\nano\second}, it should be possible to distinguish between deuterons, protons and pions/muons at the momenta used in this study.
 
@@ -394,7 +399,7 @@ One can see that, assuming a time resolution of around \SI{1}{\nano\second}, it 
       \input{files/figures/hptpc_beam_flux/s2s4Times}
     \end{adjustbox}
   \end{minipage}
-  \caption[Predicted time of flight as a function of momentum for various particle types across the distances used in the HPgTPC beam test]{Predicted time of flight as a function of momentum for various particle types across the distances used in the HPgTPC beam test. Right: the $\SOne - \SThree$ distance. Left: the $\STwo - \SFour$ distance.}
+  \caption[Predicted time of flight as a function of momentum for various particle types across the distances used in the HPTPC beam test]{Predicted time of flight as a function of momentum for various particle types across the distances used in the HPTPC beam test. Right: the $\SOne - \SThree$ distance. Left: the $\STwo - \SFour$ distance.}
   \label{fig:tofVsMom}
 \end{figure}
 
@@ -405,11 +410,11 @@ The process used for the identification of particles in \SThree as well as corre
 \label{sec:hptpc_beam_flux:methods:general}
 
 In this study two measurements of the beam flux are made, one with \SThree and one with \SFour.
-In both cases we measure the time of flight of particle $t_{f}-t_{i}$ where $t_{i}$ is time at which the particle is detected at the initial upstream timing point and $t_{f}$ is the time at which the particle is detected at some final downstream timing point.
+In both cases we measure the time of flight of a particle, $t_{f}-t_{i}$, where $t_{i}$ is time at which the particle is detected at the initial upstream timing point and $t_{f}$ is the time at which the particle is detected at some final downstream timing point.
 In the case of the UToF system, the measured time difference is $t_{\SThree} - t_{\SOne}$, while for the DToF system it is $t_{\SFour} - t_{\STwo}$.
 
 The particular particle type distinction that is made in this study is between protons and MIPs.
-At the momenta and with the beamline used in this study, MIPs are primarily charged pions and electrons.
+At the momenta and within the beamline used in this study, MIPs are primarily charged pions and electrons.
 At a momentum of \SI{0.8}{\giga\electronvolt\per\clight} a charged pion will take \SI{36.4}{\nano\second} to traverse the $\SOne - \SThree$ distance while a proton will take \SI{55.3}{\nano\second}.
 At the same momentum, a charged pion will take \SI{42.8}{\nano\second} to travel the $\STwo - \SFour$ distance while a proton will take \SI{65.0}{\nano\second}.
 
@@ -418,12 +423,12 @@ Here one can see that there are two distinct populations, a faster peak situated
 One can see that these positions agree with the theoretical expectation above.
 
 \citefig{fig:s3Tof} also shows that the proton population has a distinct double peaked structure.
-This is caused by the steering of the beam which was undertaken in order to increase the off-axis angle of the HPgTPC.
+This is caused by the steering of the beam which is undertaken in order to increase the off-axis angle of the HPTPC.
 This steering in turn leads to a portion of the beam scattering in the steering magnets.
 This scattered portion of the beam forms the slower, broader proton peak while the unscattered portion forms the quicker proton peak.
 
 The 0 block sample also contains a third peak located at approximately \SI{95}{\nano\second} which is not visible in the other samples.
-This is caused by deuterons which are moderated out in the other samples.
+This is caused by deuterons which are attenuated in the other samples.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize={.8\linewidth}, center}
@@ -433,10 +438,10 @@ This is caused by deuterons which are moderated out in the other samples.
   \label{fig:s3Tof}
 \end{figure}
 
-In this study, in order to identify the species of particle detected it is important to measure the time of flight of said given particle accurately.
+In this study, in order to identify the species of particle detected it is important to measure the time of flight of said particle accurately.
 With that in mind, it is important to calibrate the equipment used for cabling and equipment delays.
 This is done by shifting the value of $t_{f}-t_{i}$ such that, for the unmoderated beam, the MIP peak is located at its expected value according to \citeeq{eq:tof}.
-This procedure is performed for each ToF DAQs.
+This procedure is performed for each ToF DAQ.
 The resulting required shift for $t_{\SThree} - t_{\SOne}$ is \SI{65.0}{\nano\second} while for $t_{\SFour} - t_{\STwo}$ the required shift is \SI{43.7}{\nano\second}.
 
 \subsection{\SThree specific methods}
@@ -450,7 +455,7 @@ This distribution is formed using the following equation:
 \end{equation}
 where $p$ has been set to \SI{0.8}{\giga\electronvolt\per\clight} and $x_{\SThree} - x_{\SOne}$ is equal to the distance between \SOne and \SThree.
 One can observe that the predicted particle positions match well with the data.
-Additionally, one can see that the MIP portion of the beam is made up predominantly of positrons, with a smaller component made up on pions.
+Additionally, one can see that the MIP portion of the beam is made up predominantly of positrons, with a smaller component made up of pions.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=\textwidth, center}
@@ -467,7 +472,7 @@ The UToF DAQ (see \citesec{sec:hptpc_beam_flux:overview:s3}) stores information 
 As such, both timing and signal size cuts can be used to select protons and MIPs
 This signal amplitude information is relevant due to the differing energy deposition of protons and MIPs at these momenta.
 
-\citefig{fig:energyLoss} shows the mean energy loss for a variety of different materials as a function of $\beta \gamma$.
+\citefig{fig:energyLoss} shows the mean charged particle energy loss for a variety of different materials as a function of particle $\beta \gamma$.
 One can see that for all the materials, the minimum energy loss per unit distance occurs at $\beta\gamma \approx 3$ with a rapid rise at low values and a slower one at higher values.
 For a charged pion with a momentum of \SI{0.8}{\giga\electronvolt\per\clight}, $\beta\gamma = 5.73$.
 However, for a proton with the same momentum $\beta\gamma = 0.85$.
@@ -483,7 +488,7 @@ This leads protons to deposit more energy in the scintillator bars than the ligh
 This greater energy deposition within the bars leads to an increased amount of scintillation light and so an increased signal size in the SiPMs.
 Therefore, it is possible to use the SiPM signal size to discriminate between particle species.
 
-\citefig{fig:tvsa} shows the relationship between $t_{\SThree} - t_{\SOne}$ and signal amplitude (here labelled as A1) for one of the bars in \SThree along with timing and signal cuts used to select particle types.
+\citefig{fig:tvsa} shows the relationship between $t_{\SThree} - t_{\SOne}$ and signal amplitude (here labelled as A1) for one of the SiPMs in \SThree along with timing and signal cuts used to select particle types.
 One can see that two populations are visible for all the different numbers of moderator blocks apart from \citefig{fig:tvsa:0} where three populations can be seen.
 This third, slowest population is cause by deuterons.
 
@@ -544,9 +549,9 @@ The timing and amplitude cuts used for each sample for one SiPM are shown in \ci
 \label{sec:hptpc_beam_flux:methods:s3:deadtime}
 
 \citefig{fig:spillStructureComp} shows that significant differences are observed between the spill structure measured in \SThree and \SFour.
-These differences do not originate from physical processes but rather the large, unknown dead time of the UToF DAq.
+These differences do not originate from physical processes but rather the large, unknown dead time of the UToF DAQ.
 As \citefig{fig:spillStructureComp} shows, the UToF DAQ initially acquires hits at the start of the spill before failing to record much of the data from later in the spill.
-The DToF DAQ, which has a negligible deadtime, continues to record a similar number of hits before declining gradually.
+The DToF DAQ, which has a negligible deadtime, continues to record a similar number of hits before declining gradually approximately \SI{0.31}{\second} after the spill start.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.75\textwidth, center}
@@ -613,7 +618,7 @@ fitted where $p0$ and $p1$ are the parameters to be determined.
     \caption{4 blocks}
   \end{subfigure}
   
-  \caption[Comparison of $\SOne-\STwo$ hits in the two ToF DAQs]{Comparison of $\SOne-\STwo$ hits in the two ToF DAQs. A first-order polynomial (red) fitted in each case.}
+  \caption[Comparison of $\SOne-\STwo$ hits in the two ToF DAQs]{Comparison of $\SOne-\STwo$ hits in the two ToF DAQs. A first-order polynomial (red) is fitted in each case.}
   \label{fig:s1s2DeadtimeComp}
 \end{figure}
 
@@ -628,22 +633,22 @@ This is based upon $(\SOne\STwo)_{\text{DToF}}$ in the spill and according to th
 
 \citefig{fig:s4Tof} shows the time of flight spectra for those particles detected in \STwo and \SFour.
 For all of the samples apart from the four moderator block sample, two clear peaks are visible.
-A quicker peak produced my MIPs is located at around \SI{42}{\nano\second} and does not move with increasing numbers of moderator blocks.
+A quicker peak produced by MIPs is located at around \SI{42}{\nano\second} and does not move with increasing numbers of moderator blocks.
 A second broader peak, produced by protons, is visible between \SI{65}{\nano\second} and \SI{100}{\nano\second}.
-This second peak moves to slower times as more moderator blocks are added, before largely disappearing in the four moderator block configuration.
+This second peak moves to slower times as more moderator blocks are added, before largely disappearing in the 4 moderator block configuration.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.9\textwidth, center}
     \input{files/figures/hptpc_beam_flux/s4Tof}
   \end{adjustbox}
-  \caption[Time of flight spectra measured in \SFour]{Time of flight spectra for the various moderator block configurations measured in \SFour. Here, the spectrum has been corrected for the bar efficiencies (see \citesec{sec:hptpc_beam_flux:methods:s4:efficiency}) and a flat background has been subtracted.}
+  \caption[Time of flight spectra measured in \SFour]{Time of flight spectra for the various moderator block configurations measured in \SFour. Here, the spectrum has been corrected for the bar efficiencies (see \citesec{sec:hptpc_beam_flux:methods:s4:efficiency}) and a flat background has been subtracted (see \citesec{sec:hptpc_beam_flux:methods:s4:bkg}).}
   \label{fig:s4Tof}
 \end{figure}
 
 \citefig{fig:s4MassDistribution} shows the reconstructed mass distribution using the \STwo to \SFour time of flight.
 This was produced using \citeeq{eq:massDistribution} with $p$ set to \SI{0.8}{\giga\electronvolt\per\clight}.
 Here, one can see that the MIP peak matches well with the pion mass but the proton peak in data lies at a higher mass than the prediction.
-This is due to protons losing energy in the walls of the HPgTPC pressure vessel which in turn, leads to this.
+This is due to protons losing energy in the walls of the HPTPC pressure vessel which in lead to a slower time of flight and therefore a shifted peak.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.9\textwidth, center}
@@ -671,14 +676,14 @@ It is necessary to correct for these differences using a `standard candle', whic
 For each separate moderator block sample, the number of hits occurring outside of beam spills is measured as a function of bar number and position.
 It is necessary to perform this process separately for each sample because of changes in the PMT voltages that may have occurred.
 
-It is assumed that the flux of cosmic rays should be equivalent through each part of \SFour is equal.
+It is assumed that the flux of cosmic rays through each part of \SFour is equal.
 Each \SFour bar is divided into \SI{7}{\centi\metre} segments and the bin values are scaled such that the bin with the greatest recorded number of hits has a value of 1.
 This creates a map of the relative efficiency of the various \SFour bars.
 These efficiency maps are shown in \citefig{fig:barEff}.
 One can see that the bar efficiency is typically highest towards the middle of each bar (\SI{70}{\centi\metre}).
 This is due to the requirement for coincident PMT signals to be observed in order for a hit to be recorded.
 The fact that bars with higher efficiency are typically in the middle of \SFour is by construction; this is where the beam centre is and therefore where the best performing bars are placed.
-Bar 10 was excluded from the analysis due its very low efficiency.
+Bar 10 is excluded from the analysis due its very low efficiency.
 
 \begin{figure}[t]
   \begin{subfigure}[t]{.5\textwidth}
@@ -722,7 +727,7 @@ Bar 10 was excluded from the analysis due its very low efficiency.
 Beam events are weighted depending on the bar number and position where they are recorded with a weight which is the inverse of the efficiency for that particular bin.
 Additionally, a further weight of \num{1.25} is applied to all events.
 This weight represents the absolute efficiency of the bars and is derived from tests performed on \SFour bars with the $^{90}\text{Sr}$ source.
-Using this source it was determined that the maximum measured rate of signals produced by the source was equal to \num{0.8} of the true rate.
+Using this source it is determined that the maximum measured rate of signals produced by the source is equal to \num{0.8} of the true rate.
 
 \subsubsection{Background subtraction}
 \label{sec:hptpc_beam_flux:methods:s4:bkg}
@@ -772,19 +777,19 @@ These false coincidences contribute to the background rate.
 \section{Results}
 \label{sec:hptpc_beam_flux:results}
 
-Beam flux measurements made with the \SThree detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3} while those made with the \SFour detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3}.
-A comparison of the data with simulation is shown in \citesec{sec:hptpc_beam_flux:results:MCData}.
+Beam flux measurements made with the \SThree detector are detailed in \citesec{sec:hptpc_beam_flux:results:s3} while those made with the \SFour detector are detailed in \citesec{sec:hptpc_beam_flux:results:s4}.
+A comparison of the data with a Monte Carlo simulation is shown in \citesec{sec:hptpc_beam_flux:results:MCData}.
 The results presented here are all given in terms of the angles $\theta$ and $\phi$, defined in \citesec{sec:hptpc_beam_flux:overview:survey}.
 
 \subsection{Flux measurements at \SThree}
 \label{sec:hptpc_beam_flux:results:s3}
 
-\citefig{fig:protonKeData} left, shows the kinetic energies of protons calculated using the \SOne to \SThree time of flight for varying numbers of moderator blocks.
-One can clearly see that the energy range of protons is changed from \SIrange{210}{320}{\mega\electronvolt} for the unmoderated beam to \SIrange{60}{110}{\mega\electronvolt} when four moderator blocks are place in the beamline.
+\citefigL{fig:protonKeData}, shows the kinetic energies of protons calculated using the \SOne to \SThree time of flight for varying numbers of moderator blocks.
+One can clearly see that the energy range of protons is changed from \SIrange{210}{320}{\mega\electronvolt} for the unmoderated beam to \SIrange{60}{110}{\mega\electronvolt} when four moderator blocks are placed in the beamline.
 
-\citefig{fig:protonKeData} right, shows the subset of those protons that are determined to impinge upon the TPC by the angle at which they are travelling (see \citetab{tab:angDistS1} for the relevant angles for the TPC).
-Here, one can see that the rate of low energy protons of protons (those with kinetic energies of less than \SI{80}{\mega\electronvolt}) impingin on the TPC is increased from negligible levels for the 0, 1, and 2 block samples to \num{9.7(1)} per spill for the 4 moderator block sample.
-These protons will then lose further energy within the walls of the HPgTPC vessel, resulting in a flux of protons with less than \SI{50}{\mega\electronvolt} within the TPC.
+\citefigR{fig:protonKeData}, shows the subset of those protons that are determined to impinge upon the TPC by the angle at which they are travelling (see \citetab{tab:angDistS1} for the relevant angles for the TPC).
+Here, one can see that the rate of protons with kinetic energies of less than \SI{80}{\mega\electronvolt} impinging on the TPC is increased from negligible levels for the 0, 1, and 2 block samples to \num{9.7(1)} per spill for the 4 moderator block sample.
+These protons will then lose further energy within the walls of the HPTPC vessel, resulting in a flux of protons with less than \SI{50}{\mega\electronvolt} within the TPC.
 This the desired energy regime where various neutrino interaction generators become discrepant (see \citefig{fig:generatorProtons}).
 
 \begin{figure}[h]
@@ -803,7 +808,7 @@ This the desired energy regime where various neutrino interaction generators bec
   \label{fig:protonKeData}
 \end{figure}
 
-Additionally, \citefig{fig:protonKeData} right, shows that the the addition of moderator blocks also has a substantial effect on the multiplicity of protons impinging on the TPC.
+Additionally, \citefigR{fig:protonKeData}, shows that the the addition of moderator blocks also has a substantial effect on the multiplicity of protons impinging on the TPC.
 One can see that adding moderator blocks initially increases the number of protons impinging on the TPC from \num{19.0(9)} per spill for the unmoderated beam to \num{108(3)} per spill for the three moderator block sample.
 Adding the fourth moderator block removes the flux of protons with kinetic energies greater than \SI{100}{\mega\electronvolt} and reduces the number of protons striking the TPC to \num{21.4(2)} per spill.
 
@@ -870,7 +875,7 @@ Particles striking the doors travel through a greater length of steel (relative 
 \citefig{fig:s4Rates} left, shows that MIP multiplicity changes significantly with the addition of moderator blocks from \num{236(4)} per spill for the unmoderated beam to \num{1132(9)} for 3 block configuration.
 The rate then falls with the addition of a fourth moderator block.
 This pattern can be explained by an increase in scattering caused by the blocks leading to more particles passing through \STwo and \SFour which are both located in off-axis positions.
-The fall in MIPs due to the addition of the fourth moderator block can be explained as lower energy particles being attenuated in the walls of the HPgTPC pressure vessel.
+The fall in MIPs due to the addition of the fourth moderator block can be explained as lower energy particles being attenuated in the walls of the HPTPC pressure vessel.
 
 A similar pattern is observed for protons in \citefig{fig:s4Rates} right.
 However, in this case the number of observed protons begins to fall with the addition of the second moderator block.
@@ -1002,7 +1007,7 @@ For all moderator block samples the peak positions in data an simulation agree t
 This confirms that the energy loss in the pressure vessel is consistent between data and simulation.
 
 \begin{figure}[h]
-  \begin{adjustbox}{max totalsize=.7\textwidth, center}
+  \begin{adjustbox}{max totalsize=.65\textwidth, center}
     \input{files/figures/hptpc_beam_flux/tofS4Sim}
   \end{adjustbox}
   \caption[Comparison of simulated and measure proton time of flight from \STwo to \SFour]{Comparison of simulated and measure proton time of flight from \STwo to \SFour. The data are shown as points while the simulation results are shown as solid lines. All distributions are area normalised to 1.}
