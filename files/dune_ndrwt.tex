@@ -1,5 +1,55 @@
-\chapter{DUNE Near Detector driven reweighting}
+\chapter{DUNE Near Detector-driven reweighting}
 \label{sec:dune_ndrwt}
+
+%% Why do we want to do this?
+%% Interaction models in LBL experiments discrepant and found to not match data
+Models of neutrino interaction are frequently found to not match observed data.
+
+%% Inputing an alternate interaction model as our data biases oscillation parameters significantly
+
+%% Role of the gas TPC
+
+%% Presentation of DUNE energy spectrum
+\citefig{fig:energyByMode} shows the energy spectrum of \numu and \anumu charged current interactions in ND-GAr for both FHC and RHC.
+The spectrum is subdivided into true final state pion multiplicities. 
+One can see that the energy range of the DUNE beam means that a wide range of event topologies will be present.
+Additionally, one can see that the dominant final states are the ones containing no pions and ones containing a single charged pion.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/energyByModeFhc}	
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/energyByModeRhc}	
+		\end{adjustbox}
+	\end{minipage}
+	\caption[Neutrino energy spectrum in ND-GAr divided by pion multiplicity]{Neutrino energy spectra in ND-GAr for charged current \numu and \anumu events with the beam in FHC mode (left) and RHC mode (right). Events are divided by true final state pion multiplicity with the histograms stacked.}
+	\label{fig:energyByMode}
+\end{figure}
+
+%% Details on GENIE->NuWro BDT
+\section{NuWro reweighting Boosted Decision Tree}
+\label{sec:dune_ndrwt:bdt}
+
+Generating fully reconstructed Monte Carlo samples with alternative neutrino interaction generators is a process that consumes many CPU hours as well as requiring significant human effort to undertake.
+Therefore, an alternative method is devised whereby existing samples can be reweighted on an event-by-event basis such that the true kinematic distributions of the reweighted sample can come to resemble those produced by an alternative neutrino interaction generator.
+
+This reweighting is performed by a boosted decision tree (BDT).
+This BDT is trained on two samples, termed the `nominal' and `mock'.
+In this particular case, the `nominal' sample is GENIE, while the `mock' sample is NuWro.
+This does require an additional sample to be generated but does not require the full simulation and reconstruction chain.
+
+For each of the samples, 18 true variables describing the neutrino interaction are used as the inputs to the BDT.
+These 18 variables broadly fall into two categories, those concerning the kinematics of the interaction and those concerning final state particles. Those in the former category are the neutrino energy, the outgoing lepton energy, the angle between the outgoing lepton and the neutrino, the squared four momentum transfer ($Q^{2}$), the hadronic invariant mass ($W$), Bj\"orken $x$ and the inelasticity of the collision ($y$).
+In the latter category the variables are the number and total energy of final state protons, neutrons, \piplus, \piminus and \pizero. 
+Finally, the number of electromagnetic objects in the final state is also used.
+The BDT is then trained to classify interactions as either the `nominal' or `mock' based upon these variables.
+The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
+
 
 \section{Measurements of pion multiplicity}
 
