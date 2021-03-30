@@ -109,10 +109,27 @@ The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
 
 \subsection{Choice of variables}
 
+Two variables are defined in which the reweighting takes place, the visible energy transfer and the visible momentum transfer. 
+These variables are termed \evis and \pvis respectively.
+\evis is defined as 
+\begin{equation}
+	\evis = T_{\textrm{p}} + E_{\pi}
+\end{equation}
+where $T_{\textrm{p}}$ is the total kinetic energy of any final state protons and $E_{\pi}$ is the total energy (including rest masses) of any final state pions.
+One can see that any energy carried by neutrons is not measured in this definition.
 
+\pvis is defined as
+\begin{equation}
+	\pvis = \sqrt{ 2(\evis + E_{\mu})(E_{\mu} - p_{\mu}\cos\theta_{\mu}) - m_{\mu}^{2} + \evis^{2} }
+\end{equation}
+where $E_{\mu}$ and $p_{\mu}$ are the energy and momentum of the outgoing muon.
+$\theta_{\mu}$ is the angle between the outgoing muon and incoming neutrino.
 
+Examples of 2-dimensional distributions of these quantities for various reconstructed final states are shown in \citefig{fig:q0q3Genie}.
+One can observe substantial variations in the distributions as a function of final state.
 
-\begin{figure}[h]
+%% NEEDS TO BE CHANGED THESE ARE THE TRUE DISTRIBUTIONS
+\begin{figure}[t]
 	\begin{subfigure}[t]{.5\linewidth}
 		\begin{adjustbox}{max totalsize=\linewidth, center}
 			\input{files/figures/dune_ndrwt/hq0q3FhcCat7_genie}
@@ -155,3 +172,54 @@ The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
 	\caption[Two dimensional distributions of $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr]{Two dimensional distributions of reconstructed $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr, separated out by pion multiplicity.}
 	\label{fig:q0q3Genie}
 \end{figure}
+
+The same distributions as those displayed in \citefig{fig:q0q3Genie} are plotted for the NuWro mock data.
+The ratio of these two distributions is then taken.
+That is the number of events in each bin for the mock data sample is divided by the number of events in the same bin for the nominal sample.
+These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
+
+\begin{figure}[t]
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhcCat7_ratio}
+		\end{adjustbox}
+		\caption{$0\pi$ - 1 proton}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhcCat8_ratio}
+		\end{adjustbox}
+		\caption{$0\pi$ - $>1$ proton}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhcCat3_ratio}
+		\end{adjustbox}
+		\caption{$1\piplus$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhcCat4_ratio}
+		\end{adjustbox}
+		\caption{$1\pizero$}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhcCat5_ratio}
+		\end{adjustbox}
+		\caption{$2\pi$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhcCat6_ratio}
+		\end{adjustbox}
+		\caption{$>2\pi$}
+	\end{subfigure}
+	\caption[Two dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by pion multiplicity.}
+	\label{fig:q0q3RatioFhc}
+\end{figure}
+
+
