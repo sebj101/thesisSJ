@@ -50,8 +50,57 @@ Finally, the number of electromagnetic objects in the final state is also used.
 The BDT is then trained to classify interactions as either the `nominal' or `mock' based upon these variables.
 The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
 
+\section{Simulation details}
+\label{sec:dune_ndrwt:simDetails}
+
+Initially, a sample of \num{10000000} neutrino interactions (\num{5000000} in each of FHC and RHC mode) is simulated using the GENIE~\cite{genie} neutrino interaction generator within the HPgTPC volume.
+This number of interactions is roughly what would be expected given the delivery of \num{9.66d20} protons to the neutrino beam target in FHC mode and \num{1.96d21} protons to the same target in RHC mode.
+The final state particles produced in these interactions are then propagated through an accurate representation of the DUNE near detector hall (see \citesec{sec:dune:nd}) using \texttt{GEANT4}~\cite{geant}. 
+ 
+A parametrised reconstruction is then used to give an estimate of the measured energy of these particles.
+The parametrised reconstruction takes the \texttt{GEANT4} energy deposits and smears them according to the Gluckstern formula~\cite{gluckstern}.
+This formula allows the error on a track's curvature (due to motion in a magnetic field) to be estimated.
+This can then be extended to give the fractional uncertainty on the particle momentum as
+\begin{equation}
+	\left(\frac{\sigma_{p}}{p}\right)^{2} = \left( \frac{\sigma_{x} p}{0.3 B L^{2}} \sqrt{ \frac{720}{N+4} } \right)^{2} +
+	\left( \frac{\SI{0.0157}{\GeV\per\clight}}{0.3BL}\sqrt{\frac{L}{X_{0}}}\left( 1 + 0.038 \ln(L/X_{0}) \right) \right)^{2}
+\end{equation}
+where $L$ is the track length perpendicular to the magnetic field, $\sigma_{x}$ is the point resolution, $N$ is the number of hits in the track and $X_0$ is the radiation length of the material which the particle is traversing.
+In the HPgTPC, $B$ is taken to be \SI{0.4}{\tesla}, $X_{0}$ is taken to be \SI{13}{\cm}, $\sigma_{x}$ is taken to be \SI{1}{\mm} and the number of track hits is estimated by dividing the track length by the pad pitch of the HPgTPC.
+
+It is assumed that charged pions and protons with $p < \SI{1.5}{\GeV\per\clight}$ are able to be perfectly separated using measurements of particle $dE/dx$.
+Above this momentum a parametrisation of the ECAL is used since it is assumed that $dE/dx$ will be too similar for protons and charged pions.
+Here, the reconstructed energy of the particle in the ECAL is estimated with a resolution of 
+$20\% \oplus \frac{30\%}{\sqrt{T}}$, where $T$ is the kinetic energy of the particle.
+This estimate of the energy is then compared with that derived from the momentum measurements made using track curvature under the assumption that the particle is a proton or a pion.
+The closer of these two values to the reconstructed ECAL energy determines the reconstructed particle type.
+
+Neutral pions are considered to be reconstructed if both decay photons have energies of more than \SI{50}{\MeV} and the angle between the two photons is larger than 0.01~radians (i.e. they do not lie on top of one another).
+It is assumed that for photons $\sigma_{E}/E = 0.1$.
+
+Finally, a degree of confusion between muons and charged pions is implemented.
+If the highest momentum muon or charged pion is a muon then the particle is correctly identified.
+However, if a charged pion has a higher momentum there is a chance for the particle to be incorrectly reconstructed as a muon.
+If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is assumed that it can be correctly identified from its range within the TPC.
+For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the probability to interact in the ECAL is determined from \citefig{fig:interactionSpline}.
+If a particle interacts in the ECAL it is reconstructed as a pion.
+
+\begin{figure}[h]
+	\centering
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/dune_ndrwt/interactionSpline}
+	\end{adjustbox}
+	\caption[Interaction probability for a charged pion travelling through the ND-GAr ECAL as a function of momentum]{Interaction probability for a charged pion travelling through the ND-GAr ECAL as a function of momentum.}
+	\label{fig:interactionSpline}
+\end{figure}
+
+
 
 \section{Measurements of pion multiplicity}
+\label{sec:dune_ndrwt:pionMulti}
+
+%%% Methods here
+
 
 \subsection{Gaseous argon}
 
@@ -125,10 +174,28 @@ One can see that any energy carried by neutrons is not measured in this definiti
 where $E_{\mu}$ and $p_{\mu}$ are the energy and momentum of the outgoing muon.
 $\theta_{\mu}$ is the angle between the outgoing muon and incoming neutrino.
 
+Distributions of true vs. reconstructed \evis and \pvis are shown in \citefig{fig:visibleTrueReco}.
+One can clearly see that in both cases, the distributions are highly diagonal.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/q0CompFhc}
+		\end{adjustbox}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/q3CompFhc}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[True vs. reconstructed \evis (left) and \pvis (right)]{2-dimensional distributions showing relationship between true and reconstructed \evis (left) and \pvis (right). In both cases the distributions are area normalised to 1.}
+	\label{fig:visibleTrueReco}
+\end{figure}
+
 Examples of 2-dimensional distributions of these quantities for various reconstructed final states are shown in \citefig{fig:q0q3Genie}.
 One can observe substantial variations in the distributions as a function of final state.
 
-%% NEEDS TO BE CHANGED THESE ARE THE TRUE DISTRIBUTIONS
 \begin{figure}[t]
 	\begin{subfigure}[t]{.5\linewidth}
 		\begin{adjustbox}{max totalsize=\linewidth, center}
@@ -169,7 +236,7 @@ One can observe substantial variations in the distributions as a function of fin
 		\end{adjustbox}
 		\caption{$>2\pi$}
 	\end{subfigure}
-	\caption[Two dimensional distributions of $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr]{Two dimensional distributions of reconstructed $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr, separated out by pion multiplicity.}
+	\caption[Two dimensional distributions of $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr]{Two dimensional distributions of reconstructed $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr, separated out by final state.}
 	\label{fig:q0q3Genie}
 \end{figure}
 
