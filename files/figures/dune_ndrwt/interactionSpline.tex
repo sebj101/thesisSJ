@@ -135,7 +135,7 @@
 \draw [anchor=base] (13.8889,1.15931) node[scale=1.52731, color=c, rotate=0]{800};
 \draw [anchor=base] (15.4444,1.15931) node[scale=1.52731, color=c, rotate=0]{900};
 \draw [anchor=base] (17,1.15931) node[scale=1.52731, color=c, rotate=0]{1000};
-\draw [anchor= east] (17,0.572837) node[scale=1.52731, color=c, rotate=0]{Momentum [MeV/c]};
+\draw [anchor= east] (17,0.572837) node[scale=1.52731, color=c, rotate=0]{Momentum [\si{\MeV\per\clight}]};
 \draw [c,line width=0.9] (3,12.2751) -- (17,12.2751);
 \draw [c,line width=0.9] (3,11.9887) -- (3,12.2751);
 \draw [c,line width=0.9] (3.31111,12.1319) -- (3.31111,12.2751);
@@ -242,7 +242,7 @@
 \draw [anchor= east] (2.9,9.31514) node[scale=1.52731, color=c, rotate=0]{0.7};
 \draw [anchor= east] (2.9,10.4281) node[scale=1.52731, color=c, rotate=0]{0.8};
 \draw [anchor= east] (2.9,11.5411) node[scale=1.52731, color=c, rotate=0]{0.9};
-\draw [anchor= east] (1.24,12.2751) node[scale=1.52731, color=c, rotate=90]{Probability};
+\draw [anchor= east] (1.24,12.2751) node[scale=1.52731, color=c, rotate=90]{Non-interaction probability};
 \draw [c,line width=0.9] (17,1.77307) -- (17,12.2751);
 \draw [c,line width=0.9] (16.538,2.63723) -- (17,2.63723);
 \draw [c,line width=0.9] (16.769,2.85983) -- (17,2.85983);
@@ -293,6 +293,9 @@
 \draw [c,line width=0.9] (16.769,11.7637) -- (17,11.7637);
 \draw [c,line width=0.9] (16.769,11.9863) -- (17,11.9863);
 \draw [c,line width=0.9] (16.769,12.2089) -- (17,12.2089);
+\definecolor{c}{rgb}{1,0,0};
+\foreach \P in {(3,12.0931), (4.55556,5.67123), (6.11111,2.32894), (7.66667,3.01342), (9.22222,3.56435), (10.7778,4.15757), (12.3333,4.4002), (13.8889,4.5549), (15.4444,4.64506), (17,4.40465)}{\draw[mark options={color=c,fill=c},mark size=2.402402pt,
+ line width=0.000000pt, mark=*] plot coordinates {\P};}
 \definecolor{c}{rgb}{1,1,1};
 \draw [color=c, fill=c] (2,12.8206) rectangle (18,13.5708);
 \definecolor{c}{rgb}{0,0,0};

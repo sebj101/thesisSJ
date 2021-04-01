@@ -82,15 +82,20 @@ Finally, a degree of confusion between muons and charged pions is implemented.
 If the highest momentum muon or charged pion is a muon then the particle is correctly identified.
 However, if a charged pion has a higher momentum there is a chance for the particle to be incorrectly reconstructed as a muon.
 If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is assumed that it can be correctly identified from its range within the TPC.
-For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the probability to interact in the ECAL is determined from \citefig{fig:interactionSpline}.
-If a particle interacts in the ECAL it is reconstructed as a pion.
+
+For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the
+a pion is correctly identified if it interacts in the ECAL.
+The probability for a pion to leave the ECAL without interacting is determined from \citefig{fig:interactionSpline}.
+\citefig{fig:interactionSpline} shows the probability for a pion to not interact in the ECAL at various momenta with a spline plotted through the points.
+The points are determined from simulations of the ECAL.
+
 
 \begin{figure}[h]
 	\centering
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
 		\input{files/figures/dune_ndrwt/interactionSpline}
 	\end{adjustbox}
-	\caption[Interaction probability for a charged pion travelling through the ND-GAr ECAL as a function of momentum]{Interaction probability for a charged pion travelling through the ND-GAr ECAL as a function of momentum.}
+	\caption[Non-interaction probability for a charged pion travelling through the ND-GAr ECAL as a function of momentum]{Non-interaction probability for a charged pion travelling through the ND-GAr ECAL as a function of momentum. Points derived from simulation are shown in red through which a spline is plotted (black).}
 	\label{fig:interactionSpline}
 \end{figure}
 
