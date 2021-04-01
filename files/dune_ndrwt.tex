@@ -67,6 +67,7 @@ This can then be extended to give the fractional uncertainty on the particle mom
 \end{equation}
 where $L$ is the track length perpendicular to the magnetic field, $\sigma_{x}$ is the point resolution, $N$ is the number of hits in the track and $X_0$ is the radiation length of the material which the particle is traversing.
 In the HPgTPC, $B$ is taken to be \SI{0.4}{\tesla}, $X_{0}$ is taken to be \SI{13}{\cm}, $\sigma_{x}$ is taken to be \SI{1}{\mm} and the number of track hits is estimated by dividing the track length by the pad pitch of the HPgTPC.
+Charged particles with track lengths of more than \SI{6}{\cm} are considered to be able to be reconstructed using this method.
 
 It is assumed that charged pions and protons with $p < \SI{1.5}{\GeV\per\clight}$ are able to be perfectly separated using measurements of particle $dE/dx$.
 Above this momentum a parametrisation of the ECAL is used since it is assumed that $dE/dx$ will be too similar for protons and charged pions.
@@ -81,14 +82,13 @@ It is assumed that for photons $\sigma_{E}/E = 0.1$.
 Finally, a degree of confusion between muons and charged pions is implemented.
 If the highest momentum muon or charged pion is a muon then the particle is correctly identified.
 However, if a charged pion has a higher momentum there is a chance for the particle to be incorrectly reconstructed as a muon.
-If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is assumed that it can be correctly identified from its range within the TPC.
+If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is assumed that it can be correctly identified from its range within the ECAL.
 
 For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the
 a pion is correctly identified if it interacts in the ECAL.
 The probability for a pion to leave the ECAL without interacting is determined from \citefig{fig:interactionSpline}.
 \citefig{fig:interactionSpline} shows the probability for a pion to not interact in the ECAL at various momenta with a spline plotted through the points.
 The points are determined from simulations of the ECAL.
-
 
 \begin{figure}[h]
 	\centering
@@ -99,15 +99,26 @@ The points are determined from simulations of the ECAL.
 	\label{fig:interactionSpline}
 \end{figure}
 
+Charged pions with $p>\SI{1}{\GeV\per\clight}$ are considered to have passed into the muon identification system. 
+This system has a thickness of approximately 2 interaction lengths for charged pions.
+If the pion interacts in the muon identification system, it is correctly identified.
+Therefore, these pions have a probability of $e^{-3}$ to be misidentified as muons.
 
+Finally, it is assumed that the detector is able to perfectly sign select particles such as charged pions and muons.
 
 \section{Measurements of pion multiplicity}
 \label{sec:dune_ndrwt:pionMulti}
 
-%%% Methods here
+The parametrised reconstruction detailed in \citesec{sec:dune_ndrwt:simDetails} is used to select muon neutrino events and classify their final state.
+An event is considered to be a \numu or \anumu charged current event if there is a reconstructed muon in the final state which has a track length perpendicular to the magnetic field of over \SI{1}{\metre}.
+Alternatively, if the reconstructed muon exits the HPgTPC and ranges out in the ECAL it is also reconstructed as a \numu CC event.
+The term `ranging out' here refers to a particle stopping in the detector without interacting.
+The muon is judged to have ranged out in the ECAL if it has a momentum of less than \SI{380}{\MeV\per\clight} when exiting the HPgTPC. 
 
-
-\subsection{Gaseous argon}
+\citefig{fig:confusMatPi} shows the confusion matrices produced using the above selection for both forward and reverse horn currents. 
+Here one can see that, for all final states, the correct final state is reconstructed at least 80\% of the time.
+The largest probability for miscategorised events are NC events where single charged pion is wrongly reconstructed as a muon and the whole event is categorised as a $0\pi$ final state.
+However, one can see from \citefig{fig:eventCats}, that these represent a very small fraction of the total number of events.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -121,9 +132,31 @@ The points are determined from simulations of the ECAL.
 			\input{files/figures/dune_ndrwt/confusionCatRhc}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[Confusion matrices for pion multiplicities in ND-GAr]{Left: Confusion matrix for pion multiplicities in ND-GAr with the neutrino beam in FHC mode. Right: Confusion matrix for pion multiplicities in ND-GAr with the neutrino beam in RHC mode.}
+	\caption[Confusion matrices for final state pion multiplicities in ND-GAr]{Left: Confusion matrix for final state pion multiplicities in ND-GAr with the neutrino beam in FHC mode. Right: Confusion matrix for final state pion multiplicities in ND-GAr with the neutrino beam in RHC mode.}
 	\label{fig:confusMatPi}
 \end{figure}
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.49\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/h2CatsFhc}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.49\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/h2CatsRhc}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[True and reconstructed event categories for ND-GAr events]{Left: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in FHC mode. Right: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in RHC mode.}
+	\label{fig:eventCats}
+\end{figure}
+
+The reconstructed squared momentum transfer for CC muon neutrino events is defined as
+\begin{equation}
+Q^{2}_{\textrm{reco}} = 2E_{\nu, \textrm{reco}} \left( E_{\mu, \textrm{reco}} - p_{\mu, \textrm{reco}} \cos \left( \theta_{\mu, \textrm{reco}} \right) \right) - m_{\mu}^{2}
+\end{equation}
+where $E_{\nu, \textrm{reco}}$ is the sum of the reconstructed muon energy and the reconstructed final state hadron energies, $E_{\mu, \textrm{reco}}$ and $p_{\mu, \textrm{reco}}$ are the reconstructed energy and momentum of the final state muon and $\theta_{\mu, \textrm{reco}}$ is the reconstructed angle between the muon and the neutrino beam.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -153,7 +186,7 @@ The points are determined from simulations of the ECAL.
 			\input{files/figures/dune_ndrwt/hsRhcQ2Vis}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[Comparison of NuWro and GENIE in $Q^{2}_{\textrm{vis}}$ for RHC]{Ratio of NuWro to GENIE event rates in ND-GAr as a function of $Q^{2}_{\textrm{vis}}$ with the beam in RHC mode. Left: Reconstructed selection. Right: True selection.}
+	\caption[Comparison of NuWro and GENIE in $Q^{2}$ for RHC]{Ratio of NuWro to GENIE event rates in ND-GAr as a function of $Q^{2}$ with the beam in RHC mode. Left: Reconstructed selection. Right: True selection.}
 	\label{fig:Q2CompRhc}
 \end{figure}
 
