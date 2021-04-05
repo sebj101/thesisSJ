@@ -116,9 +116,9 @@ The term `ranging out' here refers to a particle stopping in the detector withou
 The muon is judged to have ranged out in the ECAL if it has a momentum of less than \SI{380}{\MeV\per\clight} when exiting the HPgTPC. 
 
 \citefig{fig:confusMatPi} shows the confusion matrices produced using the above selection for both forward and reverse horn currents. 
-Here one can see that, for all final states, the correct final state is reconstructed at least 80\% of the time.
-The largest probability for miscategorised events are NC events where single charged pion is wrongly reconstructed as a muon and the whole event is categorised as a $0\pi$ final state.
-However, one can see from \citefig{fig:eventCats}, that these represent a very small fraction of the total number of events.
+Here one can see that, for all final states, the correct final state is reconstructed at least 88\% of the time.
+%The largest probability for miscategorised events are NC events where single charged pion is wrongly reconstructed as a muon and the whole event is categorised as a $0\pi$ final state.
+%However, one can see from \citefig{fig:eventCats}, that these represent a very small fraction of the total number of events.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -136,21 +136,21 @@ However, one can see from \citefig{fig:eventCats}, that these represent a very s
 	\label{fig:confusMatPi}
 \end{figure}
 
-\begin{figure}[h]
-	\begin{minipage}[t]{.49\linewidth}
-		\begin{adjustbox}{max totalsize=\linewidth, center}
-			\input{files/figures/dune_ndrwt/h2CatsFhc}
-		\end{adjustbox}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{.49\linewidth}
-		\begin{adjustbox}{max totalsize=\linewidth, center}
-			\input{files/figures/dune_ndrwt/h2CatsRhc}
-		\end{adjustbox}
-	\end{minipage}
-	\caption[True and reconstructed event categories for ND-GAr events]{Left: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in FHC mode. Right: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in RHC mode.}
-	\label{fig:eventCats}
-\end{figure}
+%\begin{figure}[h]
+%	\begin{minipage}[t]{.49\linewidth}
+%		\begin{adjustbox}{max totalsize=\linewidth, center}
+%			\input{files/figures/dune_ndrwt/h2CatsFhc}
+%		\end{adjustbox}
+%	\end{minipage}
+%	\hfill
+%	\begin{minipage}[t]{.49\linewidth}
+%		\begin{adjustbox}{max totalsize=\linewidth, center}
+%			\input{files/figures/dune_ndrwt/h2CatsRhc}
+%		\end{adjustbox}
+%	\end{minipage}
+%	\caption[True and reconstructed event categories for ND-GAr events]{Left: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in FHC mode. Right: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in RHC mode.}
+%	\label{fig:eventCats}
+%\end{figure}
 
 The reconstructed squared momentum transfer for CC muon neutrino events is defined as
 \begin{equation}
@@ -162,10 +162,13 @@ The mock data generator detailed in \citesec{sec:dune_ndrwt:bdt} used to reweigh
 A distribution of $Q^{2}_{\textrm{reco}}$ is then constructed for each of the nominal GENIE sample and the reweighted sample. 
 The ratio between the two samples is then taken and plotted. 
 
-These ratios are shown in \citefigL{fig:Q2CompFhc} and \citefigL{Q2CompRhc}. 
+These ratios are shown in \citefigL{fig:Q2CompFhc} and \citefigL{fig:Q2CompRhc}. 
 Here, one can clearly see that, for all final states apart from $0\pi$, clear differences between GENIE and NuWro are observable.
 
-Additionally, \citefigR{fig:Q2CompFhc} and \citefigR{Q2CompRhc} show the equivalent distributions for true selections and variables. 
+The errors on the points resulting from confusion between the final states are estimated using the following method.
+Distributions of $Q^{2}
+
+Additionally, \citefigR{fig:Q2CompFhc} and \citefigR{fig:Q2CompRhc} show the equivalent distributions for true selections and variables. 
 One can see that these distributions replicate many of the features of the reconstructed distributions well.
 
 \begin{figure}[h]
@@ -229,7 +232,7 @@ However, in spite of this, it still seems that significant differences are visib
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.6\linewidth]{files/figures/dune_ndrwt/larQ2Reco}
-	\caption[Ratio of $Q^{2}_{\textrm{reco}}$ between GENIE and NuWro mock data in ND-LAr]{Ratio of $Q^{2}_{\textrm{reco}}$ between GENIE and NuWro mock data in ND-LAr, from~\cite{ndCdr}.}
+	\caption[Ratio of $Q^{2}_{\textrm{reco}}$ between GENIE and NuWro mock data in ND-LAr]{Ratio of $Q^{2}_{\textrm{reco}}$ between GENIE and NuWro mock data in ND-LAr, from~\cite{ndCdr}. Bins with $<100$ MC events are suppressed.}
 	\label{fig:q2LarFhc}	
 \end{figure}
 
