@@ -166,7 +166,14 @@ These ratios are shown in \citefigL{fig:Q2CompFhc} and \citefigL{fig:Q2CompRhc}.
 Here, one can clearly see that, for all final states apart from $0\pi$, clear differences between GENIE and NuWro are observable.
 
 The errors on the points resulting from confusion between the final states are estimated using the following method.
-Distributions of $Q^{2}
+Distributions of $Q^{2}_{\textrm{reco}}$ are produced for each of the $i$ true final states for GENIE and NuWro and then the ratio between the two is calculated as before.
+For the final state in question, $x$, the value of $n$th bin in this histogram is taken as the true central value $R_{\textrm{CV}, x}(n)$.
+The variance of the $n$th bin is calculated as follows:
+\begin{equation}
+	\sigma_{x}^{2}(n) = \sum_{i=1}^{5} \left( R_{a}(n) - R_{\textrm{CV}, x}(n) \right)^{2} * \frac{M_{i x}}{N_{x}}
+\end{equation}
+where $i$ runs over the final states and $M$ is the smearing matrix in \citefig{fig:confusMatPi} corresponding to the correct horn current.
+The constant $N$ is a normalisation factor determined by summing the bin contents of row $x$ of the smearing matrix. 
 
 Additionally, \citefigR{fig:Q2CompFhc} and \citefigR{fig:Q2CompRhc} show the equivalent distributions for true selections and variables. 
 One can see that these distributions replicate many of the features of the reconstructed distributions well.
@@ -221,7 +228,7 @@ Here one can see that, although around 60\% of final states are reconstructed co
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.6\linewidth]{files/figures/dune_ndrwt/larConfusMat}
-	\caption[Final state pion multiplicity confusion matrix from ND-LAr simulations]{Final state pion multiplicity confusion matrix from ND-LAr simulations, from~\cite{ndCdr}.}
+	\caption[Final state pion multiplicity confusion matrix from ND-LAr simulations]{Final state pion multiplicity confusion matrix from ND-LAr simulations, from~\cite{ndCdr}. The colour axis is probability.}
 	\label{fig:larConfusMat}
 \end{figure}
 
@@ -371,4 +378,35 @@ These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
 	\label{fig:q0q3RatioFhc}
 \end{figure}
 
+These weights are then used to reweight the nominal far detector MC on the basis of an event's true final state and true value of \evis and \pvis.
+The weights are shown for both reconstructed \numu and \nue for both horn currents.
 
+\begin{figure}[h]
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtFHCnonswap}
+		\end{adjustbox}
+		\caption{FHC: reco \numu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtFHCnueswap}
+		\end{adjustbox}
+		\caption{FHC: reco \nue}
+	\end{subfigure}	\\
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtRHCnonswap}
+		\end{adjustbox}
+		\caption{RHC: reco \numu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtRHCnueswap}
+		\end{adjustbox}
+		\caption{RHC: reco \nue}
+	\end{subfigure}
+	\caption[ND-GAr derived weights applied to far detector events]{ND-GAr derived weights applied to far detector events for both horn currents.}
+\end{figure}
