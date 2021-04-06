@@ -84,8 +84,7 @@ If the highest momentum muon or charged pion is a muon then the particle is corr
 However, if a charged pion has a higher momentum there is a chance for the particle to be incorrectly reconstructed as a muon.
 If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is assumed that it can be correctly identified from its range within the ECAL.
 
-For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the
-a pion is correctly identified if it interacts in the ECAL.
+For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the pion is correctly identified if it interacts in the ECAL.
 The probability for a pion to leave the ECAL without interacting is determined from \citefig{fig:interactionSpline}.
 \citefig{fig:interactionSpline} shows the probability for a pion to not interact in the ECAL at various momenta with a spline plotted through the points.
 The points are determined from simulations of the ECAL.
@@ -245,6 +244,40 @@ However, in spite of this, it still seems that significant differences are visib
 
 \section{Near detector-driven reweighting}
 
+% Why we have a near detector
+As mentioned in \citesec{sec:dune:nd}, one of the reasons for the inclusion of a near detector in a long baseline neutrino oscillation experiment to allow the constraint of various neutrino cross-section systematics.
+However, it may be that existing neutrino interaction models and their associated uncertainties do not explain the observed reconstructed neutrino energy spectra.
+
+%% If we observe some cross-section effect that is not explained by our model in ND what do we do?
+
+\subsection{Choice of final states}
+
+The reweighting is divided up into 7 final states for both horn currents.
+The chosen final states are mainly based on final state pion multiplicity since the DUNE beam will produce produce a large quantity of various multiplicities.
+Additionally, \citesec{sec:dune_ndrwt:pionMulti} shows that ND-GAr has a high accuracy when identifying these final states.
+
+The chosen final states are:
+\begin{itemize}
+	\item $0\pi$ with a single proton in the final state
+	\item $0\pi$ with more than one proton in the final state
+	\item $1\piplus$ in the final state
+	\item $1\piminus$ in the final state
+	\item $1\pizero$ in the final state
+	\item $2\pi$ in the final state, their charge is not relevant
+	\item $>2\pi$ in the final state, their charge is not relevant.
+\end{itemize}
+
+The choice is made to separate the $0\pi$ final state into two separate categories due to the different processes which contribute to these final states.
+A signal proton final state is commonly produced via charged current quasi-elastic (CCQE) scattering which, for a free nucleon, can be represented by the reactions
+\begin{align}
+	\nul + n &\rightarrow l^{-} + p \\
+	\anul + p &\rightarrow l^{+} + n \, .
+\end{align}
+In this case the $W$ boson is absorbed by just one nucleon.
+
+However, in a 2p2h event the $W$ boson is absorbed by two interacting nucleons within the nucleus, potentially leading to two protons in the observed final state~\cite{2p2h}.
+Because different neutrino interaction generators model these processes differently, it is decided to divide the $0\pi$ category into these two final states to try and better observe any differences.
+
 \subsection{Choice of variables}
 
 Two variables are defined in which the reweighting takes place, the visible energy transfer and the visible momentum transfer. 
@@ -325,7 +358,7 @@ One can observe substantial variations in the distributions as a function of fin
 		\end{adjustbox}
 		\caption{$>2\pi$}
 	\end{subfigure}
-	\caption[Two dimensional distributions of $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr]{Two dimensional distributions of reconstructed $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr, separated out by final state.}
+	\caption[Two dimensional distributions of $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr]{Two dimensional distributions of reconstructed $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr, separated out by final state. One can see that different final states populate different regions of the plot.}
 	\label{fig:q0q3Genie}
 \end{figure}
 
@@ -378,6 +411,8 @@ These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
 	\label{fig:q0q3RatioFhc}
 \end{figure}
 
+\subsection{Far detector samples}
+
 These weights are then used to reweight the nominal far detector MC on the basis of an event's true final state and true value of \evis and \pvis.
 The weights are shown for both reconstructed \numu and \nue for both horn currents.
 
@@ -410,3 +445,5 @@ The weights are shown for both reconstructed \numu and \nue for both horn curren
 	\end{subfigure}
 	\caption[ND-GAr derived weights applied to far detector events]{ND-GAr derived weights applied to far detector events for both horn currents.}
 \end{figure}
+
+An example of four far detector samples with and without the reweighting, together with the mock data is shown in \citefig{reweightedSamples}.
