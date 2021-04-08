@@ -243,6 +243,7 @@ However, in spite of this, it still seems that significant differences are visib
 \end{figure}
 
 \section{Near detector-driven reweighting}
+\label{sec:dune_ndrwt:rwt}
 
 % Why we have a near detector
 As mentioned in \citesec{sec:dune:nd}, one of the reasons for the inclusion of a near detector in a long baseline neutrino oscillation experiment to allow the constraint of various neutrino cross-section systematics.
@@ -290,9 +291,43 @@ The $\chi^{2}$ value for the post-fit distribution is 2.29 indicating good agree
 
 However, many of the systematic parameters have moved from their nominal values in order to accommodate the differing shapes of the data and MC.
 Additionally, several of the oscillation parameters have moved away from their true values.
-Most notably, the value of \dcp has moved from its true value (in this case) of \ang{90} to a best fit point of \ang{20.7}.
+Most notably, the value of \dcp has moved from its true value (in this case) of \ang{90} to a best fit point of \ang{64.9}, a bias of \ang{25.1}.
+
+This process is performed at multiple different \dcp points and the bias in \dcp measured. 
+The resulting bias as a function of $\delta_{CP, \text{true}}$ is shown in \citefig{fig:dcpBiasNoWgt}.
+One can see that the bias in \dcp varies between being negligible and up to approximately \ang{32}. 
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/dune_ndrwt/dcpBiasNoWgt}
+	\end{adjustbox}
+	\caption[Example of \dcp bias in FD-only fits using NuWro data]{Bias in \dcp generated in FD-only fits using NuWro as `mock data' as a function of the true value of \dcp.}
+	\label{fig:dcpBiasNoWgt}
+\end{figure}
+
+Given that there is a large variation in the observed bias and the value of \dcp is not known, a useful metric to judge the level of bias by is the value for which 68\% of biases are below.
+In this case, this number is \ang{16.2}.
+
+This can be compared with the expected DUNE resolution on \dcp, shown in \citefig{fig:dcpResDUNE}. 
+One can see that these biases are comparable to the eventual expected \dcp resolution of DUNE.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\linewidth]{files/figures/dune_ndrwt/dcpResWithLines-cropped}
+	\caption[\dcp resolution of DUNE as a function of exposure]{\dcp resolution of DUNE as a function of exposure, from~\cite{Abi:2020qib}. Additionally, a line has been drawn indicating the maximal \dcp bias created by using this incorrect interaction model (blue). The green line indicates the 68\% limit of \dcp biases.}
+	\label{fig:dcpResDUNE}
+\end{figure}
+
+This bias indicates that the neutrino interaction model does not contain the required degrees of freedom to account for this alternative model.
+
+
+The rest of this section is dedicated to a discussion of how it is possible to use information from ND-GAr to reduce these out-of-model biases.
+Specifically, ND-GAr measures events in 3 dimensions (a two dimensional kinematic space divided up by final state) for both the nominal MC and the `mock data' sample and develops a set of weights.
+The final states used are discussed in \citesec{sec:dune_ndrwt:rwt:states} while the kinematic space used is discussed in \citesec{sec:dune_ndrwt:rwt:kinematics}.
+These weights are then propagated to DUNE far detector events. 
+This process is described in \citesec{sec:dune_ndrwt:rwt:fd}.
 
 \subsection{Choice of final states}
+\label{sec:dune_ndrwt:rwt:states}
 
 The reweighting is divided up into 7 final states for both horn currents.
 The chosen final states are mainly based on final state pion multiplicity since the DUNE beam will produce produce a large quantity of various multiplicities.
@@ -321,6 +356,7 @@ However, in a 2p2h event the $W$ boson is absorbed by two interacting nucleons w
 Because different neutrino interaction generators model these processes differently, it is decided to divide the $0\pi$ category into these two final states to try and better observe any differences.
 
 \subsection{Choice of variables}
+\label{sec:dune_ndrwt:rwt:kinematics}
 
 Two variables are defined in which the reweighting takes place, the visible energy transfer and the visible momentum transfer. 
 These variables are termed \evis and \pvis respectively.
@@ -454,6 +490,7 @@ These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
 \end{figure}
 
 \subsection{Far detector samples}
+\label{sec:dune_ndrwt:rwt:fd}
 
 These weights are then used to reweight the nominal far detector MC on the basis of an event's true final state and true value of \evis and \pvis.
 The weights are shown for both reconstructed \numu and \nue for both horn currents.
@@ -488,4 +525,36 @@ The weights are shown for both reconstructed \numu and \nue for both horn curren
 	\caption[ND-GAr derived weights applied to far detector events]{ND-GAr derived weights applied to far detector events for both horn currents.}
 \end{figure}
 
-An example of four far detector samples with and without the reweighting, together with the mock data is shown in \citefig{reweightedSamples}.
+An example of four far detector samples with and without the reweighting, together with the mock data is shown in \citefig{fig:reweightedSamples}.
+Additionally, the ratio to data for each of the MC samples is shown in \citefig{fig:reweightedSamplesRatio}.
+
+\begin{figure}[h]
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCComp_fhcNumu}
+		\end{adjustbox}
+		\caption{FHC \numu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCComp_fhcNue}
+		\end{adjustbox}
+		\caption{FHC \nue}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCComp_rhcNumu}
+		\end{adjustbox}
+		\caption{RHC \anumu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCComp_rhcNue}
+		\end{adjustbox}
+		\caption{RHC \anue}
+	\end{subfigure}
+	\caption[Comparison of weighted and unweighted far detector MC with mock data]{Comparison of weighted and unweighted far detector MC with mock data. Here, $\dcp=\pi$.}
+	\label{fig:reweightedSamples}
+\end{figure}
