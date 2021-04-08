@@ -250,6 +250,48 @@ However, it may be that existing neutrino interaction models and their associate
 
 %% If we observe some cross-section effect that is not explained by our model in ND what do we do?
 
+\citefig{fig:fdSamplesPostFit} shows the four far detector samples (one appearance and one disappearance for each horn current) used in a typical oscillation analysis.
+For each sample the nominal GENIE MC is plotted in blue along with the NuWro `mock data' as black points.
+
+The red line shows the post-fit result of a far detector-only fit with all flux, detector and cross-section systematics at their nominal values. 
+For the purposes of this fit the nominal MC is GENIE and the data is the NuWro `mock data'.
+The $\chi^{2}$ value for the post-fit distribution is 2.29 indicating good agreement.
+
+\begin{figure}[h]
+	\begin{subfigure}[t]{0.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/numuFhcPostfitComp}
+		\end{adjustbox}	
+		\caption{\numu FHC}	
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[t]{0.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/nueFhcPostfitComp}
+		\end{adjustbox}	
+		\caption{\nue FHC}	
+	\end{subfigure} \\ 
+	\begin{subfigure}[t]{0.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/numuRhcPostfitComp}
+		\end{adjustbox}	
+		\caption{\numu RHC}	
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[t]{0.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/nueRhcPostfitComp}
+		\end{adjustbox}		
+		\caption{\nue RHC}
+	\end{subfigure}
+	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit}.}
+	\label{fig:fdSamplesPostFit}
+\end{figure}
+
+However, many of the systematic parameters have moved from their nominal values in order to accommodate the differing shapes of the data and MC.
+Additionally, several of the oscillation parameters have moved away from their true values.
+Most notably, the value of \dcp has moved from its true value (in this case) of \ang{90} to a best fit point of \ang{20.7}.
+
 \subsection{Choice of final states}
 
 The reweighting is divided up into 7 final states for both horn currents.
@@ -407,7 +449,7 @@ These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
 		\end{adjustbox}
 		\caption{$>2\pi$}
 	\end{subfigure}
-	\caption[Two dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by pion multiplicity.}
+	\caption[Ratio of NuWro to GENIE of two-dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by pion multiplicity.}
 	\label{fig:q0q3RatioFhc}
 \end{figure}
 
