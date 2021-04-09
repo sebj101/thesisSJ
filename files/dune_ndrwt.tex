@@ -225,8 +225,9 @@ This means that protons and pions can be separated by track $dE/dx$ only.
 Here one can see that, although around 60\% of final states are reconstructed correctly, the performance is not at the level of ND-GAr.
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/figures/dune_ndrwt/larConfusMat}
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/dune_ndrwt/larConfusMat}
+	\end{adjustbox}
 	\caption[Final state pion multiplicity confusion matrix from ND-LAr simulations]{Final state pion multiplicity confusion matrix from ND-LAr simulations, from~\cite{ndCdr}. The colour axis is probability.}
 	\label{fig:larConfusMat}
 \end{figure}
@@ -444,6 +445,8 @@ The same distributions as those displayed in \citefig{fig:q0q3Genie} are plotted
 The ratio of these two distributions is then taken.
 That is the number of events in each bin for the mock data sample is divided by the number of events in the same bin for the nominal sample.
 These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
+In the case that any bin contains less than \num{100} MC events, its value is set to 1.
+This avoids events being given large weights due to statistical fluctuations.
 
 \begin{figure}[t]
 	\begin{subfigure}[t]{.5\linewidth}
@@ -492,8 +495,13 @@ These ratios are shown for FHC in \citefig{fig:q0q3RatioFhc}.
 \subsection{Far detector samples}
 \label{sec:dune_ndrwt:rwt:fd}
 
-These weights are then used to reweight the nominal far detector MC on the basis of an event's true final state and true value of \evis and \pvis.
+These weights shown in \citefig{fig:q0q3RatioFhc} are used to reweight the nominal far detector MC.
+For each FD event the true final state is identified and true values of \evis and \pvis are calculated.
+The true final state determines which reweighting histogram is used while the true values of \evis and \pvis determine the weight.
+
+\citefig{fdWeights} shows distribution of weights applied to each far detector sample.
 The weights are shown for both reconstructed \numu and \nue for both horn currents.
+One can observe that these weights are mainly clustered around 1 but with a significant spread.
 
 \begin{figure}[h]
 	\begin{subfigure}[t]{.5\linewidth}
@@ -523,10 +531,11 @@ The weights are shown for both reconstructed \numu and \nue for both horn curren
 		\caption{RHC: reco \nue}
 	\end{subfigure}
 	\caption[ND-GAr derived weights applied to far detector events]{ND-GAr derived weights applied to far detector events for both horn currents.}
+	\label{fig:fdWeights}
 \end{figure}
 
 An example of four far detector samples with and without the reweighting, together with the mock data is shown in \citefig{fig:reweightedSamples}.
-Additionally, the ratio to data for each of the MC samples is shown in \citefig{fig:reweightedSamplesRatio}.
+One can observe significant shifts for all the MC samples after the reweighting has been performed.
 
 \begin{figure}[h]
 	\begin{subfigure}[t]{.5\linewidth}
@@ -558,3 +567,58 @@ Additionally, the ratio to data for each of the MC samples is shown in \citefig{
 	\caption[Comparison of weighted and unweighted far detector MC with mock data]{Comparison of weighted and unweighted far detector MC with mock data. Here, $\dcp=\pi$.}
 	\label{fig:reweightedSamples}
 \end{figure}
+
+Additionally, the ratio to data for each of the MC samples is shown in \citefig{fig:reweightedSamplesRatio}.
+\citefig{fig:reweightedSamplesRatio} also shows the calculated $\chi^{2}$ values for each MC sample when compared with the `mock data'.
+Here, one can see that at this particular set of oscillation parameters the $\chi^{2}$ for all samples apart from \nue RHC is lower for the weighted sample than the unweighted one.
+This indicates that the reweighting is bringing the MC closer to the mock data.
+
+\begin{figure}[h]
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCRatio_fhcNumu}
+		\end{adjustbox}
+		\caption{FHC \numu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCRatio_fhcNue}
+		\end{adjustbox}
+		\caption{FHC \nue}
+	\end{subfigure} \\
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCRatio_rhcNumu}
+		\end{adjustbox}
+		\caption{RHC \anumu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/wgtMCRatio_rhcNue}
+		\end{adjustbox}
+		\caption{RHC \anue}
+	\end{subfigure}
+	\caption[Ratio of weighted and unweighted far detector MC samples to `mock data']{Ratio of weighted and unweighted far detector MC samples to `mock data'. Additionally, for each sample, $\chi^{2}$ values are calculated for both MC samples and the `mock data' and displayed. Here, the true value of \dcp is $\pi$.}
+	\label{fig:reweightedSamplesRatio}
+\end{figure} 
+
+Additionally, one can also see that differences remain between the weighted MC and `mock data'. 
+These differences are the result of a number of different factors.
+
+Firstly, the far detector events are reweighted on the basis of true \evis and \pvis and true final state.
+These quantities do not correspond directly to the reconstructed quantities measured in ND-GAr and thus there will be deficiencies in the reweighting deriving from this.
+However, it is not possible to reweight based upon the reconstructed energy of far detector events due to the differences in reconstruction techniques between ND-GAr and the FD.
+Additionally, it may be more difficult in the FD to exclude energy carried by final neutrons from hadronic energy estimators.
+A LAr TPC such as the FD may also find it more difficult to correctly identify final state pion multiplicities compared to ND-GAr, as shown in \citefig{fig:larConfusMat}.
+
+Furthermore, many differences exist between the GENIE and NuWro which may not be encapsulated in the 3-dimensional reweighting space chosen.
+An extension to further dimensions may mitigate these issues.
+However, this approach relies on sufficient statistics in ND-GAr such that all parts of phase space are reasonably well populated.
+
+\subsection{Bias reduction as a function of \dcp}
+\label{sec:dune_ndrwt:rwt:biasReduction}
+
+
+
