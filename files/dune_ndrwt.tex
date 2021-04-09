@@ -620,5 +620,15 @@ However, this approach relies on sufficient statistics in ND-GAr such that all p
 \subsection{Bias reduction as a function of \dcp}
 \label{sec:dune_ndrwt:rwt:biasReduction}
 
+Far detector fits are performed at a variety of values of \dcp with the reweighted far detector samples as the MC.
+\citefig{fig:dcpBiasWithWgt} shows the variation in the bias in the fitted value of \dcp as a function of $\delta_{CP, \text{true}}$ when using the reweighted MC.
+The points made by using the unweighted MC are also included for comparison.
+One can see that at most points, the bias on \dcp is lessened when the weighted MC is used.
 
-
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/dune_ndrwt/dcpBiasWithWgt}
+	\end{adjustbox}
+	\caption[Bias in fit value of \dcp with ND-GAr reweighted MC]{Bias in the measured value of \dcp as a function of the true value of \dcp. Points for both the nominal GENIE MC and the reweighted MC are shown.}
+	\label{fig:dcpBiasWithWgt}
+\end{figure}
