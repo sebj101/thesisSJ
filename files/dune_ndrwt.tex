@@ -50,6 +50,21 @@ Finally, the number of electromagnetic objects in the final state is also used.
 The BDT is then trained to classify interactions as either the `nominal' or `mock' based upon these variables.
 The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
 
+\section{CAFAna}
+\label{sec:dune_ndrwt:cafana}
+
+Both the analysis detailed in \citesec{sec:dune_ndrwt:pionMulti:gar} and the one in \citesec{sec:dune_ndrwt:rwt} are performed using the CAFAna framework.
+This framework derives its name from the input files which are known as Common Analysis Files (CAFs).
+These files typically contain higher level reconstructed variables~\cite{backhouse2015} typically used by analysers and consist of a \texttt{ROOT}~\cite{root} \texttt{TTree}, each entry of which represents a suspected neutrino interaction.
+
+CAFAna was originally developed the the NOvA oscillation analysis but has since been ported for used by both the DUNE and SBN collaborations~\cite{cafana}.
+Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
+
+Additionally, CAFAna allows the effect of systematic variations on each output histogram to be viewed. 
+These systematics can take the form of either reweightings or bin-to-bin shifting of events and are implemented as 1D response functions for each analysis bin.
+
+In terms of CAFAna's fitting components, a frequentist approach is adopted with the minimisation being performed by the \texttt{MINUIT} package.
+
 \section{Simulation details}
 \label{sec:dune_ndrwt:simDetails}
 
@@ -107,6 +122,19 @@ Finally, it is assumed that the detector is able to perfectly sign select partic
 
 \section{Measurements of pion multiplicity}
 \label{sec:dune_ndrwt:pionMulti}
+
+The DUNE near detector must be able to distinguish between different neutrino interaction models.
+These different interaction models may lead to observable changes in the kinematics of the neutrino interaction.
+These changes may be especially observable if the neutrino interactions are separated by final state. 
+
+In order to assess the ability of the ND-GAr detector to see these differences the simulation and parametrised reconstruction detailed in \citesec{sec:dune_ndrwt:simDetails} is used.
+These measurements are detailed in \citesec{sec:dune_ndrwt:pionMulti:gar}.
+
+A similar simulation and parametrised reconstruction is used to attempt to make the same measurements in ND-LAr. 
+The results from this approach are shown in \citesec{sec:dune_ndrwt:pionMulti:lar}.
+
+\subsection{ND-GAr}
+\label{sec:dune_ndrwt:pionMulti:gar}
 
 The parametrised reconstruction detailed in \citesec{sec:dune_ndrwt:simDetails} is used to select muon neutrino events and classify their final state.
 An event is considered to be a \numu or \anumu charged current event if there is a reconstructed muon in the final state which has a track length perpendicular to the magnetic field of over \SI{1}{\metre}.
@@ -209,10 +237,11 @@ One can see that these distributions replicate many of the features of the recon
 	\label{fig:Q2CompRhc}
 \end{figure}
 
-\subsection{Liquid argon}
+\subsection{ND-LAr}
+\label{sec:dune_ndrwt:pionMulti:lar}
 
 Attempts to simulate measuring the same quantities are also made in the liquid argon component of the DUNE near detector, ND-LAr (see \citesec{sec:dune:nd:lar}).
-ND-LAr has some key difference to ND-GAr in the case of separating out final states, however. 
+ND-LAr has some key differences to ND-GAr in the case of separating out final states, however. 
 Due to the lack of a magnetic field covering ND-LAr, hadronic interactions can only be reconstructed calorimetrically.
 
 Because liquid argon is a denser medium than gaseous argon final hadrons will may not result in a reconstructed track due to the very short distance travelled.
@@ -286,7 +315,7 @@ The $\chi^{2}$ value for the post-fit distribution is 2.29 indicating good agree
 		\end{adjustbox}		
 		\caption{\nue RHC}
 	\end{subfigure}
-	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit}.}
+	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit4}.}
 	\label{fig:fdSamplesPostFit}
 \end{figure}
 
@@ -437,7 +466,7 @@ One can observe substantial variations in the distributions as a function of fin
 		\end{adjustbox}
 		\caption{$>2\pi$}
 	\end{subfigure}
-	\caption[Two dimensional distributions of $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr]{Two dimensional distributions of reconstructed $E_{\text{vis}}$ and $p_{\text{vis}}$ in ND-GAr, separated out by final state. One can see that different final states populate different regions of the plot.}
+	\caption[Two dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by final state. One can see that different final states populate different regions of the plot.}
 	\label{fig:q0q3Genie}
 \end{figure}
 
@@ -604,7 +633,7 @@ This indicates that the reweighting is bringing the MC closer to the mock data.
 	\label{fig:reweightedSamplesRatio}
 \end{figure} 
 
-Additionally, one can also see that differences remain between the weighted MC and `mock data'. 
+One can see that differences remain between the weighted MC and `mock data'. 
 These differences are the result of a number of different factors.
 
 Firstly, the far detector events are reweighted on the basis of true \evis and \pvis and true final state.
@@ -617,11 +646,42 @@ Furthermore, many differences exist between the GENIE and NuWro which may not be
 An extension to further dimensions may mitigate these issues.
 However, this approach relies on sufficient statistics in ND-GAr such that all parts of phase space are reasonably well populated.
 
+Finally, an attempt was made to generate weights based upon only reconstructed \numu and \anumu events in ND-GAr.
+The results of the reweighting could be improved by making kinematic measurements of \nue and \anue events in a similar fashion and then using this sample to separately reweight far detector \nue and \anue events.
+However, this method relies on measuring enough electron neutrino interactions in ND-GAr.
+This is expected to be a challenge given the significantly lower event rate for electron neutrinos (\num{2.85d4} CC events~/~ton~/~year compared with \num{1.64d6} \numu CC events~/~ton~/~year in FHC mode~\cite{ndCdr}).
+
+\subsubsection{Charged-current inclusive weighting}
+
+Additionally, an attempt is made to quantify how important the final state separating power of ND-GAr is when attempting to mitigate this bias.
+To this end, the FD MC sample is reweighted using fewer weights.
+Specifically, a single two-dimensional histogram for each horn current is used to reweight FD events, regardless of the final state. 
+Otherwise, the procedure remains unchanged.
+
+The two-dimensional histograms used for the reweighting are shown in \citefig{fig:ccIncWeightingHists}. 
+The left histogram corresponds to FHC and the right corresponds to RHC.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoFhc_ratio}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/hq0q3RecoRhc_ratio}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[CC inclusive ratio of NuWro to GENIE in \evis and \pvis for FHC and RHC]{Ratio of NuWro to GENIE for all reconstructed CC \numu or \anumu events in the 2D \evis, \pvis space. Left: With the beam in forward horn current mode. Right: With the beam in reverse horn current mode.}
+	\label{fig:ccIncWeightingHists}
+\end{figure}
+
 \subsection{Bias reduction as a function of \dcp}
 \label{sec:dune_ndrwt:rwt:biasReduction}
 
 Far detector fits are performed at a variety of values of \dcp with the reweighted far detector samples as the MC.
-\citefig{fig:dcpBiasWithWgt} shows the variation in the bias in the fitted value of \dcp as a function of $\delta_{CP, \text{true}}$ when using the reweighted MC.
+\citefig{fig:dcpBiasWithWgt} shows the variation in the bias in the fitted value of \dcp as a function of \dcpTrue when using the reweighted MC samples.
 The points made by using the unweighted MC are also included for comparison.
 One can see that at most points, the bias on \dcp is lessened when the weighted MC is used.
 
@@ -632,3 +692,16 @@ One can see that at most points, the bias on \dcp is lessened when the weighted 
 	\caption[Bias in fit value of \dcp with ND-GAr reweighted MC]{Bias in the measured value of \dcp as a function of the true value of \dcp. Points for both the nominal GENIE MC and the reweighted MC are shown.}
 	\label{fig:dcpBiasWithWgt}
 \end{figure}
+
+Also, one can see that, although the CC inc. reweighting leads to a bias reduction at many points, the bias reduction is usually greater when using the weighting separated out by final state.
+
+As mentioned above, a useful measure of the effect this reweighting has is the limit for which 68\% of biases fall below.
+For the unweighted MC, this number is \ang{16.2}. 
+With the full reweighting derived from ND-GAr this 68\% limits falls to \ang{4.4}, a significant reduction.
+
+This is compared with the CC inc. weighting which has a 68\% limit on the \dcp bias of \ang{8.6}.
+Therefore, it is clear that the ability to separate out final states is of great important when trying to mitigate these model discrepancies.
+However, even with this simpler reweighting, the bias is significantly reduced.
+
+\section{Conclusions}
+\label{sec:dune_ndrwt:conclusions}
