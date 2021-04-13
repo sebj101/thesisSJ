@@ -55,15 +55,22 @@ The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
 
 Both the analysis detailed in \citesec{sec:dune_ndrwt:pionMulti:gar} and the one in \citesec{sec:dune_ndrwt:rwt} are performed using the CAFAna framework.
 This framework derives its name from the input files which are known as Common Analysis Files (CAFs).
-These files typically contain higher level reconstructed variables~\cite{backhouse2015} typically used by analysers and consist of a \texttt{ROOT}~\cite{root} \texttt{TTree}, each entry of which represents a suspected neutrino interaction.
+These files typically contain higher level reconstructed variables typically used by analysers and consist of a \texttt{ROOT}~\cite{root} \texttt{TTree}, each entry of which represents a suspected neutrino interaction~\cite{backhouse2015}.
 
 CAFAna was originally developed the the NOvA oscillation analysis but has since been ported for used by both the DUNE and SBN collaborations~\cite{cafana}.
 Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
 
+Histograms can be easily plotted by specifying a dataset, variable (\texttt{Var}), selection (\texttt{Cut}) and binning (both constant and variable are supported). 
+\texttt{Var}s may be simply the quantities contain within the CAF \texttt{TTree} or may be constructed from combinations of these.
+Similarly, \texttt{Cut}s may be user defined and can be easily combined using the C++ logical operators.
+
 Additionally, CAFAna allows the effect of systematic variations on each output histogram to be viewed. 
 These systematics can take the form of either reweightings or bin-to-bin shifting of events and are implemented as 1D response functions for each analysis bin.
 
-In terms of CAFAna's fitting components, a frequentist approach is adopted with the minimisation being performed by the \texttt{MINUIT} package.
+In terms of CAFAna's fitting components, a frequentist approach is adopted with the minimisation being performed by the \texttt{MINUIT}~\cite{minuit} package.
+However, currently work is ongoing to expand CAFAna to allow Bayesian analyses.
+
+The entire framework is written in C++ and may be controlled by the user through \texttt{ROOT} macros.
 
 \section{Simulation details}
 \label{sec:dune_ndrwt:simDetails}
@@ -528,7 +535,7 @@ These weights shown in \citefig{fig:q0q3RatioFhc} are used to reweight the nomin
 For each FD event the true final state is identified and true values of \evis and \pvis are calculated.
 The true final state determines which reweighting histogram is used while the true values of \evis and \pvis determine the weight.
 
-\citefig{fdWeights} shows distribution of weights applied to each far detector sample.
+\citefig{fig:fdWeights} shows the distribution of weights applied to each far detector sample.
 The weights are shown for both reconstructed \numu and \nue for both horn currents.
 One can observe that these weights are mainly clustered around 1 but with a significant spread.
 
@@ -681,6 +688,8 @@ The left histogram corresponds to FHC and the right corresponds to RHC.
 \label{sec:dune_ndrwt:rwt:biasReduction}
 
 Far detector fits are performed at a variety of values of \dcp with the reweighted far detector samples as the MC.
+For all of these fits, the full set of flux, cross-section and detector systematics are used.
+
 \citefig{fig:dcpBiasWithWgt} shows the variation in the bias in the fitted value of \dcp as a function of \dcpTrue when using the reweighted MC samples.
 The points made by using the unweighted MC are also included for comparison.
 One can see that at most points, the bias on \dcp is lessened when the weighted MC is used.
