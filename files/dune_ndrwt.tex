@@ -1,19 +1,25 @@
 \chapter{DUNE Near Detector-driven reweighting}
 \label{sec:dune_ndrwt}
 
-%% Why do we want to do this?
-%% Interaction models in LBL experiments discrepant and found to not match data
-Models of neutrino interaction are frequently found to not match observed data.
+%% ND recap
+As detailed in \citesec{sec:dune:nd} the primary function of the DUNE Near Detector is to serve as the experimental control.
+That is, it measures the spectrum of neutrino interactions prior to significant oscillations having taken place.
+However, only the convolution of the neutrino flux, cross-section and detector effects is actually measured (see \citeeq{eq:eventRateConv}).
+Neutrino oscillation experiments therefore require the assistance of models to successfully constrain the oscillation parameters.
+It is therefore important that the near detector of an experiment be able to distinguish between these various models.
 
-%% Inputing an alternate interaction model as our data biases oscillation parameters significantly
+Typically, it is considered important to collect interactions at the near detector on the same target material as at the far detector.
+In the DUNE ND, ND-LAr (see \citesec{sec:dune:nd:lar}) fulfills this requirement.
+Its large mass and the intensity of the DUNE beam will allow it to collect a large number of neutrino interactions.
 
-%% Role of the gas TPC
+%Models of neutrino interaction are frequently found to not match observed data.
 
 %% Presentation of DUNE energy spectrum
 \citefig{fig:energyByMode} shows the energy spectrum of \numu and \anumu charged current interactions in ND-GAr for both FHC and RHC.
 The spectrum is subdivided into true final state pion multiplicities. 
 One can see that the energy range of the DUNE beam means that a wide range of event topologies will be present.
 Additionally, one can see that the dominant final states are the ones containing no pions and ones containing a single charged pion.
+However, a significant number of interactions will result in more complex final states.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -30,6 +36,21 @@ Additionally, one can see that the dominant final states are the ones containing
 	\caption[Neutrino energy spectrum in ND-GAr divided by pion multiplicity]{Neutrino energy spectra in ND-GAr for charged current \numu and \anumu events with the beam in FHC mode (left) and RHC mode (right). Events are divided by true final state pion multiplicity with the histograms stacked.}
 	\label{fig:energyByMode}
 \end{figure}
+
+Although ND-LAr will be a state of the art detector there are issues that exist with liquid argon TPCs that it will be unable to avoid.
+Namely, the high density of liquid argon means that the primary particles produced in a neutrino interaction frequently interact and produce secondary particles.
+This can make it difficult to correctly identify the final state and also correctly reconstruct the hadronic energy~\cite{Friedland_2019}.
+Additionally the dense medium may mean that low energy particles are not reconstructed.
+
+ND-GAr will somewhat mitigate these issues by operating with gaseous argon at a pressure of 10~bar.
+This chapter consists of two studies relating to ND-GAr's ability to separate out the final states of neutrino interactions.
+\citesec{sec:dune_ndrwt:simDetails} gives details of the simulation of ND-GAr used in both studies.
+\citesec{sec:dune_ndrwt:pionMulti} attempts to evaluate ND-GAr's ability to separate out final states in order to identify cross-section mismodelling.
+\citesec{sec:dune_ndrwt:rwt} discusses how the data gained from ND-GAr can be used to mitigate the effect of this cross-section mismodelling in the DUNE far detector.
+
+\citesec{sec:dune_ndrwt:bdt} and \citesec{sec:dune_ndrwt:cafana} provide descriptions of two tools that are used in the analyses detailed in this chapter.
+The former is a tool that can be used to easily reweight an existing sample of MC events to resemble those of an alternative neutrino interaction generator.
+The latter is a framework designed for the plotting of histograms from neutrino events and derivation of oscillation parameters from said histograms.
 
 %% Details on GENIE->NuWro BDT
 \section{NuWro reweighting Boosted Decision Tree}
@@ -57,7 +78,7 @@ Both the analysis detailed in \citesec{sec:dune_ndrwt:pionMulti:gar} and the one
 This framework derives its name from the input files which are known as Common Analysis Files (CAFs).
 These files typically contain higher level reconstructed variables typically used by analysers and consist of a \texttt{ROOT}~\cite{root} \texttt{TTree}, each entry of which represents a suspected neutrino interaction~\cite{backhouse2015}.
 
-CAFAna was originally developed the the NOvA oscillation analysis but has since been ported for used by both the DUNE and SBN collaborations~\cite{cafana}.
+CAFAna was originally developed the the NOvA oscillation analysis but has since been ported for used by both the DUNE and Short-Baseline Neutrino (SBN) collaborations~\cite{cafana}.
 Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
 
 Histograms can be easily plotted by specifying a dataset, variable (\texttt{Var}), selection (\texttt{Cut}) and binning (both constant and variable are supported). 
@@ -83,10 +104,10 @@ A parametrised reconstruction is then used to give an estimate of the measured e
 The parametrised reconstruction takes the \texttt{GEANT4} energy deposits and smears them according to the Gluckstern formula~\cite{gluckstern}.
 This formula allows the error on a track's curvature (due to motion in a magnetic field) to be estimated.
 This can then be extended to give the fractional uncertainty on the particle momentum as
-\begin{equation}
-	\left(\frac{\sigma_{p}}{p}\right)^{2} = \left( \frac{\sigma_{x} p}{0.3 B L^{2}} \sqrt{ \frac{720}{N+4} } \right)^{2} +
-	\left( \frac{\SI{0.0157}{\GeV\per\clight}}{0.3BL}\sqrt{\frac{L}{X_{0}}}\left( 1 + 0.038 \ln(L/X_{0}) \right) \right)^{2}
-\end{equation}
+\begin{multline}
+	\left(\frac{\sigma_{p}}{p}\right)^{2} = \left( \frac{\sigma_{x} p}{0.3 B L^{2}} \sqrt{ \frac{720}{N+4} } \right)^{2} \\
+	+ \left( \frac{\SI{0.0157}{\GeV\per\clight}}{0.3BL}\sqrt{\frac{L}{X_{0}}}\left( 1 + 0.038 \ln(L/X_{0}) \right) \right)^{2}
+\end{multline}
 where $L$ is the track length perpendicular to the magnetic field, $\sigma_{x}$ is the point resolution, $N$ is the number of hits in the track and $X_0$ is the radiation length of the material which the particle is traversing.
 In the HPgTPC, $B$ is taken to be \SI{0.4}{\tesla}, $X_{0}$ is taken to be \SI{13}{\cm}, $\sigma_{x}$ is taken to be \SI{1}{\mm} and the number of track hits is estimated by dividing the track length by the pad pitch of the HPgTPC.
 Charged particles with track lengths of more than \SI{6}{\cm} are considered to be able to be reconstructed using this method.
@@ -125,14 +146,16 @@ This system has a thickness of approximately 2 interaction lengths for charged p
 If the pion interacts in the muon identification system, it is correctly identified.
 Therefore, these pions have a probability of $e^{-3}$ to be misidentified as muons.
 
-Finally, it is assumed that the detector is able to perfectly sign select particles such as charged pions and muons.
+Finally, it is assumed that the detector is able to perfectly sign select particles such as charged pions and muons if the associated track is greater than the \SI{6}{\cm} threshold.
 
 \section{Measurements of pion multiplicity}
 \label{sec:dune_ndrwt:pionMulti}
 
-The DUNE near detector must be able to distinguish between different neutrino interaction models.
-These different interaction models may lead to observable changes in the kinematics of the neutrino interaction.
-These changes may be especially observable if the neutrino interactions are separated by final state. 
+The DUNE near detector must be able to determine if the assumed neutrino interaction model is discrepant with the observed data.
+These discrepancies may be particularly visible from observing certain final state kinematic distributions, divided up by final state.
+To assess the ability of ND-GAr and ND-LAr to observe these discrepancies a sample of `mock data' with the characteristics of the NuWro interaction generator is produced with the BDT detailed in \citesec{sec:dune_ndrwt:bdt}.
+%These different interaction models may lead to observable changes in the kinematics of the neutrino interaction.
+%These changes may be especially observable if the neutrino interactions are separated by final state. 
 
 In order to assess the ability of the ND-GAr detector to see these differences the simulation and parametrised reconstruction detailed in \citesec{sec:dune_ndrwt:simDetails} is used.
 These measurements are detailed in \citesec{sec:dune_ndrwt:pionMulti:gar}.
@@ -170,22 +193,6 @@ Here one can see that, for all final states, the correct final state is reconstr
 	\label{fig:confusMatPi}
 \end{figure}
 
-%\begin{figure}[h]
-%	\begin{minipage}[t]{.49\linewidth}
-%		\begin{adjustbox}{max totalsize=\linewidth, center}
-%			\input{files/figures/dune_ndrwt/h2CatsFhc}
-%		\end{adjustbox}
-%	\end{minipage}
-%	\hfill
-%	\begin{minipage}[t]{.49\linewidth}
-%		\begin{adjustbox}{max totalsize=\linewidth, center}
-%			\input{files/figures/dune_ndrwt/h2CatsRhc}
-%		\end{adjustbox}
-%	\end{minipage}
-%	\caption[True and reconstructed event categories for ND-GAr events]{Left: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in FHC mode. Right: True and reconstructed final state pion multiplicities in ND-GAr with the neutrino beam in RHC mode.}
-%	\label{fig:eventCats}
-%\end{figure}
-
 The reconstructed squared momentum transfer for CC muon neutrino events is defined as
 \begin{equation}
 Q^{2}_{\textrm{reco}} = 2E_{\nu, \textrm{reco}} \left( E_{\mu, \textrm{reco}} - p_{\mu, \textrm{reco}} \cos \left( \theta_{\mu, \textrm{reco}} \right) \right) - m_{\mu}^{2}
@@ -204,7 +211,7 @@ Distributions of $Q^{2}_{\textrm{reco}}$ are produced for each of the $i$ true f
 For the final state in question, $x$, the value of $n$th bin in this histogram is taken as the true central value $R_{\textrm{CV}, x}(n)$.
 The variance of the $n$th bin is calculated as follows:
 \begin{equation}
-	\sigma_{x}^{2}(n) = \sum_{i=1}^{5} \left( R_{a}(n) - R_{\textrm{CV}, x}(n) \right)^{2} * \frac{M_{i x}}{N_{x}}
+	\sigma_{x}^{2}(n) = \sum_{i=1}^{5} \left( R_{i}(n) - R_{\textrm{CV}, x}(n) \right)^{2} * \frac{M_{i x}}{N_{x}}
 \end{equation}
 where $i$ runs over the final states and $M$ is the smearing matrix in \citefig{fig:confusMatPi} corresponding to the correct horn current.
 The constant $N$ is a normalisation factor determined by summing the bin contents of row $x$ of the smearing matrix. 
@@ -331,7 +338,7 @@ Additionally, several of the oscillation parameters have moved away from their t
 Most notably, the value of \dcp has moved from its true value (in this case) of \ang{90} to a best fit point of \ang{64.9}, a bias of \ang{25.1}.
 
 This process is performed at multiple different \dcp points and the bias in \dcp measured. 
-The resulting bias as a function of $\delta_{CP, \text{true}}$ is shown in \citefig{fig:dcpBiasNoWgt}.
+The resulting bias as a function of \dcpTrue is shown in \citefig{fig:dcpBiasNoWgt}.
 One can see that the bias in \dcp varies between being negligible and up to approximately \ang{32}. 
 
 \begin{figure}[h]
@@ -346,7 +353,7 @@ Given that there is a large variation in the observed bias and the value of \dcp
 In this case, this number is \ang{16.2}.
 
 This can be compared with the expected DUNE resolution on \dcp, shown in \citefig{fig:dcpResDUNE}. 
-One can see that these biases are comparable to the eventual expected \dcp resolution of DUNE.
+One can see that these biases are comparable to the eventual expected \dcp resolution of DUNE at $\dcp = -\pi/2$.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.5\linewidth]{files/figures/dune_ndrwt/dcpResWithLines-cropped}
@@ -664,6 +671,7 @@ Additionally, an attempt is made to quantify how important the final state separ
 To this end, the FD MC sample is reweighted using fewer weights.
 Specifically, a single two-dimensional histogram for each horn current is used to reweight FD events, regardless of the final state. 
 Otherwise, the procedure remains unchanged.
+The is referred to as the charged-current inclusive (CC inc.) weighting.
 
 The two-dimensional histograms used for the reweighting are shown in \citefig{fig:ccIncWeightingHists}. 
 The left histogram corresponds to FHC and the right corresponds to RHC.
@@ -688,7 +696,8 @@ The left histogram corresponds to FHC and the right corresponds to RHC.
 \label{sec:dune_ndrwt:rwt:biasReduction}
 
 Far detector fits are performed at a variety of values of \dcp with the reweighted far detector samples as the MC.
-For all of these fits, the full set of flux, cross-section and detector systematics are used.
+For all of these fits, the full set of flux, cross-section and detector systematics are set to their nominal values while the oscillation parameters are set to their NuFit~4.0~\cite{nufit4} values.
+Of the oscillation parameters, the values of \thetai{13}, \thetai{23}, \deltami{32} and \dcp are determined in the fit while \thetai{12} and \deltami{21} are kept fixed.
 
 \citefig{fig:dcpBiasWithWgt} shows the variation in the bias in the fitted value of \dcp as a function of \dcpTrue when using the reweighted MC samples.
 The points made by using the unweighted MC are also included for comparison.
@@ -714,3 +723,13 @@ However, even with this simpler reweighting, the bias is significantly reduced.
 
 \section{Conclusions}
 \label{sec:dune_ndrwt:conclusions}
+
+Throughout this chapter, it has been shown that ND-GAr has the ability to both identify cross-section mismodelling and to attempt to correct for it.
+
+The identification of deficiencies in the cross-section model will be key in accurately deriving neutrino oscillation parameters, given the reliance of neutrino oscillation experiments on these models.
+The ability to evaluate these models as a function of final state will be useful since this extra degree of freedom should allow some over-constraining of the interaction models.
+
+The second study of this chapter shows that a data-driven correction to the MC is viable when using ND-GAr as the source of the correction.
+However, there are also limitations to the method which are detailed in the relevant section. 
+Nevertheless the study provides a useful proof-of-concept that such a method could work.
+In the case that such a data-driven correction was found to be required, this work could also provide input to improvements in the theoretical models themselves.
