@@ -2,15 +2,18 @@
 \label{sec:dune_ndrwt}
 
 %% ND recap
-As detailed in \citesec{sec:dune:nd} the primary function of the DUNE Near Detector is to serve as the experimental control.
+As detailed in \citesec{sec:dune:nd}, the primary function of the DUNE Near Detector is to serve as the experimental control.
 That is, it measures the spectrum of neutrino interactions prior to significant oscillations having taken place.
-However, only the convolution of the neutrino flux, cross-section and detector effects is actually measured (see \citeeq{eq:eventRateConv}).
-Neutrino oscillation experiments therefore require the assistance of models to successfully constrain the oscillation parameters.
+However, only the convolution of the neutrino flux, cross-section and detector effects is actually measured by the event rate (see \citeeq{eq:eventRateConv}).
+As a result, neutrino oscillation experiments require the assistance of models to successfully constrain the oscillation parameters.
 It is therefore important that the near detector of an experiment be able to distinguish between these various models.
+
+Unknown discrepancies between the observed ND data and the chosen neutrino interaction model must be propagated into the final systematic errors.
+For an experiment attempting to make precision measurements of the oscillation parameters it is therefore important that these discrepancies be reduced.
 
 Typically, it is considered important to collect interactions at the near detector on the same target material as at the far detector.
 In the DUNE ND, ND-LAr (see \citesec{sec:dune:nd:lar}) fulfills this requirement.
-Its large mass and the intensity of the DUNE beam will allow it to collect a large number of neutrino interactions.
+Its large mass and the high intensity of the DUNE beam will allow it to collect a large number of neutrino interactions.
 
 %Models of neutrino interaction are frequently found to not match observed data.
 
@@ -40,7 +43,7 @@ However, a significant number of interactions will result in more complex final 
 Although ND-LAr will be a state of the art detector there are issues that exist with liquid argon TPCs that it will be unable to avoid.
 Namely, the high density of liquid argon means that the primary particles produced in a neutrino interaction frequently interact and produce secondary particles.
 This can make it difficult to correctly identify the final state and also correctly reconstruct the hadronic energy~\cite{Friedland_2019}.
-Additionally the dense medium may mean that low energy particles are not reconstructed.
+Additionally the dense medium may mean that low energy particles are not reconstructed, further biasing energy estimators.
 
 ND-GAr will somewhat mitigate these issues by operating with gaseous argon at a pressure of 10~bar.
 This chapter consists of two studies relating to ND-GAr's ability to separate out the final states of neutrino interactions.
@@ -61,8 +64,12 @@ Therefore, an alternative method is devised whereby existing samples can be rewe
 
 This reweighting is performed by a boosted decision tree (BDT).
 This BDT is trained on two samples, termed the `nominal' and `mock'.
-In this particular case, the `nominal' sample is GENIE, while the `mock' sample is NuWro.
+In this particular case, the `nominal' sample is GENIE~\cite{genie}, while the `mock' sample is NuWro~\cite{nuwro}.
 This does require an additional sample to be generated but does not require the full simulation and reconstruction chain.
+
+GENIE and NuWro differ in a number of ways in the manner in which they simulate neutrino interactions.
+While both generators use similar models for some interaction modes, GENIE uses the Rein-Sehgal model~\cite{reinSehgal} for resonant pion production while NuWro uses its own method.
+Additionally, GENIE uses the INTRANUKE-hA model~\cite{intranuke} to simulate final state interactions (FSI) while NuWro uses its own model of intranuclear cascades~\cite{nuwroCascade}.
 
 For each of the samples, 18 true variables describing the neutrino interaction are used as the inputs to the BDT.
 These 18 variables broadly fall into two categories, those concerning the kinematics of the interaction and those concerning final state particles. Those in the former category are the neutrino energy, the outgoing lepton energy, the angle between the outgoing lepton and the neutrino, the squared four momentum transfer ($Q^{2}$), the hadronic invariant mass ($W$), Bj\"orken $x$ and the inelasticity of the collision ($y$).
@@ -96,7 +103,7 @@ The entire framework is written in C++ and may be controlled by the user through
 \section{Simulation details}
 \label{sec:dune_ndrwt:simDetails}
 
-Initially, a sample of \num{10000000} neutrino interactions (\num{5000000} in each of FHC and RHC mode) is simulated using the GENIE~\cite{genie} neutrino interaction generator within the HPgTPC volume.
+Initially, a sample of \num{10000000} neutrino interactions (\num{5000000} in each of FHC and RHC mode) is simulated using the GENIE neutrino interaction generator within the HPgTPC volume.
 This number of interactions is roughly what would be expected given the delivery of \num{9.66d20} protons to the neutrino beam target in FHC mode and \num{1.96d21} protons to the same target in RHC mode.
 The final state particles produced in these interactions are then propagated through an accurate representation of the DUNE near detector hall (see \citesec{sec:dune:nd}) using \texttt{GEANT4}~\cite{geant}. 
  
