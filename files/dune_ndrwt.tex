@@ -43,7 +43,7 @@ However, a significant number of interactions will result in more complex final 
 Although ND-LAr will be a state of the art detector there are issues that exist with liquid argon TPCs that it will be unable to avoid.
 Namely, the high density of liquid argon means that the primary particles produced in a neutrino interaction frequently interact and produce secondary particles.
 This can make it difficult to correctly identify the final state and also correctly reconstruct the hadronic energy~\cite{Friedland_2019}.
-Additionally the dense medium may mean that low energy particles are not reconstructed, further biasing energy estimators.
+Additionally, the dense medium may mean that low energy particles are not reconstructed, further biasing energy estimators.
 
 ND-GAr will somewhat mitigate these issues by operating with gaseous argon at a pressure of 10~bar.
 This chapter consists of two studies relating to ND-GAr's ability to separate out the final states of neutrino interactions.
@@ -69,9 +69,9 @@ This does require an additional sample to be generated but does not require the 
 
 GENIE and NuWro differ in a number of ways in the manner in which they simulate neutrino interactions.
 While both generators use similar models for some interaction modes, GENIE uses the Rein-Sehgal model~\cite{reinSehgal} for resonant pion production while NuWro uses its own method.
-Additionally, GENIE uses the INTRANUKE-hA model~\cite{intranuke} to simulate final state interactions (FSI) while NuWro uses its own model of intranuclear cascades~\cite{nuwroCascade}.
+Furthermore, GENIE uses the INTRANUKE-hA model~\cite{intranuke} to simulate final state interactions (FSI) while NuWro uses its own model of intranuclear cascades~\cite{nuwroCascade}.
 
-For each of the samples, 18 true variables describing the neutrino interaction are used as the inputs to the BDT.
+For each of the samples, 18 truth level variables describing the neutrino interaction are used as the inputs to the BDT.
 These 18 variables broadly fall into two categories, those concerning the kinematics of the interaction and those concerning final state particles. Those in the former category are the neutrino energy, the outgoing lepton energy, the angle between the outgoing lepton and the neutrino, the squared four momentum transfer ($Q^{2}$), the hadronic invariant mass ($W$), Bj\"orken $x$ and the inelasticity of the collision ($y$).
 In the latter category the variables are the number and total energy of final state protons, neutrons, \piplus, \piminus and \pizero. 
 Finally, the number of electromagnetic objects in the final state is also used.
@@ -85,7 +85,7 @@ Both the analysis detailed in \citesec{sec:dune_ndrwt:pionMulti:gar} and the one
 This framework derives its name from the input files which are known as Common Analysis Files (CAFs).
 These files typically contain higher level reconstructed variables typically used by analysers and consist of a \texttt{ROOT}~\cite{root} \texttt{TTree}, each entry of which represents a suspected neutrino interaction~\cite{backhouse2015}.
 
-CAFAna was originally developed the the NOvA oscillation analysis but has since been ported for used by both the DUNE and Short-Baseline Neutrino (SBN) collaborations~\cite{cafana}.
+CAFAna was originally developed for the NOvA oscillation analysis but has since been ported for use by both the DUNE and Short-Baseline Neutrino (SBN) collaborations~\cite{cafana}.
 Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
 
 Histograms can be easily plotted by specifying a dataset, variable (\texttt{Var}), selection (\texttt{Cut}) and binning (both constant and variable are supported). 
@@ -119,12 +119,31 @@ where $L$ is the track length perpendicular to the magnetic field, $\sigma_{x}$ 
 In the HPgTPC, $B$ is taken to be \SI{0.4}{\tesla}, $X_{0}$ is taken to be \SI{13}{\cm}, $\sigma_{x}$ is taken to be \SI{1}{\mm} and the number of track hits is estimated by dividing the track length by the pad pitch of the HPgTPC.
 Charged particles with track lengths of more than \SI{6}{\cm} are considered to be able to be reconstructed using this method.
 
-It is assumed that charged pions and protons with $p < \SI{1.5}{\GeV\per\clight}$ are able to be perfectly separated using measurements of particle $dE/dx$.
-Above this momentum a parametrisation of the ECAL is used since it is assumed that $dE/dx$ will be too similar for protons and charged pions.
+It is assumed that charged pions and protons with $p < \SI{1.5}{\GeV\per\clight}$ are able to be perfectly separated using measurements of particle \dedx.
+\citefig{fig:pep4dedx} shows the measurements of particle \dedx as a function of momentum at the PEP-4/9 experiment. 
+One can see that at momenta above \SI{1.5}{\GeV\per\clight} the \dedx measurements for protons and pions become similar relative to the \dedx resolution.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/dune_ndrwt/pep4_dedx_reproduction}
+	\caption[PEP-4/9 TPC-based particle identification from \dedx]{Reproduction of PEP-4/9 TPC-based particle identification from \dedx, from~\cite{pep4}. In this case the gas mixture is argon-methane in a ratio of 80:20. The coloured lines show the most probable value for each particle type.}
+	\label{fig:pep4dedx}
+\end{figure}
+
+Above this momentum a parametrisation of the ECAL is used to distinguish protons and pions.
 Here, the reconstructed energy of the particle in the ECAL is estimated with a resolution of 
-$20\% \oplus \frac{30\%}{\sqrt{T}}$, where $T$ is the kinetic energy of the particle.
+$20\% + \frac{30\%}{\sqrt{T}}$, where $T$ is the kinetic energy of the particle.
+This parametrisation is determined by eye from \citefig{fig:caliceParam} which shows the energy resolution for the CALICE hadronic calorimeter (HCAL).
+This detector is somewhat similar to the proposed calorimeter surrounding ND-GAr.
 This estimate of the energy is then compared with that derived from the momentum measurements made using track curvature under the assumption that the particle is a proton or a pion.
 The closer of these two values to the reconstructed ECAL energy determines the reconstructed particle type.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\linewidth]{files/figures/dune_ndrwt/caliceParam}
+	\caption[Charged pion energy resolution as a function of energy in the CALICE HCAL]{Charged pion energy resolution as a function of energy in CALICE hadronic calorimeter, from~\cite{hcalParam}.}
+	\label{fig:caliceParam}
+\end{figure}
 
 Neutral pions are considered to be reconstructed if both decay photons have energies of more than \SI{50}{\MeV} and the angle between the two photons is larger than 0.01~radians (i.e. they do not lie on top of one another).
 It is assumed that for photons $\sigma_{E}/E = 0.1$.
@@ -132,6 +151,8 @@ It is assumed that for photons $\sigma_{E}/E = 0.1$.
 Finally, a degree of confusion between muons and charged pions is implemented.
 If the highest momentum muon or charged pion is a muon then the particle is correctly identified.
 However, if a charged pion has a higher momentum there is a chance for the particle to be incorrectly reconstructed as a muon.
+This probability varies depending on the energy regime of the charged pion.
+
 If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is assumed that it can be correctly identified from its range within the ECAL.
 
 For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the pion is correctly identified if it interacts in the ECAL.
@@ -548,6 +569,12 @@ This avoids events being given large weights due to statistical fluctuations.
 These weights shown in \citefig{fig:q0q3RatioFhc} are used to reweight the nominal far detector MC.
 For each FD event the true final state is identified and true values of \evis and \pvis are calculated.
 The true final state determines which reweighting histogram is used while the true values of \evis and \pvis determine the weight.
+
+Far detector events fully simulated and reconstructed.
+The event flavour is determined using a convolutional neural network~\cite{duneCVN}.
+This CVN returns scores for each event to be a CC \numu, CC \nue, CC \nutau or NC event.
+In order for an event to be classified as a \numu a the CVN probability for a \numu is required to be $>0.5$. 
+In order to be selected as a \nue candidate, the CC \nue score must be $>0.85$. 
 
 \citefig{fig:fdWeights} shows the distribution of weights applied to each far detector sample.
 The weights are shown for both reconstructed \numu and \nue for both horn currents.
