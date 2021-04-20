@@ -1,24 +1,67 @@
-\chapter{The ProtoDUNE detector}
+\chapter{The ProtoDUNE Single Phase detector}
 \label{sec:protodune}
 
 The construction of the DUNE far detector represents a significant increase in scale for liquid argon time projection chambers (LAr TPCs).
 Prior to the construction of ProtoDUNE Single Phase (ProtoDUNE-SP), the largest constructed LAr TPC was the ICARUS T600 detector~\cite{icarus}, originally operated at the INFN Gran Sasso Laboratory (LNGS).
 This detector contained roughly \SI{600}{\tonne} of liquid argon in a single cryostat.
 In comparison, each DUNE far detector module is expected to contain roughly \SI{17}{\kilo\tonne} of liquid argon.
- 
-Additionally, the proposed lifetime of DUNE (over 15 years) and its relative inaccessibility (located as it is \textbf{SOME NUMBER OF METRES} underground) means that the detector technologies must be shown to have long term stability.
- 
-It is therefore necessary to complete extensive prototyping of the technologies used in the DUNE far detector
 
+The DUNE far detector modules will also also have significantly larger maximum drift distances than previously constructed LAr TPCs.
+The maximum drift distance in a DUNE single-phase far detector module will be \SI{3.6}{\m} compared with a maximum drift distance in ICARUS T600 of \SI{1.5}{\m}.
+This increased drift length necessitates an higher argon purity.
 
-\section{Motivation}
-\label{sec:protodune:motivation}
+Additionally, the proposed lifetime of DUNE (over 15 years) and its relative inaccessibility (located as it is \SI{1.5}{\kilo\metre} underground) means that the detector technologies must be shown to have long term stability.
+It is therefore necessary to complete extensive prototyping of the technologies used in the DUNE far detector prior to the construction of far detector modules.
+
+To this end, two detectors are assembled at CERN to act as prototypes for the the DUNE far detector modules.
+One of these modules is a single-phase LAr TPC while the other is a dual-phase LAr TPC.
+The single-phase prototype is often termed ProtoDUNE-SP.
+
+This prototype uses many of the components expected to be used in a DUNE FD module such as the Anode Plane Assemblies (see \citesec{sec:dune:fd:modules:singlephase}) expected to be used in the FD single-phase modules.
+Furthermore, the drift distances in a single-phase DUNE FD
+
+% Basic information
+ProtoDUNE-SP consists of a membrane cryostat measuring with a cuboidal interior shape.
+This cuboid measures \SI{7.9}{\m} in height and \SI{8.5}{\m} in the other two dimensions.
+Within this cryostat, there are two time projection chambers measuring \SI{6.1}{\m} in height, \SI{3.6}{\m} in the drift direction and \SI{7.1}{\m} in the remaining direction.
+These two time projection chambers are separated by a central cathode plane.
+Together these TPCs contain an instrumented mass of \SI{419}{\tonne} of liquid argon.
+Further details of the time projection chambers are given in \citesec{sec:protodune:tpc}.
+
+The detector is exposed to charged particles in the momentum range \SIrange{0.3}{7}{\GeV\per\clight}~\cite{protodunePerformance}.
+These particles are derived from a tertiary beam which then passes through the H4-VLE beam line where the particles are momentum selected.
+This beam line contains a variety of instrumentation with which the particle species is determined.
+More details of the beam and beam line are given in \citesec{sec:protodune:beam}.
+
+A diagram of the detector with several key components labelled is shown in \citefig{fig:pdspDiag}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/protodune_detector/pdspDiag}
+	\caption[Captioned diagram of the ProtoDUNE-SP cryostat interior]{Diagram of the ProtoDUNE-SP cryostat interior from~\cite{protodunePerformance}. Various key objects are labelled.}
+	\label{fig:pdspDiag}
+\end{figure}
+
 
 \section{Time Projection Chamber}
 \label{sec:protodune:tpc}
+
+As detailed above and in \citesec{sec:dune:fd:modules:singlephase} each DUNE time projection chamber is formed from a cathode and an anode, across which a voltage is applied.
+Similar to the plan for the DUNE FD single-phase modules, the cathode and anode are themselves made up of smaller units, the CPAs and APAs respectively.
+
+Each anode plane is formed from three APAs each of which consists of a steel frame to which 4 wire planes are attached.
+The wrapping scheme, which is the same as that planned for the DUNE FD modules is shown in \citefig{fig:wireWrapping}.
+From a drifting electron's point of view the first plane encountered is the ground (G) plane followed by the two induction planes (U and then V) which are all passed without the electron being captured.
+Finally, the drift electron reaches the collection plane (X) where it is collected.
+
+In order to aid this collection on the final plane only, bias voltages are applied to the wire planes.
+The voltages used are as follows: $V_{G} = \SI{-665}{\volt}$, $V_{U} = \SI{-370}{\volt}$, $V_{V} = \SI{0}{\volt}$ and $V_{X} = \SI{+820}{\volt}$~\cite{protodunePerformance}.
+
+\section{Purity monitors}
+\label{sec:protodune:prms}
 
 \section{Photon detection system}
 \label{sec:protodune:pds}
 
 \section{Beamline}
-\label{sec:protodune:beamline}
+\label{sec:protodune:beam}
