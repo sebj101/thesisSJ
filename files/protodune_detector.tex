@@ -50,15 +50,37 @@ As detailed above and in \citesec{sec:dune:fd:modules:singlephase} each DUNE tim
 Similar to the plan for the DUNE FD single-phase modules, the cathode and anode are themselves made up of smaller units, the CPAs and APAs respectively.
 
 Each anode plane is formed from three APAs each of which consists of a steel frame to which 4 wire planes are attached.
-The wrapping scheme, which is the same as that planned for the DUNE FD modules is shown in \citefig{fig:wireWrapping}.
+These wire planes are each separated from the following plane by a distance of \SI{4.79}{\mm}.
+The wrapping scheme, which is the same as that planned for the DUNE FD modules, is shown in \citefig{fig:wireWrapping}.
 From a drifting electron's point of view the first plane encountered is the ground (G) plane followed by the two induction planes (U and then V) which are all passed without the electron being captured.
 Finally, the drift electron reaches the collection plane (X) where it is collected.
+On either side of the APA, a bronze mesh is attached to act as a grounded shield plane for the wires.
 
 In order to aid this collection on the final plane only, bias voltages are applied to the wire planes.
 The voltages used are as follows: $V_{G} = \SI{-665}{\volt}$, $V_{U} = \SI{-370}{\volt}$, $V_{V} = \SI{0}{\volt}$ and $V_{X} = \SI{+820}{\volt}$~\cite{protodunePerformance}.
 
+The cathode plane is formed from six CPAs, each \SI{6.1}{\m} in height and \SI{1.15}{\m} wide.
+These CPAs are constructed from highly resistive materials which ensures that the do not rapidly discharge in the event of an electrical breakdown.
+Such a discharge could damage the TPC electronics.
+
+The cathode plane is biased at a voltage of \SI{-180}{\kilo\volt} which generates a field of \SI{500}{\volt\per\cm} across each drift volume.
+This field is gradually stepped down in 60 steps by the field cage, thus ensuring that the field remains uniform between the anode and cathode plane.
+
+This drift field results in a nominal electron drift velocity of \SI{1.59}{\mm\per\micro\second} which translates to a maximum drift time of \SI{2.25}{\micro\second}.
+
 \section{Purity monitors}
 \label{sec:protodune:prms}
+
+ProtoDUNE-SP contains three purity monitors designed to provide independent measurements of the liquid argon purity.
+These purity monitors were originally operated in the ICARUS T600 detector~\cite{icarus} and have since been refurbished.
+A circuit diagram of a typical purity monitor used in liquid argon experiments is shown in \citefig{fig:prmDiag}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/protodune_detector/prmDiag}
+	\caption[Circuit diagram of a typical purity monitor used in a liquid argon experiment]{Circuit diagram of a liquid argon purity monitor, from~\cite{Adamowski_2014}.}
+	\label{fig:prmDiag}
+\end{figure} 
 
 \section{Photon detection system}
 \label{sec:protodune:pds}
