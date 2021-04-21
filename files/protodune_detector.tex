@@ -73,7 +73,7 @@ This drift field results in a nominal electron drift velocity of \SI{1.59}{\mm\p
 
 ProtoDUNE-SP contains three purity monitors designed to provide independent measurements of the liquid argon purity.
 These purity monitors were originally operated in the ICARUS T600 detector~\cite{icarus} and have since been refurbished.
-A circuit diagram of a typical purity monitor used in liquid argon experiments is shown in \citefig{fig:prmDiag}.
+They are located exterior to the TPC at varying heights in the cryostat.
 
 \begin{figure}[h]
 	\centering
@@ -82,8 +82,74 @@ A circuit diagram of a typical purity monitor used in liquid argon experiments i
 	\label{fig:prmDiag}
 \end{figure} 
 
+A circuit diagram of a typical purity monitor used in liquid argon experiments is shown in \citefig{fig:prmDiag}.
+The general operating procedure is as follows: a light pulser (in the case of the monitors used in ProtoDUNE-SP, a xenon lamp) briefly illuminates the photo-cathode, liberating electrons via the photo-electric effect.
+A mesh grid (labelled ground grid in \citefig{fig:prmDiag} but also referred to as the cathode grid) is held at ground potential.
+The liberated electrons drift towards the cathode grid, inducing a signal on the cathode which is then read out.
+A uniform electric field, maintained by a series of field rings, then drifts these electrons towards the anode.
+Along the way, some of these drift electrons are absorbed by impurities in the argon.
+Upon crossing another mesh grid at the end of the drift volume (the anode grid), the electrons induce a signal on the anode.
+
+The anode and cathode signals are then converted into charges, $Q_{A}$ and $Q_{C}$ respectively.
+The ratio of these two charges can then be used to measure the electron lifetime via the equation
+\begin{equation}
+\frac{Q_{A}}{Q_{C}} = e^{-t/\tau}
+\end{equation}
+where $t$ is the drift time, which can be determined from the electric field and $\tau$ is the electron lifetime.
+
 \section{Photon detection system}
 \label{sec:protodune:pds}
 
-\section{Beamline}
+\section{Beam line}
 \label{sec:protodune:beam}
+
+The beam which is used in the ProtoDUNE-SP beam tests is originally derived from bunches of \SI{400}{\GeV\per\clight} protons from the CERN Super Proton Synchrotron (SPS) which then strike a beryllium target producing a secondary beam of hadrons with a momentum of \SI{80}{\GeV\per\clight}.
+The secondary beam then impinges on a further target generating a very low energy (VLE) beam with a momentum range of \SIrange{0.3}{7}{\GeV\per\clight}~\cite{protodunePerformance}.
+
+This beam then enters the H4-VLE beam line~\cite{h4vle} which momentum selects the particles and transports them to the detector.
+This beam line also contains instrumentation which allows for the momentum analysis and particle identification of the particles in the beam which is covered in further detail in~\cite{boothBeamLineInstr}.
+A schematic diagram of both the beam line instrumentation used in the H4 VLE beam line is shown in \citefig{fig:h4vleDiag}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{files/figures/protodune_detector/h4vleDiag}
+	\caption[Schematic diagram of the beam line instrumentation used in the H4-VLE beam line]{Schematic diagram of the beam line instrumentation used in the H4-VLE beam line, from~\cite{protodunePerformance}. Shown are trigger counters (labelled XBTF), beam profile monitors (labelled XBPF), Cherenkov detectors (labelled XCET) and bending magnets (green triangles).}
+	\label{fig:h4vleDiag}
+\end{figure}
+
+In order to identify the species of particles both time of flight measurements and Cherenkov detectors are used.
+This time of flight measurement is made between the upstream and downstream trigger counters, a baseline of \SI{28.575}{\m}.
+The precision of this system is measured as around \SI{900}{\pico\second}~\cite{boothBeamLineInstr}.
+
+The momentum of particles is determined using the beam profile monitors.
+Together with the bending magnets, these can be used as a momentum spectrometer by measuring the deflection of particles travelling through the beam line.
+
+Additionally, two Cherenkov detectors are also used for particle type reconstruction.
+This is useful at momenta where the particle species cannot be determined due to the mass of the particle in question.
+These detectors consist of two roughly \SI{2}{\m} long $\text{CO}_{2}$ gas filled volumes . Further details are available in~\cite{vleCherenkov}.
+The gas in the upstream detector is held at a pressure of \SI{15}{\bar} while that in the downstream detector is held at a pressure of \SI{5}{\bar}.
+
+These two pressures ensure that the momentum threshold for the production of Cherenkov light is different between the two detectors and thus, at a given momentum, different particle species will produce Cherenkov light in each detector.
+\citefig{fig:cherenkovThresh} shows the threshold pressures required to produce Cherenkov light as a function of momentum and particle type.
+One can see that at momenta of more than approximately \SI{1}{\GeV} some particles will trigger at least one Cherenkov detector.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/protodune_detector/cherenkovThresh}
+	\caption[Cherenkov gas pressure thresholds as a function of particle momentum and species]{Cherenkov gas pressure thresholds as a function of particle momentum and species, from~\cite{boothBeamLineInstr}. The dashed red lines indicate the operating pressures of the two Cherenkov detectors in the H4-VLE beam line.}
+	\label{fig:cherenkovThresh}
+\end{figure}
+
+The trigger logic for particle identification involves a combination of time of flight cuts and detection in the Cherenkov detectors depending on the selected beam momentum.
+
+Upon reaching the detector, the beam plug ensures that the particles enter the TPC while passing through minimal amounts of inactive material.
+This inactive material would otherwise include not only the cryostat wall but also \SI{40}{\cm} of inactive liquid argon exterior to the TPC.
+
+This beam plug is located about half way up the detector and approximately \SI{30}{\cm} off-centre in the drift direction.
+It consists of a number of alternating stainless steel and fibreglass rings which together form a sealed cylinder with the ends capped with fibreglass place.
+The cylinder extends from the cryostat until about \SI{5}{\cm} inside the field cage boundary.
+This cylinder is filled with nitrogen at a pressure of \SI{1.3}{\bar} which counters the pressure of the liquid argon while reducing the probability of particle interaction~\cite{protodunePerformance}.
+
+
+
+
