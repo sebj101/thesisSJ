@@ -18,7 +18,7 @@ One of these modules is a single-phase LAr TPC while the other is a dual-phase L
 The single-phase prototype is often termed ProtoDUNE-SP.
 
 This prototype uses many of the components expected to be used in a DUNE FD module such as the Anode Plane Assemblies (see \citesec{sec:dune:fd:modules:singlephase}) expected to be used in the FD single-phase modules.
-Furthermore, the drift distances in a single-phase DUNE FD
+Furthermore, the drift distance in ProtoDUNE-SP is the same as the expected drift distance in a DUNE single-phase FD module.
 
 % Basic information
 ProtoDUNE-SP consists of a membrane cryostat measuring with a cuboidal interior shape.
@@ -29,11 +29,17 @@ Together these TPCs contain an instrumented mass of \SI{419}{\tonne} of liquid a
 Further details of the time projection chambers are given in \citesec{sec:protodune:tpc}.
 
 The detector is exposed to charged particles in the momentum range \SIrange{0.3}{7}{\GeV\per\clight}~\cite{protodunePerformance}.
+This will allow measurements of the detector response to these particles to be made.
+These measurements will inform future DUNE physics analyses.
+Furthermore, it will be possible to make cross-section measurements for these particles on liquid argon.
+
 These particles are derived from a tertiary beam which then passes through the H4-VLE beam line where the particles are momentum selected.
 This beam line contains a variety of instrumentation with which the particle species is determined.
 More details of the beam and beam line are given in \citesec{sec:protodune:beam}.
 
 A diagram of the detector with several key components labelled is shown in \citefig{fig:pdspDiag}.
+Additionally, the detector is instrumented with a photon detection system in order to measure scintillation light from charged particle interactions. 
+This light provides timing information and also allows for an independent measurement of particle energy.
 
 \begin{figure}[h]
 	\centering
@@ -42,6 +48,8 @@ A diagram of the detector with several key components labelled is shown in \cite
 	\label{fig:pdspDiag}
 \end{figure}
 
+Finally, two of the exterior cryostat faces are covered by a cosmic ray tagger.
+This cosmic ray tagger measures the time and position of a sample of the significant flux of cosmic rays striking the detector (approximately \SI{20}{\kilo\hertz}~\cite{protodunePerformance}), allowing independent measurements of TPC performance to be made.
 
 \section{Time Projection Chamber}
 \label{sec:protodune:tpc}
@@ -97,9 +105,6 @@ The ratio of these two charges can then be used to measure the electron lifetime
 \end{equation}
 where $t$ is the drift time, which can be determined from the electric field and $\tau$ is the electron lifetime.
 
-\section{Photon detection system}
-\label{sec:protodune:pds}
-
 \section{Beam line}
 \label{sec:protodune:beam}
 
@@ -126,7 +131,7 @@ Together with the bending magnets, these can be used as a momentum spectrometer 
 
 Additionally, two Cherenkov detectors are also used for particle type reconstruction.
 This is useful at momenta where the particle species cannot be determined due to the mass of the particle in question.
-These detectors consist of two roughly \SI{2}{\m} long $\text{CO}_{2}$ gas filled volumes . Further details are available in~\cite{vleCherenkov}.
+These detectors consist of two roughly \SI{2}{\m} long $\text{CO}_{2}$ gas filled volumes. Further details are available in~\cite{vleCherenkov}.
 The gas in the upstream detector is held at a pressure of \SI{15}{\bar} while that in the downstream detector is held at a pressure of \SI{5}{\bar}.
 
 These two pressures ensure that the momentum threshold for the production of Cherenkov light is different between the two detectors and thus, at a given momentum, different particle species will produce Cherenkov light in each detector.
@@ -148,8 +153,23 @@ This inactive material would otherwise include not only the cryostat wall but al
 This beam plug is located about half way up the detector and approximately \SI{30}{\cm} off-centre in the drift direction.
 It consists of a number of alternating stainless steel and fibreglass rings which together form a sealed cylinder with the ends capped with fibreglass place.
 The cylinder extends from the cryostat until about \SI{5}{\cm} inside the field cage boundary.
-This cylinder is filled with nitrogen at a pressure of \SI{1.3}{\bar} which counters the pressure of the liquid argon while reducing the probability of particle interaction~\cite{protodunePerformance}.
+This cylinder is filled with nitrogen at a pressure of \SI{1.3}{\bar} which counters the pressure of the liquid argon without significantly increasing the probability of particle interaction~\cite{protodunePerformance}.
 
+The beam composition varies as a function of momentum and is a mixture of protons, muons, pions, kaons and electrons.
+\citefig{fig:beamComp} shows the beam composition for two different nominal beam momenta.
+One can see that the kaon content is negligible at \SI{1}{\GeV\per\clight} due to decay in flight.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.49\linewidth}
+		\includegraphics[width=\linewidth]{files/figures/protodune_detector/beamComp1GeV}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.49\linewidth}
+		\includegraphics[width=\linewidth]{files/figures/protodune_detector/beamComp6GeV}
+	\end{minipage}
+	\caption[Time of flight spectra as measured in the H4-VLE beam line, separated using particle identification]{Time of flight spectra as measured in the H4-VLE beam line, from~\cite{protodunePerformance}. The spectra are separated using particle identification techniques such as time of flight measurements and the Cherenkov detectors. Left: nominal beam momentum of \SI{1}{\GeV\per\clight}. Right: nominal beam momentum of \SI{5}{\GeV\per\clight}.}
+	\label{fig:beamComp}
+\end{figure}
 
 
 
