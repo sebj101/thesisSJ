@@ -40,6 +40,7 @@ More details of the beam and beam line are given in \citesec{sec:protodune:beam}
 A diagram of the detector with several key components labelled is shown in \citefig{fig:pdspDiag}.
 Additionally, the detector is instrumented with a photon detection system in order to measure scintillation light from charged particle interactions. 
 This light provides timing information and also allows for an independent measurement of particle energy.
+Further details are given in \citesec{sec:protodune:pds}.
 
 \begin{figure}[h]
 	\centering
@@ -50,6 +51,7 @@ This light provides timing information and also allows for an independent measur
 
 Finally, two of the exterior cryostat faces are covered by a cosmic ray tagger.
 This cosmic ray tagger measures the time and position of a sample of the significant flux of cosmic rays striking the detector (approximately \SI{20}{\kilo\hertz}~\cite{protodunePerformance}), allowing independent measurements of TPC performance to be made.
+Further details are given in \citesec{sec:protodune:crt}.
 
 \section{Time Projection Chamber}
 \label{sec:protodune:tpc}
@@ -171,5 +173,40 @@ One can see that the kaon content is negligible at \SI{1}{\GeV\per\clight} due t
 	\label{fig:beamComp}
 \end{figure}
 
+\section{Photon detection system}
+\label{sec:protodune:pds}
 
+Light is collected by photosensors within the TPC for two primary reasons. 
+One is in order to give timing information for charged particle interactions.
+The other is in order to gain independent measurements of particle energy from the amount of emitted light.
+
+To this end, ProtoDUNE-SP contains 60 optical modules that together make up the photon detection system (PDS).
+These modules have dimensions of \SI{8.6 x 220 x 0.6}{\cm}.
+Each of these modules is integrated into an APA (locating the modules exterior to the field cage would block too much light) with the spacing between modules kept equal.
+
+Within these space constraints there are three different designs of optical module~\cite{protoduneSP_tdr}.
+However, they all function on the same principle.Tthe argon scintillation light, which has a characteristic wavelength of \SI{128}{\nano\metre} is incident on some wavelength shifting material.
+This has the effect of shifting the photon wavelengths to a region where they can be more easily detected by silicon photomultipliers (SiPMs). 
+
+\section{Cosmic ray tagger}
+\label{sec:protodune:crt}
+
+The upstream and downstream faces of the cryostat are mostly covered by a number of modules making up the cosmic ray tagger (CRT).
+Thus modules that strike both an upstream and a downstream CRT module will be travelling roughly parallel to the TPC readout planes.
+These tagged cosmic rays will have a known time, position and direction.
+
+A schematic drawing of a number of CRT modules arranged into a larger panel is shown in \citefig{fig:crtModules}.
+These modules were originally part of the outer veto of the Double Chooz experiment~\cite{dcIV}.
+Each module consists of 64 scintillator strips, each \SI{5}{\cm} wide and \SI{365}{\cm} long.
+These strips are arranged parallel to one another.
+Light produced by the scintillator strips is read out by Hamamatsu M64 multi-anode PMTs.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/protodune_detector/crtModules}
+	\caption[Drawing of several CRT modules arranged into a larger plane]{Drawing of several CRT modules arranged into a larger plane. Dimensions }
+\end{figure}
+
+This arrangements gives spatial coordinates in one dimension only so two of modules are overlaid on another two modules, rotated by \ang{90}. 
+In this manner, particles detected in two modules will have definite three dimensional hit positions (the third coordinate comes from the fixed position of the module).
 
