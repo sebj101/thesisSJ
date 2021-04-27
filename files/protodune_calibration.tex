@@ -1,5 +1,49 @@
 \chapter{Calibration of the ProtoDUNE detector}
-\label{ch:protodune_calibration}
+\label{sec:pdune_calibration}
 
-% This just dumps some pseudolatin in so you can see some text in place.
-\blindtext
+\section{Lifetime measurements}
+\label{sec:pdune_calibration:lifetime}
+
+In this chapter electron lifetime measurements from two sources are presented.
+The first of these measurements comes from the purity monitors situation within the ProtoDUNE-SP cryostat (see \citesec{sec:protodune:prms}).
+
+The second of these measurements utilises the high rate of cosmic rays impinging upon the detector.
+These cosmic rays have a well known and roughly constant energy deposition before they stop.
+This constant energy deposition means that they can be used as a `standard candle' throughout the TPC.
+As a result, any observed changes in the energy deposition as a function of position within the detector must result from detector non-uniformities.
+In particular, measured changes in the charge deposition as a function of drift distance can be used to measure the electron lifetime.
+
+This measurement is attempted and presented in \citesec{sec:pdune_calibration:lifetime:selection}.
+
+\subsection{Particle selection}
+\label{sec:pdune_calibration:lifetime:selection}
+
+In order to make an accurate measurement of the electron lifetime, it is important to ensure that that those cosmic ray tracks that are selected have the desired constant energy profile.
+As shown in \citefig{fig:energyLoss}, as charged particles reach lower momenta their energy loss grows.
+Therefore, it is desirable to only select those particles that are not in this region of rapidly changing energy deposition.
+Specifically, it is desirable to only select those particles in the minimum ionising region of the energy loss profile.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/protodune_calibration/dEdxRange}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/protodune_calibration/dEdxKineticEnergy}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[Muon energy deposition as a function of range and kinetic energy]{Muon energy deposition as a function of range and kinetic energy}
+	\label{fig:muonEDep}
+\end{figure}
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.5\linewidth, center}
+		\input{files/figures/protodune_calibration/resRangeKE}
+	\end{adjustbox}
+\end{figure}
+
+\section{Impact on far detector measurements}
+\label{sec:pdune_calibration:fd}
