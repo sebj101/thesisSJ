@@ -23,6 +23,34 @@ As shown in \citefig{fig:energyLoss}, as charged particles reach lower momenta t
 Therefore, it is desirable to only select those particles that are not in this region of rapidly changing energy deposition.
 Specifically, it is desirable to only select those particles in the minimum ionising region of the energy loss profile.
 
+\citefigL{fig:muonEDep}, shows the relationship between a muon's residual range and its average \dedx in liquid argon.
+The average energy loss is calculated here using the `Bethe' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a velocity $v$ such that $\beta = \frac{v}{c}$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
+\begin{equation}
+	\left< -\frac{dE}{dx} \right> = K z^{2} \rho \frac{Z}{A} \frac{1}{\beta^{2}} 
+	\left[ \frac{1}{2} \ln \frac{2m_{e}c^{2} \beta^{2} \gamma^{2} W_{\text{max}}}{I^{2}} - \beta^{2} - \frac{\delta (\beta \gamma)}{2} \right] \, .
+\end{equation}
+Here, $Z$, $A$, $\rho$ and $I$ are the atomic number, relative atomic mass, density and mean excitation energy of the target medium.
+$m_{e}$ is the electron rest mass and $K$ is equal to \SI{0.307075}{\MeV\per\mole\square\cm}.
+The term $\delta(\beta\gamma)$ is known as the density-effect correction and is computed using a parametrisation from~\cite{densityEffect}.
+$W_{\text{max}}$ is the maximum energy transferred to an electron in a single collision and is equal to 
+\begin{equation}
+	W_{\text{max}} =  \frac{ 2 m_{e} c^{2} \beta^{2} \gamma^{2} }{ 1 + 2\gamma m_{e}/M + (m_{e}/M)^{2} } \, .
+\end{equation}
+One can see that, at residual range of $>\SI{50}{\cm}$ there is little change in the energy loss with increasing range.
+
+\citefigR{fig:muonEDep} shows the variation in the calculated most probable value (MPV) of energy loss for a muon in liquid argon as a function of muon kinetic energy.
+Here one can see, that even at energies of up to \SI{100}{\GeV} the muon energy loss remains roughly constant compared to the minimum.
+The most probable energy loss is calculated using the formula~\cite{mpvELoss}
+\begin{equation}
+	\Delta_{p} = \xi \left[ \ln \frac{2m_{e}c^{2} \beta^{2} \gamma^{2}}{I^{2}} +
+	\ln \frac{\xi}{I} + j - \beta^{2} - \delta(\beta\gamma) \right] \, ,
+\end{equation}
+where 
+\begin{equation}
+	\xi = \left( \frac{K}{2} \right) \left< \frac{Z}{A} \right> z^{2} \left( \frac{x\rho}{\beta^{2}} \right)~\text{MeV}
+\end{equation}
+and $x$ is the thickness of the material (here \SI{0.65}{\cm} is chosen).
+
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
 		\begin{adjustbox}{max totalsize=\linewidth, center}
@@ -35,15 +63,47 @@ Specifically, it is desirable to only select those particles in the minimum ioni
 			\input{files/figures/protodune_calibration/dEdxKineticEnergy}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[Muon energy deposition as a function of range and kinetic energy]{Muon energy deposition as a function of range and kinetic energy}
+	\caption[Muon energy deposition as a function of range and kinetic energy]{Left: Calculated average muon energy loss in liquid argon as a function of residual range. Right: Calculated most probable energy loss in liquid argon as a function of muon kinetic energy.}
 	\label{fig:muonEDep}
 \end{figure}
+
+\citefig{fig:keVsRange} shows the relationship between muon residual range and kinetic energy in liquid argon. 
+Here the residual range is calculated under the continuous slowing down approximation (CSDA).
+Under this approximation it is assumed that the energy loss at each point of a particle's track is equal to the stopping power with no fluctuations~\cite{protonRangeTables}.
+This is used to translate between range and kinetic energy and produce \citefigL{fig:muonEDep}.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.5\linewidth, center}
 		\input{files/figures/protodune_calibration/resRangeKE}
 	\end{adjustbox}
+	\caption[Muon range in liquid argon as a function of kinetic energy]{Muon range in liquid argon under the continuous slowing down approximation (CSDA) as a function of kinetic energy. The red points are taken from~\cite{muonCSDA}. The black line is a cubic spline drawn through the points.}
+	\label{fig:keVsRange}
 \end{figure}
+
+%% Track selection
+From \citefig{fig:muonEDep} left and right, one can see that, aside from the last 40 or \SI{50}{\cm} of the track, muons will have uniform energy deposition in liquid argon.
+Therefore, any track selection used for detector calibration should avoid using the ends of muon tracks.
+However, excluding the last \SI{50}{\cm} of all muon tracks regardless of if they stop in the detector or not would result in a significant volume of the detector which could not be effectively calibrated by this method.
+Therefore, it is decided to instead select all those cosmic ray tracks which exit the detector and assume that they are not close to stopping.
+Specifically, those tracks that cross the cathode and at least one of the anodes are selected.
+
+Requiring that tracks cross the cathode and an anode has two outcomes.
+Firstly, it ensures that all the selected tracks have lengths equal to at least the drift distance and excludes short tracks that may be more easily mis-reconstructed.
+
+Secondly, it allows the tracks to be given a definite time at which they entered the TPC.
+As mentioned in \citesec{sec:dune:fd:lartpc}, TPCs such as ProtoDUNE-SP produce multiple 2-dimensional images which can be combined via reconstruction algorithms~\cite{pandora} to form 3-dimensional reconstructed tracks.
+Typically, for neutrino induced events in LAr TPCs a definite drift coordinate can be reconstructed using timing information from the neutrino beam.
+
+However for external particles such as cosmic rays, which are impinging on the detector continuously, this beam timing information is obviously not available.
+Instead, reconstruction techniques must be utilised.
+
+Specifically, the Pandora software package~\cite{pandora} looks at tracks in the two TPCs, separated by the central cathode.
+If two 3-dimensional clusters in neighbouring drift volumes have similar direction vectors and an equal and opposite shift in the drift direction from the cathode, they can be stitched across the cathode to form one larger track.
+This track will therefore have a definite time at which it crossed the cathode, often termed a $t_{0}$.
+In turn, this allows definite drift coordinates to be reconstructed for all points in the track.
+
+
+%% Angular cuts explanation
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
