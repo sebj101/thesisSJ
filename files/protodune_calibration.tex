@@ -18,7 +18,34 @@ This measurement is attempted and presented in \citesec{sec:pdune_calibration:li
 \subsection{Particle selection}
 \label{sec:pdune_calibration:lifetime:selection}
 
-In order to make an accurate measurement of the electron lifetime, it is important to ensure that that those cosmic ray tracks that are selected have the desired constant energy profile.
+In order to make an accurate measurement of the electron lifetime, it is important to ensure that those particles which are selected have the desired constant energy profile.
+Typically, particles generate one of two types of structure in a LAr TPC.
+
+High energy electrons and photons typically generate structures termed `showers' when they strike a high density material such as liquid argon.
+In the case of electrons, these showers develop due to the emission of photons by the electron from bremsstrahlung.
+These photons then produce further $e^{+}e^{-}$ pairs of lower energy via pair production and the process continues until the energy of the remaining photons falls below the threshold required for pair production.
+A similar process occurs for photons but without the initial bremsstrahlung phase.
+An image of a typical electromagnetic shower in a LAr TPC is shown in \citefigL{fig:trackShower}.
+One can see that the energy deposition occurs in a rough cone shape with many branches.
+
+Heavier particles such as proton, muons and hadrons typically produce `tracks' rather than showers.
+This is due to their larger mass which inhibits radiative energy losses such as bremsstrahlung.
+Instead they typically produce linear energy depositions until either scattering or coming to rest.
+A typical image of a track recorded in ProtoDUNE-SP is shown in \citefigR{fig:trackShower}.
+These tracks have an energy deposition that is more easily measured than that of showers.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.49\linewidth}
+		\includegraphics[width=\linewidth]{files/figures/protodune_calibration/showerCand}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.49\linewidth}
+		\includegraphics[width=\linewidth]{files/figures/protodune_calibration/trackCand}		
+	\end{minipage}
+	\caption[Images of typical track and shower structures in ProtoDUNE-SP]{Left: Image of a \SI{0.5}{\GeV\per\clight} electron candidate in ProtoDUNE-SP, showing typical shower structure, from~\cite{protodunePerformance}. Right: Image of a \SI{1}{\GeV\per\clight} stopping proton candidate in ProtoDUNE-SP, showing typical track structure, from~\cite{protodunePerformance}.}
+	\label{fig:trackShower}
+\end{figure}
+
 As shown in \citefig{fig:energyLoss}, as charged particles reach lower momenta their energy loss grows.
 Therefore, it is desirable to only select those particles that are not in this region of rapidly changing energy deposition.
 Specifically, it is desirable to only select those particles in the minimum ionising region of the energy loss profile.
@@ -100,10 +127,40 @@ Instead, reconstruction techniques must be utilised.
 Specifically, the Pandora software package~\cite{pandora} looks at tracks in the two TPCs, separated by the central cathode.
 If two 3-dimensional clusters in neighbouring drift volumes have similar direction vectors and an equal and opposite shift in the drift direction from the cathode, they can be stitched across the cathode to form one larger track.
 This track will therefore have a definite time at which it crossed the cathode, often termed a $t_{0}$.
-In turn, this allows definite drift coordinates to be reconstructed for all points in the track.
+In turn, this allows definite drift coordinates and times to be reconstructed for all points in the track via the equation
+\begin{equation}
+	t_{\text{drift}} = t_{\text{hit}} - t_{0} \, ,
+\end{equation}
+where $t_{\text{hit}}$ is the recorded hit time in the TPC.
 
+Cosmic rays are identified by the Pandora reconstruction chain. 
+This reconstruction chain focusses on reconstructing track-like particle and has been shown to work well in the MicroBooNE experiment~\cite{pandoraUboone}. 
+Tracks satisfying one of three conditions are considered to be produced by cosmic rays.
+Firstly, those tracks starting at the top of the detector and ending at the bottom are considered to be cosmic rays.
+Secondly, those tracks with a reconstructed $t_{0}$ which is inconsistent with the beam time are also considered to be cosmic rays.
+Finally, any tracks which have reconstructed hits which appear to be outside the detector when assuming $t_0 = 0$ are considered to be inconsistent with beam particles and are thus cosmic rays.
 
 %% Angular cuts explanation
+Constraints are also placed on the angle of tracks used in the selection.
+These constraints are in place due to difficulties in reconstructing the track \dqdx at certain angles.
+This issue is shown in \citefig{fig:dqdxAng} which shows the average track \dqdx as a function of two angles, \thetai{yx} and \thetai{yz}.
+One can see that at certain values of \thetai{xz} (around $\pm\ang{90}$) and \thetai{yz} (around \ang{-90}) the average track \dqdx falls significantly.
+The difference around $\thetai{xz} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{yz} = \ang{-90}$ is due to tracks travelling vertically downwards.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\textwidth, center}
+		\input{files/figures/protodune_calibration/h2dqdxAngle}
+	\end{adjustbox}
+	\caption[Average track \dqdx as a function of track angle for exiting cosmic rays]{Average track \dqdx as a function of track angle for exiting cosmic rays in ProtoDUNE-SP simulation.}
+	\label{fig:dqdxAng}
+\end{figure}
+
+In both cases, the track \dqdx is not well reconstructed due to fundamental limitations of the detector. 
+Particles travelling directly toward the readout planes will produce charge deposits that will then drift either onto the same wire or wires very close by, making reconstruction difficult.
+Similarly, cosmic rays travelling vertically downwards are travelling parallel to the wires of the collection plane which leads to the same issue of many charge deposits being read out on the same collection plane wire.
+Since this is the plane used to perform calorimetry in this analysis, this causes issues with the reconstruction.
+
+
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
