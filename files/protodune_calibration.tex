@@ -1,11 +1,11 @@
 \chapter{Calibration of the ProtoDUNE detector}
 \label{sec:pdune_calibration}
 
-\section{Lifetime measurements}
+\section{Electron lifetime measurements}
 \label{sec:pdune_calibration:lifetime}
 
 In this chapter electron lifetime measurements from two sources are presented.
-The first of these measurements comes from the purity monitors situation within the ProtoDUNE-SP cryostat (see \citesec{sec:protodune:prms}).
+The first of these measurements comes from the purity monitors situated within the ProtoDUNE-SP cryostat (see \citesec{sec:protodune:prms}).
 
 The second of these measurements utilises the high rate of cosmic rays impinging upon the detector.
 These cosmic rays have a well known and roughly constant energy deposition before they stop.
@@ -13,7 +13,20 @@ This constant energy deposition means that they can be used as a `standard candl
 As a result, any observed changes in the energy deposition as a function of position within the detector must result from detector non-uniformities.
 In particular, measured changes in the charge deposition as a function of drift distance can be used to measure the electron lifetime.
 
-This measurement is attempted and presented in \citesec{sec:pdune_calibration:lifetime:selection}.
+This charge deposition per unit length is commonly termed \dqdx.
+Typically, this \dqdx is measured in detector units of ADC/cm where ADC is measure of the signal amplitude measured on a wire.
+In order to convert this into an energy deposition per unit length, \dedx, further conversion factors are required.
+However, merely comparing \dqdx is sufficient to calculate electron lifetimes.
+
+This measurement is attempted and presented in this section.
+
+\subsection{Coordinate system}
+\label{sec:pdune_calibration:lifetime:coords}
+
+Positions within the ProtoDUNE-SP detector are defined by a right-hand coordinate system.
+Under this coordinate system, the $Y$ axis points vertically upward, the $X$ axis runs parallel to the electron drift direction and the $Z$ axis is horizontal, pointing roughly in the direction of the beam.
+In this coordinate system, the origin lies at the bottom of the central cathode at the TPC face where the beam enters.
+This means that the TPC active volume is defined approximately by $\SI{-360}{\cm} < X < \SI{360}{\cm}$, $\SI{0}{\cm} < Y < \SI{610}{\cm}$ and $\SI{0}{\cm} < Z < \SI{700}{\cm}$.
 
 \subsection{Particle selection}
 \label{sec:pdune_calibration:lifetime:selection}
@@ -143,15 +156,31 @@ Finally, any tracks which have reconstructed hits which appear to be outside the
 %% Angular cuts explanation
 Constraints are also placed on the angle of tracks used in the selection.
 These constraints are in place due to difficulties in reconstructing the track \dqdx at certain angles.
-This issue is shown in \citefig{fig:dqdxAng} which shows the average track \dqdx as a function of two angles, \thetai{yx} and \thetai{yz}.
-One can see that at certain values of \thetai{xz} (around $\pm\ang{90}$) and \thetai{yz} (around \ang{-90}) the average track \dqdx falls significantly.
-The difference around $\thetai{xz} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{yz} = \ang{-90}$ is due to tracks travelling vertically downwards.
+This issue is shown in \citefigR{fig:dqdxAng}, which shows the average track \dqdx as a function of two angles, \thetai{XZ} and \thetai{YZ}.
+
+These track angles are described respectively by the formulae
+\begin{align}
+	\thetai{XZ}	&= \arctan \left( \frac{\boldsymbol{X}}{\boldsymbol{Z}} \right) \\
+	\thetai{YZ} &= \arctan \left( \frac{\boldsymbol{Y}}{\boldsymbol{Z}} \right) \, ,
+\end{align}	
+where $\boldsymbol{X}$, $\boldsymbol{Y}$ and $\boldsymbol{Z}$ are the direction vectors of the track.
+
+One can see that at certain values of \thetai{XZ} (around $\pm\ang{90}$) and \thetai{yz} (around \ang{-90}) the average track \dqdx falls significantly.
+The difference around $\thetai{XZ} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{YZ} = \ang{-90}$ is due to tracks travelling vertically downwards.
+However, \citefigL{fig:dqdxAng} shows that this does have the effect of cutting out a large number of the tracks.
 
 \begin{figure}[h]
-	\begin{adjustbox}{max totalsize=.6\textwidth, center}
-		\input{files/figures/protodune_calibration/h2dqdxAngle}
-	\end{adjustbox}
-	\caption[Average track \dqdx as a function of track angle for exiting cosmic rays]{Average track \dqdx as a function of track angle for exiting cosmic rays in ProtoDUNE-SP simulation.}
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/protodune_calibration/h2Angle}
+		\end{adjustbox}
+	\end{minipage}
+	\begin{minipage}[t]{.5\linewidth}		
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/protodune_calibration/h2dqdxAngle}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[Number of tracks and average track \dqdx as a function of track angle for exiting cosmic rays.]{Left: Number of exiting cosmic ray tracks with a $t_{0}$ tag as a function of track angle. Right: Average track \dqdx as a function of track angle for reconstructed exiting cosmic rays. Both show data from a single run.}
 	\label{fig:dqdxAng}
 \end{figure}
 
@@ -160,6 +189,19 @@ Particles travelling directly toward the readout planes will produce charge depo
 Similarly, cosmic rays travelling vertically downwards are travelling parallel to the wires of the collection plane which leads to the same issue of many charge deposits being read out on the same collection plane wire.
 Since this is the plane used to perform calorimetry in this analysis, this causes issues with the reconstruction.
 
+\subsection{Measurement process}
+
+Having selected the cathode-anode crossing tracks as detailed in \citesec{sec:pdune_calibration:lifetime:selection} a two-dimensional histogram is created.
+The 2 axes of the histogram are the corrected drift time, $t_{\text{drift}}$ and the \dqdx value for that particular track hit as measured on the collection plane. 
+For each of the selected cathode-anode crossers, every track hit is added to the histogram.
+A distribution such as the one shown in \citefig{fig:dqdxDrift} is formed.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/protodune_calibration/h2dqdxDrift}
+	\end{adjustbox}
+	
+\end{figure}
 
 
 \section{Impact on far detector measurements}
