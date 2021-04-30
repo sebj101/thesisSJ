@@ -197,12 +197,63 @@ For each of the selected cathode-anode crossers, every track hit is added to the
 A distribution such as the one shown in \citefig{fig:dqdxDrift} is formed.
 
 \begin{figure}[h]
-	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+	\begin{adjustbox}{max totalsize=.7\linewidth, center}
 		\input{files/figures/protodune_calibration/h2dqdxDrift}
 	\end{adjustbox}
-	
+	\caption[Hit drift time vs. measured \dqdx for cathode-anode crossers in ProtoDUNE-SP]{Two-dimensional histogram showing hit \dqdx against measured hit drift time for track hits deriving from cathode-anode crossing cosmic rays in ProtoDUNE-SP. The data come from one run.}
+	\label{fig:dqdxDrift}
 \end{figure}
 
+One can see in \citefig{fig:dqdxDrift} that the peak value of \dqdx (the darkest point in each row) shifts as the drift distance changes.
+This is thought to be due to the effects of electron lifetime.
+One can also observe that there are few hits at near the maximum and minimum drift times.
+
+This movement of the peak position is clearer in \citefig{fig:dqdx1d}, which shows two different rows from \citefig{fig:dqdxDrift} as 1-dimensional histograms.
+Each of these histograms has been area normalised to 1.
+A Landau distribution convolved with a Gaussian~\cite{langaus} has been fitted to each set of data points and is shown as a solid line in each case.
+In both cases this function appears to match the data well.
+The most probable value (MPV) for the distribution moves from a value of \SI{279.8(2)}{\ADC\per\cm} for $t_{\text{drift}} = \SI{0.35(5)}{\ms}$ to a value of \SI{220.5(1)}{\ADC\per\cm} for $t_{\text{drift}} = \SI{2.45(5)}{\ms}$.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.8\linewidth, center}
+		\input{files/figures/protodune_calibration/dqdx1d}
+	\end{adjustbox}
+	\caption[\dqdx distributions for two different drift times in ProtoDUNE-SP]{\dqdx distributions for two different drift times in ProtoDUNE-SP data. The solid lines show the result of fitting a Landau distribution convolved with a Gaussian to each set of points. Both sets of points are area normalised to 1.}
+	\label{fig:dqdx1d}
+\end{figure}
+
+This process is repeated for each of the \SI{0.1}{\ms} $t_{\text{drift}}$ bins.
+The measured peak is then plotted against the drift time.
+An function of the form 
+\begin{equation}
+	(dQ/dx)_{\text{MPV}} = A \exp^{-t_{\text{drift}}/\tau}
+	\label{eq:lifetimeFromdqdx}
+\end{equation}
+where $A$ and $\tau$ are free parameters and $\tau$ is the measured electron lifetime.
+
+\citefig{fig:mgPeakDriftMcNoSCE} shows the resulting distributions of $(dQ/dx)_{\text{MPV}}$ against $t_{\text{drift}}$ as a function of height in the detector.
+Additionally, a function of the same form as \citeeq{eq:lifetimeFromdqdx} is fitted to each set of points representing a particular height in the detector.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/protodune_calibration/mgPeakDriftMcNoSCE}
+	\end{adjustbox}
+	\caption[Peak \dqdx value at a range of different heights in the detector as a function of $t_{\text{drift}}$ in simulation]{Peak \dqdx value at a range of different heights in the detector as a function of $t_{\text{drift}}$ for ProtoDUNE-SP simulation.}
+	\label{fig:mgPeakDriftMcNoSCE}
+\end{figure}
+
+\citefig{fig:lifetimeNoSCE} shows the measured lifetime as a function of height within the detector for ProtoDUNE-SP simulation. 
+The simulated electron lifetime (\SI{35}{\ms}) is shown as a red dashed line.
+One can see that, at many heights, the measured lifetime is consistent with simulation but there are small deviations at some points.
+Overall, this validates the method used.
+
+\begin{figure}[h] 
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/protodune_calibration/mcNoSCELifetimeHeight}
+	\end{adjustbox}
+	\caption[Measured electron lifetime as a function of height within the detector in simulation]{Measured electron lifetime from cosmic ray tracks as a function of height in the detector for simulation. The simulated lifetime (\SI{35}{\ms}) is shown as the red dotted line.}
+	\label{fig:lifetimeNoSCE}
+\end{figure}
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}

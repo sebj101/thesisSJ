@@ -22122,7 +22122,7 @@
 \draw [anchor=base] (11.9333,1.17507) node[scale=1.51001, color=c, rotate=0]{400};
 \draw [anchor=base] (14.1667,1.17507) node[scale=1.51001, color=c, rotate=0]{500};
 \draw [anchor=base] (16.4,1.17507) node[scale=1.51001, color=c, rotate=0]{600};
-\draw [anchor= east] (16.4,0.691218) node[scale=1.51001, color=c, rotate=0]{ dQ/dx [ADC/cm]};
+\draw [anchor= east] (16.4,0.691218) node[scale=1.51001, color=c, rotate=0]{\dqdx [ADC/cm]};
 \draw [c,line width=0.9] (3,12.4419) -- (16.4,12.4419);
 \draw [c,line width=0.9] (3,12.1641) -- (3,12.4419);
 \draw [c,line width=0.9] (3.44667,12.303) -- (3.44667,12.4419);
@@ -22190,7 +22190,7 @@
 \draw [anchor= east] (2.9,7.93837) node[scale=1.51001, color=c, rotate=0]{1.5};
 \draw [anchor= east] (2.9,9.98544) node[scale=1.51001, color=c, rotate=0]{2};
 \draw [anchor= east] (2.9,12.0325) node[scale=1.51001, color=c, rotate=0]{2.5};
-\draw [anchor= east] (1.4,12.4419) node[scale=1.51001, color=c, rotate=90]{$ t_{drift} [ms]$};
+\draw [anchor= east] (1.4,12.4419) node[scale=1.51001, color=c, rotate=90]{$t_{\text{drift}}$ [\si{\milli\second}]};
 \draw [c,line width=0.9] (16.4,1.79717) -- (16.4,12.4419);
 \draw [c,line width=0.9] (15.938,1.79717) -- (16.4,1.79717);
 \draw [c,line width=0.9] (16.169,2.20658) -- (16.4,2.20658);
@@ -22397,9 +22397,9 @@
 \draw [anchor= west] (17.4938,8.55986) node[scale=1.51001, color=c, rotate=0]{800};
 \draw [anchor= west] (17.4938,10.2466) node[scale=1.51001, color=c, rotate=0]{1000};
 \draw [anchor= west] (17.4938,11.9333) node[scale=1.51001, color=c, rotate=0]{1200};
-\draw [anchor= east] (19.4738,12.4646) node[scale=1.51001, color=c, rotate=90]{Hits};
+\draw [anchor= east] (19.4738,12.4646) node[scale=1.51001, color=c, rotate=90]{Hits / \SI{1}{\ADC\per\cm} / \SI{0.1}{\milli\second}};
 \definecolor{c}{rgb}{1,1,1};
 \draw [color=c, fill=c] (2,12.9949) rectangle (18,13.7552);
 \definecolor{c}{rgb}{0,0,0};
-\draw (10,13.3751) node[scale=1.13251, color=c, rotate=0]{dQ/dx (uncorrected) as a function of height and drift time xz projection};
+%\draw (10,13.3751) node[scale=1.13251, color=c, rotate=0]{dQ/dx (uncorrected) as a function of height and drift time xz projection};
 \end{tikzpicture}
