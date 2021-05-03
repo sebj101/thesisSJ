@@ -233,6 +233,7 @@ where $A$ and $\tau$ are free parameters and $\tau$ is the measured electron lif
 
 \citefig{fig:mgPeakDriftMcNoSCE} shows the resulting distributions of $(dQ/dx)_{\text{MPV}}$ against $t_{\text{drift}}$ as a function of height in the detector.
 Additionally, a function of the same form as \citeeq{eq:lifetimeFromdqdx} is fitted to each set of points representing a particular height in the detector.
+One can see that fit range used is $\SI{1}{\ms} < t_{\text{drift}} < \SI{2.5}{\ms}$ since at the extracted lifetime appears to behave as expected.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -245,6 +246,8 @@ Additionally, a function of the same form as \citeeq{eq:lifetimeFromdqdx} is fit
 \citefig{fig:lifetimeNoSCE} shows the measured lifetime as a function of height within the detector for ProtoDUNE-SP simulation. 
 The simulated electron lifetime (\SI{35}{\ms}) is shown as a red dashed line.
 One can see that, at many heights, the measured lifetime is consistent with simulation but there are small deviations at some points.
+The greatest difference between two points is about \SI{5}{\ms}.
+For a \SI{2.5}{\ms} drift time, this equates to a difference in the measured charge of 1\%.
 Overall, this validates the method used.
 
 \begin{figure}[h] 
@@ -254,6 +257,24 @@ Overall, this validates the method used.
 	\caption[Measured electron lifetime as a function of height within the detector in simulation]{Measured electron lifetime from cosmic ray tracks as a function of height in the detector for simulation. The simulated lifetime (\SI{35}{\ms}) is shown as the red dotted line.}
 	\label{fig:lifetimeNoSCE}
 \end{figure}
+
+\subsection{Results from data}
+\label{sec:pdune_calibration:lifetime:data}
+
+The process detailed above is repeated for multiple data runs.
+In each case the calorimetry is corrected for space charge effects (SCE). 
+This effect and its corrections are detailed in \citesec{sec:pdune_calibration:lifetime:data:sce}.
+
+\subsubsection{Space charge effects}
+\label{sec:pdune_calibration:lifetime:data:sce}
+
+Previously, it has often been stated that TPCs operate by drifting ionisation electrons across a gap between two charged surfaces.
+However, no mention has been made of the corresponding ions produced by the same charged particles when traversing the detector medium.
+
+These positively charged ions will experience the same drift field as the ionisation electrons but will instead drift towards the cathode (rather than the anode).
+For a detector medium such as liquid argon the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
+In fact, the ICARUS T600 collaboration reports an argon mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
+
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
