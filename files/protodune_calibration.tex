@@ -272,9 +272,18 @@ Previously, it has often been stated that TPCs operate by drifting ionisation el
 However, no mention has been made of the corresponding ions produced by the same charged particles when traversing the detector medium.
 
 These positively charged ions will experience the same drift field as the ionisation electrons but will instead drift towards the cathode (rather than the anode).
-For a detector medium such as liquid argon the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
+For a detector medium such as liquid argon, the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
 In fact, the ICARUS T600 collaboration reports an argon mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
+This slow drifting can lead to a build up of positive ions within the detector and distortions in the applied electric field. 
 
+A theoretical analysis of these effects is given in Ref.~\cite{spaceCharge2021} and is summarised here.
+The density of positive ions in the detector, $\rho^{+}$, satisfies the continuity equation,
+\begin{equation}
+	\frac{\partial \rho^{+}}{\partial t} + \div \left( \rho^{+} \vb{v^{+}} \right) = K \, ,
+\end{equation}
+where $\vb{v^{+}}$ is the drift velocity of the positive ions.
+In the case of a surface detector such as ProtoDUNE-SP there is a constant and uniform charge injection rate, $K$, from cosmic rays (if one averages over a suitably long enough time period).
+This assumption leads to the steady state case, where $\partial \rho^{+} / \partial t = 0$.
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
