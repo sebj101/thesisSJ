@@ -127,6 +127,10 @@ However, excluding the last \SI{50}{\cm} of all muon tracks regardless of if the
 Therefore, it is decided to instead select all those cosmic ray tracks which exit the detector and assume that they are not close to stopping.
 Specifically, those tracks that cross the cathode and at least one of the anodes are selected.
 
+Cathode-anode crossers are selected using cuts on the track start and end points. 
+A track is considered to cross the cathode and an anode if one track end point is reconstructed with $X > \SI{340}{\cm}$ and the other is reconstructed with $X < \SI{0}{\cm}$.
+Alternatively, if a track has one end point reconstructed with $X > \SI{0}{\cm}$ and the other end point is reconstructed with $X < \SI{-340}{\cm}$ it is considered to cross the cathode and the anode.
+
 Requiring that tracks cross the cathode and an anode has two outcomes.
 Firstly, it ensures that all the selected tracks have lengths equal to at least the drift distance and excludes short tracks that may be more easily mis-reconstructed.
 
@@ -180,7 +184,7 @@ However, \citefigL{fig:dqdxAng} shows that this does have the effect of cutting 
 			\input{files/figures/protodune_calibration/h2dqdxAngle}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[Number of tracks and average track \dqdx as a function of track angle for exiting cosmic rays.]{Left: Number of exiting cosmic ray tracks with a $t_{0}$ tag as a function of track angle. Right: Average track \dqdx as a function of track angle for reconstructed exiting cosmic rays. Both show data from a single run.}
+	\caption[Number of tracks and average track \dqdx as a function of track angle for exiting cosmic rays.]{Left: Number of exiting cosmic ray tracks with a $t_{0}$ tag as a function of track angle. Right: Average track \dqdx as a function of track angle for reconstructed exiting cosmic rays. Both plots show data from a single run. Also shown are dotted lines indicating the angular cuts used in the analysis.}
 	\label{fig:dqdxAng}
 \end{figure}
 
@@ -275,15 +279,23 @@ These positively charged ions will experience the same drift field as the ionisa
 For a detector medium such as liquid argon, the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
 In fact, the ICARUS T600 collaboration reports an argon mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
 This slow drifting can lead to a build up of positive ions within the detector and distortions in the applied electric field. 
+An analysis of these effects is given in Ref.~\cite{spaceCharge2021}.
 
-A theoretical analysis of these effects is given in Ref.~\cite{spaceCharge2021} and is summarised here.
-The density of positive ions in the detector, $\rho^{+}$, satisfies the continuity equation,
-\begin{equation}
-	\frac{\partial \rho^{+}}{\partial t} + \div \left( \rho^{+} \vb{v^{+}} \right) = K \, ,
-\end{equation}
-where $\vb{v^{+}}$ is the drift velocity of the positive ions.
-In the case of a surface detector such as ProtoDUNE-SP there is a constant and uniform charge injection rate, $K$, from cosmic rays (if one averages over a suitably long enough time period).
-This assumption leads to the steady state case, where $\partial \rho^{+} / \partial t = 0$.
+ProtoDUNE-SP is vulnerable to space charge effects due to its position on the Earth's surface.
+This means that a high constant flux of cosmic rays constantly strikes the detector, producing a steady supply of positive ions which build up and cause distortions from the nominal electric field.
+These distortions affect the calorimetric reconstruction in multiple ways.
+Firstly, distortions in the electric field result in changes to the drift velocity of ionisation electrons which must be accounted for in order to correctly calculate track segment lengths when measuring \dqdx.
+Secondly, as shown in \citefig{fig:recombFactors} the applied electric field in a TPC affects the number of ionisation electrons which recombine. 
+Therefore, any change in the electric field will alter the amount of charge liberated by a charge particle which is then free to drift to the readout planes.
+
+
+%The density of positive ions in the detector, $\rho^{+}$, satisfies the continuity equation,
+%\begin{equation}
+%	\frac{\partial \rho^{+}}{\partial t} + \div \left( \rho^{+} \vb{v^{+}} \right) = K \, ,
+%\end{equation}
+%where $\vb{v^{+}}$ is the drift velocity of the positive ions.
+%In the case of a surface detector such as ProtoDUNE-SP there is a constant and uniform charge injection rate, $K$, from cosmic rays (if one averages over a suitably long enough time period).
+%This assumption leads to the steady state case, where $\partial \rho^{+} / \partial t = 0$.
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
