@@ -262,15 +262,8 @@ Overall, this validates the method used.
 	\label{fig:lifetimeNoSCE}
 \end{figure}
 
-\subsection{Results from data}
-\label{sec:pdune_calibration:lifetime:data}
-
-The process detailed above is repeated for multiple data runs.
-In each case the calorimetry is corrected for space charge effects (SCE). 
-This effect and its corrections are detailed in \citesec{sec:pdune_calibration:lifetime:data:sce}.
-
-\subsubsection{Space charge effects}
-\label{sec:pdune_calibration:lifetime:data:sce}
+\subsection{Space charge effects}
+\label{sec:pdune_calibration:lifetime:sce}
 
 Previously, it has often been stated that TPCs operate by drifting ionisation electrons across a gap between two charged surfaces.
 However, no mention has been made of the corresponding ions produced by the same charged particles when traversing the detector medium.
@@ -286,16 +279,27 @@ This means that a high constant flux of cosmic rays constantly strikes the detec
 These distortions affect the calorimetric reconstruction in multiple ways.
 Firstly, distortions in the electric field result in changes to the drift velocity of ionisation electrons which must be accounted for in order to correctly calculate track segment lengths when measuring \dqdx.
 Secondly, as shown in \citefig{fig:recombFactors} the applied electric field in a TPC affects the number of ionisation electrons which recombine. 
-Therefore, any change in the electric field will alter the amount of charge liberated by a charge particle which is then free to drift to the readout planes.
+Therefore, any change in the electric field will alter the amount of charge liberated by a charged particle which is then free to drift to the readout planes.
 
+In order to correct for these effects, maps of the effective electric field (including contributions from space charge) and spatial distortions are constructed.
+These distortions are evaluated by taking exiting tracks and measuring the offsets between the reconstructed end points and the TPC faces
+These are used to generate a data-driven simulation of the space charge effects which can then be inverted to provide corrections for said effects~\cite{protodunePerformance}.
+Two-dimensional slices of the three-dimensional electric field distortion map for ProtoDUNE-SP data are shown in \citefig{fig:eFieldDistortion}. 
+Here, one can see that the magnitude of the electric field is changed at some points by as much as 25\%.
 
-%The density of positive ions in the detector, $\rho^{+}$, satisfies the continuity equation,
-%\begin{equation}
-%	\frac{\partial \rho^{+}}{\partial t} + \div \left( \rho^{+} \vb{v^{+}} \right) = K \, ,
-%\end{equation}
-%where $\vb{v^{+}}$ is the drift velocity of the positive ions.
-%In the case of a surface detector such as ProtoDUNE-SP there is a constant and uniform charge injection rate, $K$, from cosmic rays (if one averages over a suitably long enough time period).
-%This assumption leads to the steady state case, where $\partial \rho^{+} / \partial t = 0$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.9\linewidth]{files/figures/protodune_calibration/eFieldDistortion}
+	\caption[Two-dimensional slices of the three-dimensional electric field distortion map in ProtoDUNE-SP data]{Two-dimensional slices of the three-dimensional electric field distortion map in ProtoDUNE-SP data, from~\cite{protodunePerformance}. Left: A slice taken at constant $Z$. Right: A slice taken at constant $Y$.}
+	\label{fig:eFieldDistortion}
+\end{figure}
+
+\subsection{Results from data}
+\label{sec:pdune_calibration:lifetime:data}
+
+The process detailed above is repeated for multiple data runs.
+In each case the calorimetry is corrected for space charge effects (SCE). 
+This effect and its corrections are detailed in \citesec{sec:pdune_calibration:lifetime:sce}.
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
