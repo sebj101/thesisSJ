@@ -303,6 +303,14 @@ This effect and its corrections are detailed in \citesec{sec:pdune_calibration:l
 A variety of runs with different lifetimes (as measured by the purity monitors) are analysed.
 
 Graphs of the measured \dqdx peak positions against drift time are shown for each of the analysed runs in \citefig{fig:dqdxPeak1} and \citefig{fig:dqdxPeak2}.
+In both cases function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fitted to the data points. 
+One can observe that the fit range is between \tdrift values of \SI{0.2}{\ms} and \SI{1.5}{\ms}.
+The choice is made to exclude lower values of \tdrift due to the low statistics in this region.
+
+\citefig{fig:dqdxPeak2} shows the reason for excluding values of \tdrift above \SI{1.5}{\ms}.
+Both the runs shown in this figure appear to have very long electron lifetimes and thus see very little change in the value of \dqdxMPV over the drift distance.
+Therefore, space charge effects which have not been fully corrected for dominate the shape of the distribution at longer lifetimes.
+This is thought to be the cause of the measured values of \dqdxMPV to increasing with drift time at larger values of \tdrift.
 
 %% Figures subject to change if I end up changing the analysis procedure
 \begin{figure}[t]
@@ -380,7 +388,7 @@ Graphs of the measured \dqdx peak positions against drift time are shown for eac
 		\end{adjustbox}
 		\caption{Run 5426}
 	\end{subfigure}
-	\caption[\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs]{\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs.}
+	\caption[\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs (continued)]{\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs (continued).}
 	\label{fig:dqdxPeak2}
 \end{figure}
 
