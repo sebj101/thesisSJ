@@ -103,7 +103,7 @@
 \draw [anchor=base] (11.6452,1.15931) node[scale=1.52731, color=c, rotate=0]{1.5};
 \draw [anchor=base] (14.5269,1.15931) node[scale=1.52731, color=c, rotate=0]{2};
 \draw [anchor=base] (17.4087,1.15931) node[scale=1.52731, color=c, rotate=0]{2.5};
-\draw [anchor= east] (18,0.572837) node[scale=1.52731, color=c, rotate=0]{Drift time [ms]};
+\draw [anchor= east] (18,0.572837) node[scale=1.52731, color=c, rotate=0]{\tdrift [\si{\ms}]};
 \draw [c,line width=0.9] (3,12.2751) -- (18,12.2751);
 \draw [c,line width=0.9] (3,11.9682) -- (3,12.2751);
 \draw [c,line width=0.9] (3.57635,12.1216) -- (3.57635,12.2751);
@@ -184,7 +184,7 @@
 \draw [anchor= east] (2.9,9.64957) node[scale=1.52731, color=c, rotate=0]{280};
 \draw [anchor= east] (2.9,10.9623) node[scale=1.52731, color=c, rotate=0]{290};
 \draw [anchor= east] (2.9,12.2751) node[scale=1.52731, color=c, rotate=0]{300};
-\draw [anchor= east] (1.24,12.2751) node[scale=1.52731, color=c, rotate=90]{dQ/dx [ADC/cm]};
+\draw [anchor= east] (1.24,12.2751) node[scale=1.52731, color=c, rotate=90]{\dqdxMPV [ADC/cm]};
 \draw [c,line width=0.9] (18,1.77307) -- (18,12.2751);
 \draw [c,line width=0.9] (17.538,1.77307) -- (18,1.77307);
 \draw [c,line width=0.9] (17.769,2.03562) -- (18,2.03562);
@@ -246,12 +246,12 @@
 \definecolor{c}{rgb}{1,1,1};
 \draw [color=c, fill=c] (8.08023,8.39542) rectangle (16.2178,11.5759);
 \definecolor{c}{rgb}{0,0,0};
-\draw [anchor= west] (8.48711,11.0458) node[scale=1.59095, color=c, rotate=0]{$\chi^{2} / ndf $};
+\draw [anchor= west] (8.48711,11.0458) node[scale=1.59095, color=c, rotate=0]{$\chi^{2} / \text{n.d.f.} $};
 \draw [anchor= east] (15.8109,11.0458) node[scale=1.59095, color=c, rotate=0]{ 0.8956 / 11};
 \draw [anchor= west] (8.48711,9.98567) node[scale=1.59095, color=c, rotate=0]{A        };
 \draw [anchor= east] (15.8109,9.98567) node[scale=1.59095, color=c, rotate=0]{$ 298.6 \pm 1.383$};
 \draw [anchor= west] (8.48711,8.9255) node[scale=1.59095, color=c, rotate=0]{$\tau     $};
-\draw [anchor= east] (15.8109,8.9255) node[scale=1.59095, color=c, rotate=0]{$ 7.488 \pm 0.2793$};
+\draw [anchor= east] (15.8109,8.9255) node[scale=1.59095, color=c, rotate=0]{$(7.488 \pm 0.2793)$~\si{\ms}};
 \definecolor{c}{rgb}{1,0,0};
 \draw [c,line width=1.8] (3.17356,7.74405) -- (3,7.74405);
 \draw [c,line width=1.8] (3,7.68674) -- (3,7.80136);
@@ -368,12 +368,12 @@
 \definecolor{c}{rgb}{1,1,1};
 \draw [color=c, fill=c] (8.08023,8.39542) rectangle (16.2178,11.5759);
 \definecolor{c}{rgb}{0,0,0};
-\draw [anchor= west] (8.48711,11.0458) node[scale=1.59095, color=c, rotate=0]{$\chi^{2} / ndf $};
+\draw [anchor= west] (8.48711,11.0458) node[scale=1.59095, color=c, rotate=0]{$\chi^{2} / \text{n.d.f.} $};
 \draw [anchor= east] (15.8109,11.0458) node[scale=1.59095, color=c, rotate=0]{ 0.8956 / 11};
 \draw [anchor= west] (8.48711,9.98567) node[scale=1.59095, color=c, rotate=0]{A        };
 \draw [anchor= east] (15.8109,9.98567) node[scale=1.59095, color=c, rotate=0]{$ 298.6 \pm 1.383$};
 \draw [anchor= west] (8.48711,8.9255) node[scale=1.59095, color=c, rotate=0]{$\tau     $};
-\draw [anchor= east] (15.8109,8.9255) node[scale=1.59095, color=c, rotate=0]{$ 7.488 \pm 0.2793$};
+\draw [anchor= east] (15.8109,8.9255) node[scale=1.59095, color=c, rotate=0]{$ (7.488 \pm 0.2793)$~\si{\ms}};
 \draw [c,line width=1.8] (4.19016,11.027) -- (4.26508,10.9608) -- (4.34001,10.8948) -- (4.41493,10.8289) -- (4.48986,10.7631) -- (4.56478,10.6974) -- (4.63971,10.6318) -- (4.71463,10.5663) -- (4.78956,10.501) -- (4.86448,10.4358) -- (4.93941,10.3706)
  -- (5.01433,10.3056) -- (5.08926,10.2407) -- (5.16418,10.176) -- (5.23911,10.1113) -- (5.31403,10.0467) -- (5.38896,9.98228) -- (5.46388,9.91795) -- (5.53881,9.85373) -- (5.61373,9.78962) -- (5.68866,9.72562) -- (5.76358,9.66173) --
  (5.83851,9.59795) -- (5.91343,9.53429) -- (5.98836,9.47073) -- (6.06328,9.40728) -- (6.13821,9.34395) -- (6.21313,9.28072) -- (6.28806,9.21761) -- (6.36298,9.1546) -- (6.43791,9.0917) -- (6.51283,9.02891) -- (6.58776,8.96623) -- (6.66268,8.90366) --
@@ -388,5 +388,5 @@
 \definecolor{c}{rgb}{1,1,1};
 \draw [color=c, fill=c] (2,12.8206) rectangle (18,13.5708);
 \definecolor{c}{rgb}{0,0,0};
-\draw (10,13.1957) node[scale=1.40004, color=c, rotate=0]{Run 5204};
+%\draw (10,13.1957) node[scale=1.40004, color=c, rotate=0]{Run 5204};
 \end{tikzpicture}
