@@ -307,13 +307,8 @@ In both cases function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fitt
 One can observe that the fit range is between \tdrift values of \SI{0.2}{\ms} and \SI{1.5}{\ms}.
 The choice is made to exclude lower values of \tdrift due to the low statistics in this region.
 
-\citefig{fig:dqdxPeak2} shows the reason for excluding values of \tdrift above \SI{1.5}{\ms}.
-Both the runs shown in this figure appear to have very long electron lifetimes and thus see very little change in the value of \dqdxMPV over the drift distance.
-Therefore, space charge effects which have not been fully corrected for dominate the shape of the distribution at longer lifetimes.
-This is thought to be the cause of the measured values of \dqdxMPV to increasing with drift time at larger values of \tdrift.
-
 %% Figures subject to change if I end up changing the analysis procedure
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[t]{.49\textwidth}
 		\begin{adjustbox}{max totalsize=\linewidth, center}
@@ -391,6 +386,44 @@ This is thought to be the cause of the measured values of \dqdxMPV to increasing
 	\caption[\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs (continued)]{\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs (continued).}
 	\label{fig:dqdxPeak2}
 \end{figure}
+
+\citefig{fig:dqdxPeak2} shows the reason for excluding values of \tdrift above \SI{1.5}{\ms}.
+Both the runs shown in this figure appear to have very long electron lifetimes and thus see very little change in the value of \dqdxMPV over the drift distance.
+Therefore, space charge effects which have not been fully corrected for dominate the shape of the distribution at longer lifetimes.
+This is thought to be the cause of the measured values of \dqdxMPV to increasing with drift time at larger values of \tdrift.
+
+
+Each of these runs also has associated lifetimes measured by each of the purity monitors.
+\citefig{fig:lifetimeComp} shows a comparison of the lifetime measured with the method above with the lifetime measured by one of the purity monitors (the one situated uppermost in the detector).
+The black dotted line represents equality between the two measurements.
+One can see that at lower lifetimes the methods agree relatively well but that at higher lifetimes the two methods diverge significantly.
+The lifetimes measured by the other two purity monitors are not displayed because they both have larger associated errors and the central values fall within the errors provided by the upper purity monitor.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/protodune_calibration/lifetimeComp}
+	\end{adjustbox}
+	\caption[Comparison of electron lifetime measurements made with purity monitors and cosmic ray tracks]{Comparison of electron lifetime measurements made with the upper ProtoDUNE-SP purity monitor ($\tau_{\text{PrMon}}$) and those made with cathode-anode crossing cosmic ray tracks ($\tau_{\text{Tracks}}$). The dotted line shows $\tau_{\text{PrMon}} = \tau_{\text{Tracks}}$.}
+	\label{fig:lifetimeComp}
+\end{figure}
+
+One of the primary reasons to measure the electron lifetime accurately is so that accurate calorimetry may be used to measure the energy of certain particles.
+Particles such as muons, which usually do not scatter, typically have their energy measured from their range in the detector.
+However, charged particles which shower, such as photons and electrons and those particles which are more likely to scatter in the detector such as charged hadrons may have their energy measured by summing the collected ionisation charge they produce and translating this into an energy.
+
+Additionally, measurements of particle \dedx are frequently used to discriminate between different particle types, for example protons and pions.
+
+Both of these measurements include a correction for the electron lifetime depending on the position of the hit in the detector.
+It is therefore important to quantify what these discrepancies in the measured value of $\tau$ translate to in terms of measured charge throughout the detector.
+
+\citefig{fig:chargeEquivalent} shows an attempt to quantify the difference in measured charge as a function of drift time in the detector. 
+This is produced for each run by plotting the function
+\begin{equation}
+	\exp^{-\tdrift / \tau_{\text{Tracks}}} - \exp^{-\tdrift / \tau_{\text{PrMon}}}
+\end{equation}
+as a function of drift distance.
+This function is equivalent to the fractional difference in charge that would be estimated under the two different lifetimes.
+
 
 \section{Impact on far detector measurements}
 \label{sec:pdune_calibration:fd}
