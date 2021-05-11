@@ -419,11 +419,72 @@ It is therefore important to quantify what these discrepancies in the measured v
 \citefig{fig:chargeEquivalent} shows an attempt to quantify the difference in measured charge as a function of drift time in the detector. 
 This is produced for each run by plotting the function
 \begin{equation}
-	\exp^{-\tdrift / \tau_{\text{Tracks}}} - \exp^{-\tdrift / \tau_{\text{PrMon}}}
+	\exp(-\tdrift / \tau_{\text{Tracks}}) - \exp(-\tdrift / \tau_{\text{PrMon}})
 \end{equation}
 as a function of drift distance.
 This function is equivalent to the fractional difference in charge that would be estimated under the two different lifetimes.
 
+One can see that the measured discrepancy falls as the drift time reduces, meaning this mismeasurement will have a greater effect for those particles near the cathode. 
+Although the shape of the pictured lines is produced by the sum of two exponentials, it is well approximated by a straight line passing through the origin.
+Additionally, the size of the maximum charge mismeasurement is seen to vary between $\sim 1\%$ and $\sim 8\%$.
 
-\section{Impact on far detector measurements}
-\label{sec:pdune_calibration:fd}
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/protodune_calibration/chargeEquivalent}
+	\end{adjustbox}
+	\caption[Fractional difference in measured charge due to lifetime discrepancy as a function of drift time]{Fractional difference in measured charge due to lifetime discrepancy as a function of drift time for various ProtoDUNE-SP data runs}
+	\label{fig:chargeEquivalent}
+\end{figure}
+
+\section{Impact on oscillation measurements}
+\label{sec:pdune_calibration:osc}
+
+It is demonstrated above that, in the ProtoDUNE-SP detector, discrepancies are observed between electron lifetimes from two different sources. 
+Given the similarities of the ProtoDUNE-SP detector and proposed design of the DUNE single-phase FD modules, it is reasonable to assume that such discrepancies could also occur in a long baseline oscillation analysis.  
+Given that there is potentially no way to ascertain which of the lifetime values is correct, it is possible that a charge (and therefore energy) bias could be introduced for certain particle types reconstructed using calorimetry.
+
+To assess the effect a bias in the electron lifetime could have on an oscillation analysis, the CAFAna framework is used together with simulated FD events.
+The particular form of the bias is derived from \citefig{fig:chargeEquivalent} and shifts the reconstructed energy of a particle of a species $\alpha$, $E_{\alpha,~\text{reco}}$, such that
+\begin{equation}
+	E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( 1 + 0.05 \left( \frac{ x_{\text{drift, max}} - \abs{V_{x}} }{ x_{\text{drift, max}} } \right) \right) \, ,
+\end{equation}
+where $E_{\alpha,~\text{reco}}$ and $E_{\alpha,~\text{reco}}'$ are the original and shifted particle energies respectively, $V_{x}$ is the true vertex position of the neutrino interaction and $x_{\text{drift, max}}$ is the maximum drift distance (\SI{360}{\cm}).
+The particle types, $\alpha$, affected by this shift are charged and neutral hadrons, electrons and photons.
+These are all expected to be reconstructed using calorimetry in the DUNE FD.
+
+The four DUNE far detector samples are shown with and without this bias in \citefig{fig:fdSamplesLifetime}.
+
+\begin{figure}[h]
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNumuFhc}
+		\end{adjustbox}
+		\caption{FHC: reco \numu}
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNueFhc}
+		\end{adjustbox}
+		\caption{FHC: reco \nue}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNumuRhc}
+		\end{adjustbox}
+		\caption{RHC: reco \numu}
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNueRhc}
+		\end{adjustbox}
+		\caption{RHC: reco \nue}
+	\end{subfigure}	
+	\caption[DUNE far detector samples with and without electron lifetime bias]{DUNE far detector samples with and without the electron lifetime bias. Also shown is the post fit result from an Asimov fit using the biased data with an unbiased prediction.}
+	\label{fig:fdSamplesLifetime}
+\end{figure}
+
+
+
