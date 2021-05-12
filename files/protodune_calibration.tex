@@ -351,7 +351,11 @@ The choice is made to exclude lower values of \tdrift due to the low statistics 
 		\end{adjustbox}
 		\caption{Run 5315}
 	\end{subfigure} 
-	\\
+	\caption[\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs]{\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs.}
+	\label{fig:dqdxPeak1}
+\end{figure}
+
+\begin{figure}[t]
 	\begin{subfigure}[t]{.49\textwidth}
 		\begin{adjustbox}{max totalsize=\linewidth, center}
 			\input{files/figures/protodune_calibration/peakDrift5325}
@@ -365,16 +369,13 @@ The choice is made to exclude lower values of \tdrift due to the low statistics 
 		\end{adjustbox}
 		\caption{Run 5387}
 	\end{subfigure}	
-	\caption[\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs]{\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs.}
-	\label{fig:dqdxPeak1}
-\end{figure}
-
-\begin{figure}[t]
+	\\
 	\begin{subfigure}[t]{.49\textwidth}
 		\begin{adjustbox}{max totalsize=\linewidth, center}
 			\input{files/figures/protodune_calibration/peakDrift5423}
 		\end{adjustbox}
 		\caption{Run 5423}
+		\label{fig:dqdxPeak2:3}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{.49\textwidth}
@@ -382,16 +383,16 @@ The choice is made to exclude lower values of \tdrift due to the low statistics 
 			\input{files/figures/protodune_calibration/peakDrift5426}
 		\end{adjustbox}
 		\caption{Run 5426}
+		\label{fig:dqdxPeak2:4}
 	\end{subfigure}
 	\caption[\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs (continued)]{\dqdx peak position as a function of drift time for various ProtoDUNE-SP data runs (continued).}
 	\label{fig:dqdxPeak2}
 \end{figure}
 
-\citefig{fig:dqdxPeak2} shows the reason for excluding values of \tdrift above \SI{1.5}{\ms}.
-Both the runs shown in this figure appear to have very long electron lifetimes and thus see very little change in the value of \dqdxMPV over the drift distance.
+\citefig{fig:dqdxPeak2:3} and \citefig{fig:dqdxPeak2:4} shows the reason for excluding values of \tdrift above \SI{1.5}{\ms}.
+Both the runs shown in these figures appear to have very long electron lifetimes and thus see very little change in the value of \dqdxMPV over the drift distance.
 Therefore, space charge effects which have not been fully corrected for dominate the shape of the distribution at longer lifetimes.
 This is thought to be the cause of the measured values of \dqdxMPV to increasing with drift time at larger values of \tdrift.
-
 
 Each of these runs also has associated lifetimes measured by each of the purity monitors.
 \citefig{fig:lifetimeComp} shows a comparison of the lifetime measured with the method above with the lifetime measured by one of the purity monitors (the one situated uppermost in the detector).
@@ -452,7 +453,12 @@ where $E_{\alpha,~\text{reco}}$ and $E_{\alpha,~\text{reco}}'$ are the original 
 The particle types, $\alpha$, affected by this shift are charged and neutral hadrons, electrons and photons.
 These are all expected to be reconstructed using calorimetry in the DUNE FD.
 
+\subsection{Evaluation of effects on high statistics samples}
+\label{sec:pdune_calibration:osc:highStats}
+
 The four DUNE far detector samples are shown with and without this bias in \citefig{fig:fdSamplesLifetime}.
+In these plots the chosen oscillation points are the best fit points from~\cite{nufit4} while the neutrino mass hierarchy is assumed to be normal.
+These samples contain the full MC statistics and do not have statistical fluctuations added.
 
 \begin{figure}[h]
 	\begin{subfigure}[t]{.5\textwidth}
@@ -473,18 +479,91 @@ The four DUNE far detector samples are shown with and without this bias in \cite
 		\begin{adjustbox}{max totalsize=\textwidth, center}
 			\input{files/figures/protodune_calibration/asimovNumuRhc}
 		\end{adjustbox}
-		\caption{RHC: reco \numu}
+		\caption{RHC: reco \anumu}
 	\end{subfigure}	
 	\hfill
 	\begin{subfigure}[t]{.5\textwidth}
 		\begin{adjustbox}{max totalsize=\textwidth, center}
 			\input{files/figures/protodune_calibration/asimovNueRhc}
 		\end{adjustbox}
-		\caption{RHC: reco \nue}
+		\caption{RHC: reco \anue}
 	\end{subfigure}	
 	\caption[DUNE far detector samples with and without electron lifetime bias]{DUNE far detector samples with and without the electron lifetime bias. Also shown is the post fit result from an Asimov fit using the biased data with an unbiased prediction.}
 	\label{fig:fdSamplesLifetime}
 \end{figure}
 
+Additionally, a FD-only fit is performed using the biased sample as the data and the nominal sample as the expected distribution. 
+All cross-section, flux and detector systematics are set at their nominal values and determined in the fit 
+Furthermore, the oscillation variables \thetai{23}, \thetai{13}, \dcp, \deltami{32} and $\rho$ are determined in the fit.
+The resulting post fit distribution is shown as the red dashed line in \citefig{fig:fdSamplesLifetime}.
 
+\citefig{fig:fdSamplesLifetimeRatio} shows the ratio of both the sample with the lifetime bias and the post fit distribution to the unbiased prediction.
+One can see that the lifetime bias has a greater effect on the appearance samples, changing the value of some bins by up to 20\%.
+For the disappearance samples the greatest changes in bin content are approximately 5\%. 
+This difference is explained by the fact that the lifetime bias does not affect the reconstructed energy of muons.
 
+\begin{figure}[h]
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNumuFhc_ratio}
+		\end{adjustbox}
+		\caption{FHC: reco \numu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNueFhc_ratio}
+		\end{adjustbox}
+		\caption{FHC: reco \nue}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNumuFhc_ratio}
+		\end{adjustbox}
+		\caption{FHC: reco \anumu}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/asimovNueFhc_ratio}
+		\end{adjustbox}
+		\caption{FHC: reco \anue}
+	\end{subfigure}
+	\caption[Ratios of DUNE FD energy biased and post fit samples to nominal]{Ratios of DUNE FD samples with lifetime bias to the unbiased sample. Also shown is the ratio of the post fit distributions to the unbiased samples.}	
+	\label{fig:fdSamplesLifetimeRatio}
+\end{figure}
+
+\citefig{fig:fdSamplesLifetimeRatio} also shows that the post fit distribution is able to match the data (the samples with the lifetime bias applied) well. 
+This indicates that some combination of both the systematics and oscillation variables is able to account for the introduced bias.
+
+%%% Stuff goes here for the 2D contour things %%%
+
+\subsection{Evaluations with statistical fluctuations}
+\label{sec:pdune_calibration:osc:fluctuations}
+
+In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \textbf{SOME NUMBER OF} FD-only fits are performed.
+In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 years POT.
+Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and \rho are all thrown within limits. 
+These limits are shown in \citetab{tab:paramThrows}.
+
+\begin{table}
+	\caption[Oscillation parameters limits used]{Throw limits on oscillation parameters used in this analysis. Note that $\rho$ is thrown according to a Gaussian distribution while all the other parameters are thrown uniformly within their ranges.}
+	\label{tab:paramThrows}
+	\centering
+	\begin{tabular}{c c}
+		\hline
+		Parameter & Range \\
+		\hline
+		\hline
+		\thetai{13} & $\ang{8.22} - \ang{8.99}$ \\
+		\thetai{23} & $\ang{40.3} - \ang{52.4}$ \\
+		\deltami{32} & \SIrange{2.427}{2.625}{\eV\squared} \\
+		\dcp & $0 - 2\pi$ \\
+		$\rho$ & \SI{2.85(6)}{\gram\per\cm\cubed}  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+All flux, cross-section and detector systematics are set to their nominal values and determined in the fits.
+A penalty term is included which provides a constraint on the values of \thetai{13} and $\rho$.
