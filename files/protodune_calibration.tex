@@ -542,7 +542,7 @@ This indicates that some combination of both the systematics and oscillation var
 \subsection{Evaluations with statistical fluctuations}
 \label{sec:pdune_calibration:osc:fluctuations}
 
-In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \textbf{SOME NUMBER OF} FD-only fits are performed.
+In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \textbf{SOME NUMBER OF} FD-only fits are performed with and without the lifetime bias applied to the data.
 In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 years POT.
 Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and \rho are all thrown within limits. 
 These limits are shown in \citetab{tab:paramThrows}.
@@ -558,7 +558,7 @@ These limits are shown in \citetab{tab:paramThrows}.
 		\hline
 		\thetai{13} & $\ang{8.22} - \ang{8.99}$ \\
 		\thetai{23} & $\ang{40.3} - \ang{52.4}$ \\
-		\deltami{32} & \SIrange{2.427}{2.625}{\eV\squared} \\
+		\deltami{32} & \SIrange{2.427d-3}{2.625d-3}{\eV\squared} \\
 		\dcp & $0 - 2\pi$ \\
 		$\rho$ & \SI{2.85(6)}{\gram\per\cm\cubed}  \\
 		\hline
@@ -566,4 +566,8 @@ These limits are shown in \citetab{tab:paramThrows}.
 \end{table}
 
 All flux, cross-section and detector systematics are set to their nominal values and determined in the fits.
-A penalty term is included which provides a constraint on the values of \thetai{13} and $\rho$.
+A Gaussian penalty term is included which provides a constraint on the values of \thetai{13} and $\rho$.
+For \thetai{13} this constraint is \SI{8.6(1)}{\degree} while for $\rho$ it is \SI{2.85(6)}{\gram\per\cm\cubed}.
+
+For each of the fits, the difference between the true oscillation parameters and the best fit points is plotted in a histogram. 
+The results for the biased and unbiased data are compared.
