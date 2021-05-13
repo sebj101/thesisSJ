@@ -544,7 +544,7 @@ This indicates that some combination of both the systematics and oscillation var
 
 In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \textbf{SOME NUMBER OF} FD-only fits are performed with and without the lifetime bias applied to the data.
 In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 years POT.
-Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and \rho are all thrown within limits. 
+Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and $\rho$ are all thrown within limits. 
 These limits are shown in \citetab{tab:paramThrows}.
 
 \begin{table}
@@ -570,4 +570,51 @@ A Gaussian penalty term is included which provides a constraint on the values of
 For \thetai{13} this constraint is \SI{8.6(1)}{\degree} while for $\rho$ it is \SI{2.85(6)}{\gram\per\cm\cubed}.
 
 For each of the fits, the difference between the true oscillation parameters and the best fit points is plotted in a histogram. 
-The results for the biased and unbiased data are compared.
+The results for the biased and unbiased data are compared in \citefig{fig:paramComp5pc}.
+
+\begin{figure}[h]
+	\begin{subfigure}[t]{.49\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/fluctuationsDiffTh13}
+		\end{adjustbox}
+		\caption{\thetai{13}}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.49\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/fluctuationsDiffRho}
+		\end{adjustbox}
+		\caption{Earth matter density, $\rho$}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{.49\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/fluctuationsDiffSinsqTh23}
+		\end{adjustbox}
+		\caption{$\sin^{2} \thetai{23}$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{.49\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/fluctuationsDiffDelta}
+		\end{adjustbox}
+		\caption{\dcp}
+	\end{subfigure}	
+	\\
+	\centering
+	\begin{subfigure}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\textwidth, center}
+			\input{files/figures/protodune_calibration/fluctuationsDiffDmsq32}
+		\end{adjustbox}
+		\caption{\deltami{32}}
+		\label{fig:paramComp5pc:dmsq32}
+	\end{subfigure}
+	\caption[Difference between true and best fit oscillation parameters, with and without a lifetime bias.]{Difference between true and best fit oscillation parameters, with and without a lifetime bias. The distributions for \deltami{32} are each fitted with a Gaussian.}
+	\label{fig:paramComp5pc}
+\end{figure}
+
+For most of the chosen oscillation parameters we find that there is no observable difference in the parameter resolution or bias between the unbiased sample and the sample with the lifetime bias introduced.
+However, \citefig{fig:paramComp5pc:dmsq32} shows that the addition of the lifetime bias causes a bias to appear in the measured value of \deltami{32}. 
+However, this bias is very small, increasing from $(-1.6 \pm 3.2) \times 10^{-7}~\si{\eV\squared}$ for the sample without a lifetime bias, to \SI{4.1(3)d-6}{\eV\squared} for the sample with the lifetime bias, a shift of roughly 0.2\%.
+
+%% Larger bias stuff goes here
