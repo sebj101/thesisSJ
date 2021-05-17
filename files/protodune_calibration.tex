@@ -447,9 +447,12 @@ Given that there is potentially no way to ascertain which of the lifetime values
 To assess the effect a bias in the electron lifetime could have on an oscillation analysis, the CAFAna framework is used together with simulated FD events.
 The particular form of the bias is derived from \citefig{fig:chargeEquivalent} and shifts the reconstructed energy of a particle of a species $\alpha$, $E_{\alpha,~\text{reco}}$, such that
 \begin{equation}
-	E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( 1 + 0.05 \left( \frac{ x_{\text{drift, max}} - \abs{V_{x}} }{ x_{\text{drift, max}} } \right) \right) \, ,
+	E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( 1 + b_{\text{max}} \left( \frac{ x_{\text{drift, max}} - \abs{V_{x}} }{ x_{\text{drift, max}} } \right) \right) \, ,
 \end{equation}
 where $E_{\alpha,~\text{reco}}$ and $E_{\alpha,~\text{reco}}'$ are the original and shifted particle energies respectively, $V_{x}$ is the true vertex position of the neutrino interaction and $x_{\text{drift, max}}$ is the maximum drift distance (\SI{360}{\cm}).
+$b_{\text{max}}$ is the maximum fractional change in particle energy and is derived from \citefig{fig:chargeEquivalent}, which shows that the typical energy scale mismeasurement is $\sim 5 \%$.
+Therefore $b_{\text{max}}$ is set to \num{0.05}.
+
 The particle types, $\alpha$, affected by this shift are charged and neutral hadrons, electrons and photons.
 These are all expected to be reconstructed using calorimetry in the DUNE FD.
 
@@ -538,7 +541,10 @@ This difference is explained by the fact that the lifetime bias does not affect 
 This indicates that some combination of both the systematics and oscillation variables is able to account for the introduced bias.
 
 %%% Stuff goes here for the 2D contour things %%%
-\citefig{fig:2dContoursHighStats} shows the effect this bias has on the measurement of oscillation parameters in a 2-dimensional space.
+\citefig{fig:2dContoursHighStats} shows the effect this bias has on the measurement of oscillation parameters in two 2-dimensional space. 
+Here, the chosen 2-dimensional spaces are \ssthetai{23} and \deltami{32} (\citefigL{fig:2dContoursHighStats}) and \ssthetai{23} and \dcp (\citefigR{fig:2dContoursHighStats}).
+In both cases, one can see that, when the electron lifetime bias is introduced, the contours increase in size and move from their original positions.
+This increase in the size of the contours indicates a reduction in the sensitivity of the experiment.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -552,9 +558,12 @@ This indicates that some combination of both the systematics and oscillation var
 			\input{files/figures/protodune_calibration/ssTh23VsDelta}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[2D contours showing the effect of an electron lifetime bias on the measurement of neutrino oscillation parameters]{Two dimensional contours showing the effect of a bias in the electron lifetime on DUNE's ability to measure selected neutrino oscillation parameters. Left: $\sin^{2}\thetai{23}$ and \deltami{32}. Right: $\sin^{2}\thetai{23}$ and \dcp. }
+	\caption[2D contours showing the effect of an electron lifetime bias on the measurement of neutrino oscillation parameters]{Two dimensional contours showing the effect of a bias in the electron lifetime on DUNE's ability to measure selected neutrino oscillation parameters. Contours with the electron lifetime bias are shown in red while those without are shown in black. Both 68\% contours (dashed lines), 95\% contours (solid lines) and the best fit points are shown. Left: \ssthetai{23} and \deltami{32}. Right: \ssthetai{23} and \dcp. }
 	\label{fig:2dContoursHighStats}
 \end{figure}
+
+Furthermore, looking at \citefigR{fig:2dContoursHighStats}, one can see that when the lifetime bias is introduced the best fit point is shifted from the true value (black) to a different point.
+However, this shift is small: the value of \deltami{32} is only shifted from \SI{2.452d-3}{\eV\squared} to \SI{2.456d-3}{\eV\squared} (a difference of $\sim 0.2\%$) while the value of \ssthetai{23} is shifted from 0.5802 to 0.5808 (a change of $\sim 0.1\%$).
 
 \subsection{Evaluations with statistical fluctuations}
 \label{sec:pdune_calibration:osc:fluctuations}
@@ -635,3 +644,7 @@ However, \citefig{fig:paramComp5pc:dmsq32} shows that the addition of the lifeti
 However, this bias is very small, increasing from $(-1.6 \pm 3.2) \times 10^{-7}~\si{\eV\squared}$ for the sample without a lifetime bias, to \SI{4.1(3)d-6}{\eV\squared} for the sample with the lifetime bias, a shift of roughly 0.2\%.
 
 %% Larger bias stuff goes here
+The same test is repeated with a larger lifetime bias than that observed in ProtoDUNE-SP data. 
+In this case, $b_{\text{max}} = 0.15$.
+
+%% Now just 
