@@ -677,5 +677,24 @@ This is still small when compared to the expected resolution of \deltami{32}.
 	\label{fig:paramComp15pc:dmsq32}
 \end{figure}
 
+Thus, we can see that if DUNE is unable to calibrate its energy scale for calorimetrically reconstructed particle to better than 15\%, it will experience a degradation in its measurement of \dcp, leading to a an increase in the \dcp resolution of 14\%.
+
 \section{Conclusions}
 \label{sec:pdune_calibration:conclusions}
+
+In this chapter, multiple studies have been undertaken which evaluate possible electron lifetime measurement errors in the ProtoDUNE-SP detector.
+These studies show it is possible to extract a measurement of the electron lifetime at multiple different argon purities using cosmic rays which cross the anode and the cathode of a TPC.
+
+These electron lifetimes are compared with those extracted by a liquid argon purity monitor located within the cryostat.
+From the discrepancies between these two measurements, an energy scale error is estimated for those particles reconstructed calorimetrically.
+The maximum energy scale error (which occurs at the cathode of the TPC) is between $\sim 1\%$ and $\sim 8\%$ depending on the data run.
+
+This error is then propagated to DUNE FD simulation as an energy scale bias (initially a maximum error of 5\% is chosen) in order to evaluate the effect on DUNE's measurement of neutrino oscillation parameters.
+We find that this energy scale bias has a minimal effect on the measured oscillation parameters, other than biasing the measured value of \deltami{32} by 0.2\%.
+
+The procedure is repeated with a maximum energy scale bias of 15\%. 
+In this case, we find that the resolution of \dcp is increased by 14\% from its unbiased value.
+Additionally, the bias in the measured value of \deltami{32} is increased to 0.6\%.
+
+Therefore, one can make estimates of the required calibration scale required in the DUNE FD in order to meet its physics goals.
+In particular, it is observed that a large energy scale error will lead to a significant deterioration in DUNE's ability to precisely measure \dcp.
