@@ -36,3 +36,29 @@ One can see that, at nearly all energies, hadron production uncertainties are la
 
 \subsection{Detector}
 \label{sec:dune_lbl:systs:det}
+
+Detector systematics in the DUNE long baseline analysis primarily take the form of bin-to-bin shifts, rather than the weights typically used for the flux and cross-section systematics.
+For various particle types there exist multi-parameter energy scale shifts of the form
+\begin{equation}
+E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_{\alpha,~\text{reco}}} + \frac{p_{2}}{\sqrt{E_{\alpha,~\text{reco}}}} \right)	
+\end{equation}
+where the $p_{n}$ are allowed to vary in any fits.
+\citetab{tab:energyScaleParams} shows the $1\sigma$ values of the $p_{n}$ for each of the particle types.
+
+\begin{table}
+	\caption[$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis]{$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis. The muon curvature uncertainty only applies to those muons in the near detector which pass into the magnetised section of the detector.}
+	\begin{tabular}{c c c c}
+		\hline
+		\hline
+		Particle types & \multicolumn{3}{c}{$1\sigma$ variation} \\
+		& $p_{0}$ & $p_{1}$ & $p_{2}$ \\
+		\hline
+		All, except muons      & 2\%   & 1\%   & 2\%   \\
+		$\mu$ (range)          & 2\%   & 2\%   & 2\%   \\
+		$\mu$ (curvature)      & 1\%   & 1\%   & 1\%   \\
+		$p$, \pipm             & 5\%   & 5\%   & 5\%   \\
+		$e$, $\gamma$, \pizero & 2.5\% & 2.5\% & 2.5\% \\
+		$n$                    & 20\%  & 30\%  & 30\% \\
+		\hline
+	\end{tabular}
+\end{table}
