@@ -40,13 +40,17 @@ One can see that, at nearly all energies, hadron production uncertainties are la
 Detector systematics in the DUNE long baseline analysis primarily take the form of bin-to-bin shifts, rather than the weights typically used for the flux and cross-section systematics.
 For various particle types there exist multi-parameter energy scale shifts of the form
 \begin{equation}
-E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_{\alpha,~\text{reco}}} + \frac{p_{2}}{\sqrt{E_{\alpha,~\text{reco}}}} \right)	
+E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_{\alpha,~\text{reco}}} + \frac{p_{2}}{\sqrt{E_{\alpha,~\text{reco}}+0.1}} \right) \, ,
+\label{eq:energyResponse}	
 \end{equation}
 where the $p_{n}$ are allowed to vary in any fits.
 \citetab{tab:energyScaleParams} shows the $1\sigma$ values of the $p_{n}$ for each of the particle types.
+All of these uncertainties are treated as uncorrelated between the near and far detectors.
 
 \begin{table}
 	\caption[$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis]{$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis. The muon curvature uncertainty only applies to those muons in the near detector which pass into the magnetised section of the detector.}
+	\label{tab:energyScaleParams}
+	\centering
 	\begin{tabular}{c c c c}
 		\hline
 		\hline
@@ -62,3 +66,20 @@ where the $p_{n}$ are allowed to vary in any fits.
 		\hline
 	\end{tabular}
 \end{table}
+
+\citefig{fig:protonEScale} shows 10 possible realisations of the proton energy response.
+To produce each of these response functions, the $p_{n}$ are each independently thrown according to a Gaussian distribution with the appropriate width from \citetab{tab:energyScaleParams}.
+One can see that between the different throws there are significant differences in both the magnitude and shape of response function between different throws.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\textwidth, center}
+		\input{files/figures/dune_lbl/energyResponse}
+	\end{adjustbox}
+	\caption[Example proton energy responses as a function of proton energy.]{Example proton energy responses as a function of proton energy. The functions are derived from \citeeq{eq:energyResponse} with Gaussian throws for $p_{0}$, $p_{1}$ and $p_{2}$.}
+	\label{fig:protonEScale}
+\end{figure}
+
+Additionally, a 2\% uncertainty is assigned to the the resolution of each of muon, charged hadrons, electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
+
+There are however, some detector systematics which are implemented as weights. 
+Notably a normalisation uncertainty of 1\% is applied to both \numu and \nue events.
