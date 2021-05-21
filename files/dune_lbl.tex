@@ -34,10 +34,13 @@ One can see that, at nearly all energies, hadron production uncertainties are la
 \subsection{Neutrino interaction (cross-section)}
 \label{sec:dune_lbl:systs:xsec}
 
+Uncertainties in the neutrino interaction model come from a variety of sources. 
+The primary model used in the DUNE long-baseline analysis 
+
 \subsection{Detector}
 \label{sec:dune_lbl:systs:det}
 
-Detector systematics in the DUNE long baseline analysis primarily take the form of bin-to-bin shifts, rather than the weights typically used for the flux and cross-section systematics.
+Detector systematics in the DUNE long-baseline analysis primarily take the form of bin-to-bin shifts, rather than the weights typically used for the flux and cross-section systematics.
 For various particle types there exist multi-parameter energy scale shifts of the form
 \begin{equation}
 E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_{\alpha,~\text{reco}}} + \frac{p_{2}}{\sqrt{E_{\alpha,~\text{reco}}+0.1}} \right) \, ,
@@ -46,6 +49,9 @@ E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_
 where the $p_{n}$ are allowed to vary in any fits.
 \citetab{tab:energyScaleParams} shows the $1\sigma$ values of the $p_{n}$ for each of the particle types.
 All of these uncertainties are treated as uncorrelated between the near and far detectors.
+
+The values of the $p_{0}$ (the absolute scale factors) are motivated by those values achieved in current long baseline neutrino experiments which use similar reconstruction techniques.
+For example, the NOvA experiment quotes an absolute muon energy scale of $<1\%$ and a proton energy scale of 5\%~\cite{nova2018}.
 
 \begin{table}
 	\caption[$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis]{$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis. The muon curvature uncertainty only applies to those muons in the near detector which pass into the magnetised section of the detector.}
@@ -83,3 +89,32 @@ Additionally, a 2\% uncertainty is assigned to the the resolution of each of muo
 
 There are however, some detector systematics which are implemented as weights. 
 Notably a normalisation uncertainty of 1\% is applied to both \numu and \nue events.
+
+Furthermore, systematic uncertainties for the near detector acceptance are devised based upon simulation.
+The acceptance of the DUNE ND is quite different to that of the FD due to the vastly different dimensions of the two detectors
+The muon acceptance of the DUNE near detector as a function of muon transverse and longitudinal momentum is shown in \citefigL{fig:ndAcceptance}. 
+Muons are considered to be accepted if they either stop within ND-LAr or if they exit ND-LAr and pass into ND-GAr where their momentum may be measured from track curvature.
+Those muons which exit ND-LAr without passing into ND-GAr are not accepted.
+
+Neutrino events are rejected where they produce deposits of more than \SI{30}{\MeV} in the veto region of ND-LAr.
+This veto region is defined as the outer \SI{30}{\cm} of the active region on all sides.
+The resulting hadronic acceptance is shown in \citefigR{fig:ndAcceptance}.
+One can see that the acceptance declines sharply as hadronic energy increases.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/muonAcc}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\textwidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/hadAcc}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[Muonic and hadronic acceptance for CC neutrino interactions in ND-LAr]{Left: Muonic acceptance for CC muon neutrino interactions in ND-LAr as a function of transverse and longitudinal muon momentum. Right: Hadronic acceptance for CC muon neutrino interactions in ND-LAr as a function of true hadronic energy. Both from~\cite{Abi:2020qib}.}
+	\label{fig:ndAcceptance}
+\end{figure}
+
+The uncertainty on the muon and hadron acceptance is produced from the respective plots in \citefig{fig:ndAcceptance} with a higher uncertainty in regions where the acceptance is rapidly changing and thus vulnerable to mismodelling.
