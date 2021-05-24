@@ -34,8 +34,30 @@ One can see that, at nearly all energies, hadron production uncertainties are la
 \subsection{Neutrino interaction (cross-section)}
 \label{sec:dune_lbl:systs:xsec}
 
-Uncertainties in the neutrino interaction model come from a variety of sources. 
-The primary model used in the DUNE long-baseline analysis 
+%Uncertainties in the neutrino interaction model come from a variety of sources. 
+The primary model used in the DUNE long-baseline analysis is that provided by the chosen neutrino interaction generator, Generates Events for Neutrino Interaction Experiments (GENIE)~\cite{genie}.
+The version of GENIE used in the DUNE long-baseline analysis is v2.12.0~\cite{tdrVol2}.
+
+The interaction model takes a neutrino flux and provides a spectrum of final states produced by said neutrinos interacting with the target medium.
+For the most part, these interactions are modelled as factorising the interaction into three parts: an initial nuclear state, the neutrino interaction with a nucleon and the propagation of final state particles through the nucleus.
+
+%% Might need to move section on neutrino nucleus interactions to here
+
+The systematic uncertainties used in this analysis relate to all three elements of this modelling picture amongst other categories.
+The interaction model systematics can be divided into categories covering each of the following areas~\cite{tdrVol2}: 
+\begin{itemize}
+	\item Initial nuclear state
+	\item Quasielastic processes
+	\item Multinucleon (2p2h) processes
+	\item Pion production processes
+	\item High $W$ processes and neutral current processes
+	\item Final state interactions
+	\item Neutrino flavour dependent uncertainties
+\end{itemize}
+
+Many of the systematic uncertainties are included as standard in GENIE, while others are developed specifically for the DUNE long-baseline analysis.
+These uncertainties take the form of either continuous weights or discrete model comparisons.
+These uncertainties are derived from a variety of sources, including freedoms in theoretical models, current experimental measurements and observed discrepancies between models and experiments.
 
 \subsection{Detector}
 \label{sec:dune_lbl:systs:det}
@@ -118,3 +140,28 @@ One can see that the acceptance declines sharply as hadronic energy increases.
 \end{figure}
 
 The uncertainty on the muon and hadron acceptance is produced from the respective plots in \citefig{fig:ndAcceptance} with a higher uncertainty in regions where the acceptance is rapidly changing and thus vulnerable to mismodelling.
+
+Unlike their FD counterparts, the ND detector parameters are not allowed to vary in the fit.
+Instead, they are incorporated into a covariance matrix.
+This covariance matrix is formed by throwing all ND detector uncertainties simultaneously according to their documented uncertainties and comparing the resulting spectra with the nominal prediction.
+The bin-to-bin covariance is then determined using these comparisons.
+This method protects against over-constraining of ND parameters due to the limitations of the simplified ND reconstruction.
+
+\section{Effects on DUNE sensitivites}
+\label{sec:dune_lbl:sensitivities}
+
+\citefig{fig:systConstraints} shows the systematics used in the DUNE long-baseline analysis.
+For each parameter, the ratio of the post-fit to pre-fit uncertainties is shown.
+The constraints with just the FD are shown in red, while the green lines show the combined near and far detector constraints.
+One can see that, as expected, the FD detector parameters are not significantly more constrained with the addition of the ND samples. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.7\linewidth]{files/figures/dune_lbl/constraintsWithLines}
+	\caption[DUNE systematic constraints with and without a near detector constraint]{Ratio of post-fit to pre-fit systematic constraints for a 15 year staged exposure. The constraints with (green) and without a ND constraint (red) are shown. The systematics are separated by category. Taken from~\cite{Abi:2020qib}.}
+	\label{fig:systConstraints}
+\end{figure}
+
+There is also significant variation in the level at which various cross-section parameters are constrained. 
+For the most part, these parameters are not well constrained by the FD only, showing the utility of the ND.
+Similarly, the flux parameters become significantly more constrained with the addition of the ND.
