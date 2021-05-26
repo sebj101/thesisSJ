@@ -186,6 +186,21 @@ The width and central values of these penalty terms are taken from the NuFit 4.0
 A penalty term on \thetai{13} may also be included.
 DUNE will eventually be able to constrain \thetai{13} with a similar precision to existing reactor experiments. 
 However, this is expected to take around 15 years of running~\cite{tdrVol2}.
+The other oscillation parameters, \ssthetai{23}, \deltami{32} and \dcp are allowed to vary freely.
+
+The compatibility of a particular set of near and far detector data with a given set of oscillation parameters and nuisance parameter values is evaluated using a negative log-likelihood ratio.
+In the high statistics limit, this log-likelihood ratio converges to a $\chi^{2}$~\cite{pdg2018}.
+The expression for this $\chi^{2}$ for a given set of oscillation parameters, $\bm{\theta}$, and nuisance parameters, $\vb{x}$ is given by
+\begin{align}
+	\chi^{2} \left( \bm{\theta}, \vb{x} \right) &= -2 \log \mathcal{L} \left( \bm{\theta}, \vb{x} \right) \\
+	&= 2 \sum_{i}^{N_{\text{bins}}} \left[ M_{i} (\bm{\theta}, \vb{x}) - D_{i} + D_{i} \ln \left( \frac{D_{i}}{M_{i}(\bm{\theta}, \vb{x})} \right) \right] + \sum_{j}^{N_{\text{systs}}} \left[ \frac{\Delta x_{j}}{\sigma_{j}} \right]^{2} \\
+	&+ \sum_{k}^{N^{\text{ND}}_{\text{bins}}} \sum_{l}^{ N_{\text{bins}}^{\text{ND}} } \left(  M_{k} (\vb{x}) - D_{k} \right) V_{kl}^{-1} \left( M_{l}(\vb{x}) - D_{l} \right) \, ,
+\end{align}
+where $D_{i}$ and $M_{i}(\bm{\theta}, \vb{x})$ are the fake data and Monte Carlo expectation for a given set of $\bm{\theta}$ and $\vb{x}$ for the $i$th bin respectively. 
+$V_{kl}$ is the ND covariance matrix mentioned in \citesec{sec:dune_lbl:systs:det}.
+$\Delta x_{j}$ is the difference between the nominal and current value of the $j$th nuisance parameter and $\sigma_{j}$ is the prior uncertainty on said parameter
+
+\subsection{Constraints on systematic parameters}
 
 \citefig{fig:systConstraints} shows the systematics used in the DUNE long-baseline analysis.
 For each parameter, the ratio of the post-fit to pre-fit uncertainties is shown.
@@ -205,6 +220,8 @@ Similarly, the flux parameters become significantly more constrained with the ad
 
 \subsection{Mass hierarchy}
 \label{sec:dune_lbl:sensitivities:mh}
+
+DUNE's sensitivity to the neutrino mass hierarchy is measured 
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
