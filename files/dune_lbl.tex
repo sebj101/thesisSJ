@@ -157,7 +157,7 @@ One can see that, as expected, the FD detector parameters are not significantly 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.7\linewidth]{files/figures/dune_lbl/constraintsWithLines}
+	\includegraphics[width=.8\linewidth]{files/figures/dune_lbl/constraintsWithLines}
 	\caption[DUNE systematic constraints with and without a near detector constraint]{Ratio of post-fit to pre-fit systematic constraints for a 15 year staged exposure. The constraints with (green) and without a ND constraint (red) are shown. The systematics are separated by category. Taken from~\cite{Abi:2020qib}.}
 	\label{fig:systConstraints}
 \end{figure}
@@ -165,3 +165,42 @@ One can see that, as expected, the FD detector parameters are not significantly 
 There is also significant variation in the level at which various cross-section parameters are constrained. 
 For the most part, these parameters are not well constrained by the FD only, showing the utility of the ND.
 Similarly, the flux parameters become significantly more constrained with the addition of the ND.
+
+\subsection{Mass hierarchy}
+\label{sec:dune_lbl:sensitivities:mh}
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/mh_sens_nh}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/mh_sens_ih}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[DUNE sensitivity to the neutrino mass hierarchy as a function of true \dcp.]{DUNE sensitivities to the neutrino mass hierarchy as a function of true \dcp for a 7 year staged exposure. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used.}
+	\label{fig:mhSens}
+\end{figure}
+
+\subsection{Charge-parity symmetry violation}
+\label{sec:dune_lbl:sensitivities:cpv}
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/cpv_sens_nh}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/cpv_sens_ih}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp.]{DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used.}
+	\label{fig:cpvSens}
+\end{figure}
+
