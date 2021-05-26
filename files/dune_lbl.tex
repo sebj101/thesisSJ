@@ -198,7 +198,13 @@ The expression for this $\chi^{2}$ for a given set of oscillation parameters, $\
 \end{align}
 where $D_{i}$ and $M_{i}(\bm{\theta}, \vb{x})$ are the fake data and Monte Carlo expectation for a given set of $\bm{\theta}$ and $\vb{x}$ for the $i$th bin respectively. 
 $V_{kl}$ is the ND covariance matrix mentioned in \citesec{sec:dune_lbl:systs:det}.
-$\Delta x_{j}$ is the difference between the nominal and current value of the $j$th nuisance parameter and $\sigma_{j}$ is the prior uncertainty on said parameter
+$\Delta x_{j}$ is the difference between the nominal and current value of the $j$th nuisance parameter and $\sigma_{j}$ is the prior uncertainty on said parameter.
+The best fit values for the $\bm{\theta}$ and $\vb{x}$ occur at the minimum value of $\chi^{2}$.
+
+In order to avoid reporting a false minimum $\chi^{2}$ as the true one, each fit is repeated at multiple sets of oscillation parameters. 
+The values of \dcp tested are $-\pi$, $-\pi/2$, 0 and $\pi/2$. 
+Additionally, both neutrino mass hierarchies are tested along with both octants of \thetai{23}.
+From these, the fit which provides the lowest \chisquare is selected as the best fit point.
 
 \subsection{Constraints on systematic parameters}
 
