@@ -206,6 +206,8 @@ The values of \dcp tested are $-\pi$, $-\pi/2$, 0 and $\pi/2$.
 Additionally, both neutrino mass hierarchies are tested along with both octants of \thetai{23}.
 From these, the fit which provides the lowest \chisquare is selected as the best fit point.
 
+%% Something about Asimovs
+
 \subsection{Constraints on systematic parameters}
 
 \citefig{fig:systConstraints} shows the systematics used in the DUNE long-baseline analysis.
@@ -227,7 +229,13 @@ Similarly, the flux parameters become significantly more constrained with the ad
 \subsection{Mass hierarchy}
 \label{sec:dune_lbl:sensitivities:mh}
 
-DUNE's sensitivity to the neutrino mass hierarchy is measured 
+DUNE's sensitivity to the neutrino mass hierarchy is measured using the statistic $\Delta \chisquare = \chi^{2}_{\text{B}} - \chi^{2}_{\text{A}}$, where $A$ and $B$ are two possible hypotheses.
+This provides a measure of how well the data can exclude hypothesis $B$ in favour of $A$.
+In the case of the neutrino mass hierarchy, the relevant question is to what level DUNE can exclude the inverted hierarchy in favour of the normal hierarchy (in the case of true normal hierarchy), $\chi^{2}_{\text{IH}} - \chi^{2}_{\text{NH}}$, and vice versa if the hierarchy is truly inverted.
+
+This is verified for various true values of \dcp, for both hierarchies in \citefig{fig:mhSens}.
+For each \dcp point $\Delta \chisquare$ is calculated by first calculating $\chi^{2}_{\text{true}}$ (where this can be either the normal or inverted hierarchy) and then calculating the \chisquare value for the same value of \dcp but with the hierarchy fixed to the incorrect value.
+The square root of $\Delta \chisquare$ is then taken to provide a crude significance.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -237,8 +245,17 @@ DUNE's sensitivity to the neutrino mass hierarchy is measured
 	\label{fig:mhSens}
 \end{figure}
 
+\citefig{fig:mhSens} shows the results of this in the statistics only case (for 7 years of staged running), with just the detector systematics and with all the systematics included.
+It is immediately apparent that DUNE will be highly sensitive to the neutrino mass hierarchy, surpassing the common particle physics threshold of $\sqrt{\Delta \chisquare} = 5$ at all values of \dcp and for both true hierarchies.
+One can see that the addition of detector systematics reduces the sensitivity somewhat, with remaining systematics reducing it further.
+However, it is clear that, even with a fairly substantial increase in systematic uncertainties, DUNE will still be able to quickly resolve the neutrino mass hierarchy.
+
 \subsection{Charge-parity symmetry violation}
 \label{sec:dune_lbl:sensitivities:cpv}
+
+In a similar manner to the mass hierarchy, DUNE's sensitivity to CP-violation in the lepton sector is calculated using the likelihood ratio, $\Delta \chisquare$.
+In this case DUNE is attempting to exclude the models where $\dcp = 0,~\pi$ (CP-conserving values of \dcp).
+Therefore, $\Delta \chisquare = \chi^{2}_{\dcp=0,\pi} - \chi^{2}_{\text{CPV}}$.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
