@@ -147,8 +147,45 @@ This covariance matrix is formed by throwing all ND detector uncertainties simul
 The bin-to-bin covariance is then determined using these comparisons.
 This method protects against over-constraining of ND parameters due to the limitations of the simplified ND reconstruction.
 
-\section{Effects on DUNE sensitivites}
+\section{DUNE sensitivites}
 \label{sec:dune_lbl:sensitivities}
+
+\subsection{General sensitivity methods}
+\label{sec:dune_lbl:sensitivities:general}
+
+DUNE's oscillation sensitivities are computed using the CAFAna package.
+%% Move CAFAna stuff here I think
+
+The oscillation sensitivities are computed by simultaneously fitting the oscillation parameters and nuisance parameters to four FD spectra (\numu disappearance, \anumu disappearance, \nue appearance and \anue appearance) and the nuisance parameters to the two ND spectra (\numu unoscillated and \anumu unoscillated).
+Examples of the four FD spectra are shown in \citefig{fig:fdEventRates}.
+The two ND samples are two dimensional, binned in reconstructed neutrino energy and reconstructed inelasticity, $y_{\text{reco}}$, where
+\begin{equation}
+	y_{\text{reco}} = 1 - \frac{E_{\mu,~\text{reco}}}{E_{\nu,~\text{reco}}} \, ,
+\end{equation}
+where $E_{\mu,~\text{reco}}$ and $E_{\nu,~\text{reco}}$ are the reconstructed muon and neutrino energies respectively.
+These two-dimensional samples are shown in \citefig{fig:ndEventRates}.
+
+\begin{figure}[h]
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/h2NDNumuFHC}
+		\end{adjustbox}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_lbl/h2NDNumuRHC}
+		\end{adjustbox}
+	\end{minipage}
+	\caption[Two-dimensional DUNE ND event rates used in the long-baseline analysis]{Two-dimensional DUNE ND event rates used in the long-baseline analysis. Left: Sample with the beam in neutrino mode. Right: Sample with the beam in antineutrino mode.}
+	\label{fig:ndEventRates}
+\end{figure}
+
+In these fits Gaussian penalty terms on \thetai{12}, \deltami{21} and $\rho$ are applied (since DUNE will not be able to constrain these parameters).
+The width and central values of these penalty terms are taken from the NuFit 4.0 global fit~\cite{nufit4}.
+A penalty term on \thetai{13} may also be included.
+DUNE will eventually be able to constrain \thetai{13} with a similar precision to existing reactor experiments. 
+However, this is expected to take around 15 years of running~\cite{tdrVol2}.
 
 \citefig{fig:systConstraints} shows the systematics used in the DUNE long-baseline analysis.
 For each parameter, the ratio of the post-fit to pre-fit uncertainties is shown.
