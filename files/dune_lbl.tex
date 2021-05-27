@@ -18,7 +18,7 @@ Finally, \citesec{sec:dune_lbl:systs:det} outlines the systematic uncertainties 
 
 Uncertainties in the neutrino beam flux primarily arise from two sources: uncertainties in the production of hadrons by protons striking the beam target and uncertainties in the design parameters of the beam such as the horn currents or positioning (commonly referred to as the ``focussing uncertainties''.
 
-The focussing uncertainties are evaluated by varying the beamline parameters within their tolerances and observing the resulting changes in the neutrino fluxes.
+The focussing uncertainties are evaluated by varying the beam line parameters within their tolerances and observing the resulting changes in the neutrino fluxes.
 Hadron production uncertainties are estimated using uncertainties from thin target data experiments such as NA49~\cite{na49} with large uncertainties assigned to those interactions that are not covered by data.
 
 \citefig{fig:fluxUncertainties} shows these uncertainties as a function of neutrino energy for the \numu and \anumu fluxes in both neutrino and antineutrino mode.
@@ -30,6 +30,13 @@ One can see that, at nearly all energies, hadron production uncertainties are la
   \caption[Far detector flux uncertainties for \numu and \anumu]{Far detector \numu and \anumu flux uncertainties as a function of neutrino energy, from~\cite{tdrVol2}. The uncertainties are separated into those resulting from hadron production and those resulting from the focussing uncertainties.}
   \label{fig:fluxUncertainties}
 \end{figure}
+
+The flux uncertainties are evaluated by running many simulations of the variations mentioned above and then using this information to build a covariance matrix.
+This matrix is binned in neutrino energy and flavour.
+The matrix is then diagonalised to give the various principal components, along with their eigenvalues.
+The largest 30 of these principal components (when ordered by the size of their eigenvalues) are used as the flux systematic uncertainties.
+Further details are available in Ref.~\cite{duneFluxUncertainties}.
+
 
 \subsection{Neutrino interaction (cross-section)}
 \label{sec:dune_lbl:systs:xsec}
@@ -207,6 +214,8 @@ Additionally, both neutrino mass hierarchies are tested along with both octants 
 From these, the fit which provides the lowest \chisquare is selected as the best fit point.
 
 %% Something about Asimovs
+The fits utilised in this chapter are all Asimov studies~\cite{asimov}.
+In these fits, the fake dataset is the same as the nominal Monte Carlo up to some scaling exposure and there are no throws of oscillation parameters, the systematic parameters or the bin statistics.
 
 \subsection{Constraints on systematic parameters}
 
@@ -253,6 +262,9 @@ However, it is clear that, even with a fairly substantial increase in systematic
 \citefig{fig:mhSensExp} illustrates just how quickly DUNE will be able to resolve the mass hierarchy.
 \citefig{fig:mhSensExp} shows the value of $\sqrt{\Delta\chisquare}$ in the case of true normal neutrino mass hierarchy and $\dcpTrue = \pi/2$ as a function of far detector exposure. 
 Looking at \citefig{fig:mhSens}, one can see that this is the point at which DUNE is least sensitive and thus a worst-case scenario for DUNE to make this measurement.
+Regardless of the choice of \dcp therefore, one can see that DUNE would pass the $\sqrt{\Delta\chisquare}=3$ threshold after an exposure of roughly \SI{22}{\kilo\tonne\mega\watt\year}.
+Similarly, the $\sqrt{\Delta\chisquare}=5$ threshold is passed after an exposure of roughly \SI{78}{\kilo\tonne\mega\watt\year}.
+Given that the full DUNE FD is expected to have a fiducial mass of \SI{40}{\kilo\tonne} and an initial beam power of \SI{1.2}{\mega\watt}, the required exposure for definitive discovery of the mass hierachy could be accumulated in less than 2 years.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -261,6 +273,8 @@ Looking at \citefig{fig:mhSens}, one can see that this is the point at which DUN
 	\caption[DUNE's sensitivity to the neutrino mass hierarchy as a function of exposure]{DUNE's sensitivity to the neutrino mass hierarchy as a function of exposure in the case of true normal hierarchy and $\dcp=\pi/2$.}
 	\label{fig:mhSensExp}
 \end{figure}
+
+One can also see that the addition of the systematics does little here to reduce DUNE's sensitivity to the mass ordering.
 
 \subsection{Charge-parity symmetry violation}
 \label{sec:dune_lbl:sensitivities:cpv}
