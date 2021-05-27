@@ -250,12 +250,32 @@ It is immediately apparent that DUNE will be highly sensitive to the neutrino ma
 One can see that the addition of detector systematics reduces the sensitivity somewhat, with remaining systematics reducing it further.
 However, it is clear that, even with a fairly substantial increase in systematic uncertainties, DUNE will still be able to quickly resolve the neutrino mass hierarchy.
 
+\citefig{fig:mhSensExp} illustrates just how quickly DUNE will be able to resolve the mass hierarchy.
+\citefig{fig:mhSensExp} shows the value of $\sqrt{\Delta\chisquare}$ in the case of true normal neutrino mass hierarchy and $\dcpTrue = \pi/2$ as a function of far detector exposure. 
+Looking at \citefig{fig:mhSens}, one can see that this is the point at which DUNE is least sensitive and thus a worst-case scenario for DUNE to make this measurement.
+
+\begin{figure}[h]
+	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+		\input{files/figures/dune_lbl/mh_sens_exp_nh}
+	\end{adjustbox}
+	\caption[DUNE's sensitivity to the neutrino mass hierarchy as a function of exposure]{DUNE's sensitivity to the neutrino mass hierarchy as a function of exposure in the case of true normal hierarchy and $\dcp=\pi/2$.}
+	\label{fig:mhSensExp}
+\end{figure}
+
 \subsection{Charge-parity symmetry violation}
 \label{sec:dune_lbl:sensitivities:cpv}
 
 In a similar manner to the mass hierarchy, DUNE's sensitivity to CP-violation in the lepton sector is calculated using the likelihood ratio, $\Delta \chisquare$.
 In this case DUNE is attempting to exclude the models where $\dcp = 0,~\pi$ (CP-conserving values of \dcp).
-Therefore, $\Delta \chisquare = \chi^{2}_{\dcp=0,\pi} - \chi^{2}_{\text{CPV}}$.
+Therefore, $\Delta \chisquare = \chi^{2}_{\dcp=0,\pi} - \chi^{2}_{\text{CPV}}$, where $\chi^{2}_{\text{CPV}}$ is the \chisquare value at the \dcp point tested and $\Delta \chisquare_{\dcp=0,\pi} = \min(\Delta \chisquare_{\dcp=0},~\Delta \chisquare_{\dcp=\pi})$.
+$\Delta \chisquare_{\dcp=0}$ is evaluated by taking as the Monte Carlo expectation the same oscillation and nuisance parameters as the data but with \dcp fixed at 0.
+A similar procedure is used to evaluate $\Delta \chisquare_{\dcp=\pi}$.
+One can see that this distribution will necessarily be constrained to fall to $\Delta \chisquare = 0$ at CP conserving values of \dcp.
+
+\citefig{fig:cpvSens} shows the resulting CPV sensitivity as a function of true \dcp.
+Here, once again, the square root of $\Delta\chisquare$ has been taken in order to calculate a significance.
+\citefigL{fig:cpvSens}, shows the CPV sensitivity in the case of a true normal neutrino mass hierarchy while \citefigR{fig:cpvSens} shows the same distribution in the case of a true inverted mass hierarchy.
+The double-humped structure visible in both \citefig{fig:cpvSens} left and right, is a result of the aforementioned constraint on $\Delta\chisquare$ at CP conserving values.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -269,7 +289,16 @@ Therefore, $\Delta \chisquare = \chi^{2}_{\dcp=0,\pi} - \chi^{2}_{\text{CPV}}$.
 			\input{files/figures/dune_lbl/cpv_sens_ih}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp.]{DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used.}
+	\caption[DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp.]{DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp for 7 years of staged running. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Left: True normal neutrino mass hierarchy. Right: True inverted mass hierarchy.}
 	\label{fig:cpvSens}
 \end{figure}
 
+Looking at \citefig{fig:cpvSens}, one can see that DUNE's sensitivity is slightly better in the case that the true neutrino mass hierarchy is inverted rather than normal.
+In the case of the inverted hierarchy, after 7 years of running DUNE will have the potential to discover CPV if the true value of \dcp is near $-\pi/2$ or $\pi/2$ even with all systematics.
+However, if the mass hierarchy is normal then DUNE's CPV discovery potential is lower. 
+Under this 7 year running plan, DUNE will not reach the crucial $5\sigma$ discovery level when systematics are included. 
+However, DUNE will still exceed the $3\sigma$ threshold for many values of \dcp will the suite of systematics.
+
+One interesting point that is observable in \citefig{fig:cpvSens} is that that most of the decrease in sensitivity from the statistics only case occurs when only including the detector systematics.
+Although there is a decrease from the red to the blue line upon the inclusion of the flux and cross-section systematics, it is much less substantial than the drop in sensitivity upon the inclusion of just the detector systematics.
+It can therefore be assumed that in order for DUNE to reach its full potential, it will be very important to control the detector systematics.
