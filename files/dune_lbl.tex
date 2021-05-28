@@ -102,6 +102,9 @@ For example, the NOvA experiment quotes an absolute muon energy scale of $<1\%$ 
 	\end{tabular}
 \end{table}
 
+$p_{1}$ and $p_{2}$ provide freedom in the shape of the energy response as a function of energy.
+These coefficients are taken to be the same or similar to the size of $p_{0}$.
+
 \citefig{fig:protonEScale} shows 10 possible realisations of the proton energy response.
 To produce each of these response functions, the $p_{n}$ are each independently thrown according to a Gaussian distribution with the appropriate width from \citetab{tab:energyScaleParams}.
 One can see that between the different throws there are significant differences in both the magnitude and shape of response function between different throws.
@@ -115,6 +118,12 @@ One can see that between the different throws there are significant differences 
 \end{figure}
 
 Additionally, a 2\% uncertainty is assigned to the the resolution of each of muon, charged hadrons, electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
+
+These uncertainties on particle energy scales are expected to derive from a variety of sources.
+Some are inherent
+Errors in the detector calibration, such as a miscalculation of the electron lifetime will cause a bias in the energy scale of particles reconstructed using calorimetric methods.
+Distortions in the electric field which are unaccounted for will also lead to these issues. 
+They may also lead to errors in the reconstruction of track lengths, giving biased energy estimates for particles reconstructed from their range.
 
 There are however, some detector systematics which are implemented as weights. 
 Notably a normalisation uncertainty of 1\% is applied to both \numu and \nue events.
@@ -191,6 +200,7 @@ These two-dimensional samples are shown in \citefig{fig:ndEventRates}.
 In these fits Gaussian penalty terms on \thetai{12}, \deltami{21} and $\rho$ are applied (since DUNE will not be able to constrain these parameters).
 The width and central values of these penalty terms are taken from the NuFit 4.0 global fit~\cite{nufit4}.
 A penalty term on \thetai{13} may also be included.
+However in the studies included in this chapter, it is not.
 DUNE will eventually be able to constrain \thetai{13} with a similar precision to existing reactor experiments. 
 However, this is expected to take around 15 years of running~\cite{tdrVol2}.
 The other oscillation parameters, \ssthetai{23}, \deltami{32} and \dcp are allowed to vary freely.
