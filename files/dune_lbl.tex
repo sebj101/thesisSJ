@@ -9,7 +9,7 @@ Prior to any construction of the experiment, it is important to assess DUNE's ev
 In order to do this, sensitivity studies must be undertaken generated Monte Carlo fake data, which attempts to represent the data that DUNE is likely to gather during its operational phase.
 
 In order to properly assess these sensitivities, a set of systematic uncertainties is evaluated, covering all parts of the DUNE experiment.
-This chapter provides a brief description of these systematic uncertainties and their origins in \citesec{sec:dune_lbl_systs}.
+This chapter provides a brief description of these systematic uncertainties and their origins in \citesec{sec:dune_lbl:systs}.
 
 Following on from this, \citesec{sec:dune_lbl:sensitivities} provides a description of the methods used to extract DUNE's sensitivities.
 After this results are presented showing DUNE's sensitivity to both CPV in the lepton sector and the neutrino mass hierarchy.
@@ -175,11 +175,30 @@ This method protects against over-constraining of ND parameters due to the limit
 \section{DUNE sensitivites}
 \label{sec:dune_lbl:sensitivities}
 
+\subsection{CAFAna}
+\label{sec:dune_lbl:sensitivities:cafana}
+
+DUNE's oscillation sensitivities are computed using the CAFAna package, further details of which are given here.
+This framework derives its name from the input files which are known as Common Analysis Files (CAFs).
+These files typically contain higher level reconstructed variables typically used by analysers and consist of a \texttt{ROOT}~\cite{root} \texttt{TTree}, each entry of which represents a suspected neutrino interaction~\cite{backhouse2015}.
+
+CAFAna was originally developed for the NOvA oscillation analysis but has since been ported for use by both the DUNE and Short-Baseline Neutrino (SBN) collaborations~\cite{cafana}.
+Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
+
+Histograms can be easily plotted by specifying a dataset, variable (\texttt{Var}), selection (\texttt{Cut}) and binning (both constant and variable are supported). 
+\texttt{Var}s may be simply the quantities contain within the CAF \texttt{TTree} or may be constructed from combinations of these.
+Similarly, \texttt{Cut}s may be user defined and can be easily combined using the C++ logical operators.
+
+Additionally, CAFAna allows the effect of systematic variations on each output histogram to be viewed. 
+These systematics can take the form of either reweightings or bin-to-bin shifting of events and are implemented as 1D response functions for each analysis bin.
+
+In terms of CAFAna's fitting components, a frequentist approach is adopted with the minimisation being performed by the \texttt{MINUIT}~\cite{minuit} package.
+However, currently work is ongoing to expand CAFAna to allow Bayesian analyses.
+
+The entire framework is written in C++ and may be controlled by the user through \texttt{ROOT} macros.
+
 \subsection{General sensitivity methods}
 \label{sec:dune_lbl:sensitivities:general}
-
-DUNE's oscillation sensitivities are computed using the CAFAna package.
-%% Move CAFAna stuff here I think
 
 The oscillation sensitivities are computed by simultaneously fitting the oscillation parameters and nuisance parameters to four FD spectra (\numu disappearance, \anumu disappearance, \nue appearance and \anue appearance) and the nuisance parameters to the two ND spectra (\numu unoscillated and \anumu unoscillated).
 Examples of the four FD spectra are shown in \citefig{fig:fdEventRates}.
