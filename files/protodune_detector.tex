@@ -37,7 +37,6 @@ The detector is exposed to charged particles in the momentum range \SIrange{0.3}
 This will allow measurements of the detector response to these particles to be made.
 These measurements will inform future DUNE physics analyses.
 Furthermore, it will be possible to make cross-section measurements for these particles on liquid argon.
-
 These particles are derived from a tertiary beam which then passes through the H4-VLE beam line where the particles are momentum selected.
 This beam line contains a variety of instrumentation with which the particle species is determined.
 More details of the beam and beam line are given in \citesec{sec:protodune:beam}.
@@ -61,7 +60,7 @@ Further details are given in \citesec{sec:protodune:crt}.
 \section{Time Projection Chamber}
 \label{sec:protodune:tpc}
 
-As detailed above and in \citesec{sec:dune:fd:modules:singlephase} each DUNE time projection chamber is formed from a cathode and an anode, across which a voltage is applied.
+As detailed above and in \citesec{sec:dune:fd:modules:singlephase} each DUNE TPC is formed from a cathode and an anode, across which a voltage is applied.
 Similar to the plan for the DUNE FD single-phase modules, the cathode and anode are themselves made up of smaller units, the CPAs and APAs respectively.
 
 Each anode plane is formed from three APAs each of which consists of a steel frame to which 4 wire planes are attached.
@@ -119,7 +118,7 @@ The beam which is used in the ProtoDUNE-SP beam tests is originally derived from
 The secondary beam then impinges on a further target generating a tertiary, very low energy (VLE) beam with a momentum range of \SIrange{0.3}{7}{\GeV\per\clight}~\cite{protodunePerformance}.
 
 This beam then enters the H4-VLE beam line~\cite{h4vle} which momentum selects the particles and transports them to the detector.
-This beam line also contains instrumentation which allows for the momentum analysis and particle identification of the particles in the beam which is covered in further detail in~\cite{boothBeamLineInstr}.
+This beam line also contains instrumentation which allows for the momentum analysis and particle identification of the particles in the beam which is covered in further detail in Ref.~\cite{boothBeamLineInstr}.
 A schematic diagram of both the beam line instrumentation used in the H4 VLE beam line is shown in \citefig{fig:h4vleDiag}.
 
 \begin{figure}[h]
@@ -137,8 +136,8 @@ The momentum of particles is determined using the beam profile monitors.
 Together with the bending magnets, these can be used as a momentum spectrometer by measuring the deflection of particles travelling through the beam line.
 
 Additionally, two Cherenkov detectors are also used for particle type reconstruction.
-This is useful at momenta where the particle species cannot be determined due to the mass of the particle in question.
-These detectors consist of two roughly \SI{2}{\m} long $\text{CO}_{2}$ gas-filled volumes. Further details are available in~\cite{vleCherenkov}.
+This is useful at momenta where the particle species cannot be determined due to the similar masses of the particles in question.
+These detectors consist of two roughly \SI{2}{\m} long $\text{CO}_{2}$ gas-filled volumes. Further details are available in Ref.~\cite{vleCherenkov}.
 The gas in the upstream detector is held at a pressure of \SI{15}{\bar} while that in the downstream detector is held at a pressure of \SI{5}{\bar}.
 
 These two pressures ensure that the momentum threshold for the production of Cherenkov light is different between the two detectors and thus, at a given momentum, different particle species will produce Cherenkov light in each detector.
@@ -158,7 +157,7 @@ Upon reaching the detector, a `beam plug' ensures that the particles enter the T
 This inactive material would otherwise include not only the cryostat wall but also \SI{40}{\cm} of inactive liquid argon exterior to the TPC.
 
 This beam plug is located about half way up the detector and approximately \SI{30}{\cm} off-centre in the drift direction.
-It consists of a number of alternating stainless steel and fibreglass rings which together form a sealed cylinder with the ends capped with fibreglass place.
+It consists of a number of alternating stainless steel and fibreglass rings which together form a sealed cylinder with the ends capped with fibreglass plates.
 The cylinder extends from the cryostat until about \SI{5}{\cm} inside the field cage boundary.
 This cylinder is filled with nitrogen at a pressure of \SI{1.3}{\bar} which counters the pressure of the liquid argon without significantly increasing the probability of particle interaction~\cite{protodunePerformance}.
 
@@ -192,7 +191,7 @@ Each of these modules is integrated into an APA (locating the modules exterior t
 Within these space constraints there are three different designs of optical module~\cite{protoduneSP_tdr}.
 However, they all function on the same principle. 
 The argon scintillation light, which has a characteristic wavelength of \SI{128}{\nano\metre} is incident on some wavelength shifting material in the module.
-This has the effect of shifting the photon wavelengths to a region where they can be more easily detected by silicon photomultipliers (SiPMs). 
+This has the effect of shifting the photon wavelengths to a region where they can be more easily detected by SiPMs. 
 
 \section{Cosmic ray tagger}
 \label{sec:protodune:crt}
@@ -214,6 +213,6 @@ Light produced by the scintillator strips is read out by Hamamatsu M64 multi-ano
 	\label{fig:crtModules}
 \end{figure}
 
-This arrangement gives spatial coordinates in one dimension only, so two of modules are overlaid on another two modules, rotated by \ang{90}. 
+This arrangement gives spatial coordinates in one dimension only, so two sets of modules are overlaid on another two modules, rotated by \ang{90}. 
 In this manner, particles detected in two overlapping modules will have definite three dimensional hit positions (the third coordinate comes from the fixed position of the module).
 
