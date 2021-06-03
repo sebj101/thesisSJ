@@ -14,10 +14,9 @@ As a result, any observed changes in the energy deposition as a function of posi
 In particular, measured changes in the charge deposition as a function of drift distance can be used to measure the electron lifetime.
 
 This charge deposition per unit length is commonly termed \dqdx.
-Typically, this \dqdx is measured in detector units of ADC/cm where ADC is measure of the signal amplitude measured on a wire.
+Typically, this \dqdx is measured in detector units of \si{\ADC\per\cm} where ADC is measure of the signal amplitude measured on a wire.
 In order to convert this into an energy deposition per unit length, \dedx, further conversion factors are required.
 However, merely comparing \dqdx is sufficient to calculate electron lifetimes.
-
 This measurement is attempted and presented in this section.
 
 \subsection{Coordinate system}
@@ -64,7 +63,7 @@ Therefore, it is desirable to only select those particles that are not in this r
 Specifically, it is desirable to only select those particles in the minimum ionising region of the energy loss profile.
 
 \citefigL{fig:muonEDep}, shows the relationship between a muon's residual range and its average \dedx in liquid argon.
-The average energy loss is calculated here using the `Bethe' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a velocity $v$ such that $\beta = \frac{v}{c}$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
+The average energy loss is calculated here using the `Bethe' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a velocity $v$ such that $\beta = v / c$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
 \begin{equation}
 	\left< -\frac{dE}{dx} \right> = K z^{2} \rho \frac{Z}{A} \frac{1}{\beta^{2}} 
 	\left[ \frac{1}{2} \ln \frac{2m_{e}c^{2} \beta^{2} \gamma^{2} W_{\text{max}}}{I^{2}} - \beta^{2} - \frac{\delta (\beta \gamma)}{2} \right] \, .
@@ -270,7 +269,7 @@ However, no mention has been made of the corresponding ions produced by the same
 
 These positively charged ions will experience the same drift field as the ionisation electrons but will instead drift towards the cathode (rather than the anode).
 For a detector medium such as liquid argon, the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
-In fact, the ICARUS T600 collaboration reports an argon mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
+In fact, the ICARUS T600 collaboration reports an argon ion mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
 This slow drifting can lead to a build up of positive ions within the detector and distortions in the applied electric field. 
 An analysis of these effects is given in Ref.~\cite{spaceCharge2021}.
 
@@ -303,7 +302,7 @@ This effect and its corrections are detailed in \citesec{sec:pdune_calibration:l
 A variety of runs with different lifetimes (as measured by the purity monitors) are analysed.
 
 Graphs of the measured \dqdx peak positions against drift time are shown for each of the analysed runs in \citefig{fig:dqdxPeak1} and \citefig{fig:dqdxPeak2}.
-In both cases function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fitted to the data points. 
+In all cases, a function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fitted to the data points. 
 One can observe that the fit range is between \tdrift values of \SI{0.2}{\ms} and \SI{1.5}{\ms}.
 The choice is made to exclude lower values of \tdrift due to the low statistics in this region.
 
@@ -410,7 +409,7 @@ The lifetimes measured by the other two purity monitors are not displayed becaus
 
 One of the primary reasons to measure the electron lifetime accurately is so that accurate calorimetry may be used to measure the energy of certain particles.
 Particles such as muons, which usually do not scatter, typically have their energy measured from their range in the detector.
-However, charged particles which shower, such as photons and electrons and those particles which are more likely to scatter in the detector such as charged hadrons may have their energy measured by summing the collected ionisation charge they produce and translating this into an energy.
+However, particles which shower, such as photons and electrons and those particles which are more likely to scatter in the detector such as charged hadrons may have their energy measured by summing the collected ionisation charge they produce and translating this into an energy.
 
 Additionally, measurements of particle \dedx are frequently used to discriminate between different particle types, for example protons and pions.
 
@@ -568,7 +567,7 @@ However, this shift is small: the value of \deltami{32} is only shifted from \SI
 \subsection{Evaluations with statistical fluctuations}
 \label{sec:pdune_calibration:osc:fluctuations}
 
-In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \textbf{SOME NUMBER OF} FD-only fits are performed with and without the lifetime bias applied to the data.
+In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \num{6100} FD-only fits are performed with and without the lifetime bias applied to the data.
 In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 years POT.
 Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and $\rho$ are all thrown within limits. 
 These limits are shown in \citetab{tab:paramThrows}.
@@ -647,9 +646,9 @@ However, this bias is very small, increasing from $(-1.6 \pm 3.2) \times 10^{-7}
 
 %% Larger bias stuff goes here
 The same test is repeated with a larger lifetime bias than that observed in ProtoDUNE-SP data. 
-In this case, $b_{\text{max}} = 0.15$.
+In this case, \num{4550} FD-only fits were performed with $b_{\text{max}} = 0.15$.
 
-The resulting distributions of $\delta_{CP,~\text{fit}} - \delta_{CP,~\text{true}}$ are shown in \citefig{fig:paramComp15Pc:delta} along with fitted Gaussian distributions.
+The resulting distributions of $\delta_{CP,~\text{fit}} - \delta_{CP,~\text{true}}$ are shown in \citefig{fig:paramComp15pc:delta} along with fitted Gaussian distributions.
 The fit range of the Gaussian distributions is set to be between \num{-0.3} and \num{0.3}, due to the large tails of the distribution.
 Although the distributions for both the unbiased dataset and the dataset with $b_{\text{max}} = 0.15$ contain the same number of entries, it can be observed that the peak is lower for the biased dataset, with more fits lying outside of the central core.
 
@@ -663,6 +662,7 @@ Although the distributions for both the unbiased dataset and the dataset with $b
 
 Taking the value of $\sigma$ from each of the fitted Gaussian distributions shows the \dcp resolution increasing from $(0.140 \pm 0.002)\pi$ to $(0.159 \pm 0.003)\pi$, an increase of 14\%.
 Furthermore, the fraction of events where the bias in \dcp is greater than $0.3\pi$ is increase from 0.132 to 0.186.
+The RMS of the distribution increases from $0.249\pi$ to $0.298\pi$ with the addition of the lifetime bias, an increase of 20\%. 
 
 \citefig{fig:paramComp15pc:dmsq32} shows the distributions for \deltami{32} for both the biased and unbiased dataset.
 In this case, the mean bias in the measured value of \deltami{32} has now increased to \SI{1.39(4)d-5}{\eV\squared}.
