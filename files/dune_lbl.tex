@@ -3,16 +3,16 @@
 
 %%% Overall point of this chapter: How do our uncertainties relate to our ability to measure CPV
 As covered in \citechap{sec:dune}, DUNE's primary goal is to make a measurement of CP violation (CPV) in the lepton sector.
-Secondary to this are other goals such as the determination of the neutrino mass hierarchy and the precision measurement of some of the parameters governing neutrino oscillations.
+Secondary to this are other goals such as the determination of the neutrino mass hierarchy and the precision measurement of some of the other parameters governing neutrino oscillations.
 
 Prior to any construction of the experiment, it is important to assess DUNE's eventual sensitivity to both CPV and other oscillation physics.
-In order to do this, sensitivity studies must be undertaken generated Monte Carlo fake data, which attempts to represent the data that DUNE is likely to gather during its operational phase.
+In order to do this, sensitivity studies must be undertaken using simulated Monte Carlo fake data, which attempts to represent the data that DUNE is likely to gather during its operational phase.
 
 In order to properly assess these sensitivities, a set of systematic uncertainties is evaluated, covering all parts of the DUNE experiment.
 This chapter provides a brief description of these systematic uncertainties and their origins in \citesec{sec:dune_lbl:systs}.
 
 Following on from this, \citesec{sec:dune_lbl:sensitivities} provides a description of the methods used to extract DUNE's sensitivities.
-After this results are presented showing DUNE's sensitivity to both CPV in the lepton sector and the neutrino mass hierarchy.
+Also in this section, results are presented showing DUNE's sensitivity to both CPV in the lepton sector and the neutrino mass hierarchy.
 
 \section{Summary of DUNE systematic uncertainties}
 \label{sec:dune_lbl:systs}
@@ -20,12 +20,12 @@ After this results are presented showing DUNE's sensitivity to both CPV in the l
 This section gives a summary of the systematic uncertainties used in DUNE's long baseline analysis and where they are derived from.
 \citesec{sec:dune_lbl:systs:flux} details the systematics deriving from lack of knowledge about the neutrino beam (commonly referred to as the `flux' systematics).
 \citesec{sec:dune_lbl:systs:xsec} gives details of those systematics relating to lack of knowledge surrounding neutrino interactions with matter.
-Finally, \citesec{sec:dune_lbl:systs:det} outlines the systematic uncertainties which derive from the uncertainty surrounding detector effects, for example the energy scale of the detector.
+Finally, \citesec{sec:dune_lbl:systs:det} outlines the systematic uncertainties which derive from the uncertainty surrounding detector effects, for example the reconstructed energies of charged particles in the detector.
 
 \subsection{Flux}
 \label{sec:dune_lbl:systs:flux}
 
-Uncertainties in the neutrino beam flux primarily arise from two sources: uncertainties in the production of hadrons by protons striking the beam target and uncertainties in the design parameters of the beam such as the horn currents or positioning (commonly referred to as the ``focussing uncertainties''.
+Uncertainties in the neutrino beam flux primarily arise from two sources: uncertainties in the production of hadrons by protons striking the beam target and uncertainties in the design parameters of the beam such as the horn currents or positioning (commonly referred to as the `focussing uncertainties').
 
 The focussing uncertainties are evaluated by varying the beam line parameters within their tolerances and observing the resulting changes in the neutrino fluxes.
 Hadron production uncertainties are estimated using uncertainties from thin target data experiments such as NA49~\cite{na49} with large uncertainties assigned to those interactions that are not covered by data.
@@ -40,7 +40,7 @@ One can see that, at nearly all energies, hadron production uncertainties are la
   \label{fig:fluxUncertainties}
 \end{figure}
 
-The flux uncertainties are evaluated by running many simulations of the variations mentioned above and then using this information to build a covariance matrix.
+The flux uncertainties are evaluated by running many simulations of with variations of the hadron production and focussing uncertainties mentioned above and then using this information to build a covariance matrix.
 This matrix is binned in neutrino energy and flavour.
 The matrix is then diagonalised to give the various principal components, along with their eigenvalues.
 The largest 30 of these principal components (when ordered by the size of their eigenvalues) are used as the flux systematic uncertainties.
@@ -54,12 +54,12 @@ Further details are available in Ref.~\cite{duneFluxUncertainties}.
 The primary model used in the DUNE long-baseline analysis is that provided by the chosen neutrino interaction generator, Generates Events for Neutrino Interaction Experiments (GENIE)~\cite{genie}.
 The version of GENIE used in the DUNE long-baseline analysis is v2.12.0~\cite{tdrVol2}.
 
-The interaction model takes a neutrino flux and provides a spectrum of final states produced by said neutrinos interacting with the target medium.
+The interaction model takes a neutrino flux and outputs the final state particles produced by said neutrinos interacting with the target medium.
 For the most part, these interactions are modelled as factorising the interaction into three parts: an initial nuclear state, the neutrino interaction with a nucleon and the propagation of final state particles through the nucleus.
 
 %% Might need to move section on neutrino nucleus interactions to here
 
-The systematic uncertainties used in this analysis relate to all three elements of this modelling picture amongst other categories.
+The systematic uncertainties used in this analysis relate to all three elements of this modelling picture, among other categories.
 The interaction model systematics can be divided into categories covering each of the following areas~\cite{tdrVol2}: 
 \begin{itemize}
 	\item Initial nuclear state
@@ -87,6 +87,7 @@ E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_
 where the $p_{n}$ are allowed to vary in any fits.
 \citetab{tab:energyScaleParams} shows the $1\sigma$ values of the $p_{n}$ for each of the particle types.
 All of these uncertainties are treated as uncorrelated between the near and far detectors.
+This decision is made due to the differences in detector technologies and likely calibration strategies between near and far detectors.
 
 The values of the $p_{0}$ (the absolute scale factors) are motivated by those values achieved in current long baseline neutrino experiments which use similar reconstruction techniques.
 For example, the NOvA experiment quotes an absolute muon energy scale of $<1\%$ and a proton energy scale of 5\%~\cite{nova2018}.
@@ -126,19 +127,18 @@ One can see that between the different throws there are significant differences 
 	\label{fig:protonEScale}
 \end{figure}
 
-Additionally, a 2\% uncertainty is assigned to the the resolution of each of muon, charged hadrons, electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
+Additionally, a 2\% uncertainty is assigned to the the resolution of each of muons, charged hadrons, electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
 
 These uncertainties on particle energy scales are expected to derive from a variety of sources.
-Some are inherent
-Errors in the detector calibration, such as a miscalculation of the electron lifetime will cause a bias in the energy scale of particles reconstructed using calorimetric methods.
+Some are inherent errors in the detector calibration such as a miscalculation of the electron lifetime, which will cause a bias in the energy scale of particles reconstructed using calorimetric methods.
 Distortions in the electric field which are unaccounted for will also lead to these issues. 
 They may also lead to errors in the reconstruction of track lengths, giving biased energy estimates for particles reconstructed from their range.
 
 There are however, some detector systematics which are implemented as weights. 
-Notably a normalisation uncertainty of 1\% is applied to both \numu and \nue events.
+Notably, a normalisation uncertainty of 1\% is applied to both \numu and \nue events.
 
-Furthermore, systematic uncertainties for the near detector acceptance are devised based upon simulation.
-The acceptance of the DUNE ND is quite different to that of the FD due to the vastly different dimensions of the two detectors
+Furthermore, systematic uncertainties for the near detector acceptance are devised based upon simulation of neutrino interactions in ND-LAr.
+The acceptance of the DUNE ND is quite different to that of the FD due to the vastly different dimensions of the two detectors.
 The muon acceptance of the DUNE near detector as a function of muon transverse and longitudinal momentum is shown in \citefigL{fig:ndAcceptance}. 
 Muons are considered to be accepted if they either stop within ND-LAr or if they exit ND-LAr and pass into ND-GAr where their momentum may be measured from track curvature.
 Those muons which exit ND-LAr without passing into ND-GAr are not accepted.
@@ -292,7 +292,7 @@ The square root of $\Delta \chisquare$ is then taken to provide a crude signific
 	\label{fig:mhSens}
 \end{figure}
 
-\citefig{fig:mhSens} shows the results of this in the statistics only case (for 7 years of staged running), with just the detector systematics and with all the systematics included.
+\citefig{fig:mhSens} shows the results of this in the statistics only case (for 7 years of staged running - equivalent to an exposure of \SI{336}{\kilo\tonne\mega\watt\year}), with just the detector systematics and with all the systematics included.
 It is immediately apparent that DUNE will be highly sensitive to the neutrino mass hierarchy, surpassing the common particle physics threshold of $\sqrt{\Delta \chisquare} = 5$ at all values of \dcp and for both true hierarchies.
 One can see that the addition of detector systematics reduces the sensitivity somewhat, with remaining systematics reducing it further.
 However, it is clear that, even with a fairly substantial increase in systematic uncertainties, DUNE will still be able to quickly resolve the neutrino mass hierarchy.
@@ -318,7 +318,7 @@ One can also see that the addition of the systematics does little here to reduce
 \label{sec:dune_lbl:sensitivities:cpv}
 
 In a similar manner to the mass hierarchy, DUNE's sensitivity to CP-violation in the lepton sector is calculated using the likelihood ratio, $\Delta \chisquare$.
-In this case DUNE is attempting to exclude the models where $\dcp = 0,~\pi$ (CP-conserving values of \dcp).
+In this case DUNE is attempting to exclude the models where $\dcp = 0$ or $\pi$ (CP-conserving values of \dcp).
 Therefore, $\Delta \chisquare = \chi^{2}_{\dcp=0,\pi} - \chi^{2}_{\text{CPV}}$, where $\chi^{2}_{\text{CPV}}$ is the \chisquare value at the \dcp point tested and $\Delta \chisquare_{\dcp=0,\pi} = \min(\Delta \chisquare_{\dcp=0},~\Delta \chisquare_{\dcp=\pi})$.
 $\Delta \chisquare_{\dcp=0}$ is evaluated by taking as the Monte Carlo expectation the same oscillation and nuisance parameters as the data but with \dcp fixed at 0.
 A similar procedure is used to evaluate $\Delta \chisquare_{\dcp=\pi}$.
