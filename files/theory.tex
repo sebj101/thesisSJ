@@ -2,18 +2,31 @@
 \label{sec:theory}
 
 %%% Some explanation of what is in the chapter
-This chapter will discuss the theory, history and current status of the neutrino and specifically the phenomenon of neutrino oscillations.
+This chapter will discuss the theory, history and current experimental knowledge of the neutrino and specifically the phenomenon of neutrino oscillations.
 In \citesec{sec:theory:theory}, the theory of neutrino oscillations will be covered.
 In \citesec{sec:theory:history}, a brief history of neutrino physics will be given, while in \citesec{sec:theory:currentState} there is a discussion of the current state of the neutrino mixing parameters.
 
 \section{Theory}
 \label{sec:theory:theory}
 
-Neutrinos are fermions carrying no electric or colour charge and therefore interact only via the weak force and gravity.
-Neutrinos(antineutrinos) with left(right)-handed chirality have a weak isospin number, $T$, of $+\frac{1}{2}\left(-\frac{1}{2}\right)$ and a weak hypercharge number, $Y$, of -1(+1).
-For neutrinos(antineutrinos) with right(left)-handed chirality, $T = Y = 0$.
+The Standard Model of particle physics currently provides our best description of physics at the fundamental level.
+Within this model, there exist two types of fundamental particles: fermions (those particles which have half-integer values of `spin') and bosons (those particles which have integer values of `spin').
+Neutrinos fall into the former category along with the other fundamental particles that make up everyday matter.
+The fundamental bosons (apart from the Higgs) mediate interactions between the various particles.
+Three fundamental forces are described by the Standard Model: the electromagnetic force (mediated by the photon), the strong force (mediated by the gluon) and the weak force (mediated by the \wpm and \zboson bosons).
+The various particles of the Standard Model are shown in \citefig{fig:SMParticles}.
+Here one can see that the fermions can be further divided into quarks (particles that feel the strong force) and leptons (those that do not).
+One can see that neutrinos fall into the latter category.
 
-Neutrinos may interact via the exchange of either a \wpm boson, in the case of charged current (CC) interactions, or a \zboson, in the case of neutral current (NC) interactions.
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/theory/SMParticles}
+	\caption[Graphic showing the fundamental particles of the Standard Model]{Graphic showing the fundamental particles of the Standard Model, from~\cite{SMImage}.}
+	\label{fig:SMParticles}
+\end{figure}
+
+Additionally, neutrinos carry no electric or colour charge and therefore interact only via the weak force and gravity (the interaction with gravity is not described in the Standard Model).
+Therefore in the Standard Model they may only interact with other fermions via the exchange of either a \wpm boson, in the case of charged current (CC) interactions, or a \zboson, in the case of neutral current (NC) interactions.
 Examples of these interactions are shown in \citefig{fig:nuIntEx}.
 
 \begin{figure}[h]
@@ -23,9 +36,9 @@ Examples of these interactions are shown in \citefig{fig:nuIntEx}.
     \feynmandiagram [vertical=a to b] {
       i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\(l^{-}\)],
       a -- [boson, edge label = \wplus] b,
-      f1 [particle=\nul] -- [anti fermion] b -- [anti fermion] f2 [particle=\(l^{-}\)]
+      f1 [particle=\(n\)] -- [anti fermion] b -- [anti fermion] f2 [particle=\(p\)]
     };
-    \caption{Example of a neutrino charged current interaction}
+    \caption{Example of a neutrino charged current interaction with a neutron}
   \end{subfigure}
   \hfill
   \begin{subfigure}[t]{.49\textwidth}
@@ -33,9 +46,9 @@ Examples of these interactions are shown in \citefig{fig:nuIntEx}.
     \feynmandiagram [vertical=a to b] {
       i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\nul],
       a -- [boson, edge label = \zboson] b,
-      f1 [particle=\(l^{-}\)]  -- [anti fermion] b -- [anti fermion] f2 [particle=\(l^{-}\)]
+      f1 [particle=\(p\)]  -- [anti fermion] b -- [anti fermion] f2 [particle=\(p\)]
     };    
-    \caption{Example of a neutrino neutral current interaction}
+    \caption{Example of a neutrino neutral current interaction with a proton}
   \end{subfigure}
   \caption[Examples of diagrams for charged (CC) and neutral (NC) neutrino interactions.]{Examples of diagrams for charged (CC) and neutral (NC) neutrino interactions.}
   \label{fig:nuIntEx}
@@ -50,7 +63,7 @@ These flavours are defined by the charged lepton produced by the neutrino when i
 
 %%%% START BORIS KAYSER STUFF HERE %%%%%
 
-The Standard Model describes the coupling of leptons to the \wboson with the Lagrangian
+The Standard Model describes the coupling of leptons to the \wboson boson with the Lagrangian
 \begin{equation}
   \lagr_{W} = - \frac{g}{\sqrt{2}} \sum_{\substack{\alpha = e, \mu, \tau \\ i = 1, 2, 3}}
   \left( \overline{l_{L\alpha}} \gamma^{\lambda} U_{\alpha i} \nu_{Li} \wminus_{\lambda} +
@@ -78,6 +91,7 @@ Therefore $U$ has $N(N-1)$ physically meaningful parameters of which $N(N-1)/2$ 
 
 As a result, $U$ can be represented as the following product of matrices:
 \begin{align}
+\begin{split}
   U &=
   \begin{pmatrix}
     1 & 0       & 0 \\
@@ -103,6 +117,7 @@ As a result, $U$ can be represented as the following product of matrices:
     0                 & e^{i\omega_{2}/2} & 0 \\
     0                 & 0                 & 1
   \end{pmatrix} \, ,
+\end{split}
 \end{align}
 where $c_{ij} \equiv \cthetai{ij}$, $s_{ij} \equiv \sthetai{ij}$ and $\thetai{13}$, $\thetai{12}$, $\thetai{23}$ are the mixing angles.
 The complex phases here are $\delta$, $\omega_{1}$ and $\omega_{2}$.
@@ -119,11 +134,13 @@ In this case it is possible to write $U$ as
   \end{pmatrix} \, .
 \end{equation}
 Thus the angles can be expressed in terms of the elements of the mixing matrix in the following way~\cite{pdg2018}:
-\begin{gather*}
+\begin{equation}
+\begin{gathered}
   \csthetai{12} = \frac{|U_{e1}|^{2}}{1 - |U_{e3}|^{2}}, \quad \ssthetai{12} = \frac{|U_{e2}|^{2}}{1 - |U_{e3}|^{2}}, \\
   \ssthetai{13} = |U_{e3}|^{2}, \quad \ssthetai{23} = \frac{|U_{\mu 3}|^{2}}{1 - |U_{e3}|^{2}}, \\
   \csthetai{23} = \frac{|U_{\tau 3}|^{2}}{1 - |U_{e3}|^{2}} \, .
-\end{gather*}
+\end{gathered}
+\end{equation}
 
 From \citeeq{eq:lagr} we can see that the amplitude for the decay $\wplus \rightarrow \overline{l_{\alpha}} + \nu_{i}$ is proportional to the matrix element $U_{\alpha i}^{*}$.
 If we then define the neutrino of flavour $\alpha$ (where $\alpha = e, \mu, \tau$) to be the state produced with a charged lepton $\overline{l_{\alpha}}$ we find that,
@@ -144,7 +161,7 @@ From \citeeq{eq:lagr}, we can see that the amplitude for this process is proport
 where the unitarity of $U$ has been used.
 Here we can see that if a neutrino is produced with an associated lepton of flavour $\alpha$ and this neutrino interacts to produce a charged lepton, this charged lepton must also be of flavour $\alpha$.
 
-\subsubsection{Vacuum oscillation case (BK)}
+\subsubsection{Vacuum oscillation case}
 
 Let us now calculate the interaction probability for a neutrino that is created as flavour $\alpha$ and then interacts, after propagating a distance $L$, as though it is a neutrino of flavour $\beta$.
 If $\alpha \neq \beta$, the neutrino has oscillated.
@@ -226,7 +243,7 @@ Upon reaching the target and interacting, the amplitude for the state $\nu_{i}$ 
 
 The final factor that must be taken into consideration in order to calculate this amplitude is the mass eigenstate propagator $\text{Prop}(\nu_{i})$.
 From quantum mechanics, this can be given as $e^{-i \lambda \tau}$ where $\lambda = m - i \Gamma /2$ where $m$ is the mass of the particle, $\Gamma$ is the width of the particle and $\tau$ is the proper time that elapses for the particle in its rest frame during propagation. 
-Here we make the approximation that $\Gamma$ is extremely small for neutrinos to therefore find
+Here we assume that neutrinos are stable and therefore, that $\Gamma = 0$ to find
 \begin{equation}
   \text{Prop}(\nu_{i}) = e^{-i m_{i} \tau_{i}} \, .
 \end{equation}
@@ -333,7 +350,7 @@ For antineutrinos the equivalent probability is written as
   &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \nonumber \\
   & - 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E) \, .
 \end{align}
-Thus we can see that, in order that $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$, $U$ cannot be real.
+Thus we can see that, in order for $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$, $U$ cannot be real.
 Given that the process $\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}$ is the Charge-Parity (CP) mirror of $\nu_{\alpha} \rightarrow \nu_{\beta}$, if $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$ then we have CP-violation in the lepton sector.
 
 We can define the CP-violating difference for two flavours, $\alpha$ and $\beta$, as
@@ -341,7 +358,7 @@ We can define the CP-violating difference for two flavours, $\alpha$ and $\beta$
   \Delta_{\alpha \beta} = \text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) - \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) \, .
   \label{eq:cpViolation}
 \end{equation}
-Under Charge-Parity-Time (CPT) transformation, the process $\nu_{\alpha} \rightarrow \nu_{\beta}$ becomes $\nu_{\alpha} \rightarrow \nu_{\alpha}$.
+Under Charge-Parity-Time (CPT) transformation, the process $\nu_{\alpha} \rightarrow \nu_{\beta}$ becomes $\overline{\nu}_{\beta} \rightarrow \overline{\nu}_{\alpha}$.
 If CPT invariance holds then the probability of these two processes should be equal.
 Using this fact we can rewrite \citeeq{eq:cpViolation} as
 \begin{equation}
@@ -350,8 +367,6 @@ Using this fact we can rewrite \citeeq{eq:cpViolation} as
 From the above, one can see that $\Delta_{\alpha \alpha} = 0$.
 Thus one cannot observe CP violating differences by making so-called `disappearance' measurements.
   
-%%%% HERE ENDS BORIS KAYSER STUFF %%%%
-
 \subsubsection{Two neutrino case}
 \label{sec:theory:theory:twoNeutrino}
 
