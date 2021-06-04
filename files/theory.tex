@@ -389,6 +389,7 @@ Restoring factors of $\hbar$ and $c$, this becomes
   \text{P}(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sstwothetai{} \sin^{2} \left( 1.27 \frac{\deltami{} \left[\si{\eV\squared}\right] L [\si{\kilo\metre}]}{E\left[\si{\GeV}\right]} \right) \, .
   \label{eq:twoNuProb}
 \end{equation}
+Given that $\sin(-\alpha) = -\sin(\alpha)$ the term $\sin^{2} \left(\frac{\deltami{} L}{4E} \right)$ ensures that the probability does not depend on the sign of \deltami{}.
 
 One can visualise the effect of this equation graphically as is shown in \citefig{fig:twoNeutrino}. 
 In this case we take $\deltami{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thetai{} = 50^{\circ}$.
@@ -422,7 +423,7 @@ One can see that the strength of the oscillations is controlled by \sstwothetai{
   \label{fig:twoNeutrino}
 \end{figure}
 
-\subsubsection{The MSW effect}
+\subsubsection{The Mikheyev-Smirnov-Wolfenstein effect}
 \label{sec:theory:theory:msw}
 So far, only neutrino oscillations in a vacuum have been discussed.
 The reason for the omission is the existence of the Mikheyev-Smirnov-Wolfenstein (MSW) effect, which affects neutrino oscillations when passing through matter with non-zero electron density.
@@ -540,7 +541,7 @@ Example diagrams of these interactions are shown in \citefig{fig:coherentScatter
   \label{fig:coherentScattering}
 \end{figure}
 
-As a result, electron neutrinos and antineutrinos experience an additional potential, $V_{e} = \pm \sqrt{2} G_{F} N_{e}$, where $G_{F}$ is the Fermi constant, $N_{e}$ is the electron density of the medium and the negative sign applies for antineutrinos.
+As a result, electron neutrinos experience an additional potential, $V_{e} = \sqrt{2} G_{F} N_{e}$, where $G_{F}$ is the Fermi constant, $N_{e}$ is the electron density of the medium.
 This results in the Hamiltonian, which we term $H_{M}$, now containing an additional term so it can now be written as
 \begin{equation}
   H_{M} =  \left( \frac{\deltami{}}{4E} \right)
@@ -554,21 +555,26 @@ This results in the Hamiltonian, which we term $H_{M}$, now containing an additi
     0 & 0
   \end{pmatrix} \, .
 \end{equation}
-
-We can subtract $\frac{V_{e}}{2} I$ (where $I$ is the identity matrix) from $H_{M}$ to give
+Subtracting $\frac{V_{e}}{2} I$ (where $I$ is the identity matrix) from $H_{M}$ gives
 \begin{equation}
   H_{M} = \left( \frac{\deltami{}}{4E} \right)
   \begin{pmatrix}
-    -\cos\theta+A & \sin 2\theta \\
-    \sin 2\theta & \cos 2\theta - A 
+    -\cos\theta + A_{\nu} & \sin 2\theta \\
+    \sin 2\theta & \cos 2\theta - A_{\nu} 
   \end{pmatrix}
 \end{equation}
 where
 \begin{equation}
-  A = \pm \frac{ 2\sqrt{2}G_{F}N_{e}E }{\deltami{}} \, .
+  A_{\nu} = \frac{ 2\sqrt{2}G_{F}N_{e}E }{\deltami{}} \, .
+\end{equation}
+Electron antineutrinos also experience an additional potential. 
+However, it is $-V_{e}$ rather than $V_{e}$ experienced by electron neutrinos.
+Therefore, for antineutrinos one can write
+\begin{equation}
+	A_{\overline{\nu}} = -A_{\nu} .
 \end{equation}
 
-We can now redefine $H_{M}$ in terms of an `effective' mass splitting and mixing angle (\deltami{m} and $\theta_{m}$ respectively) so that it becomes
+This allows us to redefine $H_{M}$ in terms of an `effective' mass splitting and mixing angle (\deltami{m} and $\theta_{m}$ respectively) so that it becomes
 \begin{equation}
   H_{M} = \left( \frac{\deltami{m}}{4E} \right)
   \begin{pmatrix}
@@ -582,13 +588,13 @@ This leads to an oscillation probability of the same form as \citeeq{eq:twoNuPro
   P(\nue \rightarrow \nu_{x}) = \sin^{2} 2\theta_{m} \sin^{2} \left( \frac{\deltami{m} L}{4E} \right) \, .
 \end{equation}
 
-We can derive expressions for these `effective' mixing parameters and find that
+We can derive expressions for these `effective' mixing parameters and find that, for electron neutrinos,
 \begin{align}
-  \deltami{m} &= \deltami{} \sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }  \label{eq:mswMass} \\
-  \sin 2\theta_{m} &= \frac{\sin 2\theta}{\sqrt{ (\cos 2\theta - A)^{2} + \sin^{2} 2\theta }} \, . \label{eq:mswAngle}
+  \deltami{m} &= \deltami{} \sqrt{ (\cos 2\theta - A_{\nu})^{2} + \sin^{2} 2\theta }  \label{eq:mswMass} \\
+  \sin 2\theta_{m} &= \frac{\sin 2\theta}{\sqrt{ (\cos 2\theta - A_{\nu})^{2} + \sin^{2} 2\theta }} \, . \label{eq:mswAngle}
 \end{align}
 Thus we can see that these matter effects have an effect on both the period and strength of oscillations.
-Additionally we can also see that, due to the sign change of $A$ for antineutrinos, the opposite effect will occur for neutrinos and antineutrinos. 
+Additionally we can also see that, due to the sign change of $A_{\overline{\nu}}$ for antineutrinos, the opposite effect will occur for neutrinos and antineutrinos. 
 
 One can infer several interesting points from \citeeq{eq:mswMass} and \citeeq{eq:mswAngle}.
 Firstly, long baselines or high matter densities are required to observe matter effects.
@@ -611,8 +617,8 @@ Additionally, under the condition that
 \end{equation}
 we can see that $\stwothetai{m} = 1$, i.e. maximal oscillations can occur regardless of the value of the vacuum mixing angle.
 This effect is known as the MSW resonance.
-We can also observe that as $A \rightarrow \infty$ (in extremely high matter densities, for example), $\sin 2\theta_{m} \rightarrow 0$ meaning that no oscillations occur.
-Additionally, it can be observed that $A$ depends on the sign of \deltami{}.
+We can also observe that as $A_{\nu} \rightarrow \infty$ (in extremely high matter densities, for example), $\sin 2\theta_{m} \rightarrow 0$ meaning that no oscillations occur.
+Additionally, it can be observed that $A_{\nu}$ depends on the sign of \deltami{}.
 Thus, the MSW effect can be used to determine the sign of the mass differences.
 
 \subsubsection{Three neutrino oscillations}
@@ -665,7 +671,7 @@ where
 \end{align}
 and we have dropped higher order terms on the basis that $|\deltami{32}| \gg |\deltami{21}|$.
 
-In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the appearance channel.
+In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the electron neutrino appearance channel.
 We find that, in a vacuum~\cite{Nunokawa_2008},
 \begin{align}
   P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
@@ -898,7 +904,7 @@ Neutral current events were observed via the reaction
 \begin{equation}
   \nu_{x} + d \rightarrow p + n + \nu_{x} \, ,
 \end{equation}
-where $x = e, \mu, \tau$.
+where $x = e, \mu, \tau$ and $d$ is a deuterium nucleus (comprised of a proton and a neutron).
 This reaction should occur equally often for all flavours of neutrinos.
 These events were identified by observing the photons emitted during neutron capture on deuterons or, later in the experiment, $^{35}\text{Cl}$ atoms which were added in the form of NaCl.  
 
