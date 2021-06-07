@@ -1049,7 +1049,7 @@ The Borexino experiment uses a spherical tank containing 278~t of liquid scintil
 \end{figure}
 
 Additionally, the Kamioka Liquid Scintillator Antineutrino Detector (KamLAND) experiment, located in Japan, is also able to constrain \thetai{12} and \deltami{21} using the flux of \anue from a number of nuclear reactors located at baselines of around 100~km in Japan.
-The detector consists of 1~kt of liquid scintillator surround by photomultiplier tubes~\cite{kamland}.
+The detector consists of \SI{1}{\kilo\tonne} of liquid scintillator surround by photomultiplier tubes~\cite{kamland}.
 Electron antineutrinos are detected via inverse beta decay and resulting emission of a positron and a neutron (which undergoes neutron capture).
 The measured rate of antineutrinos is then compared to that expected based on the output of the various reactors.
 
@@ -1070,11 +1070,11 @@ This tension is shown in greater detail in \citefig{fig:kamlandPlusSolar} where 
 \thetai{13} is usually measured using reactor neutrino experiments at baselines of $\order{\SI{1}{\kilo\metre}}$, however it is also possible to measure it using long-baseline \nue appearance in a beam of \numu.
 Energies for long baseline experiments are $\order{\SI{1}{\giga\electronvolt}}$ which, given the value of \deltami{32}, requires a baseline of a few \SI{100}{\kilo\metre} to observe oscillations.
 Typically, electron antineutrinos emitted by reactors are of a much lower energy (around \SI{4}{\mega\electronvolt}) and thus baselines of around a kilometre are required.
-The \anue survival probability can be approximated as 
-\begin{equation}
-  P(\anue \rightarrow \anue) = 1 - \sstwothetai{13}\sin^{2}\left( 1.27 \frac{\deltami{31}L}{E} \right) + \order{10^{-3}}
-\end{equation}
-where the smallness of the third term is due to the smallness of the ratio $\deltami{21}/\deltami{21}$~\cite{kuze2013measurements}.
+%The \anue survival probability can be approximated as 
+%\begin{equation}
+%  P(\anue \rightarrow \anue) = 1 - \sstwothetai{13}\sin^{2}\left( 1.27 \frac{\deltami{31}L}{E} \right) + \order{10^{-3}}
+%\end{equation}
+%where the smallness of the third term is due to the smallness of the ratio $\deltami{21}/\deltami{21}$~\cite{kuze2013measurements}.
 
 For many years, due to its small size, a measurement of \thetai{13} was not able to be made and only upper limits could be determined.
 However, a non-zero value of \thetai{13} was determined in 2012 by the Daya Bay experiment which found a value of $\sstwothetai{13} = 0.092\pm0.016(\text{stat.})\pm0.005(\text{syst.})$~\cite{dayaBay}.
@@ -1098,7 +1098,7 @@ Up to date measurements of \thetai{13} from these experiments, along with those 
 Measurements of \thetai{23} and \deltami{32} are primarily made by observing long baseline \numu disappearance and \nue appearance.
 There are both accelerator neutrino experiments such as MINOS, MINOS+, T2K and NOvA and experiments which detect atmospheric neutrinos such as Super-Kamiokande and IceCube which aim to measure these parameters.
 
-All of the accelerator experiments utilise two detectors, a near detector within a few hundred metres of the neutrino production target and a far detector several hundred kilometres away where the oscillated spectrum is measured.
+All of the accelerator experiments utilise two detectors, a near detector between a few hundred metres and a kilometre downstream of the neutrino production target and a far detector several hundred kilometres away where the oscillated spectrum is measured.
 \citetab{tab:lblExp} shows the baseline, peak beam energy, far detector technology and operating years for each of these experiments.
 For these experiments, the near detector constrains systematic uncertainties on the neutrino beam flux and cross-section while the far detector measures the number of neutrino events as a function of neutrino flavour and energy.
 
@@ -1119,12 +1119,8 @@ For these experiments, the near detector constrains systematic uncertainties on 
   \end{tabular}
 \end{table}
 
-Atmospheric neutrino experiments utilise the flux of \numu and \nue created by pion decay in the atmosphere.
-Depending on the direction from which the neutrino enters the detector, it may have travelled a wide variety of distances from its point of production.
-For example, if travelling upwards it may have travelled the diameter of the Earth, while if travelling downwards it may only have travelled a few kilometres from its point of production.
-
-The Super-Kamiokande experiment is a water Cherenkov detector with a \SI{22.5}{\kilo\tonne} fiducial mass which also acts as the far detector for the T2K experiment.
-The IceCube experiment is situated at the South Pole and consists of multiple vertical `strings' of PMTs which are sunk in to the antarctic ice over a \SI{1}{\km\cubic} volume.
+In addition, experiments such as Super-Kamiokande and IceCube are also able to measure these parameters through their measurements of atmospheric neutrinos.
+The IceCube experiment is situated at the South Pole and consists of multiple vertical `strings' of PMTs which are sunk in to the antarctic ice over a \SI{1}{\km\cubed} volume.
 The central part of the volume (known as ``DeepCore'') is more densely instrumented and allows for the detection of lower energy neutrinos (a threshold of \SI{5}{\giga\electronvolt})~\cite{icecube}.
 
 \citefig{fig:theta23deltam} shows the current limits set by these various experiments on \ssthetai{23} and \deltami{32}.
