@@ -295,7 +295,7 @@ Therefore, to lowest order we find that the difference in momentum between the n
 \begin{equation}
   p_{i} - p_{j} = -\frac{ E^{\mu}_{0} \Delta m_{ij}^{2} }{ 2E^{\nu}_{0}m^{\pi} } \, 
 \end{equation}
-which can then be inserted, along with \citeeq{eq:nuDeltaE} into \citeeq{eq:phaseDiff} to give
+which can then be inserted, along with \citeeq{eq:nuDeltaE}, into \citeeq{eq:phaseDiff} to give
 \begin{equation}
   m_{i}\tau_{i} - m_{j}\tau_{j} = \frac{ \Delta m_{ij}^{2} }{ 2m^{\pi} }\left(1 + \frac{ E_{0}^{\mu} }{ E_{0}^{\nu} } \right) = \Delta m_{ij}^{2} \frac{L_{0}}{2E_{0}^{\nu}} \, .
 \end{equation}
@@ -635,7 +635,7 @@ In the three neutrino case, the parameters governing the oscillations are:
 where \deltami{21} and \deltami{31} is one way to parametrise the differences between the 3 different mass states.
 
 Note that, in a vacuum, the oscillation frequency does not depend upon the sign of the mass splittings, only the absolute value.
-At the present time, the ordering of the mass eigenstates is not known.
+At the present time, the ordering of the mass eigenstates is not fully known.
 That is to say, it is not known whether $\nu_{3}$ is the heaviest or the lightest mass eigenstate.
 However, the sign of \deltami{21} is known.
 
@@ -657,19 +657,12 @@ For all flavours the survival probability of a given neutrino flavour, the so-ca
   &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
 \end{align}
 where $\Delta_{ij}=\deltami{ij}L/4E$.
-For muon neutrinos, a case which is particularly relevant to long baseline accelerator experiments, this can be approximated as~\cite{pdg2018}
+For muon neutrinos, a case which is particularly relevant to long baseline accelerator experiments, this can be approximated as
 \begin{align}
-  P(\numu \rightarrow \numu) &\approx 1 - \sstwothetai{\mu\mu} \sin^{2}\left( \frac{\deltami{\mu\mu}L}{4E} \right) \\
+  P(\numu \rightarrow \numu) \approx 1 - \cos^{4}\thetai{13} \sstwothetai{23} \sin^{2} \left( 1.27 \frac{\deltami{32}L}{E} \right)
   \label{eq:numuSurvival}
-  &\approx 1-\csthetai{13}\sstwothetai{23}\sin^{2}\left( \frac{\deltami{32}L}{4E} \right) + \text{higher order terms}
 \end{align}
-where
-\begin{align}
-  \ssthetai{\mu\mu} &= \csthetai{13}\ssthetai{23} \\
-  \deltami{\mu\mu}  &= \ssthetai{12}\deltami{31}+\csthetai{12}\deltami{32} \\
-  &+\cos\dcp\sthetai{13}\stwothetai{12}\tthetai{23}\deltami{21} \, .
-\end{align}
-and we have dropped higher order terms on the basis that $|\deltami{32}| \gg |\deltami{21}|$.
+where we have dropped higher order terms on the basis that $|\deltami{32}| \gg |\deltami{21}|$.
 
 In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the electron neutrino appearance channel.
 We find that, in a vacuum~\cite{Nunokawa_2008},
