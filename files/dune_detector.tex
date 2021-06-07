@@ -3,7 +3,7 @@
 
 The Deep Underground Neutrino Experiment (DUNE) is a long-baseline neutrino oscillation experiment currently under construction at two sites in the USA~\cite{tdrVol1, tdrVol2, tdrVol3, tdrVol4}.
 The near detector site which will host the beam production facilities and the multi-component near detector is located at Fermilab, Illinois while the far detector site will be located at Sanford Underground Research Facility (SURF), South Dakota.
-This will provide a baseline of approximately 1300~km.
+This will provide a baseline of approximately \SI{1300}{\km}.
 A cartoon showing the arrangement of the detectors is shown in \citefig{fig:duneCartoon}.
 
 \begin{figure}[h]
@@ -21,8 +21,8 @@ Section~\ref{sec:dune:nd} will discuss the design of the near detector and Secti
 \section{Overview and physics goals}
 \label{sec:dune:overview}
 As discussed in Section~\ref{sec:theory:currentState}, several questions remain in the field of neutrino oscillations.
-Two of these remaining issues are that the ordering of the neutrino mass eigenstates is not yet known and the value of $\delta_{CP}$ in the PMNS matrix remains unknown.
-This could imply that neutrinos violate Charge-Parity symmetry if it is proven that $\delta_{CP} \neq 0, \pi$.
+In particular, the ordering of the neutrino mass eigenstates is not yet known and it is also unknown if the CP-violating phase of the PMNS matrix exist.
+If it is proven that $\dcp \neq 0, \pi$, this would be proof of the existence of CP-violation in the lepton sector.
 DUNE aims to shed light on both of these issues.
 Additionally, DUNE aims to be able to resolve the octant of $\theta_{23}$ (i.e. is $\theta_{23} > \pi/4$ or $< \pi/4$?) if it is non-maximal and usher in a new era of precision measurements of the PMNS matrix. 
 
@@ -102,7 +102,7 @@ Similarly, \citetab{tab:appStatistics} shows the number of events identified as 
   \centering
   \begin{tabular}{c c c}
     \hline
-    True event class & Exp. events (NO) & Exp. events (IO) \\
+    True event class & Exp. events (NH) & Exp. events (IH) \\
     \hline
     \hline
     \multicolumn{3}{c}{Neutrino mode} \\
@@ -266,7 +266,7 @@ This is important in neutrino physics due to the small neutrino cross-sections w
 Noble liquids also benefit from having low electron diffusion and high electron mobility which allows the electron `image' to drift across a long distance without much distortion.
 This is an extremely important quality given that this `image' is what is used for particle detection.
 
-An abundance of ionisation photons and scintillation photons are also produced by charged particles passing through some noble liquids.
+An abundance of ionisation electrons and scintillation photons are also produced by charged particles passing through some noble liquids.
 The number of ionisation electrons is important for particle detection (in particular particles with low energies).
 Having a large quantity of scintillation light produced in by interactions is also important, given that this light can be used to provide the time of an interaction and thus its drfit coordinate.
 
@@ -285,10 +285,10 @@ Liquid helium is unlikely to be used in a neutrino experiment due to its low den
     Atomic number & 54 & 18 & 10 \\
     Boiling point at 1 atm [K] & 165.0 & 87.3 & 27.1 \\
     Density at boiling point [\si{\gram\per\cubic\centi\metre}] & 2.94 & 1.40 & 1.21 \\
-    Scintillation light [$\gamma~\si{\per\mega\electronvolt}$] & 42,000 & 40,000 & 30,000 \\
+    Scintillation light [$\gamma~\si{\per\mega\electronvolt}$] & \num{42000} & \num{40000} & \num{30000} \\
     $W_{\text{ion}}$ [\si{\electronvolt}] & 15.6 & 23.6 & - \\
     Dielectric constant & 1.95 & 1.51 & 1.53 \\
-    Atmospheric abundance [ppm] & 0.09 & 9340 & 18.2 \\
+    Atmospheric abundance [ppm] & 0.09 & \num{9340} & 18.2 \\
     \hline
   \end{tabular}
 \end{table}
@@ -940,7 +940,7 @@ This occurs primarily through the channels:
   \kminus &\rightarrow \pizero + \muminus + \anumu \, ,
 \end{align}
 where together these channels account for around 67\% of all charged kaon decays.
-Approximately 5\% of charged kaons decay to a neutral pion and an positron(electron)-electron (anti)neutrino pair which produces some of the intrinsic beam \nue and \anue flux.
+Approximately 5\% of charged kaons decay to a neutral pion and an positron(electron)-electron (anti)neutrino pair which produces some of the beam \nue and \anue flux.
 
 \begin{figure}[h]
   \centering
@@ -949,12 +949,16 @@ Approximately 5\% of charged kaons decay to a neutral pion and an positron(elect
   \label{fig:ndFluxes}
 \end{figure}
 
-However, most of the beam \nue and \anue flux is produced via the decay of muons and antimuons via the channels
+However, most of the right-sign beam \nue and \anue flux is produced via the decay of muons and antimuons via the channels
 \begin{align}
   \muplus &\rightarrow \positron + \nue + \anumu \\
   \muminus &\rightarrow \electron + \anue + \numu \, ,
 \end{align}
 which one can see also produces a flux of \numu and \anumu (in antineutrino and neutrino mode respectively).
+The largest component of the wrong-sing \nue and \anue flux is produced via the decay
+\begin{equation}
+ K^{0} \rightarrow \pi^{\pm} + e^{\mp} + \anue(\nue) \, .	
+\end{equation}
 
 \citefig{fig:fdFlux} shows the unoscillated neutrino flux at the DUNE far detector.
 One can see that the fluxes differ between neutrino mode and antineutrino mode.
