@@ -805,8 +805,9 @@ In the event of the reaction shown in eq.~(\ref{eq:cowanReines}), the outgoing p
 An additional check was made by requiring a delayed photon from the capture of the outgoing neutron~\cite{cowanReines}.
 
 % Discovery of numu
-Up to this point, only electron neutrinos had been observed (counterparts to the electron).
-However in 1937 the muon, a heavier counterpart to the electron, was observed~\cite{muonDiscovery}.
+%Up to this point, only electron neutrinos had been observed (counterparts to the electron).
+Prior to 1937 only one charged lepton (the electron) had been discovered.
+However, in 1937 the muon, a heavier counterpart to the electron, was observed~\cite{muonDiscovery}.
 In 1962 the existence of a neutrino corresponding to the muon was confirmed at Brookhaven Alternatng Gradient Synchrotron.
 These muon neutrinos and antineutrinos ($\nu_{\mu}$ and $\bar{\nu}_{\mu}$) were produced by colliding a beam of protons with a beryllium target, producing charged pions and kaons.
 These mesons subsequently decayed via the channels
@@ -857,7 +858,7 @@ At the same time as these various new particles were being discovered, anomalies
 By the 1960s it became possible to detect some of these neutrinos.
 Ray Davis's Homestake experiment first published measurements in 1968 which showed a large deficit in the number of detected neutrinos compared with theoretical predictions.
 
-The detector consisted of a tank of 390,000 litres of tetrachloroethylene ($\text{C}_{2}\text{Cl}_{4}$), which equates to a mass of chlorine (the target nucleus) of 520 tons.
+The detector consisted of a tank of \SI{390000}{\litre} of tetrachloroethylene ($\text{C}_{2}\text{Cl}_{4}$), which equates to a mass of chlorine (the target nucleus) of \SI{520}{\tonne}.
 The detector was located in the Homestake gold mine at Lead, South Dakota.
 The neutrinos were detected via the reaction
 \begin{equation}
@@ -871,9 +872,15 @@ While anomalies in the number of detected neutrinos continued to be found throug
 It wasn't until 1998 that confirmation of neutrino oscillations would come from the Super-Kamiokande experiment and their studies of atmospheric neutrinos.
 Atmospheric neutrinos are primarily produced through the decays of particles produced by collisions of cosmic rays with nuclei in the atmosphere via the channel
 \begin{equation}
-  \pi^{\pm} \rightarrow \mu^{\pm} + \nu_{\mu}(\bar{\nu}_{\mu}) \, , 
+  \pi^{\pm} \rightarrow \mu^{\pm} + \numu(\anumu) \, ,
 \end{equation}
-where the muon then decays via
+with a branching fraction of \num{0.9998770}~\cite{pdg2018}.
+The decay via the channel
+\begin{equation}
+	\pi^{\pm} \rightarrow e^{\pm} + \nue(\anue) 
+\end{equation}
+is heavily helicity suppressed (due to the much larger mass of the muon compared to the electron).
+The muon then decays via
 \begin{equation}
   \mu^{\pm} \rightarrow e^{\pm} + \bar{\nu}_{\mu}(\nu_{\mu}) + \nu_{e}(\bar{\nu}_{e}) \, .
 \end{equation}
@@ -883,15 +890,17 @@ This gives an expected ratio of the neutrino fluxes of
 \end{equation}
 where this ratio crucially does not rely on modelling in the same manner as predictions of solar neutrino rates.
 
-The Super-Kamiokande detector consists of a 50~kton water Cherenkov detector which is instrumented with photomultiplier tubes (PMTs).
+The Super-Kamiokande detector consists of a \SI{50}{\kilo\tonne} water Cherenkov detector which is instrumented with photomultiplier tubes (PMTs).
 When neutrinos interact within the detector, the outgoing particles are identified by the Cherenkov light rings they produce.
 The different characteristics of the rings produced by muons and electrons allow the identification of both muon and electron neutrino interactions.
 
 The experiment found an asymmetry in the number of detected atmospheric muon neutrinos travelling up and down but no similar effect was observed for electron neutrinos.
 This was thought to be caused by the different distances travelled by upwards- and downwards-going atmospheric neutrinos.
-An atmospheric neutrino travelling vertically downwards travels a distance of roughly 15~km, while an atmospheric neutrino travelling vertically upwards travels a distance of roughly 13000~km.
+An atmospheric neutrino travelling vertically downwards travels a distance of roughly \SI{15}{\km}, while an atmospheric neutrino travelling vertically upwards travels a distance of roughly \SI{13000}{\km}.
 This was taken to be evidence of muon neutrinos oscillating into tau neutrinos as they passed through the Earth~\cite{superK}.
 Plots showing this asymmetry are shown in \citefig{fig:superKResults}.
+Crucially, we see that the shape of the asymmetry varies with neutrino energy. 
+Given that the neutrino oscillation probability varies with $L/E$ this shows clear evidence of oscillations.
 
 \begin{figure}[h]
   \centering
@@ -901,25 +910,26 @@ Plots showing this asymmetry are shown in \citefig{fig:superKResults}.
 \end{figure}
 
 Further strengthening the case for oscillations, the Sudbury Neutrino Observatory (SNO) published results in 2002 which analysed both the charged current and neutral current interactions of $^{8}\text{B}$ neutrinos produced in the Sun.
-The detector consisted of 1~ktons of heavy water ($\text{D}_{2}\text{O}$) surrounded by inward facing PMTs which detected Cherenkov light produced by charged particles.
+The detector consisted of \SI{1}{\kilo\tonne} of heavy water ($\text{D}_{2}\text{O}$) surrounded by inward facing PMTs which detected Cherenkov light produced by charged particles.
 
 Neutral current events were observed via the reaction
 \begin{equation}
   \nu_{x} + d \rightarrow p + n + \nu_{x} \, ,
 \end{equation}
 where $x = e, \mu, \tau$ and $d$ is a deuterium nucleus (comprised of a proton and a neutron).
-This reaction should occur equally often for all flavours of neutrinos.
+This reaction occurs equally often for all flavours of neutrinos since they all couple equally to the $Z$ boson.
 These events were identified by observing the photons emitted during neutron capture on deuterons or, later in the experiment, $^{35}\text{Cl}$ atoms which were added in the form of NaCl.  
 
 Charged current interactions of electron neutrinos were observed via the channel
 \begin{equation}
   \nu_{e} + d \rightarrow p + p + e^{-} \, .
 \end{equation}
-It was not possible to detect the charged current interactions of muon or tau neutrinos due to the low energy of $^{8}\text{B}$ neutrinos.
+It was not possible to detect the charged current interactions of muon or tau neutrinos due to the low energy of $^{8}\text{B}$ neutrinos ($^{8}\text{B}$ neutrinos have typical energies of $\order{\SI{1}{\MeV}}$ while the mass of a muon is \SI{105.7}{\MeV\per\clight\squared}).
 These interactions were identified by the Cherenkov light produced by the emitted electron.
 
 The results showed that the flux of solar electron neutrinos was approximately one third of the total flux and thus that some solar electron neutrinos had oscillated into different flavours~\cite{SNO}.
-These observations of oscillations also confirmed the massive nature of neutrinos where they had once been believed to be massless.
+These observations of oscillations also confirmed the massive nature of neutrinos. 
+Previously, the Standard Model had been formulated with massless neutrinos and there had been no successful measurements of the absolute neutrino mass.
 
 Further confirmations of the existence of oscillations would come from reactor neutrino experiments (KamLAND in 2003~\cite{kamland2003}) and from long-baseline accelerator neutrino experiments (K2K in 2003~\cite{k2kDisapp} and MINOS in 2006~\cite{minosDisapp}).
 
@@ -953,15 +963,15 @@ However, the values of the parameters involved in neutrino oscillation are yet t
 The most recent global fit of these parameters gives the values shown in \citetab{tab:nufit4}, along with the associated uncertainties, and shows that significant questions still exist in the field of neutrino oscillations.
 \citefig{fig:nufit4Contours} shows the confidence limits obtained for the various parameters.
 
-Given that the mass hierarchy is unknown and that $\deltami{21} \ll |\deltami{31}| \simeq |\deltami{32}|$, it is easier to express the larger mass splitting in terms that depend on the true mass hierarchy.
-We denote this mass splitting as \deltami{3l} where
-\begin{equation}
-  \deltami{3l} =
-  \begin{cases}
-    \deltami{31} > 0 & \text{for NH} , \\
-    \deltami{32} < 0 & \text{for IH} \, .
-  \end{cases}
-\end{equation}
+%Given that the mass hierarchy is unknown and that $\deltami{21} \ll |\deltami{31}| \simeq |\deltami{32}|$, it is easier to express the larger mass splitting in terms that depend on the true mass hierarchy.
+%We denote this mass splitting as \deltami{3l} where
+%\begin{equation}
+%  \deltami{3l} =
+%  \begin{cases}
+%    \deltami{31} > 0 & \text{for NH} , \\
+%    \deltami{32} < 0 & \text{for IH} \, .
+%  \end{cases}
+%\end{equation}
 
 \begin{table}
   \caption[Global best-fit values of neutrino oscillation parameters.]{Current best-fit values of neutrino oscillation parameters for normal (inverted) hierarchy, with associated uncertainties. The lower table shows the results with the constraints from the Super-Kamiokande atmospheric neutrino data while the upper table is shown without this constraint. Taken from~\cite{nufit4}.}
@@ -980,7 +990,8 @@ We denote this mass splitting as \deltami{3l} where
     $\dcp/^{\circ}$ & $215^{+40}_{-29}$ ($284^{+27}_{-29}$) \\[.2cm]
     \hline
     $\frac{\deltami{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$\\[.2cm]
-    $\frac{\deltami{3l}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.032}$ ($-2.512^{+0.034}_{-0.032}$) \\[.2cm]
+    $\frac{\deltami{31}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.032}$ ($-2.438^{+0.034}_{-0.032}$) \\[.2cm]
+    $\frac{\deltami{32}}{10^{-3}~\text{eV}^{2}}$ & $+2.451^{+0.033}_{-0.032}$ ($-2.512^{+0.034}_{-0.032}$) \\[.2cm]
     \hline
     \hline
     \multicolumn{2}{c}{With SK atmospheric constraint} \\
@@ -993,12 +1004,13 @@ We denote this mass splitting as \deltami{3l} where
     $\dcp/^{\circ}$ & $217^{+40}_{-28}$ ($280^{+25}_{-28}$) \\[.2cm]
     \hline
     $\frac{\deltami{21}}{10^{-5}~\text{eV}^{2}}$ & $7.39^{+0.21}_{-0.20}$ \\[.2cm]
-    $\frac{\deltami{3l}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.031}$ ($-2.512^{+0.034}_{-0.031}$) \\[.2cm]
+    $\frac{\deltami{31}}{10^{-3}~\text{eV}^{2}}$ & $+2.525^{+0.033}_{-0.031}$ ($-2.438^{+0.034}_{-0.031}$) \\[.2cm]
+    $\frac{\deltami{32}}{10^{-3}~\text{eV}^{2}}$ & $+2.451^{+0.033}_{-0.031}$ ($-2.512^{+0.034}_{-0.031}$) \\[.2cm]
     \hline
   \end{tabular}
 \end{table}
 
-Although the absolute values of $\Delta m^{2}_{21}$ and $\Delta m^{2}_{31}$ have $\pm1\sigma$ uncertainties of less than 3\% and 2\% respectively, the sign of $\Delta m^{2}_{31}$ is not known, i.e. it is not known whether $\nu_{3}$ is the lightest or the heaviest mass eigenstate.
+Although the absolute values of $\deltami{21}$ and $\deltami{31}$ have $\pm1\sigma$ uncertainties of less than 3\% and 2\% respectively, the sign of $\deltami{31}$ is not known, i.e. it is not known whether $\nu_{3}$ is the lightest or the heaviest mass eigenstate.
 
 While the current global best fit disfavours the inverted hierarchy, the evidence is not conclusive.
 The inverted hierarchy is disfavoured with $\Delta \chi^{2}=4.7$ ($\Delta \chi^{2}=9.3$ if Super-Kamiokande atmospheric data is included)~\cite{nufit4}.
@@ -1022,7 +1034,7 @@ It is also hoped that the next generation of neutrino experiments will enable pr
 \label{sec:theory:currentState:solar}
 %%% SNO, super K, borexino experiments
 
-These parameters are often known as \thetai{\text{sol}} and \deltami{\text{sol}} due to their primary measurement using the solar neutrino flux.
+These parameters are primarily measured by observing the oscillations of neutrinos produced in the Sun.
 The solar neutrino experiments setting the tightest constraints include the Sudbury Neutrino Observatory (SNO)~\cite{snoCombined}, Super-Kamiokande~\cite{superKReview} and Borexino~\cite{borexino} experiments.
 Each of these experiments primarily detect \nue produced by $^{8}\text{B}$ decays, the spectra of which is shown in \citefig{fig:solarNuFluxes}.
 Measurements of the oscillation parameters are made by comparing the measured neutrino fluxes with those predicted by solar models~\cite{solarModel} and then using this to constrain the oscillation parameters.
