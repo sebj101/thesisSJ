@@ -135,11 +135,11 @@ In this case it is possible to write $U$ as
 \end{equation}
 Thus the angles can be expressed in terms of the elements of the mixing matrix in the following way~\cite{pdg2018}:
 \begin{equation}
-\begin{gathered}
+\begin{split}
   \csthetai{12} = \frac{|U_{e1}|^{2}}{1 - |U_{e3}|^{2}}, \quad \ssthetai{12} = \frac{|U_{e2}|^{2}}{1 - |U_{e3}|^{2}}, \\
   \ssthetai{13} = |U_{e3}|^{2}, \quad \ssthetai{23} = \frac{|U_{\mu 3}|^{2}}{1 - |U_{e3}|^{2}}, \\
   \csthetai{23} = \frac{|U_{\tau 3}|^{2}}{1 - |U_{e3}|^{2}} \, .
-\end{gathered}
+\end{split}
 \end{equation}
 
 From \citeeq{eq:lagr} we can see that the amplitude for the decay $\wplus \rightarrow \overline{l_{\alpha}} + \nu_{i}$ is proportional to the matrix element $U_{\alpha i}^{*}$.
@@ -320,10 +320,12 @@ In turn this allows us to write our oscillation amplitude as
 \end{equation}
 This can then be used to write the oscillation probability as
 \begin{align}
-  \text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \nonumber \\
-  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \nonumber \\
+\begin{split}
+  \text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \\
+  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \\
   & + 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E) \, .
   \label{eq:oscProbAllOut}
+\end{split}
 \end{align}
 
 What does \citeeq{eq:oscProbAllOut} tell us about neutrino oscillations?
@@ -346,9 +348,11 @@ Therefore, such an experiment can probe mass splittings down to the level of aro
 \citeeq{eq:oscProbAllOut} shows the oscillation probability for neutrinos only.
 For antineutrinos the equivalent probability is written as
 \begin{align}
-  \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \nonumber \\
-  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \nonumber \\
+\begin{split}
+  \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \\
+  &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \\
   & - 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E) \, .
+\end{split}
 \end{align}
 Thus we can see that, in order for $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$, $U$ cannot be real.
 Given that the process $\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}$ is the Charge-Parity (CP) mirror of $\nu_{\alpha} \rightarrow \nu_{\beta}$, if $\text{P}(\nu_{\alpha} \rightarrow \nu_{\beta}) \neq \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta})$ then we have CP-violation in the lepton sector.
@@ -653,8 +657,10 @@ The two different mass hierarchies are illustrated in \citefig{fig:massHierarchy
 
 For all flavours the survival probability of a given neutrino flavour, the so-called ``disappearance'' channel, can be expressed as~\cite{Nunokawa_2008}
 \begin{align}
+\begin{split}
   P(\nu_{\alpha} \rightarrow \nu_{\alpha}) &= P(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\alpha})\\
   &= 1 - 4|U_{\alpha 1}|^{2} |U_{\alpha 2}|^{2} \sin^{2} \Delta_{21} - 4 |U_{\alpha 2}|^{2} |U_{\alpha 3}|^{2} \sin^{2}\Delta_{32} \\ &- 4 |U_{\alpha 3}|^{2} |U_{\alpha 1}|^{2} \sin^{2} \Delta_{31}
+\end{split}
 \end{align}
 where $\Delta_{ij}=\deltami{ij}L/4E$.
 For muon neutrinos, a case which is particularly relevant to long baseline accelerator experiments, this can be approximated as
@@ -667,11 +673,13 @@ where we have dropped higher order terms on the basis that $|\deltami{32}| \gg |
 In the physics of long baseline neutrino oscillations, another crucial measurement is the oscillation of \numu into \nue and \anumu into \anue, commonly referred to as the electron neutrino appearance channel.
 We find that, in a vacuum~\cite{Nunokawa_2008},
 \begin{align}
+\begin{split}
   P(\numu \rightarrow \nue) &= \left| U^{*}_{\mu 3} e^{-im_{3}^{2}L/2E} U_{e3} + U^{*}_{\mu 2} e^{-im_{2}^{2}L/2E} U_{e2} + U^{*}_{\mu 1}e^{-im_{1}^{2}L/2E}U_{e1} \right|^{2} \\
   &= \left| 2U_{\mu 3}^{*}U_{e3} \sin \Delta_{31} e^{-i \Delta_{32}} + 2U^{*}_{\mu 2}U_{e2} \sin \Delta_{21} \right|^{2} \\
   & \approx \left| \sqrt{P_{\text{atm}}} e^{-i(\Delta_{32}+\dcp)} + \sqrt{P_{\text{sol}}} \right|^{2} \\
   &= P_{\text{atm}} + 2 \sqrt{P_{\text{atm}}} \sqrt{P_{\text{sol}}} \cos(\Delta_{32}+\dcp) + P_{\text{sol}}
   \label{eq:threeNuApp}
+\end{split}
 \end{align}
 where
 \begin{align}
@@ -717,10 +725,12 @@ which leads to $\sqrt{P_{\text{atm}}}$ and $\sqrt{P_{\text{atm}}}$ (see \citeeq{
 where $a = G_{F}N_{e} / \sqrt{2}$.
 Thus the probability of \nue appearance in a beam of \numu can be written
 \begin{align}
+\begin{split}
   P(\numu \rightarrow \nue) &\approx \ssthetai{23} \sstwothetai{13} \frac{ \sin^{2}(\Delta_{31}-aL) }{ (\Delta_{31} - aL)^{2} } \Delta_{31}^{2} \\
   &+ \stwothetai{23} \stwothetai{13} \stwothetai{12} \frac{ \sin(\Delta_{31}-aL) }{ (\Delta_{31} - aL) } \\
   & \times \frac{ \sin(aL) }{aL} \Delta_{21} \cos(\Delta_{31} + \dcp) \\
   &+ \csthetai{23}\sstwothetai{12} \frac{ \sin^{2}(aL) }{(aL)^{2}} \Delta_{21}^{2} 
+\end{split}
 \end{align}
 where we can make the substitutions $a \rightarrow -a$ and $\dcp \rightarrow -\dcp$ for the antineutrino case.
 
