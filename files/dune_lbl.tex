@@ -186,11 +186,12 @@ CAFAna was originally developed for the NOvA oscillation analysis but has since 
 Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
 
 Histograms can be easily plotted by specifying a dataset, variable (\texttt{Var}), selection (\texttt{Cut}) and binning (both constant and variable are supported). 
-\texttt{Var}s may be simply the quantities contain within the CAF \texttt{TTree} or may be constructed from combinations of these.
+\texttt{Var}s may be simply the quantities contained within the CAF \texttt{TTree} or may be constructed from combinations of these.
 Similarly, \texttt{Cut}s may be user defined and can be easily combined using the C++ logical operators.
 
 Additionally, CAFAna allows the effect of systematic variations on each output histogram to be viewed. 
 These systematics can take the form of either reweightings or bin-to-bin shifting of events and are implemented as 1D response functions for each analysis bin.
+The response functions for bin-to-bin shifts are constructed by taking the calculating the content of each bin at $\pm 1 \sigma$, $\pm 2 \sigma$ and $\pm 3 \sigma$ and then performing a cubic interpolation between these points.
 
 In terms of CAFAna's fitting components, a frequentist approach is adopted with the minimisation being performed by the \texttt{MINUIT}~\cite{minuit} package.
 However, currently work is ongoing to expand CAFAna to allow Bayesian analyses.
