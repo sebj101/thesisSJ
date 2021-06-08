@@ -65,6 +65,7 @@ These higher gain PMTs are attached to the bars upon which the beam centre impin
 The gain of a PMT can be expressed as
 \begin{equation}
   G = \frac{N_{\text{SE}}}{N_{\text{PE}}} \, ,
+  \label{eq:gainEq}
 \end{equation}
 where $N_{\text{SE}}$ is the number of output signal electrons from the anode of the PMT and $N_{\text{PE}}$ is the number of photoelectrons liberated from the photocathode.
 This gain measurement is performed by pulsing an LED lamp directly into the photocathode of each PMT with the same voltage used for each LED pulse.
@@ -97,7 +98,8 @@ An example of the gaussian distribution produced from a number of waveforms is s
 $N_{\text{PE}}$ can be estimated from the distributions such as the one shown in \citefig{fig:N_se}.
 The mean number of signal electrons produced by the PMT, $\mu_{\text{SE}}$, is proportional to the mean number of photoelectrons, $\mu_{\text{PE}}$.
 The standard deviation of the distribution of $N_{\text{SE}}$, $\sigma_{\text{SE}}$, is proportional to $\sqrt{N_{\text{PE}}}$~\cite{photoelectrons}.
-Therefore, the mean number of photoelectrons produced by the LED pulse can be estimated as
+This is due to the fact that the number of photoelectrons liberated by a light pulse obeys Poisson statistics, with mean $\mu_{\text{PE}}$ and standard deviation $\sigma_{\text{PE}}$ (assuming the number of incident photons in constant).
+Given that for a Poisson distribution, $\sigma_{\text{PE}} = \sqrt{mu_{\text{PE}}}$ and using \citeeq{eq:gainEq}, the mean number of photoelectrons produced by the LED pulse can be estimated as
 \begin{equation}
   N_{\text{PE}} = \left( \frac{ \mu_{\text{SE}} }{ \sigma_{\text{SE}} }  \right)^{2} \, .
 \end{equation}
@@ -136,7 +138,7 @@ These electrons cause the bar to emit scintillation light as they traverse it.
 This scintillation light is recorded by the PMTs at either end of the bar.
 
 The $^{90}\text{Sr}$ source is placed at several measured points along the bar's long axis (\SI{16}{\cm}, \SI{32}{\cm}, \SI{48}{\cm} to the left and right of the bar centre).
-The voltage of each PMT is adjusted to normalise the size of the PMT signals such that, when a trigger of \SI{-15}{\milli\volt} is used, the average pulse minimum is \SI{-35}{\milli\volt}.
+The voltage of each PMT is adjusted to alter the size of the PMT signals such that, when a trigger of \SI{-15}{\milli\volt} is used, the average pulse minimum is \SI{-35}{\milli\volt}.
 At each of these positions, 1000 waveforms are captured from each PMT at three different trigger levels (\SI{-10}{\milli\volt}, \SI{-15}{\milli\volt} and \SI{-20}{\milli\volt}).
 
 The time difference between signal pulses is calculated by making a correlation graph of the two PMT pulses and finding the time of the maximum.
@@ -155,7 +157,7 @@ The difference in arrival times is taken to be equal to the mean of the gaussian
 \end{figure}
 
 By measuring the difference in arrival time as a function of the $^{90}\text{Sr}$ position it is possible to derive a relationship between the two.
-An example of such a distribution is shown in \citefig{fig:barTimeDiffRes}, left.
+An example of such a distribution is shown in \citefigL{fig:barTimeDiffRes}.
 
 \begin{figure}[h]
   \begin{minipage}[t]{.5\textwidth}
@@ -173,8 +175,7 @@ An example of such a distribution is shown in \citefig{fig:barTimeDiffRes}, left
   \label{fig:barTimeDiffRes}
 \end{figure}
 
-
-One can derive two pieces of information from \citefig{fig:barTimeDiffRes} left.
+One can derive two pieces of information from \citefigL{fig:barTimeDiffRes}.
 Firstly, the relationship between the source position and signal arrival time appears to be linear.
 When a first order polynomial is fitted to the data points, one finds that the signal propagates down the bar at approximately \SI{7.5}{\cm\per\nano\second}.
 This was found to be constant for all bars.
