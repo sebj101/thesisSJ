@@ -21,7 +21,7 @@ Its large mass and the high intensity of the DUNE beam will allow it to collect 
 %Models of neutrino interaction are frequently found to not match observed data.
 
 %% Presentation of DUNE energy spectrum
-\citefig{fig:energyByMode} shows the energy spectrum of \numu and \anumu charged current interactions in ND-GAr (see \citesec{sec:dune:nd:gar})for both FHC and RHC.
+\citefig{fig:energyByMode} shows the energy spectrum of \numu and \anumu charged current interactions in ND-GAr (see \citesec{sec:dune:nd:gar}) for both FHC and RHC.
 The spectrum is subdivided into true final state pion multiplicities. 
 One can see that the energy range of the DUNE beam means that a wide range of event topologies will be present.
 Additionally, one can see that the dominant final states are the ones containing no pions and ones containing a single charged pion.
@@ -86,10 +86,9 @@ Furthermore, GENIE uses the INTRANUKE-hA model~\cite{intranuke} to simulate fina
 For each of the samples, 18 truth level variables describing the neutrino interaction are used as the inputs to the BDT.
 These 18 variables broadly fall into two categories, those concerning the kinematics of the interaction and those concerning final state particles. Those in the former category are the neutrino energy, the outgoing lepton energy, the angle between the outgoing lepton and the neutrino, the squared four momentum transfer ($Q^{2}$), the hadronic invariant mass ($W$), Bj\"orken $x$ and the inelasticity of the collision ($y$).
 In the latter category the variables are the number and total energy of final state protons, neutrons, \piplus, \piminus and \pizero. 
-Finally, the number of electromagnetic objects in the final state is also used.
+Finally, the number of electromagnetic objects in the final state (for example photons) is also used.
 The BDT is then trained to classify interactions as either the `nominal' or `mock' based upon these variables.
 The output of the BDT is then used to weight `nominal' events~\cite{vilelaBDT}.
-
 
 \section{Simulation details}
 \label{sec:dune_ndrwt:simDetails}
@@ -102,10 +101,12 @@ A parametrised reconstruction is then used to give an estimate of the measured e
 The parametrised reconstruction takes the \texttt{GEANT4} energy deposits and smears them according to the Gluckstern formula~\cite{gluckstern}.
 This formula allows the error on a track's curvature (due to motion in a magnetic field) to be estimated.
 This can then be extended to give the fractional uncertainty on the particle momentum as
-\begin{multline}
+\begin{align}
+\begin{split}
 	\left(\frac{\sigma_{p}}{p}\right)^{2} = \left( \frac{\sigma_{x} p}{0.3 B L^{2}} \sqrt{ \frac{720}{N+4} } \right)^{2} \\
-	+ \left( \frac{\SI{0.0157}{\GeV\per\clight}}{0.3BL}\sqrt{\frac{L}{X_{0}}}\left( 1 + 0.038 \ln(L/X_{0}) \right) \right)^{2}
-\end{multline}
+	&+ \left( \frac{\SI{0.0157}{\GeV\per\clight}}{0.3BL}\sqrt{\frac{L}{X_{0}}}\left( 1 + 0.038 \ln(L/X_{0}) \right) \right)^{2}
+\end{split}
+\end{align}
 where $L$ is the track length perpendicular to the magnetic field, $\sigma_{x}$ is the point resolution, $N$ is the number of hits in the track and $X_0$ is the radiation length of the material which the particle is traversing.
 In the HPgTPC, $B$ is taken to be \SI{0.4}{\tesla}, $X_{0}$ is taken to be \SI{13}{\cm}, $\sigma_{x}$ is taken to be \SI{1}{\mm} and the number of track hits is estimated by dividing the track length by the pad pitch of the HPgTPC.
 Charged particles with track lengths of more than \SI{6}{\cm} are considered to be able to be reconstructed using this method.
@@ -315,15 +316,15 @@ However, in spite of this, it still seems that significant differences are visib
 As mentioned in \citesec{sec:dune:nd}, one of the reasons for the inclusion of a near detector in a long baseline neutrino oscillation experiment is to constrain various neutrino cross-section systematics.
 However, it may be that existing neutrino interaction models and their associated uncertainties do not explain the observed reconstructed neutrino energy spectra.
 
-In this case it be necessary to use some data-driven measurement of the unoscillated neutrino event rate to attempt to correct the far detector flux.
+In this case it may be necessary to use some data-driven measurement of the unoscillated neutrino event rate to attempt to correct the far detector flux.
 An example of why this reweighting can be necessary is shown below. 
 
 \citefig{fig:fdSamplesPostFit} shows the four far detector samples (one appearance and one disappearance for each horn current) used in a typical oscillation analysis.
 For each sample the nominal GENIE MC is plotted in blue along with the NuWro `mock data' as black points.
 
-The red line shows the post-fit result of a far detector-only fit with all flux, detector and cross-section systematics at their nominal values. 
+The red line shows the post-fit result of an Asimov far detector-only fit. 
 For the purposes of this fit the nominal MC is GENIE and the data is the NuWro `mock data'.
-The $\chi^{2}$ value for the post-fit distribution is 2.33 indicating good agreement.
+%The $\chi^{2}$ value for the post-fit distribution is 2.33, with  indicating very good agreement.
 
 \begin{figure}[h]
 	\begin{subfigure}[t]{0.5\linewidth}
@@ -352,7 +353,7 @@ The $\chi^{2}$ value for the post-fit distribution is 2.33 indicating good agree
 		\end{adjustbox}		
 		\caption{\nue RHC}
 	\end{subfigure}
-	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit4}.}
+	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit4}. The error bars on the `mock data' correspond to an exposure of \SI{48}{\kilo\tonne\mega\watt\year} in each of FHC and RHC.}
 	\label{fig:fdSamplesPostFit}
 \end{figure}
 
@@ -383,7 +384,7 @@ One can see that these biases are comparable to the eventual expected \dcp resol
 	\caption[\dcp resolution of DUNE as a function of exposure]{\dcp resolution of DUNE as a function of exposure, from~\cite{Abi:2020qib}. Additionally, a line has been drawn indicating the maximal \dcp bias created by using this incorrect interaction model (blue). The green line indicates the 68\% limit of \dcp biases.}
 	\label{fig:dcpResDUNE}
 \end{figure}
-A bias of this magnitude is obviously undesirable for an experiment seeking to make precision measurements of the PMNS matrix.
+A bias of this magnitude is obviously undesirable for an experiment seeking to make precision measurements.
 
 If the near detector is included in these fits, many of the systematic parameters become constrained. 
 However, the systematic uncertainties and oscillation parameters do not contain the required degrees of freedom to reproduce the measured spectra at the ND and FD. 
@@ -402,7 +403,7 @@ The reweighting is divided up into 7 final states for both horn currents.
 The chosen final states are mainly based on final state pion multiplicity since the DUNE beam energies will produce a variety of multiplicities.
 Additionally, \citesec{sec:dune_ndrwt:pionMulti} shows that ND-GAr has a high accuracy when identifying these final states.
 
-The chosen final states are:
+The chosen final states are have a muon and one of:
 \begin{itemize}
 	\item $0\pi$ with a single proton in the final state
 	\item $0\pi$ with more than one proton in the final state
@@ -458,7 +459,7 @@ One can clearly see that in both cases, the distributions are highly diagonal.
 			\input{files/figures/dune_ndrwt/q3CompFhc}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[True vs. reconstructed \evis (left) and \pvis (right)]{2-dimensional distributions showing relationship between true and reconstructed \evis (left) and \pvis (right). In both cases the distributions are area normalised to 1.}
+	\caption[True vs. reconstructed \evis (left) and \pvis (right)]{2-dimensional distributions showing relationship between true and reconstructed \evis (left) and \pvis (right). In both cases the distributions are normalised such that the total area is equal to 1.}
 	\label{fig:visibleTrueReco}
 \end{figure}
 
@@ -505,7 +506,7 @@ One can observe substantial variations in the distributions as a function of fin
 		\end{adjustbox}
 		\caption{$>2\pi$}
 	\end{subfigure}
-	\caption[Two dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by final state. One can see that different final states populate different regions of the plot.}
+	\caption[Two-dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by final state. One can see that different final states populate different regions of the plot.}
 	\label{fig:q0q3Genie}
 \end{figure}
 
@@ -556,7 +557,7 @@ This avoids events being given large weights due to statistical fluctuations.
 		\end{adjustbox}
 		\caption{$>2\pi$}
 	\end{subfigure}
-	\caption[Ratio of NuWro to GENIE of two-dimensional distributions of \evis and \pvis in ND-GAr]{Two dimensional distributions of reconstructed \evis and \pvis in ND-GAr, separated out by pion multiplicity.}
+	\caption[Ratio of NuWro to GENIE of two-dimensional distributions of \evis and \pvis in ND-GAr]{Ratio of the number of NuWro events to the number of of GENIE events in the 2D space of reconstructed \evis and \pvis in ND-GAr, separated out by pion multiplicity. One can see that different final states have differing structures in the same region of the space.}
 	\label{fig:q0q3RatioFhc}
 \end{figure}
 
@@ -638,7 +639,7 @@ One can observe significant shifts for all the MC samples after the reweighting 
 		\end{adjustbox}
 		\caption{RHC \anue}
 	\end{subfigure}
-	\caption[Comparison of weighted and unweighted far detector MC with mock data]{Comparison of weighted and unweighted far detector MC with mock data. Here, $\dcp=\pi$.}
+	\caption[Comparison of weighted and unweighted far detector MC with mock data]{Comparison of weighted and unweighted far detector MC with mock data. Here, $\dcp=\pi$, the true neutrino mass hierarchy is normal and all other oscillation parameters are held at their NuFit 4.0 values~\cite{nufit4}.}
 	\label{fig:reweightedSamples}
 \end{figure}
 
@@ -735,7 +736,7 @@ The points made by using the unweighted MC are also included for comparison.
 One can see that at most points, the bias on \dcp is lessened when the weighted MC is used.
 
 \begin{figure}[h]
-	\begin{adjustbox}{max totalsize=.6\linewidth, center}
+	\begin{adjustbox}{max totalsize=.75\linewidth, center}
 		\input{files/figures/dune_ndrwt/dcpBiasWithWgt}
 	\end{adjustbox}
 	\caption[Bias in fit value of \dcp with ND-GAr reweighted MC]{Bias in the measured value of \dcp as a function of the true value of \dcp. Points for both the nominal GENIE MC and the reweighted MC are shown.}
