@@ -321,10 +321,10 @@ An example of why this reweighting can be necessary is shown below.
 
 \citefig{fig:fdSamplesPostFit} shows the four far detector samples (one appearance and one disappearance for each horn current) used in a typical oscillation analysis.
 For each sample the nominal GENIE MC is plotted in blue along with the NuWro `mock data' as black points.
-
-The red line shows the post-fit result of an Asimov far detector-only fit. 
+The `mock data' has statistical fluctuations equivalent to an exposure of \SI{240}{\kilo\tonne\mega\watt\year} in both RHC and FHC.
+The red line shows the post-fit result of a FD-only fit with all systematics at their nominal values. 
 For the purposes of this fit the nominal MC is GENIE and the data is the NuWro `mock data'.
-%The $\chi^{2}$ value for the post-fit distribution is 2.33, with  indicating very good agreement.
+The $\chi^{2}$ value for the post-fit distribution is 51.4 with 59 degrees of freedom, indicating very good agreement.
 
 \begin{figure}[h]
 	\begin{subfigure}[t]{0.5\linewidth}
@@ -353,13 +353,14 @@ For the purposes of this fit the nominal MC is GENIE and the data is the NuWro `
 		\end{adjustbox}		
 		\caption{\nue RHC}
 	\end{subfigure}
-	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit4}. The error bars on the `mock data' correspond to an exposure of \SI{48}{\kilo\tonne\mega\watt\year} in each of FHC and RHC.}
+	\caption[Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum]{Examples of far detector spectra for both the nominal GENIE MC and NuWro `mock data' along with the post-fit spectrum. Here the true value of \dcp is \ang{90}, the mass ordering is normal and all other parameters are at the NuFit 4.0 best fit points~\cite{nufit4}. The error bars on the `mock data' correspond to an exposure of \SI{240}{\kilo\tonne\mega\watt\year} in each of FHC and RHC.}
 	\label{fig:fdSamplesPostFit}
 \end{figure}
 
-However, many of the systematic parameters have moved from their nominal values in order to accommodate the differing shapes of the data and MC.
-Additionally, several of the oscillation parameters have moved away from their true values.
-Most notably, the value of \dcp has moved from its true value (in this case) of \ang{90} to a best fit point of \ang{64.9}, a bias of \ang{25.1}.
+This process is repeated as an Asimov fit (without the statistical fluctuations in the `mock data').
+It is observed that many of the systematic parameters have move from their nominal values in order to accommodate the differing shapes of the data and MC.
+Additionally, several of the oscillation parameters move away from their true values.
+Most notably, the value of \dcp moves from its true value (in this case) of \ang{90} to a best fit point of \ang{64.9}, a bias of \ang{25.1}.
 
 This process is performed at multiple different \dcp points and the bias in \dcp measured. 
 The resulting bias as a function of \dcpTrue is shown in \citefig{fig:dcpBiasNoWgt}.
