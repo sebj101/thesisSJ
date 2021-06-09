@@ -527,9 +527,9 @@ The basic unit of the extraction and readout unit is known as a charge readout p
 Each of these CRPs contains the extraction grid, LEM and anode sandwiched together (see \citesec{sec:dune:fd:lartpc:dualphase} for more information on the operating principles of dual-phase LArTPCs and \citefig{fig:dualPhaseVoltage} for the voltages that the various parts of the CRP are held at).
 Each of these CRPs can be individually raised or lowered such that the extraction grid is just below the surface of the liquid.
 
-The amplified signals produced in the CRP LEMs are collected on an anode which consists of 2 sets of gold-plated copper strips with a pitch of \SI{3.125}{\milli\metre}~\cite{idrVol3}.
-These sets of strips provide $x$ and $y$ coordinates (the $z$ coordinate being the drift coordinate in this case).
-In contrast to the single-phase module, only two charge views are provided by the readout. 
+%The amplified signals produced in the CRP LEMs are collected on an anode which consists of 2 sets of gold-plated copper strips with a pitch of \SI{3.125}{\milli\metre}~\cite{idrVol3}.
+%These sets of strips provide $x$ and $y$ coordinates (the $z$ coordinate being the drift coordinate in this case).
+%In contrast to the single-phase module, only two charge views are provided by the readout. 
 
 Basic parameters of the dual-phase module are listed in \citetab{tab:dpStats}.
 Here one can note, the increased drift length of the dual-phase modules but also the very high design voltage required.
@@ -565,8 +565,8 @@ This diagram shows the positioning of the various components within the module w
   \label{fig:duneDualPhase}
 \end{figure}
 
-The photon detection system consists of 720 PMTs distributed uniformly below the cathode~\cite{idrVol3}.
-All of these PMTs are coated in tetra-phenyl buatdiene (TPB) which shifts the wavelength of the \SI{127}{\nano\metre} scintillation light into the visible part of the spectrum.
+%The photon detection system consists of 720 PMTs distributed uniformly below the cathode~\cite{idrVol3}.
+%All of these PMTs are coated in tetra-phenyl buatdiene (TPB) which shifts the wavelength of the \SI{127}{\nano\metre} scintillation light into the visible part of the spectrum.
 
 \section{Near detector}
 \label{sec:dune:nd}
@@ -582,7 +582,7 @@ In order to measure the \dcp, a neutrino experiment must accurately measure (amo
 \begin{equation}
   P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }\, ,
 \end{equation}
-where $F_{\text{far/near}}(E_{\nu})$ is the ratio of neutrino fluxes between near and far detectors.
+where $\phi_{\nul}$ are neutrino fluxes of flavour $l$ and $F_{\text{far/near}}(E_{\nu})$ is the ratio of neutrino fluxes between near and far detectors.
 The number of events per energy spectrum (as is measured in an experiment) can be expressed for an ideal detector as
 \begin{equation}
   \frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, ,
@@ -667,17 +667,17 @@ The charge readout lies on the sides of the module transverse to the beam direct
 
 The charge readout system differs significantly from that used in the far detector modules.
 Whereas the DUNE far detector modules have multiple wire planes forming the TPC anode, in ND-LAr the anode is formed from an array of pixels which are used as the charge readout.
-An illustration of an anode tile containing these pixels is shown in \citefig{fig:larpix}.
-The pixels making up the tile have a spacing of \SI{4}{\milli\metre} and the time-binning of the signals is expected to be \SI{2.5}{\micro\second}.
+%An illustration of an anode tile containing these pixels is shown in \citefig{fig:larpix}.
+These pixels have a spacing of \SI{4}{\milli\metre} and the time-binning of the signals is expected to be \SI{2.5}{\micro\second}.
 Combining this figure with the known beam spill width, it is estimated that the position resolution purely from event timing will be approximately \SI{16}{\milli\metre}~\cite{ndCdr}.
 However, incorporating signals from the light collection system is expected to decrease this number.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/larpix}
-  \caption[LArPix anode tile]{Illustration of an anode tile from~\cite{ndCdr}. Each of these tiles contains \num{10240} pixels and each TPC anode is made up of 20 tiles.}
-  \label{fig:larpix}
-\end{figure}
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/larpix}
+%  \caption[LArPix anode tile]{Illustration of an anode tile from~\cite{ndCdr}. Each of these tiles contains \num{10240} pixels and each TPC anode is made up of 20 tiles.}
+%  \label{fig:larpix}
+%\end{figure}
 
 \subsection{ND-GAr}
 \label{sec:dune:nd:gar}
