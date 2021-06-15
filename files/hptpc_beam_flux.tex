@@ -4,12 +4,12 @@
 \section{Motivation}
 \label{sec:hptpc_beam_flux:motivation}
 
-As mentioned in \citesec{sec:theory:currentState}, the targets of the next generation of long baseline neutrino oscillation experiments include the measurement of non-zero \dcp and the neutrino mass hierarchy.
+As mentioned in \citesec{sec:theory:currentState}, the targets of the next generation of long baseline neutrino oscillation experiments include the measurement of non-zero \dcp and the determination of the neutrino mass hierarchy.
 In order to make these measurements, systematic uncertainties will have to be significantly reduced.
 
 In the current generation of neutrino oscillation experiments, uncertainties relating to the neutrino-nucleus interaction model make up a large part of the overall systematic budget.
 For example, NOvA's most recent results assign systematic uncertainties from its interaction model of $3.2-5.8\%$ on its \nue and \anue signal rates~\cite{novaRecent}.
-The T2K experiment has reports systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where cross-section uncertainties are the largest part of this~\cite{t2kRecent}.
+The T2K experiment has reports systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where neutrino interaction uncertainties are the largest part of this~\cite{t2kRecent}.
 
 Reducing these systematic uncertainties relies upon better modelling of neutrino-nucleus interactions.
 It is also important to have an accurate interaction model in order to infer the neutrino energy from the observed events.
@@ -25,11 +25,11 @@ A illustrative diagram showcasing the dependence on the interaction model is sho
 As \citefig{fig:fsiDiag} shows, in the simplest case a neutrino nucleus interaction (in this case a CC quasi-elastic one) can be thought of as a neutrino interacting with a free nucleon.
 However, within a nucleus the nucleons are not static -- they have some initial Fermi momentum which will modify the kinematics of the outgoing particle.
 Additionally, within a nucleus, additional effects can occur due to correlations between nucleons.
-Finally, as the outgoing particles propagate through the nucleus they can interact with other nucleons.
-These `final state interactions' (FSI) can modify both the outgoing particles and their kinematics.
+Finally, as the final state particles propagate through the nucleus they can interact with other nucleons.
+These `final state interactions' (FSI) can modify both the number and type of outgoing particles along with their kinematics.
 
-Given that in a detector only the outgoing particles are observed, we are reliant on neutrino interaction models of the initial nuclear state, nuclear effects and FSI in order to correctly reconstruct the neutrino energy.
-For example, at the DUNE experiment the primary neutrino interaction type is resonant single pion production, caused by the interaction of a neutrino with a nucleon within an argon nucleus.
+Given that in a detector only the final state particles are observed, we are reliant on neutrino interaction models of the initial nuclear state, nuclear effects and FSI in order to correctly reconstruct the neutrino energy.
+For example, at the DUNE experiment a common neutrino interaction type is resonant single pion production, caused by the interaction of a neutrino with a nucleon within an argon nucleus.
 An example of this kind of reaction is 
 \begin{align}
   \numu + p &\rightarrow \muminus + \Delta^{++} \rightarrow \muminus + p + \piplus \, .
@@ -42,7 +42,7 @@ Models of FSI are not consistent between different neutrino interaction generato
 Of the most commonly used neutrino interaction generators, GENIE~\cite{genie}, NuWro~\cite{nuwro} and NEUT~\cite{neut} all model FSI using intranuclear cascade models tuned on external hadron-nucleus scattering data.
 The generator GiBUU~\cite{gibuu} meanwhile, solves the semi-classical Boltzmann-Uehling-Uhlenbeck equation in order to simulate FSI.
 
-However, proton-nucleus scattering measurements are either sparse or non-existent in the energy region of interest or on the desired nucleus.
+However, proton-nucleus scattering measurements are either sparse or non-existent in the energy region of interest, particularly on argon.
 This is shown in \citefig{fig:protonNucleus} which compares proton cross-section data with a semi-empirical model.
 One can see that, for several of the displayed nuclei, large energy regions have no measurements or the data do not match the model well.
 This lack of data leads to different parametrisations being used by different neutrino interaction generators.
@@ -60,7 +60,7 @@ Mismodelling of these nuclear effects can lead to significant biases in the meas
 
 High pressure gas TPCs (HPTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy due to low thresholds required for track reconstruction.
 To this end, a HPTPC prototype has been constructed and exposed to a charged particle beam at CERN during the summer of 2018.
-This wss in an effort to make a measurement of the proton-argon cross-section at low energies (proton kinetic energies of less than \SI{50}{\mega\electronvolt}).
+This is in an effort to make a measurement of the proton-argon cross-section at low energies (proton kinetic energies of less than \SI{50}{\mega\electronvolt}).
 
 In order to access a flux of low energy protons that would have otherwise been unavailable, the beam was moderated and the HPTPC was placed in an off-axis position. 
 An overview of the beam test is given in \citesec{sec:hptpc_beam_flux:overview} while measurements of the beam flux are presented in \citesec{sec:hptpc_beam_flux:results}
@@ -72,7 +72,7 @@ An overview of the beam test is given in \citesec{sec:hptpc_beam_flux:overview} 
 \label{sec:hptpc_beam_flux:overview:t10}
 
 The beam test took place at the T10 beam line in the East Area at CERN.
-The T10 beam is derived from the PS beam, consists primarily of protons, charged pions and electrons and has a momentum range of \SIrange{0.8}{6.5}{\giga\electronvolt\per\clight} (corresponds to a proton kinetic energy range of \SIrange{0.3}{5.6}{\giga\electronvolt})~\cite{t10Report}.
+The T10 beam is derived from the PS beam, consists primarily of protons, charged pions and electrons and has a momentum range of \SIrange{0.8}{6.5}{\giga\electronvolt\per\clight} (corresponding to a proton kinetic energy range of \SIrange{0.3}{5.6}{\giga\electronvolt})~\cite{t10Report}.
 
 \citefig{fig:t10Calc} shows the calculated intensity of the T10 beam as a function of beam momentum, separated by particle species.
 One can see that charged pions predominate over protons at all momenta, with the effect becoming more pronounced at lower beam momenta.
@@ -109,11 +109,11 @@ It is necessary to modify the T10 beam for several reasons, one of them being th
 Additionally, it is important to reduce the multiplicity of particles entering the HPTPC due to the speed of the optical readout which could otherwise become overwhelmed.
 Finally, it is desirable to modify the proton-minimum ionising particle (MIP) ratio in order to isolate more particles which are of interest to a cross-section analysis.
 
-Therefore, two modification are made to the beam flux in order to achieve these goals.
+Therefore, two modifications are made to the beam flux in order to achieve these goals.
 Firstly, up to four \SI{10 x 10 x 10}{\cm} acrylic moderator blocks are placed in the beam.
 These blocks have the effect of scattering the incident particles and reducing their energy.
 Additionally, the HPTPC is moved to an off-axis angle in order to maximise the ratio of protons to MIPs.
-From previous GEANT~\cite{geant} simulations it is determined that the optimal off-axis angle for the HPTPC is between \ang{2} and \ang{3}.
+From previous GEANT4~\cite{geant} simulations it is determined that the optimal off-axis angle for the HPTPC is between \ang{2} and \ang{3}.
 However, due to space constraints in the beam hall, the HPTPC cannot be moved this far off-axis.
 Instead, the beam is steered approximately \ang{1} off its nominal axis to increase the angle between the beam and the HPTPC.
 A bird's-eye view diagram of the experimental setup, which shows the beam position relative to the HPTPC, is shown in \citefig{fig:beamSetup}.
@@ -286,7 +286,7 @@ The signals from \SOne and \STwo are fed individually into the UToF DAQ.
 It consists of 22 bars of EJ-200~\cite{ej200} plastic scintillator.
 20 of these bars measure \SI{168 x 6 x 1}{\centi\metre} while the remaining 2 measure \SI{150 x 6 x 1}{\centi\metre} and are placed at the top and bottom of the panel~\cite{s3Paper}.
 The bars are arranged in a staggered setup with an overlap between the bars of \SI{5}{\milli\metre}.
-The total active area of the detector is \SI{2.0214}{\centi\metre\square}.
+The total active area of the detector is \SI{2.0214}{\metre\squared}.
 Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimensions.
 
 \begin{figure}[h]
@@ -301,7 +301,7 @@ Schematic diagrams of \SThree are shown in \citefig{fig:s3Diag} along with dimen
   \label{fig:s3Diag}
 \end{figure}
 
-EJ-200 plastic scintillator (of which the bars are made) has a brightness of \num{10000}~photons/MeV deposited.
+EJ-200 plastic scintillator has a brightness of \num{10000}~photons/MeV deposited.
 Additionally, it has a large optical attenuation length (\SI{4}{\metre}) along with a fast rise time and decay time constant (\SI{0.9}{\nano\second} and \SI{2.1}{\nano\second} respectively).
 The scintillation emission spectrum peaks at a wavelength of \SI{435}{\nano\metre}~\cite{ej200}.
 In order to increase the light collection capabilities of the bars while excluding background light, they are wrapped in aluminium foil which has a reflectivity of 60\%.
