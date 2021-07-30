@@ -1,8 +1,8 @@
 \chapter{The ProtoDUNE Single Phase detector}
 \label{sec:protodune}
 
-Over the course of 2018 two detectors are assembled at CERN to act as prototypes for the the DUNE far detector modules.
-One of these prototypes is a single-phase LAr TPC while the other is a dual-phase LAr TPC.
+Over the course of 2018 two detectors were assembled at CERN to act as prototypes for the the DUNE far detector modules.
+One of these prototypes was a single-phase LAr TPC while the other was a dual-phase LAr TPC.
 The single-phase prototype is termed ProtoDUNE Single Phase (ProtoDUNE-SP) and will be discussed in this chapter.
 Extensive prototyping of the technologies used in the DUNE far detector prior to the construction of far detector modules is necessary for a variety of reasons.
 
@@ -86,7 +86,7 @@ This drift field results in a nominal electron drift velocity of \SI{1.59}{\mm\p
 \label{sec:protodune:prms}
 
 ProtoDUNE-SP contains three purity monitors designed to provide independent measurements of the liquid argon purity.
-These purity monitors were originally operated in the ICARUS T600 detector~\cite{icarus} and have since been refurbished.
+These purity monitors were the same design as the ones operated in the ICARUS T600 detector~\cite{icarus}.
 They are located exterior to the TPC at varying heights in the cryostat.
 
 \begin{figure}[h]
@@ -163,7 +163,7 @@ This cylinder is filled with nitrogen at a pressure of \SI{1.3}{\bar} which coun
 
 The beam composition varies as a function of momentum and is a mixture of protons, muons, pions, kaons and electrons.
 \citefig{fig:beamComp} shows the measured beam composition for two different nominal beam momenta.
-One can see that the kaon content is negligible at \SI{1}{\GeV\per\clight} due to decay in flight while at higher momenta it becomes hard for the beam line instrumentation to distinguish between electrons, muons and pions.
+One can see that the kaon content is negligible at \SI{1}{\GeV\per\clight} due to decay in flight while at higher momenta it becomes hard for the beam line instrumentation to distinguish between electrons, muons and pions using time of flight information.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.49\linewidth}
@@ -182,6 +182,7 @@ One can see that the kaon content is negligible at \SI{1}{\GeV\per\clight} due t
 
 Light is collected by photosensors within the TPC for two primary reasons. 
 One is in order to give timing information for charged particle interactions.
+This timing information can be used to determine an interaction time and drift position, allowing corrections for position dependent factors.
 The other is in order to gain independent measurements of particle energy from the amount of emitted light.
 
 To this end, ProtoDUNE-SP contains 60 optical modules that together make up the photon detection system (PDS).
