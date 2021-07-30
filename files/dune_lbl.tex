@@ -69,7 +69,6 @@ The interaction model takes a neutrino flux and outputs the final state particle
 For the most part, these interactions are modelled as factorising the interaction into three parts: an initial nuclear state, the neutrino interaction with a nucleon and the propagation of final state particles through the nucleus.
 
 %% Might need to move section on neutrino nucleus interactions to here
-
 The systematic uncertainties used in this analysis relate to all three elements of this modelling picture, among other categories.
 The interaction model systematics can be divided into categories covering each of the following areas~\cite{tdrVol2}: 
 \begin{itemize}
@@ -89,8 +88,8 @@ These uncertainties are derived from a variety of sources, including freedoms in
 \subsection{Detector}
 \label{sec:dune_lbl:systs:det}
 
-Detector systematics in the DUNE long-baseline analysis primarily take the form of bin-to-bin shifts, rather than the weights typically used for the flux and cross-section systematics.
-For various particle types there exist multi-parameter energy scale shifts of the form
+Detector systematics in the DUNE long-baseline analysis primarily take the form of bin-to-bin energy shifts, rather than the weights typically used for the flux and cross-section systematics.
+These are expressed as multi-parameter energy scale shifts for various final states particles species and are of the form
 \begin{equation}
 E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_{\alpha,~\text{reco}}} + \frac{p_{2}}{\sqrt{E_{\alpha,~\text{reco}}+0.1}} \right) \, ,
 \label{eq:energyResponse}	
@@ -104,7 +103,7 @@ The values of the $p_{0}$ (the absolute scale factors) are motivated by those va
 For example, the NOvA experiment quotes an absolute muon energy scale of $<1\%$ and a proton energy scale of 5\%~\cite{nova2018}.
 
 \begin{table}
-	\caption[$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis]{$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis. The muon curvature uncertainty only applies to those muons in the near detector which pass into the magnetised section of the detector.}
+	\caption[$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis]{$1\sigma$ uncertainties for the detector energy response used in the DUNE long baseline analysis. The muon curvature uncertainty only applies to those muons in the near detector which pass into the magnetised section of the detector. Conversely, the uncertainty on the energy scale of muons measured by range only applies for those muons which stop in ND-LAr.}
 	\label{tab:energyScaleParams}
 	\centering
 	\begin{tabular}{c c c c}
@@ -212,11 +211,13 @@ The entire framework is written in C++ and may be controlled by the user through
 \subsection{General sensitivity methods}
 \label{sec:dune_lbl:sensitivities:general}
 
-The oscillation sensitivities are computed by simultaneously fitting the oscillation parameters and nuisance parameters to four FD spectra (\numu disappearance, \anumu disappearance, \nue appearance and \anue appearance) and the nuisance parameters to the two ND spectra (\numu unoscillated and \anumu unoscillated).
+Oscillation sensitivities are computed by simultaneously fitting the oscillation parameters and nuisance parameters to four FD spectra (\numu disappearance, \anumu disappearance, \nue appearance and \anue appearance) and the nuisance parameters to the two ND spectra (\numu unoscillated and \anumu unoscillated). 
+In the current DUNE analysis the intrinsic \nue beam flux is not constrained by the ND due to the simplicity of the ND reconstruction.
+However, in a real analysis it is expected that this would be included.
 Examples of the four FD spectra are shown in \citefig{fig:fdEventRates}.
 The two ND samples are two dimensional, binned in reconstructed neutrino energy and reconstructed inelasticity, $y_{\text{reco}}$, where
 \begin{equation}
-	y_{\text{reco}} = 1 - \frac{E_{\mu,~\text{reco}}}{E_{\nu,~\text{reco}}} \, ,
+	y_{\text{reco}} = 1 - \frac{E_{\mu,~\text{reco}}}{E_{\nu,~\text{reco}}} = \frac{E_{\text{had, reco}}}{E_{\nu, \text{reco}}} \, ,
 \end{equation}
 where $E_{\mu,~\text{reco}}$ and $E_{\nu,~\text{reco}}$ are the reconstructed muon and neutrino energies respectively.
 These two-dimensional samples are shown in \citefig{fig:ndEventRates}.
@@ -300,7 +301,7 @@ The square root of $\Delta \chisquare$ is then taken to provide a crude signific
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
 		\input{files/figures/dune_lbl/mh_sens_both}
 	\end{adjustbox}
-	\caption[DUNE sensitivity to the neutrino mass hierarchy as a function of true \dcp.]{DUNE sensitivities to the neutrino mass hierarchy as a function of true \dcp for a 7 year staged exposure. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Solid lines show the case for true normal mass hierarchy while dashed lines show the case for true inverted mass hierarchy.}
+	\caption[DUNE sensitivity to the neutrino mass hierarchy as a function of true \dcp.]{DUNE sensitivities to the neutrino mass hierarchy as a function of true \dcp for a 7 year staged exposure. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Solid lines show the case for true normal mass hierarchy while dashed lines show the case for true inverted mass hierarchy. The two horizontal dashed lines are at $\sqrt{\Delta\chi^{2}} = 3, 5$ and represent important milestones in determining the mass hierarchy.}
 	\label{fig:mhSens}
 \end{figure}
 
@@ -308,6 +309,8 @@ The square root of $\Delta \chisquare$ is then taken to provide a crude signific
 It is immediately apparent that DUNE will be highly sensitive to the neutrino mass hierarchy, surpassing the common particle physics threshold of $\sqrt{\Delta \chisquare} = 5$ at all values of \dcp and for both true hierarchies.
 One can see that the addition of detector systematics reduces the sensitivity somewhat, with remaining systematics reducing it further.
 However, it is clear that, even with a fairly substantial increase in systematic uncertainties, DUNE will still be able to quickly resolve the neutrino mass hierarchy.
+This excellent ability to resolve the mass hierarchy stems from the DUNE's long baseline which increases the size of matter effects on the oscillations. 
+Since these matter effects are dependent on the true neutrino mass hierarchy, a longer baseline provides a more effective determinant of the true mass hierarchy.
 
 \citefig{fig:mhSensExp} illustrates just how quickly DUNE will be able to resolve the mass hierarchy.
 \citefig{fig:mhSensExp} shows the value of $\sqrt{\Delta\chisquare}$ in the case of true normal neutrino mass hierarchy and $\dcpTrue = \pi/2$ as a function of far detector exposure. 
