@@ -211,10 +211,14 @@ The entire framework is written in C++ and may be controlled by the user through
 \subsection{General sensitivity methods}
 \label{sec:dune_lbl:sensitivities:general}
 
-Oscillation sensitivities are computed by simultaneously fitting the oscillation parameters and nuisance parameters to four FD spectra (\numu disappearance, \anumu disappearance, \nue appearance and \anue appearance) and the nuisance parameters to the two ND spectra (\numu unoscillated and \anumu unoscillated). 
+Oscillation sensitivities are computed by simultaneously fitting the oscillation parameters and nuisance parameters to four FD spectra (\numu disappearance, \anumu disappearance, \nue appearance and \anue appearance) and the nuisance parameters to the two ND spectra (\numu unoscillated and \anumu unoscillated).
 In the current DUNE analysis the intrinsic \nue beam flux is not constrained by the ND due to the simplicity of the ND reconstruction.
 However, in a real analysis it is expected that this would be included.
+
 Examples of the four FD event rates are shown in \citefig{fig:fdEventRatesWithErrorBand}.
+In each case, the $\pm1\sigma$ systematic error band is also shown in red.
+Furthermore, for the appearance samples, the different event rates resulting from different neutrino mass hierarchies and values of \dcp are shown.
+One can see that the systematic errors are significant for all samples across the energy range.
 
 \begin{figure}
 	\begin{minipage}[t]{.5\linewidth}
@@ -234,15 +238,16 @@ Examples of the four FD event rates are shown in \citefig{fig:fdEventRatesWithEr
 			\input{files/figures/dune_lbl/fdNueRhcWithSyst}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[Event rates for each of the far detector samples]{Event rates for each of the far detector samples. The red band indicates the $\pm1\sigma$ error band in each case. For the \nue event rates, results for different neutrino mass hierarchies and values of \dcp are shown.}
+	\caption[Event rates for each of the far detector samples]{Event rates for each of the far detector samples. The red band indicates the $\pm1\sigma$ error systematic band in each case. For the \nue event rates, results for different neutrino mass hierarchies and values of \dcp are shown. Top left: \numu disappearance with the beam in FHC mode. Top right: \numu disappearance with the beam in RHC mode. Bottom left: \nue appearance with the beam in FHC mode. Bottom right: \nue appearance with the beam in RHC mode.}
 	\label{fig:fdEventRatesWithErrorBand}
 \end{figure}
 
-The two ND samples are two dimensional, binned in reconstructed neutrino energy and reconstructed inelasticity, $y_{\text{reco}}$, where
+The two ND samples are two dimensional, binned in reconstructed neutrino energy and reconstructed inelasticity, $y_{\text{reco}}$.
+The reconstructed neutrino energy, $E_{\nu,~\text{reco}}$, is calculated by summing the reconstructed energy of the outgoing lepton ($E_{\mu,~\text{reco}}$) and the reconstructed energies of any final state hadrons ($E_{\text{had, reco}}$).
+$y_{\text{reco}}$ is defined as
 \begin{equation}
-	y_{\text{reco}} = 1 - \frac{E_{\mu,~\text{reco}}}{E_{\nu,~\text{reco}}} = \frac{E_{\text{had, reco}}}{E_{\nu, \text{reco}}} \, ,
+	y_{\text{reco}} = \frac{E_{\text{had, reco}}}{ E_{\text{had, reco}} + E_{\mu,~\text{reco}} } \, .
 \end{equation}
-where $E_{\mu,~\text{reco}}$ and $E_{\nu,~\text{reco}}$ are the reconstructed muon and neutrino energies respectively.
 These two-dimensional samples are shown in \citefig{fig:ndEventRates}.
 
 \begin{figure}[h]
