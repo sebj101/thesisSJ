@@ -125,16 +125,19 @@ For example, the NOvA experiment quotes an absolute muon energy scale of $<1\%$ 
 $p_{1}$ and $p_{2}$ provide freedom in the shape of the energy response as a function of energy.
 These coefficients are taken to be the same or similar to the size of $p_{0}$.
 
-\citefig{fig:protonEScale} shows 10 possible realisations of the proton energy response.
-To produce each of these response functions, the $p_{n}$ are each independently thrown according to a Gaussian distribution with the appropriate width from \citetab{tab:energyScaleParams}.
-One can see that between the different throws there are significant differences in both the magnitude and shape of response function between different throws.
+\citefig{fig:protonEScale} shows the $\pm1\sigma$ uncertainty on the energies of $p$ and \pipm as a function of energy.
+This is produced by throwing the $p_{n}$ independently according to a Gaussian distribution with the appropriate width from \citetab{tab:energyScaleParams}. The function is then evaluated the centre of each energy bin.
+This process is repeated \num{10000} times and a Gaussian is fitted to the distribution produced in each energy bin.
+The value of $\sigma$ for each Gaussian is plotted as the size of the band.
+One can see that there is significant variation in the uncertainty as a function of energy, caused by the different energy dependencies of the terms in \citeeq{eq:energyResponse}.
+Additionally, central values of the distributions (black points) all lie close to 0.
 
 \begin{figure}[h]
-	\begin{adjustbox}{max totalsize=.6\textwidth, center}
-		\input{files/figures/dune_lbl/energyResponse}
-	\end{adjustbox}
-	\caption[Example proton energy responses as a function of proton energy.]{Example proton energy responses as a function of proton energy. The functions are derived from \citeeq{eq:energyResponse} with Gaussian throws for $p_{0}$, $p_{1}$ and $p_{2}$.}
-	\label{fig:protonEScale}
+  \begin{adjustbox}{max totalsize=.6\textwidth, center}
+    \input{files/figures/dune_lbl/energyResponseBand}
+  \end{adjustbox}
+  \caption[Charged hadron energy scale uncertainty as a function of energy.]{Charged hadron energy scale uncertainty as a function of energy, generated from \num{10000} evaluations of \citeeq{eq:energyResponse} with Gaussian throws for $p_{0}$, $p_{1}$ and $p_{2}$. The red area indicates the $1\sigma$ fractional energy uncertainty while the black points indicate the central value for each energy bin.}
+  \label{fig:protonEScale}
 \end{figure}
 
 Additionally, a 2\% uncertainty is assigned to the the resolution of each of muons, charged hadrons, electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
