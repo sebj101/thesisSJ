@@ -666,8 +666,8 @@ However, given that most neutrino-induced muons will not stop in ND-LAr their en
 It is therefore necessary to have a detector downstream of ND-LAr which can measure the momentum of these muons as well as their charge (in order to measure the wrong-sign background).
 
 A cut-away diagram of ND-GAr is shown in \citefig{fig:ndGarDiag} where the main components are shown.
-At the centre of the detector is pressure vessel within which a high pressure gas time projection chamber (HPgTPC) is located.
-This time projection chamber measure \SI{5.2}{\metre} in diameter and consists of two cylindrical drift volumes, each of \SI{2.5}{\metre}.
+At the centre of the detector is a pressure vessel within which a high pressure gas time projection chamber (HPgTPC) is located.
+This time projection chamber measures \SI{5.2}{\metre} in diameter and consists of two cylindrical drift volumes, each \SI{2.5}{\metre} in length, divided by a central cathode.
 The pressure vessel itself is expected to be $\sim\SI{6}{\metre}$ in diameter and \SI{6}{\metre} long. 
 Exterior to this TPC, an electromagnetic calorimeter (ECAL) surrounds the HPgTPC.
 The primary purpose of the ECAL is to reconstruct photons produced in neutrino interactions.
@@ -717,12 +717,8 @@ The only kinematic region in which acceptance remains low is those high energy m
 \end{figure}
 
 The HPgTPC is based upon the ALICE TPC, a diagram of which is shown in \citefig{fig:aliceTPC}.
-The design consists of a central cathode which divides the cylinder into two \SI{2.5}{\metre} drift volumes.
-The readout wire chambers are located at either end of the cylinder and will be a mixture of those used in the ALICE TPC with additional newly constructed readout chambers for the innermost portion of the TPC (in the ALICE detector the central portion of the cylindrical plane is occupied by other sub-detectors).
+Readout wire chambers are located at either end of the cylinder and will be a mixture of those used in the ALICE TPC with additional newly constructed readout chambers for the innermost portion of the TPC (in the ALICE detector the central portion of the cylindrical plane is occupied by other sub-detectors).
 Ionisation electrons produced by charged particles drift towards the readout chambers which are instrumented with multi-wire proportional chambers (MWPCs).
-Upon reaching these chambers, the primary electrons initiate avalanches leading to a gain in the signal.
-These amplification electrons induce a signal on a series of pads, the readout of which gives two dimensional hit coordinates.
-The third coordinate is provided by the drift time.
 
 \begin{figure}[h]
   \centering
@@ -735,7 +731,7 @@ The HPgTPC is filled with a mixture of argon and $\text{CH}_{4}$ in a ratio of $
 The high pressure ensures that the HPgTPC has a high enough active mass ($\sim\SI{1.8}{\tonne}$) to record sufficient neutrino interactions.
 However, even at this high pressure the gaseous argon is of a significantly lower density than liquid argon (\SI{0.017}{\gram\per\cubic\centi\metre} versus \SI{1.38}{\gram\per\cubic\centi\metre} for liquid argon).
 
-This lower density means that a lower energy threshold is required for charged particle track reconstruction.
+This lower density means that there is a lower energy threshold for charged particle track reconstruction.
 In particular ND-GAr aims to be able to reconstruct protons and charged pions with kinetic energies of more than \SI{5}{\mega\electronvolt}.
 This is compared to thresholds of \SI{47}{\mega\electronvolt}~\cite{uBooneProtonThreshold} and \SI{37}{\mega\electronvolt}~\cite{uBoonePionThreshold} measured by MicroBooNE in liquid argon for protons and charged pions respectively.
 This low energy region is of interest since at these energies there are disagreements between various neutrino interaction generators in the multiplicity and energy of final state hadrons produced by neutrino interactions.
