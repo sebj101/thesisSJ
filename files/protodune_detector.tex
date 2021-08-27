@@ -70,7 +70,19 @@ From a drifting electron's point of view the first plane encountered is the grou
 Finally, the drift electron reaches the collection plane (X) where it is collected.
 On either side of the APA, a bronze mesh is attached to act as a grounded shield plane for the wires.
 
-In order to aid this collection on the final plane only, bias voltages are applied to the wire planes.
+Simulated waveforms from DUNE for each of the wire planes are shown in \citefig{fig:wireSignals}. 
+The waveforms will have the same features as those in ProtoDUNE-SP.
+For the induction planes a bipolar signal is produced as the electrons initially move towards the wire before passing it.
+The collection plane produces a unipolar signal as the electrons are collected.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/figures/protodune_detector/wireSignals}
+	\caption[Simulated waveforms in the DUNE detector for MIPs travelling parallel to the wire plane]{Simulated waveforms in the DUNE detector for MIPs travelling parallel to the wire plane, from~\cite{tdrVol2}. Here, as in ProtoDUNE-SP, the U and V wires are the induction planes and the X wire is the collection plane.}
+	\label{fig:wireSignals}
+\end{figure}
+
+Bias voltages are applied to the wire planes to ensure that ionisation electrons drift past the induction planes and are collected on the collection planes.
 The voltages used are as follows: $V_{G} = \SI{-665}{\volt}$, $V_{U} = \SI{-370}{\volt}$, $V_{V} = \SI{0}{\volt}$ and $V_{X} = \SI{+820}{\volt}$~\cite{protodunePerformance}.
 
 The cathode plane is formed from six CPAs, each \SI{6.1}{\m} in height and \SI{1.15}{\m} wide.
