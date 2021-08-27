@@ -22,13 +22,13 @@ In this chapter, the DUNE detector will be discussed.
 \label{sec:dune:overview}
 As discussed in \citesec{sec:theory:currentState}, several questions remain in the field of neutrino oscillations.
 In particular, the ordering of the neutrino mass eigenstates is not yet known and it is also unknown if the CP-violating phase of the PMNS matrix exist.
-If it is proven that $\dcp \neq 0, \pi$, this would be proof of the existence of CP-violation in the lepton sector.
+If it is proven that $\dcp \neq 0$ or $\pi$, this would be proof of the existence of CP-violation in the lepton sector.
 DUNE aims to shed light on both of these issues.
 Additionally, DUNE aims to be able to resolve the octant of \thetai{23} (i.e. is $\thetai{23} > \pi/4$ or $< \pi/4$?) if it is non-maximal and usher in a new era of precision measurements of the PMNS matrix. 
 
-Due to the large active mass of the far detector, DUNE is also designed to observe neutrinos from a galactic core-collapse supernova if one should occur during the running time of the experiment.
+Due to the large active mass of the far detector, DUNE is also designed to observe neutrinos from a galactic core-collapse supernova if one should occur during the running time of the experiment (further details in Ref.~\cite{duneSupernova}).
 This same large far detector mass will also allow it to search for certain Beyond the Standard Model (BSM) processes such as baryon number violation via proton decay.
-A range of other BSM processes will also be explored by the experiment.
+A range of other BSM processes will also be explored by the experiment (detailed in Ref.~\cite{duneBSM}).
 
 % Physics goals
 % Oscillations first and foremost are the most important - refer to what is in the historical context chapter
@@ -44,7 +44,7 @@ The staging plan this refers to is as follows (also shown is the exposure accumu
 	\item Initial \SI{20}{\kilo\tonne} far detector with a \SI{1.2}{\mega\watt} beam (exposure of \SI{24}{\kilo\tonne\mega\watt\year} every year)
 	\item Year 1: far detector upgraded to \SI{30}{\kilo\tonne} (exposure of \SI{36}{\kilo\tonne\mega\watt\year} every year)
 	\item Year 3: far detector upgraded to \SI{40}{\kilo\tonne} (exposure of \SI{48}{\kilo\tonne\mega\watt\year} every year)
-	\item Year 6: beam upgraded to a power of \SI{2.4}{\mega\watt} (exposure of \SI{96}{\kilo\tonne\mega\watt\year every year})
+	\item Year 6: beam upgraded to a power of \SI{2.4}{\mega\watt} (exposure of \SI{96}{\kilo\tonne\mega\watt\year} every year)
 \end{itemize}
 
 \begin{table}
@@ -77,7 +77,7 @@ Similarly, \citetab{tab:appStatistics} shows the number of events identified as 
 \citefig{fig:fdEventRates} shows the same event rates as a function of energy with the signal and background contributions outlined.
 
 \begin{table}
-  \caption[Expected numbers of DUNE far detector disappearance events.]{Expected number of events identified as \numu and \anumu disappearance signal events. Here, the energy range is \SIrange{0.5}{8}{\giga\electronvolt} and the time period is 3.5~years for each on neutrino and antineutrino beam mode. All oscillation parameters are at their best fit points in~\cite{nufit4} apart from \dcp which is assumed to be 0. The mass hierarchy is assumed to be normal. Taken from~\cite{tdrVol2}.}
+  \caption[Expected numbers of DUNE far detector disappearance events.]{Expected number of events identified as \numu and \anumu disappearance signal events. Here, the energy range is \SIrange{0.5}{8}{\giga\electronvolt} and the time period is 3.5~years for each of neutrino and antineutrino beam mode. All oscillation parameters are at their best fit points in~\cite{nufit4} apart from \dcp which is assumed to be 0. The mass hierarchy is assumed to be normal. Taken from~\cite{tdrVol2}.}
     \label{tab:disappStatistics}
     \centering
     \begin{tabular}{c c}
@@ -165,7 +165,7 @@ At least two of the far detector modules will use single-phase LArTPC technology
 These modules will combine excellent particle identification and energy resolution with a large, monolithic detector mass. 
 The operational principles of LArTPCs will be discussed further in \citesec{sec:dune:fd:lartpc}.
 
-Secondly, DUNE will use a neutrino beam with a wide spread of neutrino energies which, given the values of the mass splittings, will allow it cover both the first and second oscillation maxima.
+Secondly, DUNE will use a neutrino beam with a wide spread of neutrino energies which, given the values of the mass splittings, will allow it to cover both the first and second oscillation maxima.
 It is helpful to measure multiple oscillation maxima because of degeneracies between the oscillation parameters.
 This means that, for a given neutrino energy, multiple sets of parameter values can realise the same oscillation probability.
 
@@ -229,7 +229,7 @@ Instead, LAr experiments such as DUNE are more sensitive to decays that result i
 \begin{align}
   p \rightarrow K^{+} + \overline{\nu} \, ,
 \end{align}
-which other experiments are predicted to have a lower efficiency in detecting~\cite{duneNDK}.
+which other experiments are predicted to have a lower detection efficiency~\cite{duneBSM}.
 
 % Quick bit on BSM physics
 Finally, DUNE will also have a wide variety of beyond the Standard Model (BSM) physics searches.
@@ -302,14 +302,14 @@ Liquid helium is unlikely to be used in a neutrino experiment due to its low den
 \end{table}
 
 Of those liquids in \citetab{tab:nobleLiquids}, neon is not a good ioniser~\cite{schumann2012dark} and can therefore be discounted.
-This leave the choice of noble liquid for the TPC to be argon or xenon.
+This leaves the choice of noble liquid for the TPC to be argon or xenon.
 Of these two, argon is far more abundant and therefore cheaper and more suitable for large volume detectors such as those used in neutrino physics.
 
 The first large scale (mass $>\SI{100}{\tonne}$) LArTPC to be constructed was the ICARUS experiment~\cite{icarus}, with an active mass of \SI{500}{\tonne}.
 Since then more have been constructed and operated including MicroBooNE~\cite{uBooneConstruct} and the two ProtoDUNE detectors~\cite{protoduneSP_tdr, cuesta2019status}.
 
-In DUNE, two types of LArTPC will be used for different far detector modules.
-These are single-phase and dual-phase LArTPCs and will be explained further in \citesec{sec:dune:fd:lartpc:singlephase} and \citesec{sec:dune:fd:lartpc:dualphase} respectively.
+In DUNE, two types of LArTPC are being considered for far detector modules.
+These are single-phase and dual-phase LArTPCs and will be explored further in \citesec{sec:dune:fd:lartpc:singlephase} and \citesec{sec:dune:fd:lartpc:dualphase} respectively.
 
 % Explanation of single and dual phase concepts
 \subsubsection{Single-phase LArTPC operation}
@@ -386,7 +386,7 @@ Given that the relationship between the drift time of electrons and their positi
 Together with the 2-dimensional views provided by the sense wires, this means a 3-dimensional image of a charged particle in the drift volume can be reconstructed.
 
 Given that both ionisation charge and scintillation light are important factors in event reconstruction for LArTPCs, it is optimal to have an electric field that allows some amount of recombination.
-Therefore, the electric is often chosen to be at around 0.5~\si{\kilo\volt\per\centi\metre}.
+Therefore, the electric field strength is often chosen to be at around 0.5~\si{\kilo\volt\per\centi\metre}.
 
 \subsubsection{Dual-phase LArTPC operation}
 \label{sec:dune:fd:lartpc:dualphase}
@@ -487,17 +487,13 @@ For each of the two cathode planes, 300 CPAs are required.
 These CPAs are stacked 3 vertically and 50 in the beam direction.
 
 Each APA consists of three planes of wrapped wires.
-As mentioned in \citesec{sec:dune:fd:lartpc:singlephase}, 2 of these are induction planes and the other is the collection plane.
+As mentioned in \citesec{sec:dune:fd:lartpc:singlephase}, 2 of these are induction planes and the other is the collection/grid plane.
 The APA wire wrapping scheme is shown in \citefig{fig:wireWrapping} with the APA rotated by \ang{90} from its orientation in the TPC.
 The collection and grid wires, labelled as the $X$ and $G$ planes respectively, are vertical.
 The two induction planes, labelled $U$ and $V$ are at $\pm\ang{35.7}$ to the collection plane.
 This angle is chosen such that each induction wire only crosses a given collection wire once.
 This makes it easier to pinpoint in space where signals are observed.
-
-The ordering of the wire planes, starting from the drift volume is $GUVX$.
-The wires within the induction planes are spaced with \SI{4.67}{\milli\metre} between wires, while for the collection and grid plane the spacing is set at \SI{4.79}{\milli\metre}.
-This spacing is chosen to fulfil the requirement that a $yz$ vertex resolution of \SI{1.5}{\centi\metre} is achievable in the far detector.
-This means that, for each APA, there are 960 wires in each of the collection and grid planes and 800 wires in each of the induction planes~\cite{tdrVol4}.
+The wires within the induction planes are spaced \SI{4.67}{\milli\metre} apart while in the collection and grid planes this spacing is \SI{4.79}{\milli\metre}~\cite{tdrVol4}.
 
 \begin{figure}[h]
   \centering
@@ -519,20 +515,16 @@ The photon detection system will convert incident \SI{127}{\nano\metre} photons 
 \subsubsection{Dual-phase}
 \label{sec:dune:fd:modules:dualphase}
 As mentioned previously, the main advantage of the dual-phase TPC design versus the single-phase design is the increased signal-to-noise ratio.
-This allows improvements such as a larger drift length, resulting in a reduction in dead material.
+This allows improvements such as a larger drift length, resulting in a reduction in passive material.
 Additionally, the fact that the dual-phase module comprises only a single drift volume means that fewer readout channels are required than for an equivalent single phase module (\num{153600} for a dual-phase module versus \num{384000} for a single-phase module~\cite{idrVol3}).
 
 Similar to the single-phase module, the dual-phase module also features a modular design for the readout.
 The basic unit of the extraction and readout unit is known as a charge readout plane (CRP).
 Each of these CRPs contains the extraction grid, LEM and anode sandwiched together (see \citesec{sec:dune:fd:lartpc:dualphase} for more information on the operating principles of dual-phase LArTPCs and \citefig{fig:dualPhaseVoltage} for the voltages that the various parts of the CRP are held at).
-Each of these CRPs can be individually raised or lowered such that the extraction grid is just below the surface of the liquid.
-
-%The amplified signals produced in the CRP LEMs are collected on an anode which consists of 2 sets of gold-plated copper strips with a pitch of \SI{3.125}{\milli\metre}~\cite{idrVol3}.
-%These sets of strips provide $x$ and $y$ coordinates (the $z$ coordinate being the drift coordinate in this case).
-%In contrast to the single-phase module, only two charge views are provided by the readout. 
+Each of these CRPs can be individually raised or lowered such that the extraction grid is just below the liquid surface.
 
 Basic parameters of the dual-phase module are listed in \citetab{tab:dpStats}.
-Here one can note, the increased drift length of the dual-phase modules but also the very high design voltage required.
+Here one can note the increased drift length of the dual-phase modules but also the very high design voltage required.
 
 \begin{table}
   \caption[Basic parameters for a DUNE dual-phase module.]{Basic parameters for a DUNE dual-phase module from~\cite{idrVol3}.}
@@ -583,7 +575,7 @@ In order to measure the \dcp, a neutrino experiment must accurately measure (amo
   P_{\numu\rightarrow\nue} (E_{\nu}) = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{far, unosc}}_{\numu} (E_{\nu}) } = \frac{ \phi^{\text{far}}_{\nue} (E_{\nu}) }{ \phi^{\text{near, unosc}}_{\numu} (E_{\nu}) \times F_{\text{far/near}}(E_{\nu}) }\, ,
 \end{equation}
 where $\phi_{\nul}$ are neutrino fluxes of flavour $l$ and $F_{\text{far/near}}(E_{\nu})$ is the ratio of neutrino fluxes between near and far detectors.
-The number of events per energy spectrum (as is measured in an experiment) can be expressed for an ideal detector as
+The number of events for a given neutrino energy (as is often measured in an experiment) can be expressed for an ideal detector as
 \begin{equation}
   \frac{ dN_{\nul} }{ dE_{\nu} } = \phi_{\nul}(E_{\nu}) \times \sigma^{\text{Ar}}_{\nul} (E_{\nu})\, ,
 \end{equation}
@@ -664,20 +656,6 @@ Together, these modules form an active volume \SI{3.5}{\metre} in height, \SI{5}
 Each module consists of a cathode, field cage, light collection system and pixel based charge readout.
 The light collection system sits at the top of each module while the central cathode splits the module into two drift regions.
 The charge readout lies on the sides of the module transverse to the beam direction.
-
-The charge readout system differs significantly from that used in the far detector modules.
-Whereas the DUNE far detector modules have multiple wire planes forming the TPC anode, in ND-LAr the anode is formed from an array of pixels which are used as the charge readout.
-%An illustration of an anode tile containing these pixels is shown in \citefig{fig:larpix}.
-These pixels have a spacing of \SI{4}{\milli\metre} and the time-binning of the signals is expected to be \SI{2.5}{\micro\second}.
-Combining this figure with the known beam spill width, it is estimated that the position resolution purely from event timing will be approximately \SI{16}{\milli\metre}~\cite{ndCdr}.
-However, incorporating signals from the light collection system is expected to decrease this number.
-
-%\begin{figure}[h]
-%  \centering
-%  \includegraphics[width=.7\linewidth]{files/figures/dune_detector/larpix}
-%  \caption[LArPix anode tile]{Illustration of an anode tile from~\cite{ndCdr}. Each of these tiles contains \num{10240} pixels and each TPC anode is made up of 20 tiles.}
-%  \label{fig:larpix}
-%\end{figure}
 
 \subsection{ND-GAr}
 \label{sec:dune:nd:gar}
