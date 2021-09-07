@@ -34,8 +34,8 @@ Examples of these interactions are shown in \citefig{fig:nuIntEx}.
   \begin{subfigure}[t]{.49\textwidth}
     \centering
     \feynmandiagram [vertical=a to b] {
-      i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\(l^{-}\)],
-      a -- [boson, edge label = \wplus] b,
+      i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\(l^{+}\)],
+      a -- [boson, edge label = \wminus] b,
       f1 [particle=\(n\)] -- [anti fermion] b -- [anti fermion] f2 [particle=\(p\)]
     };
     \caption{Example of a neutrino charged current interaction with a neutron}
@@ -50,7 +50,7 @@ Examples of these interactions are shown in \citefig{fig:nuIntEx}.
     };    
     \caption{Example of a neutrino neutral current interaction with a proton}
   \end{subfigure}
-  \caption[Examples of diagrams for charged (CC) and neutral (NC) neutrino interactions.]{Examples of diagrams for charged (CC) and neutral (NC) neutrino interactions.}
+  \caption[Examples of diagrams for charged (CC) and neutral (NC) current neutrino interactions.]{Examples of diagrams for charged (CC) and neutral (NC) current neutrino interactions.}
   \label{fig:nuIntEx}
 \end{figure}
 
@@ -168,7 +168,7 @@ If $\alpha \neq \beta$, the neutrino has oscillated.
 
 The amplitude of this reaction can be visualised using \citefig{fig:oscillationDiag1}.
 Here a neutrino of flavour $\alpha$ is initially produced along with a charged lepton $\overline{l_{\alpha}}$.
-The neutrino then propagates some distance $L$ before interacting in a target, resulting in the emission of charged lepton $l_{\beta}$
+The neutrino then propagates some distance $L$ before interacting in a target, resulting in the emission of charged lepton $l_{\beta}$.
 
 \begin{figure}[h]
   \centering
@@ -243,7 +243,7 @@ Upon reaching the target and interacting, the amplitude for the state $\nu_{i}$ 
 
 The final factor that must be taken into consideration in order to calculate this amplitude is the mass eigenstate propagator $\text{Prop}(\nu_{i})$.
 From quantum mechanics, this can be given as $e^{-i \lambda \tau}$ where $\lambda = m - i \Gamma /2$ where $m$ is the mass of the particle, $\Gamma$ is the width of the particle and $\tau$ is the proper time that elapses for the particle in its rest frame during propagation. 
-Here we assume that neutrinos are stable and therefore, that $\Gamma = 0$ to find
+Here we assume that neutrinos are stable, and therefore that $\Gamma = 0$, to find
 \begin{equation}
   \text{Prop}(\nu_{i}) = e^{-i m_{i} \tau_{i}} \, .
 \end{equation}
@@ -277,7 +277,7 @@ Here, for a given neutrino mass, $m_{i}^{\nu}$ the energy of the produced neutri
 where the superscripts indicate the masses of each particle.
 Therefore, we can now calculate the difference in energy for two different neutrinos, $\nu_{i}$ and $\nu_{j}$ to find
 \begin{equation}
-  E^{\nu}_{i} - E^{\nu}_{j} = \frac{ m_{i}^{\nu} - m_{j}^{\nu} }{ 2m^{\pi} } = \frac{\Delta m_{ij}^{2}}{2m^{\pi}} \, .
+  E^{\nu}_{i} - E^{\nu}_{j} = \frac{ \left(m_{i}^{\nu}\right)^{2} - \left(m_{j}^{\nu}\right)^{2} }{ 2m^{\pi} } = \frac{\Delta m_{ij}^{2}}{2m^{\pi}} \, .
   \label{eq:nuDeltaE}
 \end{equation}
 
@@ -300,7 +300,12 @@ which can then be inserted, along with \citeeq{eq:nuDeltaE}, into \citeeq{eq:pha
   m_{i}\tau_{i} - m_{j}\tau_{j} = \frac{ \Delta m_{ij}^{2} }{ 2m^{\pi} }\left(1 + \frac{ E_{0}^{\mu} }{ E_{0}^{\nu} } \right) = \Delta m_{ij}^{2} \frac{L_{0}}{2E_{0}^{\nu}} \, .
 \end{equation}
 
-We can therefore insert this into the neutrino propagation amplitude of \citeeq{eq:oscAmp} to get
+We can therefore write our neutrino propagator as
+\begin{equation}
+\exp(-i m_{i} \tau_{i}) = \exp(-i \left(m_{i}\right) \frac{L_{0}}{2E^{\nu}_{0}} )
+\end{equation}
+which will keep the relative phases the same.
+We then insert this into the neutrino propagation amplitude of \citeeq{eq:oscAmp} to get
 \begin{equation}
   \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) = \sum_{i=1}^{3} U_{\alpha i}^{*} e^{ -i(m_{i}^{\nu})^{2}\frac{L_{0}}{2E^{\nu}_{0}} } U_{\beta i} \, .
 \end{equation}
@@ -331,7 +336,7 @@ This can then be used to write the oscillation probability as
 What does \citeeq{eq:oscProbAllOut} tell us about neutrino oscillations?
 We can see that two conditions must be present in order for oscillations to be observed.
 Firstly, there must be mass differences between the various mass eigenstates which tells us that neutrinos have non-zero mass.
-Secondly, we must be non-trivial mixing between the lepton generations.
+Secondly, there must be non-trivial mixing between the lepton generations.
 That is to say, $U$ cannot be diagonal if neutrino oscillations are observed.
 Additionally, we see that neutrino oscillations can only tell us about the relative difference in neutrino mass eigenstates, they cannot tell us the absolute values of the mass eigenstates.
 
@@ -349,7 +354,7 @@ Therefore, such an experiment can probe mass splittings down to the level of aro
 For antineutrinos the equivalent probability is written as
 \begin{align}
 \begin{split}
-  \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) &= | \text{Amp}(\nu_{\alpha} \rightarrow \nu_{\beta}) |^{2} \\
+  \text{P}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) &= | \text{Amp}(\overline{\nu}_{\alpha} \rightarrow \overline{\nu}_{\beta}) |^{2} \\
   &= \delta_{\alpha \beta} - 4 \sum_{i > j} \text{Re}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin^{2}(\deltami{ij}L/4E) \\
   & - 2 \sum_{i>j} \text{Im}( U^{*}_{\alpha i} U_{\beta i} U_{\alpha j} U^{*}_{\beta j} ) \sin (\deltami{ij}L/2E) \, .
 \end{split}
@@ -369,7 +374,7 @@ Using this fact we can rewrite \citeeq{eq:cpViolation} as
   \Delta_{\alpha \beta} = \text{P}(\overline{\nu}_{\beta} \rightarrow \overline{\nu}_{\alpha}) - \text{P}(\nu_{\beta} \rightarrow \nu_{\alpha}) = -\Delta_{\beta \alpha} \, .
 \end{equation}
 From the above, one can see that $\Delta_{\alpha \alpha} = 0$.
-Thus one cannot observe CP violating differences by making so-called `disappearance' measurements.
+Thus one cannot observe CP violating differences by making so-called `disappearance' measurements -- that is to say measurements of $\text{P}(\nu_{\alpha} \rightarrow \nu_{\alpha})$.
   
 \subsubsection{Two neutrino case}
 \label{sec:theory:theory:twoNeutrino}
@@ -393,7 +398,7 @@ Restoring factors of $\hbar$ and $c$, this becomes
   \text{P}(\nu_{\alpha}\rightarrow\nu_{\beta}) = \sstwothetai{} \sin^{2} \left( 1.27 \frac{\deltami{} \left[\si{\eV\squared}\right] L [\si{\kilo\metre}]}{E\left[\si{\GeV}\right]} \right) \, .
   \label{eq:twoNuProb}
 \end{equation}
-Given that $\sin(-\alpha) = -\sin(\alpha)$ the term $\sin^{2} \left(\frac{\deltami{} L}{4E} \right)$ ensures that the probability does not depend on the sign of \deltami{}.
+Given that $\sin(-\alpha) = -\sin(\alpha)$, the term $\sin^{2} \left(\frac{\deltami{} L}{4E} \right)$ ensures that the probability does not depend on the sign of \deltami{}.
 
 One can visualise the effect of this equation graphically as is shown in \citefig{fig:twoNeutrino}. 
 In this case we take $\deltami{} = 2.5 \times 10^{-3}~\text{eV}^{2}$ and $\thetai{} = 50^{\circ}$.
@@ -545,7 +550,7 @@ Example diagrams of these interactions are shown in \citefig{fig:coherentScatter
   \label{fig:coherentScattering}
 \end{figure}
 
-As a result, electron neutrinos experience an additional potential, $V_{e} = \sqrt{2} G_{F} N_{e}$, where $G_{F}$ is the Fermi constant, $N_{e}$ is the electron density of the medium.
+As a result, electron neutrinos experience an additional potential, $V_{e} = \sqrt{2} G_{F} N_{e}$, where $G_{F}$ is the Fermi constant and $N_{e}$ is the electron density of the medium.
 This results in the Hamiltonian, which we term $H_{M}$, now containing an additional term so it can now be written as
 \begin{equation}
   H_{M} =  \left( \frac{\deltami{}}{4E} \right)
@@ -633,16 +638,13 @@ However, a few illustrative oscillation probabilities or relevant approximations
 In the three neutrino case, the parameters governing the oscillations are:
 \begin{itemize}
 \item The mixing angles of the PMNS matrix, \thetai{12}, \thetai{13}, \thetai{23}
-\item The mass splittings, \deltami{21}, \deltami{31}
+\item The two independent mass splittings, \deltami{21}, \deltami{31}
 \item The CP-violating phase of the PMNS matrix, \dcp
 \end{itemize}
 where \deltami{21} and \deltami{31} is one way to parametrise the differences between the 3 different mass states.
 
-Note that, in a vacuum, the oscillation frequency does not depend upon the sign of the mass splittings, only the absolute value.
-At the present time, the ordering of the mass eigenstates is not fully known.
-That is to say, it is not known whether $\nu_{3}$ is the heaviest or the lightest mass eigenstate.
-However, the sign of \deltami{21} is known.
-
+At the present time, the full ordering of the mass eigenstates is not fully known.
+While the sign of \deltami{21} is known, it is not clear whether $\nu_{3}$ is the heaviest or the lightest mass eigenstate.
 The scenario in which $\nu_{3}$ is the heaviest mass eigenstate is referred to as the `normal' hierarchy while the scenario in which $\nu_{3}$ is the lightest mass eigenstate is referred to as the `inverted' hierarchy.
 The choice of nomenclature derives from the flavour content of the mass eigenstates, where $\nu_{1}$ has the greatest $\nu_{e}$ component and $\nu_{3}$ has the lowest.
 Thus the `normal' hierarchy somewhat mirrors the charged lepton masses, with the most `electron-like' mass eigenstate being the lightest~\cite{massHierarchy}.
@@ -796,7 +798,7 @@ where $A$ is the mass number of the atom, and $Z$ is the atomic number.
 % Experimental discovery by Cowan and Reines
 Experimental confirmation of the neutrino's existence came in 1956 where the reaction
 \begin{equation}
-  \bar{\nu}_{e} + p \rightarrow e^{+} + n
+  \anue + p \rightarrow e^{+} + n
   \label{eq:cowanReines}
 \end{equation}
 was first observed at the Savannah River Plant, South Carolina. The experiment utilised the large neutrino flux from a nuclear reactor incident on the protons in a tank of water sandwiched between scintillation counters.
@@ -809,18 +811,16 @@ An additional check was made by requiring a delayed photon from the capture of t
 Prior to 1937 only one charged lepton (the electron) had been discovered.
 However, in 1937 the muon, a heavier counterpart to the electron, was observed~\cite{muonDiscovery}.
 In 1962 the existence of a neutrino corresponding to the muon was confirmed at Brookhaven Alternatng Gradient Synchrotron.
-These muon neutrinos and antineutrinos ($\nu_{\mu}$ and $\bar{\nu}_{\mu}$) were produced by colliding a beam of protons with a beryllium target, producing charged pions and kaons.
+These muon neutrinos and antineutrinos (\numu and \anumu) were produced by colliding a beam of protons with a beryllium target, producing charged pions and kaons.
 These mesons subsequently decayed via the channels
 \begin{align}
-    K^{\pm} \rightarrow \mu^{\pm} + \nu_{\mu}(\bar{\nu}_{\mu}) \\
-    \pi^{\pm} \rightarrow \mu^{\pm} + \nu_{\mu}(\bar{\nu}_{\mu})
+    K^{\pm} \rightarrow \mu^{\pm} + \numu(\anumu) \\
+    \pi^{\pm} \rightarrow \mu^{\pm} + \numu(\anumu)
 \end{align}
 to produce the desired neutrinos and antineutrinos.
 
 The resulting neutrino interactions were then observed in a spark chamber.
 Interactions arising from muon neutrinos and antineutrinos were identified by the prescence of one or more long tracks originating from within the fiducial volume of the detector at the same time as the beam pulse~\cite{numuDiscovery}.   
-
-% C. S. Wu's discovery of neutrino helicity and parity violation?
 
 % nutau discovery from DONUT
 The discovery of the tau lepton in $e^{+}e^{-}$ collisions in 1975~\cite{tauLepton} led to the theorisation of a corresponding neutrino, in keeping with the two already identified for the electron and muon leptons.
@@ -828,7 +828,7 @@ However, due to the high mass of the tau lepton ($1777~\text{MeV}/c^{2}$ compare
 
 From 1997, the DONuT (Direct Observation of the Nu Tau) collaboration fired a beam of 800~GeV protons from the Tevatron into a tungsten alloy target.
 Although this process produced many $\pi^{\pm}$ and $K^{\pm}$ mesons, the centre of mass energy was high enough in this case to produce significant numbers of $D_{s}$ mesons~\cite{donutFinal}.
-These $D_{s}$ mesons decay leptonically to $\tau^{+}\nu_{\tau}$ with a branching fraction of 5.48\%~\cite{pdg2020}, producing a flux of tau neutrinos.
+These $D_{s}$ mesons may decay leptonically to $\tau^{+}\nu_{\tau}$ with a branching fraction of 5.48\%~\cite{pdg2020}, producing a flux of tau neutrinos.
 In 2000 the collaboration reported the observation of 4 tau neutrino charged current interactions with an estimated background of 0.34 events, thus confirming the tau neutrino's existence~\cite{tauNeutrino}.  
 
 Since this discovery no evidence for further leptons, charged or neutral, has been observed.
@@ -895,7 +895,7 @@ The Super-Kamiokande detector consists of a \SI{50}{\kilo\tonne} water Cherenkov
 When neutrinos interact within the detector, the outgoing particles are identified by the Cherenkov light rings they produce.
 The different characteristics of the rings produced by muons and electrons allow the identification of both muon and electron neutrino interactions.
 
-The experiment found an asymmetry in the number of detected atmospheric muon neutrinos travelling up and down but no similar effect was observed for electron neutrinos.
+The experiment found an asymmetry in the number of detected atmospheric muon neutrinos travelling up and down while no similar effect was observed for electron neutrinos.
 This was thought to be caused by the different distances travelled by upwards- and downwards-going atmospheric neutrinos.
 An atmospheric neutrino travelling vertically downwards travels a distance of roughly \SI{15}{\km}, while an atmospheric neutrino travelling vertically upwards travels a distance of roughly \SI{13000}{\km}.
 This was taken to be evidence of muon neutrinos oscillating into tau neutrinos as they passed through the Earth~\cite{superK}.
@@ -1009,7 +1009,7 @@ The inverted hierarchy is disfavoured with $\Delta \chi^{2}=2.7$ ($\Delta \chi^{
 \begin{figure}[h]
   \centering
   \includegraphics[width=.75\linewidth]{files/figures/theory/nufit5Contours}
-  \caption[Global 2-dimensional limits on oscillation parameters.]{Contours from~\cite{nufit5}. Moving outwards, the contours refer to $1\sigma$, 90\%, $2\sigma$, 99\% and $3\sigma$ confidence limits. The coloured regions show the contours without the Super-Kamiokande atmospheric data while the black lines show the limits with this data.}
+  \caption[Global 2-dimensional limits on oscillation parameters.]{2-dimensional confidence limits, from~\cite{nufit5}. Moving outwards, the contours refer to $1\sigma$, 90\%, $2\sigma$, 99\% and $3\sigma$ confidence limits. The coloured regions show the contours without the Super-Kamiokande atmospheric data while the black lines show the limits with this data.}
   \label{fig:nufit5Contours}
 \end{figure}
 
@@ -1029,8 +1029,7 @@ These parameters are primarily measured by observing the oscillations of neutrin
 The solar neutrino experiments setting the tightest constraints include the Sudbury Neutrino Observatory (SNO)~\cite{snoCombined}, Super-Kamiokande~\cite{superKReview} and Borexino~\cite{borexino} experiments.
 Each of these experiments primarily detect \nue produced by $^{8}\text{B}$ decays, the spectra of which is shown in \citefig{fig:solarNuFluxes}.
 Measurements of the oscillation parameters are made by comparing the measured neutrino fluxes with those predicted by solar models~\cite{solarModel} and then using this to constrain the oscillation parameters.
-Descriptions of the SNO and Super-Kamiokande experiments are given earlier in the chapter.
-The Borexino experiment uses a spherical tank containing 278~t of liquid scintillator to detect neutrino interactions.
+Descriptions of the SNO and Super-Kamiokande experiments are given earlier in the chapter and Borexino experiment uses a spherical tank containing 278~t of liquid scintillator to detect neutrino interactions.
 
 \begin{figure}[h]
   \centering
