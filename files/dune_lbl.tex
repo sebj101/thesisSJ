@@ -6,7 +6,7 @@ As covered in \citechap{sec:dune}, DUNE's primary goal is to make a measurement 
 Secondary to this are other goals such as the determination of the neutrino mass hierarchy and the precision measurement of some of the other parameters governing neutrino oscillations.
 
 Prior to any construction of the experiment, it is important to assess DUNE's eventual sensitivity to both CPV and other oscillation physics.
-In order to do this, sensitivity studies must be undertaken using simulated Monte Carlo fake data, which attempts to represent the data that DUNE is likely to gather during its operational phase.
+In order to do this, sensitivity studies must be undertaken using simulated Monte Carlo data, which attempts to represent the data that DUNE is likely to gather during its operational phase.
 
 In order to properly assess these sensitivities, a set of systematic uncertainties is evaluated, covering all parts of the DUNE experiment.
 This chapter provides a brief description of these systematic uncertainties and their origins in \citesec{sec:dune_lbl:systs}.
@@ -19,7 +19,7 @@ Also in this section, results are presented showing DUNE's sensitivity to both C
 
 This section gives a summary of the systematic uncertainties used in DUNE's long baseline analysis and where they are derived from.
 \citesec{sec:dune_lbl:systs:flux} details the systematics deriving from lack of knowledge about the neutrino beam (commonly referred to as the `flux' systematics).
-\citesec{sec:dune_lbl:systs:xsec} gives details of those systematics relating to lack of knowledge surrounding neutrino interactions with matter.
+\citesec{sec:dune_lbl:systs:xsec} gives details of those systematics relating to lack of knowledge surrounding neutrino interactions with matter (commonly referred to as the cross-section systematics).
 Finally, \citesec{sec:dune_lbl:systs:det} outlines the systematic uncertainties which derive from the uncertainty surrounding detector effects, for example the reconstructed energies of charged particles in the detector.
 
 \subsection{Flux}
@@ -31,6 +31,7 @@ The focussing uncertainties are evaluated by varying the beam line parameters wi
 Hadron production uncertainties are estimated using uncertainties from thin target data experiments such as NA49~\cite{na49} with large uncertainties assigned to those interactions that are not covered by data.
 
 \citefig{fig:fluxUncertainties} shows these uncertainties as a function of neutrino energy for the \numu and \anumu fluxes in both neutrino and antineutrino mode.
+These can be compared with the FD neutrino fluxes shown in \citefig{fig:fdFlux}.
 One can see that, at nearly all energies, hadron production uncertainties are larger than focussing uncertainties.
 
 \begin{figure}[h]
@@ -41,9 +42,10 @@ One can see that, at nearly all energies, hadron production uncertainties are la
 \end{figure}
 
 The flux uncertainties are evaluated by running many simulations of with variations of the hadron production and focussing uncertainties mentioned above and then using this information to build a covariance matrix.
-This matrix is binned in neutrino energy and flavour.
-The matrix is then diagonalised to give the various principal components, along with their eigenvalues.
+This matrix is binned in neutrino energy and flavour and has dimensions of $208 \times 208$ bins.
+The matrix is then diagonalised to give 208 principal components, along with their eigenvalues.
 The largest 30 of these principal components (when ordered by the size of their eigenvalues) are used as the flux systematic uncertainties.
+The eigenvalues rapidly decrease (the 10th principal component has an eigenvalue which is 1\% the size of the 0th component's eigenvalue~\cite{tdrVol2}) and thus this saves on computation time without affecting the result. 
 Further details are available in Ref.~\cite{duneFluxUncertainties}.
 
 These flux uncertainties can be compared with those from the T2K experiment, shown in \citefig{fig:t2kFluxUnc}.
@@ -63,23 +65,11 @@ NOvA reports flux uncertainties of 21\% in the peak region of the neutrino flux~
 
 %Uncertainties in the neutrino interaction model come from a variety of sources. 
 The primary model used in the DUNE long-baseline analysis is that provided by the chosen neutrino interaction generator, Generates Events for Neutrino Interaction Experiments (GENIE)~\cite{genie}.
-The version of GENIE used in the DUNE long-baseline analysis is v2.12.0~\cite{tdrVol2}.
+The version of GENIE used in the DUNE long-baseline analysis is v2.12.0.
 
 The interaction model takes a neutrino flux and outputs the final state particles produced by said neutrinos interacting with the target medium.
 For the most part, these interactions are modelled as factorising the interaction into three parts: an initial nuclear state, the neutrino interaction with a nucleon and the propagation of final state particles through the nucleus.
-
-%% Might need to move section on neutrino nucleus interactions to here
 The systematic uncertainties used in this analysis relate to all three elements of this modelling picture, among other categories.
-The interaction model systematics can be divided into categories covering each of the following areas~\cite{tdrVol2}: 
-\begin{itemize}
-	\item Initial nuclear state
-	\item Quasielastic processes
-	\item Multinucleon (2p2h) processes
-	\item Pion production processes
-	\item High $W$ processes and neutral current processes
-	\item Final state interactions
-	\item Neutrino flavour dependent uncertainties
-\end{itemize}
 
 Many of the systematic uncertainties are included as standard in GENIE, while others are developed specifically for the DUNE long-baseline analysis.
 These uncertainties take the form of either continuous weights or discrete model comparisons.
@@ -89,7 +79,7 @@ These uncertainties are derived from a variety of sources, including freedoms in
 \label{sec:dune_lbl:systs:det}
 
 Detector systematics in the DUNE long-baseline analysis primarily take the form of bin-to-bin energy shifts, rather than the weights typically used for the flux and cross-section systematics.
-These are expressed as multi-parameter energy scale shifts for various final states particles species and are of the form
+These are expressed as multi-parameter energy scale shifts for various final state particles species and are of the form
 \begin{equation}
 E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} \left( p_{0} + p_{1} \sqrt{E_{\alpha,~\text{reco}}} + \frac{p_{2}}{\sqrt{E_{\alpha,~\text{reco}}+0.1}} \right) \, ,
 \label{eq:energyResponse}	
@@ -126,7 +116,7 @@ $p_{1}$ and $p_{2}$ provide freedom in the shape of the energy response as a fun
 These coefficients are taken to be the same or similar to the size of $p_{0}$.
 
 \citefig{fig:protonEScale} shows the $\pm1\sigma$ uncertainty on the energies of $p$ and \pipm as a function of energy.
-This is produced by throwing the $p_{n}$ independently according to a Gaussian distribution with the appropriate width from \citetab{tab:energyScaleParams}. The function is then evaluated the centre of each energy bin.
+This is produced by throwing the $p_{n}$ of \citeeq{eq:energyResponse} independently according to a Gaussian distribution with the appropriate width from \citetab{tab:energyScaleParams}. The function is then evaluated the centre of each energy bin.
 This process is repeated \num{10000} times and a Gaussian is fitted to the distribution produced in each energy bin.
 The value of $\sigma$ for each Gaussian is plotted as the size of the band.
 One can see that there is significant variation in the uncertainty as a function of energy, caused by the different energy dependencies of the terms in \citeeq{eq:energyResponse}.
@@ -197,10 +187,6 @@ These files typically contain higher level reconstructed variables typically use
 
 CAFAna was originally developed for the NOvA oscillation analysis but has since been ported for use by both the DUNE and Short-Baseline Neutrino (SBN) collaborations~\cite{cafana}.
 Its primary functions are the creation of histograms from the input files and the derivation of oscillation parameters from those histograms.
-
-Histograms can be easily plotted by specifying a dataset, variable (\texttt{Var}), selection (\texttt{Cut}) and binning (both constant and variable are supported). 
-\texttt{Var}s may be simply the quantities contained within the CAF \texttt{TTree} or may be constructed from combinations of these.
-Similarly, \texttt{Cut}s may be user defined and can be easily combined using the C++ logical operators.
 
 Additionally, CAFAna allows the effect of systematic variations on each output histogram to be viewed. 
 These systematics can take the form of either reweightings or bin-to-bin shifting of events and are implemented as 1D response functions for each analysis bin.
