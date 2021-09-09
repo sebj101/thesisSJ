@@ -281,8 +281,7 @@ DUNE will eventually be able to constrain \thetai{13} with a similar precision t
 However, this is expected to take around 15 years of running~\cite{tdrVol2}.
 The other oscillation parameters, \ssthetai{23}, \deltami{32} and \dcp are allowed to vary freely.
 
-%The compatibility of a particular set of near and far detector data with a given set of oscillation parameters and nuisance parameter values is evaluated using a negative log-likelihood ratio.
-In a typical oscillation analysis the compatibility of a particular oscillation parameters is evaluated using a negative log-likelihood ratio,
+In a typical oscillation analysis the compatibility of a particular set of oscillation parameters is evaluated using a negative log-likelihood ratio,
 In the high statistics limit for Poisson-distributed data, this log-likelihood ratio converges to a $\chi^{2}$ and is given by~\cite{pdg2018}:
 \begin{align}
 	\chi^{2} &= -2 \log \mathcal{L} \\
@@ -297,18 +296,22 @@ These are then reweighted by the oscillation probability as a function of true e
 	M_{i} = \sum_{\alpha}^{e, \mu} \sum_{\beta}^{e, \mu, \tau} \sum_{j} P_{\alpha\beta}(E_{j}) M_{ij}^{\alpha\beta} \, .	
 \end{equation}
 
-The expression for this $\chi^{2}$ for a given set of oscillation parameters, $\bm{\theta}$, and nuisance parameters, $\vb{x}$ is given by
+The systematic parameters detailed in \citesec{sec:dune_lbl:systs} are included as nuisance parameters in the fit. 
+These can have an arbitrary effect on the MC predictions and can affect different channels in different ways.
+These parameters are profiled over in order to minimise the value of \chisquare and are prevented from moving too far from their expected values by gaussian penalty terms.
+These penalty terms reflect our prior knowledge of what constitutes a likely variation in a given parameter.
+To determine $M_{i}$ for a given set of systematic parameters, $M_{ij}^{\alpha\beta}$ is evaluated for each systematic parameter at $\pm1,2,3\sigma$ and an interpolation is used.
+
+Including the systematic parameters and the covariance matrix gives $\chi^{2}$ for a given set of oscillation parameters, $\bm{\theta}$, and nuisance parameters, $\vb{x}$, as
 \begin{align}
 	\chi^{2} \left( \bm{\theta}, \vb{x} \right) &= -2 \log \mathcal{L} \left( \bm{\theta}, \vb{x} \right) \\
 	&= 2 \sum_{i}^{N_{\text{bins}}} \left[ M_{i} (\bm{\theta}, \vb{x}) - D_{i} + D_{i} \ln \left( \frac{D_{i}}{M_{i}(\bm{\theta}, \vb{x})} \right) \right] + \sum_{j}^{N_{\text{systs}}} \left[ \frac{\Delta x_{j}}{\sigma_{j}} \right]^{2} \nonumber \\
 	&+ \sum_{k}^{N^{\text{ND}}_{\text{bins}}} \sum_{l}^{ N_{\text{bins}}^{\text{ND}} } \left(  M_{k} (\vb{x}) - D_{k} \right) V_{kl}^{-1} \left( M_{l}(\vb{x}) - D_{l} \right) \, ,
 \end{align}
-where $D_{i}$ and $M_{i}(\bm{\theta}, \vb{x})$ are the fake data and Monte Carlo expectation for a given set of $\bm{\theta}$ and $\vb{x}$ for the $i$th bin respectively. 
-$V_{kl}$ is the ND covariance matrix mentioned in \citesec{sec:dune_lbl:systs:det}.
+where $M_{i}(\bm{\theta}, \vb{x})$ is the Monte Carlo expectation for a given set of $\bm{\theta}$ and $\vb{x}$ for the $i$th bin. 
+$V_{kl}$ is the ND covariance matrix discussed in \citesec{sec:dune_lbl:systs:det}.
 $\Delta x_{j}$ is the difference between the nominal and current value of the $j$th nuisance parameter and $\sigma_{j}$ is the prior uncertainty on said parameter.
 The best fit values for the $\bm{\theta}$ and $\vb{x}$ occur at the minimum value of $\chi^{2}$.
-
-
 
 The $D_{i}$ may or may not have Poisson fluctuations added depending on the type of study in question.
 The fits utilised in this chapter are all Asimov studies~\cite{asimov}.
@@ -344,8 +347,8 @@ DUNE's sensitivity to the neutrino mass hierarchy is measured using the statisti
 This provides a measure of how well the data can exclude hypothesis $B$ in favour of $A$.
 In the case of the neutrino mass hierarchy, the relevant question is to what level DUNE can exclude the inverted hierarchy in favour of the normal hierarchy (in the case of true normal hierarchy), $\chi^{2}_{\text{IH}} - \chi^{2}_{\text{NH}}$, and vice versa if the hierarchy is truly inverted.
 
-This is verified for various true values of \dcp, for both hierarchies in \citefig{fig:mhSens}.
-For each \dcp point $\Delta \chisquare$ is calculated by first calculating $\chi^{2}_{\text{true}}$ (where this can be either the normal or inverted hierarchy) and then calculating the \chisquare value for the same value of \dcp but with the hierarchy fixed to the incorrect value.
+This is repeated for various true values of \dcp, for both hierarchies in \citefig{fig:mhSens}.
+For each \dcp point, $\Delta \chisquare$ is calculated by first calculating $\chi^{2}_{\text{true}}$ (where this can be either the normal or inverted hierarchy) and then calculating the \chisquare value for the same value of \dcp but with the hierarchy fixed to the incorrect value.
 The square root of $\Delta \chisquare$ is then taken to provide a crude significance.
 
 \begin{figure}[h]
@@ -356,17 +359,17 @@ The square root of $\Delta \chisquare$ is then taken to provide a crude signific
 	\label{fig:mhSens}
 \end{figure}
 
-\citefig{fig:mhSens} shows the results of this in the statistics only case (for 7 years of staged running - equivalent to an exposure of \SI{336}{\kilo\tonne\mega\watt\year}), with just the detector systematics and with all the systematics included.
+\citefig{fig:mhSens} shows the results of this in the statistics only case (for 7 years of staged running - equivalent to an exposure of \SI{336}{\kilo\tonne\mega\watt\year}), with just the detector systematics and also all the systematics included.
 It is immediately apparent that DUNE will be highly sensitive to the neutrino mass hierarchy, surpassing the common particle physics threshold of $\sqrt{\Delta \chisquare} = 5$ at all values of \dcp and for both true hierarchies.
 One can see that the addition of detector systematics reduces the sensitivity somewhat, with remaining systematics reducing it further.
 However, it is clear that, even with a fairly substantial increase in systematic uncertainties, DUNE will still be able to quickly resolve the neutrino mass hierarchy.
 This excellent ability to resolve the mass hierarchy stems from the DUNE's long baseline which increases the size of matter effects on the oscillations. 
-Since these matter effects are dependent on the true neutrino mass hierarchy, a longer baseline provides a more effective determinant of the true mass hierarchy.
+Since these matter effects are dependent on the true neutrino mass hierarchy, a longer baseline allows a quicker determination of the true mass hierarchy.
 
 \citefig{fig:mhSensExp} illustrates just how quickly DUNE will be able to resolve the mass hierarchy.
 \citefig{fig:mhSensExp} shows the value of $\sqrt{\Delta\chisquare}$ in the case of true normal neutrino mass hierarchy and $\dcpTrue = \pi/2$ as a function of far detector exposure. 
-Looking at \citefig{fig:mhSens}, one can see that this is the point at which DUNE is least sensitive and thus a worst-case scenario for DUNE to make this measurement.
-Regardless of the choice of \dcp therefore, one can see that DUNE would pass the $\sqrt{\Delta\chisquare}=3$ threshold after an exposure of roughly \SI{22}{\kilo\tonne\mega\watt\year}.
+Looking at \citefig{fig:mhSens}, one can see that this is the value at which DUNE is least sensitive to the mass hierarchy and thus a worst-case scenario for DUNE to make this measurement.
+Therefore, regardless of the choice of \dcp, one can see that DUNE would pass the $\sqrt{\Delta\chisquare}=3$ threshold after an exposure of roughly \SI{22}{\kilo\tonne\mega\watt\year}.
 Similarly, the $\sqrt{\Delta\chisquare}=5$ threshold is passed after an exposure of roughly \SI{78}{\kilo\tonne\mega\watt\year}.
 Given that the full DUNE FD is expected to have a fiducial mass of \SI{40}{\kilo\tonne} and an initial beam power of \SI{1.2}{\mega\watt}, the required exposure for definitive discovery of the mass hierachy could be accumulated in less than 2 years.
 
