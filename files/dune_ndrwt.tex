@@ -16,7 +16,7 @@ Part of the ND's purpose is to constrain systematic uncertainties arising from t
 These constraints can then be propagated to the far detector.
 Given that nuclear effects will differ for different target nuclei, it is considered important to collect interactions at the near detector on the same target material as at the far detector.
 In the DUNE ND, ND-LAr (see \citesec{sec:dune:nd:lar}) fulfills this requirement.
-Its large mass and the high intensity of the DUNE beam will allow it to collect a large number of neutrino interactions.
+Its large mass and the high intensity of the DUNE beam will allow it to collect a large number of neutrino interactions on liquid argon.
 
 %Models of neutrino interaction are frequently found to not match observed data.
 
@@ -56,9 +56,8 @@ This chapter consists of two studies relating to ND-GAr's ability to separate ou
 \citesec{sec:dune_ndrwt:pionMulti} attempts to evaluate ND-GAr's ability to separate out final states in order to identify cross-section mismodelling.
 \citesec{sec:dune_ndrwt:rwt} discusses how the data gained from ND-GAr can be used to mitigate the effect of this cross-section mismodelling in the DUNE far detector.
 
-\citesec{sec:dune_ndrwt:bdt} and \citesec{sec:dune_lbl:sensitivities:cafana} provide descriptions of two tools that are used in the analyses detailed in this chapter.
-The former is a tool that can be used to easily reweight an existing sample of MC events to resemble those of an alternative neutrino interaction generator.
-The latter is a framework designed for the plotting of histograms from neutrino events and derivation of oscillation parameters from said histograms.
+\citesec{sec:dune_ndrwt:bdt} provides a description of a  tool that can be used to easily reweight an existing sample of MC events to resemble those of an alternative neutrino interaction generator.
+This tool is used in the analyses detailed in this chapter.
 
 %% Details on GENIE->NuWro BDT
 \section{NuWro reweighting Boosted Decision Tree}
@@ -102,10 +101,8 @@ The parametrised reconstruction takes the \texttt{GEANT4} energy deposits and sm
 This formula allows the error on a track's curvature (due to motion in a magnetic field) to be estimated.
 This can then be extended to give the fractional uncertainty on the particle momentum as
 \begin{align}
-\begin{split}
-	\left(\frac{\sigma_{p}}{p}\right)^{2} = \left( \frac{\sigma_{x} p}{0.3 B L^{2}} \sqrt{ \frac{720}{N+4} } \right)^{2} \\
+	\left(\frac{\sigma_{p}}{p}\right)^{2} &= \left( \frac{\sigma_{x} p}{0.3 B L^{2}} \sqrt{ \frac{720}{N+4} } \right)^{2} \nonumber \\
 	&+ \left( \frac{\SI{0.0157}{\GeV\per\clight}}{0.3BL}\sqrt{\frac{L}{X_{0}}}\left( 1 + 0.038 \ln(L/X_{0}) \right) \right)^{2}
-\end{split}
 \end{align}
 where $L$ is the track length perpendicular to the magnetic field, $\sigma_{x}$ is the point resolution, $N$ is the number of hits in the track and $X_0$ is the radiation length of the material which the particle is traversing.
 In the HPgTPC, $B$ is taken to be \SI{0.4}{\tesla}, $X_{0}$ is taken to be \SI{13}{\cm}, $\sigma_{x}$ is taken to be \SI{1}{\mm} and the number of track hits is estimated by dividing the track length by the pad pitch of the HPgTPC.
@@ -124,7 +121,7 @@ One can see that at momenta above \SI{1.5}{\GeV\per\clight} the \dedx measuremen
 
 Above this momentum a parametrisation of the ECAL is used to distinguish protons and pions.
 Here, the reconstructed energy of the particle in the ECAL is estimated with a resolution of 
-$20\% + \frac{30\%}{\sqrt{T}}$, where $T$ is the kinetic energy of the particle.
+$20\% + \frac{30\%}{\sqrt{T / \si{\GeV}}}$, where $T$ is the kinetic energy of the particle.
 This parametrisation is determined by eye from \citefig{fig:caliceParam} which shows the energy resolution for the CALICE hadronic calorimeter (HCAL).
 
 This detector is somewhat similar to the proposed calorimeter surrounding ND-GAr.
