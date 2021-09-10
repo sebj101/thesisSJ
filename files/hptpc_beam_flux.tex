@@ -59,7 +59,7 @@ This lack of data leads to different parametrisations being used by different ne
 Mismodelling of these nuclear effects can lead to significant biases in the measurement of neutrino oscillation parameters~\cite{nuclearMismodelOsc}, an undesirable outcome for future long baseline experiments.
 
 High pressure gas TPCs (HPTPCs) provide an excellent opportunity to gather proton-nucleus data in these regions of very low proton energy due to low thresholds required for track reconstruction.
-To this end, a HPTPC prototype has been constructed and exposed to a charged particle beam at CERN during the summer of 2018.
+To this end, a HPTPC prototype with an optical readout has been constructed and exposed to a charged particle beam at CERN during the summer of 2018.
 This is in an effort to make a measurement of the proton-argon cross-section at low energies (proton kinetic energies of less than \SI{50}{\mega\electronvolt}).
 
 In order to access a flux of low energy protons that would have otherwise been unavailable, the beam was moderated and the HPTPC was placed in an off-axis position. 
@@ -73,7 +73,7 @@ Measurements of the beam flux are presented in \citesec{sec:hptpc_beam_flux:resu
 \label{sec:hptpc_beam_flux:overview:t10}
 
 The beam test took place at the T10 beam line in the East Area at CERN.
-The T10 beam is derived from the Proton Synchrotron beam and consists primarily of protons, charged pions and electrons.
+The T10 beam is derived from the Proton Synchrotron beam and consists primarily of protons, charged pions and positrons.
 It has a selectable momentum range of \SIrange{0.8}{6.5}{\giga\electronvolt\per\clight} (corresponding to a proton kinetic energy range of \SIrange{0.3}{5.6}{\giga\electronvolt})~\cite{t10Report}.
 
 \citefig{fig:t10Calc} shows the calculated intensity of the T10 beam as a function of beam momentum, separated by particle species.
@@ -108,7 +108,7 @@ One can see from \citefigR{fig:unmoderatedBeam}, that even at this momentum sett
 \end{figure}
 
 It is necessary to modify the T10 beam for several reasons, one of them being the lack of the low energy protons.
-Additionally, it is important to reduce the multiplicity of particles entering the HPTPC due to the speed of the optical readout which could otherwise become overwhelmed.
+Additionally, it is important to reduce the multiplicity of particles entering the HPTPC due to the speed of the optical readout used by the detector which could otherwise become overwhelmed.
 Finally, it is desirable to modify the proton-minimum ionising particle (MIP) ratio in order to isolate more particles which are of interest to a cross-section analysis.
 
 Therefore, two modifications are made to the beam flux in order to achieve these goals.
@@ -276,7 +276,7 @@ An image of \STwo is shown on the right of \citefig{fig:s1s2Pic} where the light
 \STwo is situated \SI{1.419(1)}{\metre} downstream of \SOne and away from the nominal beam axis.
 This off-axis positioning means that all of the beam particles impinging on the HPTPC should pass through \STwo.
 
-The analog signals produced by the PMTs in \SOne and \STwo are fed into LeCroy 620AL NIM discriminator units with a threshold of \SI{30}{\milli\volt}.
+The analogue signals produced by the PMTs in \SOne and \STwo are fed into LeCroy 620AL NIM discriminator units with a threshold of \SI{30}{\milli\volt}.
 These discriminated signals are then fed into a NIM coincidence unit.
 The output of this coincidence unit is recorded by the DToF DAQ.
 The signals from \SOne and \STwo are fed individually into the UToF DAQ.
@@ -417,7 +417,7 @@ In both cases we measure the time of flight of a particle, $t_{f}-t_{i}$, where 
 In the case of the UToF system, the measured time difference is $t_{\SThree} - t_{\SOne}$, while for the DToF system it is $t_{\SFour} - t_{\STwo}$.
 
 The particular particle type distinction that is made in this study is between protons and MIPs.
-At the momenta and within the beam line used in this study, MIPs are primarily charged pions and electrons.
+At the momenta and within the beam line used in this study, MIPs are primarily charged pions and positrons.
 At a momentum of \SI{0.8}{\giga\electronvolt\per\clight} a charged pion will take \SI{36.4}{\nano\second} to traverse the $\SOne - \SThree$ distance while a proton will take \SI{55.3}{\nano\second}.
 At the same momentum, a charged pion will take \SI{42.8}{\nano\second} to travel the $\STwo - \SFour$ distance while a proton will take \SI{65.0}{\nano\second}.
 
@@ -506,7 +506,7 @@ Therefore, it is possible to use the SiPM signal size to discriminate between pa
 
 \citefig{fig:tvsa} shows the relationship between $t_{\SThree} - t_{\SOne}$ and signal amplitude (here labelled as A1) for one of the SiPMs in \SThree along with timing and signal cuts used to select particle types.
 One can see that two populations are visible for all the different numbers of moderator blocks apart from \citefig{fig:tvsa:0} where three populations can be seen.
-This third, slowest population is cause by deuterons.
+This third, slowest population is caused by deuterons.
 
 The quicker population, produced by MIPs, does not appear to move with increasing numbers of moderator blocks.
 This is because, even after moderation with 4 blocks, the particles are still in the minimum ionising regime.
@@ -592,7 +592,7 @@ Because the UToF DAQ deadtime is clearly related to the time since the start of 
   \begin{adjustbox}{max totalsize=.75\textwidth, center}
     \input{files/figures/hptpc_beam_flux/protonMipRatioSpill}
   \end{adjustbox}
-  \caption[Proton/MIP ratio as a function of time since spill start]{Proton/MIP ratio as a function of time since spill start for 2 moderator block data.}
+  \caption[Proton/MIP ratio as a function of time since spill start]{Proton/MIP ratio as a function of time since spill start for 2 moderator block data, measured in \SFour.}
   \label{fig:proMipRatio}
 \end{figure}
 
@@ -716,7 +716,7 @@ These efficiency maps are shown in \citefig{fig:barEff}.
 One can see that the bar efficiency is typically highest towards the middle of each bar (\SI{70}{\centi\metre}).
 This is due to the requirement for coincident PMT signals to be observed in order for a hit to be recorded.
 The fact that bars with higher efficiency are typically in the middle of \SFour is by construction; this is where the beam centre is and therefore where the best performing bars are placed.
-Bar 10 is excluded from the analysis due its very low efficiency.
+Bar 10 is excluded from the analysis due to its very low efficiency.
 
 \begin{figure}[t]
   \begin{subfigure}[t]{.5\textwidth}
@@ -753,7 +753,7 @@ Bar 10 is excluded from the analysis due its very low efficiency.
     \caption{4 blocks}
   \end{subfigure}
 
-  \caption[\SFour relative bar efficiencies]{\SFour relative bar efficiencies calculated using out-of-spill cosmic rays for each moderator block.}
+  \caption[\SFour relative bar efficiencies]{\SFour relative bar efficiencies calculated using out-of-spill cosmic rays for each moderator block sample.}
   \label{fig:barEff}
 \end{figure}
 
@@ -768,8 +768,8 @@ Using this source it is determined that the maximum measured rate of signals pro
 The other correction applied to the \SFour data consists of a background subtraction.
 The background is determined by fitting a sum of signal and background functions to the time of flight spectra.
 The signal functions are taken to be gaussians while the background is taken to be flat.
-An example of a time of flight distribution with the combined signal and background function fitted is shown in \citefig{fig:bkgSub}.
-These backgrounds are subtracted from the proton and MIP counts presented in \citesec{sec:hptpc_beam_flux:results:s4}.
+An example of a time of flight distribution with the combined signal and background functions fitted is shown in \citefig{fig:bkgSub}.
+These backgrounds are subtracted from the proton counts presented in \citesec{sec:hptpc_beam_flux:results:s4}.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.8\textwidth, center}
@@ -971,9 +971,8 @@ The results of the simulation are discussed in \citesec{sec:hptpc_beam_flux:resu
 \label{sec:hptpc_beam_flux:results:MCData:systs}
 
 Systematic uncertainties on the number of protons measured in \SThree and \SFour are estimated for both simulation and data.
-These uncertainties are tabulated in \citetab{tab:systs}.
 
-The systematic uncertainty on the number of simulated protons reaching \SFour, $n_{\SFour,\text{MC}}$, is evaluated by varying the initial geometric conditions of the simulation and observing the fractional change in $n_{\SFour,\text{MC}}$.
+The systematic uncertainty on the number of simulated protons reaching \SFour, $n_{\SFour,\text{MC}}$, is evaluated by varying the initial geometric conditions of the simulation (for example, changing the \STwo start point by \SI{2}{\centi\metre}) and observing the fractional change in $n_{\SFour,\text{MC}}$.
 Additionally, the simulation is rerun with an additional \SI{1}{\centi\metre} thick piece of acrylic in the beam line and the change in $n_{\SFour,\text{MC}}$ observed.
 We allow this systematic to act as a proxy for the uncertainty on the prescence of unknown light materials in the beam line.
 
@@ -1015,8 +1014,9 @@ This uncertainty was evaluated by taking the standard deviation in the absolute 
 The uncertainty on the \SFour relative efficiency correction (see \citesec{sec:hptpc_beam_flux:methods:s4:efficiency}) is evaluated by altering the number of horizontal bins used to correct each bar from 20 to 10 and calculating the resulting change in the number of detected \SFour protons.
 
 Finally, the uncertainty on the \SFour background subtraction (see \citesec{sec:hptpc_beam_flux:methods:s4:bkg}) is calculated by varying the flat background within the $\pm 1 \sigma$ fit errors and determining the resulting fractional change in the number of \SFour protons.
-One can see that this uncertainty has the greatest effect in the 4 moderator block case.
-This is due to the the very small number of protons detected relative to the background.
+This uncertainty has the greatest effect in the 4 moderator block case which is due to the the very small number of protons detected relative to the background.
+
+The systematic uncertainties are tabulated in \citetab{tab:systs}.
 
 \subsubsection{Validation of simulation}
 \label{sec:hptpc_beam_flux:results:MCData:validation}
@@ -1037,7 +1037,7 @@ In particular, for the 4 block sample, very few particles survive through the se
 
 \citefig{fig:tofS4Sim} shows a comparison of the simulated and measured time of flight between \STwo and \SFour for protons for varying number of moderator blocks.
 For all moderator block samples the peak positions in data and simulation agree to within \SI{2}{\nano\second}.
-This confirms that the energy loss in the pressure vessel is reasonably consistent between data and simulation.
+This suggests that the energy loss in the pressure vessel is reasonably consistent between data and simulation.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.65\textwidth, center}
@@ -1049,7 +1049,8 @@ This confirms that the energy loss in the pressure vessel is reasonably consiste
 
 \citetab{tab:s3s4Ratios} shows the number of protons reaching \SFour divided by the number of protons reaching \SThree for both data and MC, for each moderator block sample.
 In each case, the systematic errors detailed in \citesec{sec:hptpc_beam_flux:results:MCData:systs} are combined with the statistical errors to give the error shown.
-One can see that there is some agreement between the data and MC which indicates both that the corrections detailed in \citesec{sec:hptpc_beam_flux:methods} are well-motivated and that the simulation represents the data well.
+One can see that there is some agreement between the data and MC for the 1, 2, 3 and 4 blocks samples which indicates both that the corrections detailed in \citesec{sec:hptpc_beam_flux:methods} are well-motivated and that the simulation represents the data well in these cases.
+In the case of the unmoderated beam, the data agrees less well with the simulation. 
 
 \begin{table}
   \centering
