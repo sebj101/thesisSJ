@@ -147,7 +147,7 @@ If the charged pion has a momentum of less than \SI{0.4}{\GeV\per\clight} it is 
 
 For pions in the energy range $\SI{0.4}{\GeV\per\clight} < p < \SI{1.0}{\GeV\per\clight}$ the pion is correctly identified if it interacts in the ECAL.
 The probability for a pion to leave the ECAL without interacting is determined from \citefig{fig:interactionSpline}.
-\citefig{fig:interactionSpline} shows the probability for a pion to not interact in the ECAL at various momenta with a spline plotted through the points.
+\citefig{fig:interactionSpline} shows the probability for a pion to not interact in the ECAL at various momenta with a cubic spline plotted through the points.
 These points are determined from Monte Carlo simulations of the ECAL.
 
 \begin{figure}[h]
@@ -170,7 +170,7 @@ Finally, it is assumed that the detector is able to perfectly sign select partic
 \label{sec:dune_ndrwt:pionMulti}
 
 The DUNE near detector must be able to determine if the assumed neutrino interaction model is discrepant with the observed data.
-These discrepancies may be particularly visible from observing certain final state kinematic distributions, divided up by final state.
+These discrepancies may be particularly visible from observing certain final state kinematic distributions, divided up by final state in question.
 To assess the ability of ND-GAr and ND-LAr to observe these discrepancies a sample of `mock data' with the characteristics of the NuWro interaction generator is produced with the BDT detailed in \citesec{sec:dune_ndrwt:bdt}.
 %These different interaction models may lead to observable changes in the kinematics of the neutrino interaction.
 %These changes may be especially observable if the neutrino interactions are separated by final state. 
@@ -214,13 +214,13 @@ Here one can see that, for all final states, the correct final state is reconstr
 The kinematic variable chosen for comparison is the squared momentum transfer, $Q^{2}$.
 The reconstructed squared momentum transfer for CC muon neutrino events is defined as
 \begin{equation}
-Q^{2}_{\textrm{reco}} = 2E_{\nu, \textrm{reco}} \left( E_{\mu, \textrm{reco}} - p_{\mu, \textrm{reco}} \cos \left( \theta_{\mu, \textrm{reco}} \right) \right) - m_{\mu}^{2}
+Q^{2}_{\textrm{reco}} = 2E_{\nu,~\textrm{reco}} \left( E_{\mu,~\textrm{reco}} - p_{\mu,~\textrm{reco}} \cos \left( \theta_{\mu,~\textrm{reco}} \right) \right) - m_{\mu}^{2}
 \end{equation}
-where $E_{\nu, \textrm{reco}}$ is the sum of the reconstructed muon energy and the other reconstructed final state particle energies, $E_{\mu, \textrm{reco}}$ and $p_{\mu, \textrm{reco}}$ are the reconstructed energy and momentum of the final state muon and $\theta_{\mu, \textrm{reco}}$ is the reconstructed angle between the muon and the neutrino beam.
+where $E_{\nu,~\textrm{reco}}$ is the sum of the reconstructed muon energy and the other reconstructed final state particle energies, $E_{\mu,~\textrm{reco}}$ and $p_{\mu,~\textrm{reco}}$ are the reconstructed energy and momentum of the final state muon and $\theta_{\mu,~\textrm{reco}}$ is the reconstructed angle between the muon and the neutrino beam.
 
 The mock data generator detailed in \citesec{sec:dune_ndrwt:bdt} is used to reweight events to give an approximation of NuWro data.
 A distribution of $Q^{2}_{\textrm{reco}}$ is then constructed for each of the nominal GENIE sample and the NuWro `mock data' sample. 
-The ratio between the two samples is then taken and plotted. 
+The ratio between the number of events in each $Q^{2}_{\textrm{reco}}$ bin of the two samples is then taken and plotted. 
 
 These ratios are shown in \citefigL{fig:Q2CompFhc} and \citefigL{fig:Q2CompRhc}. 
 Here, one can clearly see that, for all final states apart from $0\pi$, clear differences between GENIE and NuWro are observable.
@@ -277,11 +277,12 @@ Attempts to simulate measuring the same quantities are also made in the liquid a
 ND-LAr has some key differences to ND-GAr in the case of separating out final states, however. 
 Due to the lack of a magnetic field covering ND-LAr, hadronic interactions are typically reconstructed calorimetrically.
 
-Because liquid argon is a denser medium than gaseous argon final hadrons will may not result in a reconstructed track due to the very short distance travelled.
+Because liquid argon is a denser medium than gaseous argon, final state hadrons may not result in a reconstructed track due to the very short distance travelled.
 Additionally, very high energy hadrons are more likely to scatter in liquid argon, making track reconstruction difficult.
 
 Finally, ND-LAr does not have an equivalent to the ECAL in ND-GAr.
-This means that protons and pions can be separated by track $dE/dx$ only and is replicated in the \texttt{GEANT} simulation and parametrised reconstruction.
+This means that protons and pions can be separated by track $dE/dx$ only.
+This is replicated in the \texttt{GEANT} simulation and parametrised reconstruction.
 
 \citefig{fig:larConfusMat} shows the equivalent confusion matrix to \citefigL{fig:confusMatPi} for ND-LAr.
 Here one can see that, although around 60\% of final states are reconstructed correctly, the performance is not at the level of ND-GAr.
@@ -313,7 +314,7 @@ However, in spite of this, it still seems that significant differences are visib
 As mentioned in \citesec{sec:dune:nd}, one of the reasons for the inclusion of a near detector in a long baseline neutrino oscillation experiment is to constrain various neutrino cross-section systematics.
 However, it may be that existing neutrino interaction models and their associated uncertainties do not explain the observed reconstructed neutrino energy spectra.
 
-In this case it may be necessary to use some data-driven measurement of the unoscillated neutrino event rate to attempt to correct the far detector flux.
+In this case it may be necessary to use some data-driven measurement of the unoscillated neutrino event rate to attempt to correct the far detector event rate.
 An example of why this reweighting can be necessary is shown in \citefig{fig:fdSamplesPostFit}.
 This shows the four far detector samples (one appearance and one disappearance for each horn current) used in a typical oscillation analysis.
 For each sample the nominal GENIE MC is plotted in blue along with the NuWro `mock data' as black points.
@@ -352,13 +353,13 @@ One can see that the post fit result lies very close to the `mock data'.
 	\label{fig:fdSamplesPostFit}
 \end{figure}
 
-It is observed that many of the systematic parameters have move from their nominal values in order to accommodate the differing shapes of the data and MC.
+It is observed that many of the systematic parameters have moved from their nominal values in order to accommodate the differing shapes of the data and MC.
 Additionally, several of the oscillation parameters move away from their true values.
 Most notably, the value of \dcp moves from its true value (in this case) of \ang{90} to a best fit point of \ang{64.9}, a bias of \ang{25.1}.
 
 This process is repeated at multiple different true values of \dcp and the bias in \dcp measured. 
 The resulting bias as a function of \dcpTrue is shown in \citefig{fig:dcpBiasNoWgt}.
-One can see that the bias in \dcp varies between being negligible and up to approximately \ang{32}. 
+One can see that the bias in \dcp varies between being negligible up to approximately \ang{32}. 
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -398,7 +399,7 @@ The reweighting is divided up into 7 final states for both horn currents.
 The chosen final states are mainly based on final state pion multiplicity since the DUNE beam energies will produce a variety of multiplicities.
 Additionally, \citesec{sec:dune_ndrwt:pionMulti} shows that ND-GAr has a high accuracy when identifying these final states.
 
-The chosen final states are have a muon and one of:
+The chosen final states all have a muon and one of:
 \begin{itemize}
 	\item $0\pi$ with a single proton in the final state
 	\item $0\pi$ with more than one proton in the final state
@@ -750,7 +751,7 @@ However, even with this simpler reweighting, the bias is significantly reduced.
 
 Further work will also be required to correct the model such that the near detector samples can be included in the fit.
 Even with this reweighting, the fit still fails due to a lack of systematic uncertainties than can replicate the remaining bias.
-This is due to the very statistics of the ND samples used in the oscillation analysis.
+This is due to the very high statistics of the ND samples used in the oscillation analysis.
 If this situation occurred was observed in the data during experimental running, this remaining (much smaller) discrepancy would have to be incorporated into the final systematic error budget.
 
 \section{Conclusions}
