@@ -13,7 +13,7 @@ In comparison, each DUNE far detector module is expected to contain roughly \SI{
 
 The DUNE far detector modules will also also have significantly larger maximum drift distances than previously constructed LAr TPCs.
 The maximum drift distance in a DUNE single-phase far detector module will be \SI{3.6}{\m} compared with a maximum drift distance in ICARUS T600 of \SI{1.5}{\m}.
-This increased drift length necessitates a higher argon purity to achieve an electron lifetime that will enable ionisation charge from throughout the detector to be seen.
+This increased drift length necessitates a higher argon purity to achieve an electron lifetime that will enable ionisation charge from throughout the detector to be measured.
 
 Additionally, the proposed lifetime of DUNE (over 15 years) and its relative inaccessibility (located as it is \SI{1.5}{\kilo\metre} underground) means that the detector technologies used must be shown to have long term stability.
 
@@ -82,7 +82,7 @@ The collection plane produces a unipolar signal as the electrons are collected.
 	\label{fig:wireSignals}
 \end{figure}
 
-Bias voltages are applied to the wire planes to ensure that ionisation electrons drift past the induction planes and are collected on the collection planes.
+Bias voltages are applied to the wire planes to ensure that ionisation electrons drift past the induction planes and are collected on the collection plane only.
 The voltages used are as follows: $V_{G} = \SI{-665}{\volt}$, $V_{U} = \SI{-370}{\volt}$, $V_{V} = \SI{0}{\volt}$ and $V_{X} = \SI{+820}{\volt}$~\cite{protodunePerformance}.
 
 The cathode plane is formed from six CPAs, each \SI{6.1}{\m} in height and \SI{1.15}{\m} wide.
@@ -98,7 +98,7 @@ This drift field results in a nominal electron drift velocity of \SI{1.59}{\mm\p
 \label{sec:protodune:prms}
 
 ProtoDUNE-SP contains three purity monitors designed to provide independent measurements of the liquid argon purity.
-These purity monitors were the same design as the ones operated in the ICARUS T600 detector~\cite{icarus}.
+These purity monitors are of the same design as the ones operated in the ICARUS T600 detector~\cite{icarus}.
 They are located exterior to the TPC at varying heights in the cryostat.
 
 \begin{figure}[h]
@@ -193,9 +193,9 @@ One can see that the kaon content is negligible at \SI{1}{\GeV\per\clight} due t
 \label{sec:protodune:pds}
 
 Light is collected by photosensors within the TPC for two primary reasons. 
-One is in order to give timing information for charged particle interactions.
+The first of these is to give timing information for charged particle interactions.
 This timing information can be used to determine an interaction time and drift position, allowing corrections for position dependent factors.
-The other is in order to gain independent measurements of particle energy from the amount of emitted light.
+The other is to make independent measurements of particle energy from the amount of emitted light.
 
 To this end, ProtoDUNE-SP contains 60 optical modules that together make up the photon detection system (PDS).
 These modules have dimensions of \SI{8.6 x 220 x 0.6}{\cm}.
