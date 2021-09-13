@@ -1,4 +1,4 @@
-\chapter{Calibration of the ProtoDUNE-SP detector}
+\chapter{Energy scale calibration of the ProtoDUNE-SP detector}
 \label{sec:pdune_calibration}
 
 Previously in \citesec{sec:dune_lbl:systs:det}, a summary of the detector systematics used in the DUNE long-baseline analysis is given.
@@ -22,7 +22,7 @@ As a result, any observed changes in the energy deposition as a function of posi
 In particular, measured changes in the charge deposition as a function of drift distance can be used to measure the electron lifetime.
 
 This charge deposition per unit length is commonly termed \dqdx.
-Typically, this \dqdx is measured in detector units of \si{\ADC\per\cm} where ADC is measure of the signal amplitude measured on a wire.
+Typically, this \dqdx is measured in analogue to digital converter (ADC) units of \si{\ADC\per\cm} where this ADC unit is a measure of the signal amplitude on a wire.
 In order to convert this into an energy deposition per unit length, \dedx, further conversion factors are required.
 However, merely comparing \dqdx is sufficient to calculate electron lifetimes.
 This measurement is attempted and presented in this section.
@@ -39,9 +39,9 @@ This means that the TPC active volume is defined approximately by $\SI{-360}{\cm
 \label{sec:pdune_calibration:lifetime:selection}
 
 In order to make an accurate measurement of the electron lifetime, it is important to ensure that those particles which are selected have the desired constant energy profile.
-Typically, particles generate one of two types of structure in a LAr TPC.
+Typically, charged particles generate either tracks or electromagnetic showers in a LArTPC. 
 
-High energy electrons and photons typically generate structures termed `showers' when they strike a high density material such as liquid argon.
+High energy electrons and photons typically generate electromagnetic `showers' when they strike a high density material such as liquid argon.
 In the case of electrons, these showers develop due to the emission of photons by the electron from bremsstrahlung.
 These photons then produce further $e^{+}e^{-}$ pairs of lower energy via pair production and the process continues until the energy of the remaining photons falls below the threshold required for pair production.
 A similar process occurs for photons but without the initial bremsstrahlung phase.
@@ -52,7 +52,7 @@ Heavier particles such as proton, muons and hadrons typically produce `tracks' r
 This is due to their larger mass which inhibits radiative energy losses such as bremsstrahlung.
 Instead they typically produce linear energy depositions until either scattering or coming to rest.
 A typical image of a track recorded in ProtoDUNE-SP is shown in \citefigR{fig:trackShower}.
-These tracks have an energy deposition that is more easily measured than that of showers.
+These tracks have an energy deposition that is well-defined and relatively constant along their length.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.49\linewidth}
@@ -71,7 +71,7 @@ Therefore, it is desirable to only select those particles that are not in this r
 Specifically, it is desirable to only select those particles in the minimum ionising region of the energy loss profile.
 
 \citefigL{fig:muonEDep}, shows the relationship between a muon's residual range and its average \dedx in liquid argon.
-The average energy loss is calculated here using the `Bethe' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a velocity $v$ such that $\beta = v / c$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
+The average energy loss is calculated here using the `Bethe-Bloch' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a velocity $v$ such that $\beta = v / c$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
 \begin{equation}
 	\left< -\frac{dE}{dx} \right> = K z^{2} \rho \frac{Z}{A} \frac{1}{\beta^{2}} 
 	\left[ \frac{1}{2} \ln \frac{2m_{e}c^{2} \beta^{2} \gamma^{2} W_{\text{max}}}{I^{2}} - \beta^{2} - \frac{\delta (\beta \gamma)}{2} \right] \, .
@@ -128,7 +128,7 @@ This is used to translate between range and kinetic energy and produce \citefigL
 \end{figure}
 
 %% Track selection
-From \citefig{fig:muonEDep} left and right, one can see that, aside from the last 40 or \SI{50}{\cm} of the track, muons will have uniform energy deposition in liquid argon.
+From \citefig{fig:muonEDep} left and right, one can see that, aside from the last 40 or \SI{50}{\cm} of the track, muons have uniform energy deposition in liquid argon.
 Therefore, any track selection used for detector calibration should avoid using the ends of muon tracks.
 However, excluding the last \SI{50}{\cm} of all muon tracks regardless of if they stop in the detector or not would result in a significant volume of the detector which could not be effectively calibrated by this method.
 Therefore, it is decided to instead select all those cosmic ray tracks which exit the detector and assume that they are not close to stopping.
