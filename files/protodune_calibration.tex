@@ -22,7 +22,7 @@ As a result, any observed changes in the energy deposition as a function of posi
 In particular, measured changes in the charge deposition as a function of drift distance can be used to measure the electron lifetime.
 
 This charge deposition per unit length is commonly termed \dqdx.
-Typically, this \dqdx is measured in analogue to digital converter (ADC) units of \si{\ADC\per\cm} where this ADC unit is a measure of the signal amplitude on a wire.
+Typically, this \dqdx is measured in analogue-to-digital converter (ADC) units of \si{\ADC\per\cm} where this ADC unit is a measure of the signal amplitude on a wire.
 In order to convert this into an energy deposition per unit length, \dedx, further conversion factors are required.
 However, merely comparing \dqdx is sufficient to calculate electron lifetimes.
 This measurement is attempted and presented in this section.
@@ -39,7 +39,7 @@ This means that the TPC active volume is defined approximately by $\SI{-360}{\cm
 \label{sec:pdune_calibration:lifetime:selection}
 
 In order to make an accurate measurement of the electron lifetime, it is important to ensure that those particles which are selected have the desired constant energy profile.
-Typically, charged particles generate either tracks or electromagnetic showers in a LArTPC. 
+Typically, charged particles generate either tracks or electromagnetic showers when traversing a LArTPC. 
 
 High energy electrons and photons typically generate electromagnetic `showers' when they strike a high density material such as liquid argon.
 In the case of electrons, these showers develop due to the emission of photons by the electron from bremsstrahlung.
@@ -177,7 +177,9 @@ These track angles are described respectively by the formulae
 where $\boldsymbol{X}$, $\boldsymbol{Y}$ and $\boldsymbol{Z}$ are the direction vectors of the track.
 
 One can see that at certain values of \thetai{XZ} (around $\pm\ang{90}$) and \thetai{yz} (around \ang{-90}) the average track \dqdx falls significantly.
-The difference around $\thetai{XZ} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{YZ} = \ang{-90}$ is due to tracks travelling vertically downwards.
+The difference around $\thetai{XZ} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{YZ} = \ang{-90}$ is due to tracks travelling vertically downwards. 
+These downward going tracks travel parallel to the collection plane where \dqdx is measured, meaning that most of the charge is deposited on a single wire. 
+This makes it difficult to determine the point at which each charge deposition occurs and thus leads to poorly reconstructed values of \dqdx.
 However, \citefigL{fig:dqdxAng} shows that this does have the effect of cutting out a large number of the tracks.
 
 \begin{figure}[h]
@@ -235,7 +237,7 @@ The most probable value (MPV) for the distribution moves from a value of \SI{279
 
 This process is repeated for each of the \SI{0.1}{\ms} $t_{\text{drift}}$ bins.
 The measured peak is then plotted against the drift time.
-An function of the form 
+A function of the form 
 \begin{equation}
 	(dQ/dx)_{\text{MPV}} = A \exp^{-t_{\text{drift}}/\tau}
 	\label{eq:lifetimeFromdqdx}
@@ -244,7 +246,7 @@ where $A$ and $\tau$ are free parameters and $\tau$ is the measured electron lif
 
 \citefig{fig:mgPeakDriftMcNoSCE} shows the resulting distributions of $(dQ/dx)_{\text{MPV}}$ against $t_{\text{drift}}$ as a function of height in the detector.
 Additionally, a function of the same form as \citeeq{eq:lifetimeFromdqdx} is fitted to each set of points representing a particular height in the detector.
-One can see that fit range used is $\SI{1}{\ms} < t_{\text{drift}} < \SI{2.5}{\ms}$ since at the extracted lifetime appears to behave as expected.
+One can see that fit range used is $\SI{1}{\ms} < t_{\text{drift}} < \SI{2.5}{\ms}$ since in this range the extracted lifetime appears to behave as expected.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
