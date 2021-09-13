@@ -62,7 +62,7 @@ These tracks have an energy deposition that is well-defined and relatively const
 	\begin{minipage}[t]{.49\linewidth}
 		\includegraphics[width=\linewidth]{files/figures/protodune_calibration/trackCand}		
 	\end{minipage}
-	\caption[Images of typical track and shower structures in ProtoDUNE-SP.]{Left: Image of a \SI{0.5}{\GeV\per\clight} electron candidate in ProtoDUNE-SP, showing typical shower structure, from~\cite{protodunePerformance}. Right: Image of a \SI{1}{\GeV\per\clight} stopping proton candidate in ProtoDUNE-SP, showing typical track structure, from~\cite{protodunePerformance}.}
+	\caption[Images of typical track and shower structures in ProtoDUNE-SP.]{Left: Image of a \SI{0.5}{\GeV\per\clight} electron candidate in ProtoDUNE-SP, showing typical branching shower structure, from~\cite{protodunePerformance}. Right: Image of a \SI{1}{\GeV\per\clight} stopping proton candidate in ProtoDUNE-SP, showing typical track structure, from~\cite{protodunePerformance}.}
 	\label{fig:trackShower}
 \end{figure}
 
@@ -71,13 +71,13 @@ Therefore, it is desirable to only select those particles that are not in this r
 Specifically, it is desirable to only select those particles in the minimum ionising region of the energy loss profile.
 
 \citefigL{fig:muonEDep}, shows the relationship between a muon's residual range and its average \dedx in liquid argon.
-The average energy loss is calculated here using the `Bethe-Bloch' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a velocity $v$ such that $\beta = v / c$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
+The average energy loss is calculated here using the `Bethe-Bloch' formula~\cite{pdg2018} which gives the energy energy loss for a particle of charge $z$, mass $M$ and with a speed $v$ such that $\beta = v / c$ and $\gamma = 1 / \sqrt{1 - \beta^{2}}$:
 \begin{equation}
 	\left< -\frac{dE}{dx} \right> = K z^{2} \rho \frac{Z}{A} \frac{1}{\beta^{2}} 
 	\left[ \frac{1}{2} \ln \frac{2m_{e}c^{2} \beta^{2} \gamma^{2} W_{\text{max}}}{I^{2}} - \beta^{2} - \frac{\delta (\beta \gamma)}{2} \right] \, .
 \end{equation}
 Here, $Z$, $A$, $\rho$ and $I$ are the atomic number, relative atomic mass, density and mean excitation energy of the target medium.
-$m_{e}$ is the electron rest mass and $K$ is equal to \SI{0.307075}{\MeV\per\mole\square\cm}.
+$m_{e}$ is the electron rest mass and $K$ is a constant equal to \SI{0.307075}{\MeV\per\mole\square\cm}.
 The term $\delta(\beta\gamma)$ is known as the density-effect correction and is computed using a parametrisation from~\cite{densityEffect}.
 $W_{\text{max}}$ is the maximum energy transferred to an electron in a single collision and is equal to 
 \begin{equation}
@@ -158,7 +158,7 @@ In turn, this allows definite drift coordinates and times to be reconstructed fo
 where $t_{\text{hit}}$ is the recorded hit time in the TPC.
 
 Cosmic rays are identified by the Pandora reconstruction chain. 
-This reconstruction chain focusses on reconstructing track-like particle and has been shown to work well in the MicroBooNE experiment~\cite{pandoraUboone}. 
+This reconstruction chain focusses on reconstructing track-like particles and has been shown to work well in the MicroBooNE experiment~\cite{pandoraUboone}. 
 Tracks satisfying one of three conditions are considered to be produced by cosmic rays.
 Firstly, those tracks starting at the top of the detector and ending at the bottom are considered to be cosmic rays.
 Secondly, those tracks with a reconstructed $t_{0}$ which is inconsistent with the beam time are also considered to be cosmic rays.
@@ -176,10 +176,8 @@ These track angles are described respectively by the formulae
 \end{align}	
 where $\boldsymbol{X}$, $\boldsymbol{Y}$ and $\boldsymbol{Z}$ are the direction vectors of the track.
 
-One can see that at certain values of \thetai{XZ} (around $\pm\ang{90}$) and \thetai{yz} (around \ang{-90}) the average track \dqdx falls significantly.
-The difference around $\thetai{XZ} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{YZ} = \ang{-90}$ is due to tracks travelling vertically downwards. 
-These downward going tracks travel parallel to the collection plane where \dqdx is measured, meaning that most of the charge is deposited on a single wire. 
-This makes it difficult to determine the point at which each charge deposition occurs and thus leads to poorly reconstructed values of \dqdx.
+One can see that at certain values of \thetai{XZ} (around $\pm\ang{90}$) and \thetai{YZ} (around \ang{-90}) the average track \dqdx falls significantly.
+The difference around $\thetai{XZ} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{YZ} = \ang{-90}$ is due to tracks travelling vertically downwards (i.e. parallel to the wires of the collection plane). 
 However, \citefigL{fig:dqdxAng} shows that this does have the effect of cutting out a large number of the tracks.
 
 \begin{figure}[h]
@@ -205,7 +203,7 @@ Since this is the plane used to perform calorimetry in this analysis, this cause
 \subsection{Measurement process}
 
 Having selected the cathode-anode crossing tracks as detailed in \citesec{sec:pdune_calibration:lifetime:selection} a two-dimensional histogram is created.
-The 2 axes of the histogram are the corrected drift time, $t_{\text{drift}}$ and the \dqdx value for that particular track hit as measured on the collection plane. 
+The 2 axes of the histogram are the corrected drift time, $t_{\text{drift}}$ and the \dqdx value for that particular track hit as measured by the collection plane. 
 For each of the selected cathode-anode crossers, every track hit is added to the histogram.
 A distribution such as the one shown in \citefig{fig:dqdxDrift} is formed.
 
@@ -218,12 +216,12 @@ A distribution such as the one shown in \citefig{fig:dqdxDrift} is formed.
 \end{figure}
 
 One can see in \citefig{fig:dqdxDrift} that the peak value of \dqdx (the darkest point in each row) shifts as the drift distance changes.
-This is thought to be due to the effects of electron lifetime.
+This is thought to be due to the finite electron lifetime.
 One can also observe that there are few hits at near the maximum and minimum drift times.
 
 This movement of the peak position is clearer in \citefig{fig:dqdx1d}, which shows two different rows from \citefig{fig:dqdxDrift} as 1-dimensional histograms.
 Each of these histograms has been area normalised to 1.
-A Landau distribution convolved with a Gaussian~\cite{langaus} has been fitted to each set of data points and is shown as a solid line in each case.
+A Landau distribution convolved with a gaussian~\cite{langaus} is fitted to each set of data points and is shown as a solid line in each case.
 In both cases this function appears to match the data well.
 The most probable value (MPV) for the distribution moves from a value of \SI{279.8(2)}{\ADC\per\cm} for $t_{\text{drift}} = \SI{0.35(5)}{\ms}$ to a value of \SI{220.5(1)}{\ADC\per\cm} for $t_{\text{drift}} = \SI{2.45(5)}{\ms}$.
 
@@ -231,7 +229,7 @@ The most probable value (MPV) for the distribution moves from a value of \SI{279
 	\begin{adjustbox}{max totalsize=.8\linewidth, center}
 		\input{files/figures/protodune_calibration/dqdx1d}
 	\end{adjustbox}
-	\caption[\dqdx distributions for two different drift times in ProtoDUNE-SP]{\dqdx distributions for two different drift times in ProtoDUNE-SP data. The solid lines show the result of fitting a Landau distribution convolved with a Gaussian to each set of points. Both sets of points are area normalised to 1.}
+	\caption[\dqdx distributions for two different drift times in ProtoDUNE-SP]{\dqdx distributions for two different drift times in the same ProtoDUNE-SP data run. The solid lines show the result of fitting a Landau distribution convolved with a Gaussian to each set of points. Both sets of points are area normalised to 1.}
 	\label{fig:dqdx1d}
 \end{figure}
 
@@ -261,7 +259,7 @@ The simulated electron lifetime (\SI{35}{\ms}) is shown as a red dashed line.
 One can see that, at many heights, the measured lifetime is consistent with simulation but there are small deviations at some points.
 The greatest difference between two points is about \SI{5}{\ms}.
 For a \SI{2.5}{\ms} drift time, this equates to a difference in the measured charge of 1\%.
-Overall, this validates the method used.
+Therefore it seems that this method provides a viable way of extracting a value for the electron lifetime.
 
 \begin{figure}[h] 
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -271,7 +269,7 @@ Overall, this validates the method used.
 	\label{fig:lifetimeNoSCE}
 \end{figure}
 
-\subsection{Space charge effects}
+\subsection{Space charge effects (SCE)}
 \label{sec:pdune_calibration:lifetime:sce}
 
 Previously, it has often been stated that TPCs operate by drifting ionisation electrons across a gap between two charged surfaces.
@@ -281,7 +279,7 @@ These positively charged ions will experience the same drift field as the ionisa
 For a detector medium such as liquid argon, the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
 In fact, the ICARUS T600 collaboration reports an argon ion mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
 This slow drifting can lead to a build up of positive ions within the detector and distortions in the applied electric field. 
-An analysis of these effects is given in Ref.~\cite{spaceCharge2021}.
+This build up of ions is referred to as space charge and an analysis of these effects is given in Ref.~\cite{spaceCharge2021}.
 
 ProtoDUNE-SP is vulnerable to space charge effects due to its position on the Earth's surface.
 This means that a high constant flux of cosmic rays constantly strikes the detector, producing a steady supply of positive ions which build up and cause distortions from the nominal electric field.
@@ -308,7 +306,6 @@ Here, one can see that the magnitude of the electric field is changed at some po
 
 The process detailed above is repeated for multiple data runs.
 In each case the calorimetry is corrected for space charge effects (SCE). 
-This effect and its corrections are detailed in \citesec{sec:pdune_calibration:lifetime:sce}.
 A variety of runs with different lifetimes (as measured by the purity monitors) are analysed.
 
 Graphs of the measured \dqdx peak positions against drift time are shown for each of the analysed runs in \citefig{fig:dqdxPeak1} and \citefig{fig:dqdxPeak2}.
@@ -400,14 +397,14 @@ The choice is made to exclude lower values of \tdrift due to the low statistics 
 
 \citefig{fig:dqdxPeak2:3} and \citefig{fig:dqdxPeak2:4} shows the reason for excluding values of \tdrift above \SI{1.5}{\ms}.
 Both the runs shown in these figures appear to have very long electron lifetimes and thus see very little change in the value of \dqdxMPV over the drift distance.
-Therefore, space charge effects which have not been fully corrected for dominate the shape of the distribution at longer lifetimes.
-This is thought to be the cause of the measured values of \dqdxMPV to increasing with drift time at larger values of \tdrift.
+Therefore, SCE which have not been fully corrected for dominate the shape of the distribution at longer drift times.
+This is thought to be the cause of the measured values of \dqdxMPV increasing with drift time at larger values of \tdrift.
 
 Each of these runs also has associated lifetimes measured by each of the purity monitors.
 \citefig{fig:lifetimeComp} shows a comparison of the lifetime measured with the method above with the lifetime measured by one of the purity monitors (the one situated uppermost in the detector).
 The black dotted line represents equality between the two measurements.
 One can see that at lower lifetimes the methods agree relatively well but that at higher lifetimes the two methods diverge significantly.
-The lifetimes measured by the other two purity monitors are not displayed because they both have larger associated errors and the central values fall within the errors provided by the upper purity monitor.
+The lifetimes measured by the other two purity monitors are not displayed because they both have larger associated errors and their central values fall within the errors provided by the upper purity monitor.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -431,7 +428,7 @@ This is produced for each run by plotting the function
 \begin{equation}
 	\exp(-\tdrift / \tau_{\text{Tracks}}) - \exp(-\tdrift / \tau_{\text{PrMon}})
 \end{equation}
-as a function of drift distance.
+as a function of \tdrift.
 This function is equivalent to the fractional difference in charge that would be estimated under the two different lifetimes.
 
 One can see that the measured discrepancy falls as the drift time reduces, meaning this mismeasurement will have a greater effect for those particles near the cathode. 
@@ -449,7 +446,7 @@ Additionally, the size of the maximum charge mismeasurement is seen to vary betw
 \section{Impact on oscillation measurements}
 \label{sec:pdune_calibration:osc}
 
-It is demonstrated above that, in the ProtoDUNE-SP detector, discrepancies are observed between electron lifetimes from two different sources. 
+It is demonstrated above that, in the ProtoDUNE-SP detector, discrepancies are observed between measured electron lifetimes from two different sources. 
 Given the similarities of the ProtoDUNE-SP detector and proposed design of the DUNE single-phase FD modules, it is reasonable to assume that such discrepancies could also occur in a long baseline oscillation analysis.  
 Given that there is potentially no way to ascertain which of the lifetime values is correct, it is possible that a charge (and therefore energy) bias could be introduced for certain particle types reconstructed using calorimetry.
 
@@ -579,8 +576,7 @@ However, this shift is small: the value of \deltami{32} is only shifted from \SI
 
 In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \num{6100} FD-only fits are performed with and without the lifetime bias applied to the data.
 In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 years POT.
-Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and $\rho$ are all thrown within limits. 
-These limits are shown in \citetab{tab:paramThrows}.
+Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and $\rho$ are all thrown within the limits shown in \citetab{tab:paramThrows}.
 
 \begin{table}
 	\caption[Oscillation parameters limits used.]{Throw limits on oscillation parameters used in this analysis. Note that $\rho$ is thrown according to a Gaussian distribution while all the other parameters are thrown uniformly within their ranges.}
