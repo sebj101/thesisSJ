@@ -35,7 +35,7 @@ Examples of these interactions are shown in \citefig{fig:nuIntEx}.
     \centering
     \feynmandiagram [vertical=a to b] {
       i1 [particle=\nul]  -- [fermion] a -- [fermion] i2 [particle=\(l^{+}\)],
-      a -- [boson, edge label = \wminus] b,
+      a -- [boson, edge label = \wboson] b,
       f1 [particle=\(n\)] -- [anti fermion] b -- [anti fermion] f2 [particle=\(p\)]
     };
   \end{subfigure}
@@ -566,7 +566,7 @@ Subtracting $\frac{V_{e}}{2} I$ (where $I$ is the identity matrix) from $H_{M}$ 
 \begin{equation}
   H_{M} = \left( \frac{\deltami{}}{4E} \right)
   \begin{pmatrix}
-    -\cos\theta + A_{\nu} & \sin 2\theta \\
+    -\cos 2\theta + A_{\nu} & \sin 2\theta \\
     \sin 2\theta & \cos 2\theta - A_{\nu} 
   \end{pmatrix}
 \end{equation}
@@ -808,7 +808,7 @@ An additional check was made by requiring a delayed photon from the capture of t
 %Up to this point, only electron neutrinos had been observed (counterparts to the electron).
 Prior to 1937 only one charged lepton (the electron) had been discovered.
 However, in 1937 the muon, a heavier counterpart to the electron, was observed~\cite{muonDiscovery}.
-In 1962 the existence of a neutrino corresponding to the muon was confirmed at Brookhaven Alternatng Gradient Synchrotron.
+In 1962 the existence of a neutrino corresponding to the muon was confirmed at Brookhaven Alternating Gradient Synchrotron.
 These muon neutrinos and antineutrinos (\numu and \anumu) were produced by colliding a beam of protons with a beryllium target, producing charged pions and kaons.
 These mesons subsequently decayed via the channels
 \begin{align}
@@ -837,7 +837,7 @@ The width of the $Z$ boson, $\Gamma_{Z}$ is given as
   \Gamma_{Z} = \Gamma_{ee} + \Gamma_{\mu\mu} + \Gamma_{\tau\tau} + \Gamma_{\text{hadrons}} + N_{\nu}\Gamma_{\nu\nu}
 \end{equation}
 where the various terms are the partial decay widths of the $Z$ boson into various particles and $N_{\nu}$ is the number of neutrino flavours.
-These partial decay widths can be calculated from Z-boson couplings and standard model parameters.
+These partial decay widths can be calculated from Z-boson couplings and Standard Model parameters.
 By precisely measuring both $m_{Z}$ and $\Gamma_{Z}$ it was determined that $N_{\nu} = 2.9840 \pm 0.0082$, confirming that only 3 flavours of neutrino exist for $m_{\nu} < m_{Z}/2$~\cite{zBosonWidth}.
 One such plot showing combined measurements from the various LEP experiments is shown in \citefig{fig:zBosonWidth}, clearly showing the preference of the data for the three neutrino case.
 
@@ -960,6 +960,8 @@ Further confirmations of the existence of oscillations would come from reactor n
 Today the phenomenon of neutrino oscillations is widely accepted. 
 However, the values of the parameters involved in neutrino oscillation are determined with varying levels of precision.
 The most recent global fit of these parameters gives the values shown in \citetab{tab:nufit4}, along with the associated uncertainties, and shows that significant questions still exist in the field of neutrino oscillations.
+For each parameter the value with and without the constraints from the Super-Kamiokande experiment's atmospheric neutrino observations is tabulated.
+This decision is made by the authors of Ref.~\cite{nufit5} due to the more limited nature of the results released, compared to the other experiments used in the analysis.
 \citefig{fig:nufit5Contours} shows the confidence limits obtained for the various parameters.
 
 \begin{table}
@@ -1130,7 +1132,7 @@ The long baseline experiments, T2K, NOvA and MINOS, have all set limits on the v
 Limits from the NOvA and T2K experiments are shown in \citefig{fig:t2kLimits}.
 One can see that the constraints on the value of \dcp are limited for both experiments.
 Additionally, the best fit points for \dcp are in slight tension between the two experiments.
-Therefore, in order to attain confidently confirm or deny the existence of CP-violation in the lepton sector the next generation of oscillation experiments will be required.
+Therefore, in order to query the existence of CP-violation in the lepton sector the next generation of oscillation experiments will be required.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.49\linewidth}
