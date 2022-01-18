@@ -9,7 +9,7 @@ In order to make these measurements, systematic uncertainties will have to be si
 
 In the current generation of neutrino oscillation experiments, uncertainties relating to the neutrino-nucleus interaction model make up a large part of the overall systematic budget.
 For example, NOvA's most recent results assign systematic uncertainties from its interaction model of $3.2-5.8\%$ on its \nue and \anue signal rates~\cite{novaRecent}.
-The T2K experiment has reports systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where neutrino interaction uncertainties are the largest part of this~\cite{t2kRecent}.
+The T2K experiment reports systematic uncertainties of $7-9\%$ on the rate of far detector electron-like events (after the near detector constraint has been applied) where neutrino interaction uncertainties are the largest part of this~\cite{t2kRecent}.
 
 Reducing these systematic uncertainties relies upon better modelling of neutrino-nucleus interactions.
 It is also important to have an accurate interaction model in order to infer the neutrino energy from the observed events.
@@ -211,6 +211,7 @@ In this particular image, all four moderator blocks are placed on the tripod sta
 
 \SThree and \SFour each have their own independent DAQ systems which process data from \SOne and \STwo plus either \SThree or \SFour.
 The data from these two systems is synchronised offline using a signal from the PS indicating the arrival of a beam spill, which is recorded by both DAQs.
+Two separate DAQs were used since the two systems were constructed at different locations, independently of one another.
 The system consisting of \SOne, \STwo and \SThree is sometimes referred to as the upstream time of flight (UToF) system, while the systems consisting of \SOne, \STwo and \SFour is referred to as the downstream time of flight (DToF) system.
 
 T10 receives $1-3$ spills from the PS every supercycle, which has a normal duration of \SI{33}{\second}.
@@ -716,6 +717,9 @@ These efficiency maps are shown in \citefig{fig:barEff}.
 One can see that the bar efficiency is typically highest towards the middle of each bar (\SI{70}{\centi\metre}).
 This is due to the requirement for coincident PMT signals to be observed in order for a hit to be recorded.
 The fact that bars with higher efficiency are typically in the middle of \SFour is by construction; this is where the beam centre is and therefore where the best performing bars are placed.
+The variation between the samples results these measurements having been performed at different times in the beam test.
+At these different times, different PMT voltages may have been used, resulting in varying gains and thus changing efficiencies.
+
 Bar 10 is excluded from the analysis due to its very low efficiency.
 
 \begin{figure}[t]
