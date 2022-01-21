@@ -21,7 +21,13 @@ This constant energy deposition means that they can be used as a `standard candl
 As a result, any observed changes in the energy deposition as a function of position within the detector must result from detector non-uniformities.
 In particular, measured changes in the charge deposition as a function of drift distance can be used to measure the electron lifetime.
 
-This charge deposition per unit length is commonly termed \dqdx.
+One of the primary reasons to measure the electron lifetime accurately is so that accurate calorimetry may be used to measure the energy of certain particles.
+Particles such as muons, which usually do not scatter, typically have their energy measured from their range in the detector.
+However, particles which shower, such as photons and electrons and those particles which are more likely to scatter in the detector such as charged hadrons may have their energy measured by summing the collected ionisation charge they produce and translating this into an energy.
+Additionally, measurements of particle \dedx are frequently used to discriminate between different particle types, for example protons and pions.
+Both of these measurements include a correction for the electron lifetime depending on the position of the hit in the detector, making it an important variable to measure.
+
+The charge deposition per unit length is commonly termed \dqdx.
 Typically, this \dqdx is measured in analogue-to-digital converter (ADC) units of \si{\ADC\per\cm} where this ADC unit is a measure of the signal amplitude on a wire.
 In order to convert this into an energy deposition per unit length, \dedx, further conversion factors are required.
 However, merely comparing \dqdx is sufficient to calculate electron lifetimes.
@@ -315,7 +321,10 @@ In all cases, a function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fi
 The fit variables $A$ and $\tau$ correspond to the same variables in \citeeq{eq:lifetimeFromdqdx}.
 $A$ is the value of \dqdxMPV in the case where no drift time has elapsed. 
 One can observe that the fit range is between \tdrift values of \SI{0.2}{\ms} and \SI{1.5}{\ms}.
-The choice is made to exclude lower values of \tdrift due to the low statistics in this region.
+
+The choice is made to exclude lower values of \tdrift due to the behaviour of the peak values in this region. 
+For all the samples the values of \dqdxMPV seem to be below those in the neighbouring time segments.
+These hits occur very close to the wires and thus may be especially vulnerable to having their positions and calculated \dqdx values distorted by space charge effects.
 
 %% Figures subject to change if I end up changing the analysis procedure
 \begin{figure}[h]
@@ -405,10 +414,9 @@ Therefore, SCE which have not been fully corrected for dominate the shape of the
 This is thought to be the cause of the measured values of \dqdxMPV increasing with drift time at larger values of \tdrift.
 
 Each of these runs also has associated lifetimes measured by each of the purity monitors.
-\citefig{fig:lifetimeComp} shows a comparison of the lifetime measured with the method above with the lifetime measured by one of the purity monitors (the one situated uppermost in the detector).
-The black dotted line represents equality between the two measurements.
-One can see that at lower lifetimes the methods agree relatively well but that at higher lifetimes the two methods diverge significantly.
+\citefig{fig:lifetimeComp} shows a comparison of the lifetime measured with the method above with the lifetime measured by the uppermost of the purity monitors (see \citesec{sec:protodune:prms} for further details).
 The lifetimes measured by the other two purity monitors are not displayed because they both have larger associated errors and their central values fall within the errors provided by the upper purity monitor.
+The black dotted line represents equality between the two measurements.
 
 \begin{figure}[h]
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
@@ -418,13 +426,13 @@ The lifetimes measured by the other two purity monitors are not displayed becaus
 	\label{fig:lifetimeComp}
 \end{figure}
 
-One of the primary reasons to measure the electron lifetime accurately is so that accurate calorimetry may be used to measure the energy of certain particles.
-Particles such as muons, which usually do not scatter, typically have their energy measured from their range in the detector.
-However, particles which shower, such as photons and electrons and those particles which are more likely to scatter in the detector such as charged hadrons may have their energy measured by summing the collected ionisation charge they produce and translating this into an energy.
+One can see that at lower lifetimes the methods agree relatively well but that at higher lifetimes the two methods diverge significantly.
+The reason for these larger discrepancies occurring at longer lifetimes results from the very small changes in \dqdxMPV that must be measured in order to extract the lifetime and the consequent sensitivity to SCE.
+For a purity monitors, the electric field may be changed to increase the drift time and thus the sensitivity to longer lifetimes. 
+However, for a large TPC, changing the electric field regularly is typically not an option.
+On the other hand, using tracks has the advantage of being able to measure the electron lifetime in different areas of the detector, something that is not possible with a purity monitor in a fixed position.
 
-Additionally, measurements of particle \dedx are frequently used to discriminate between different particle types, for example protons and pions.
-
-Both of these measurements include a correction for the electron lifetime depending on the position of the hit in the detector.
+As mentioned previously, obtaining the correct value of the electron lifetime is crucial when performing calorimetric measurements of particle energy. 
 It is therefore important to quantify what these discrepancies in the measured value of $\tau$ translate to in terms of measured charge throughout the detector.
 
 \citefig{fig:chargeEquivalent} shows an attempt to quantify the difference in measured charge as a function of drift time in the detector. 
@@ -506,7 +514,7 @@ These samples contain the full MC statistics and do not have statistical fluctua
 \end{figure}
 
 Additionally, a FD-only fit is performed using the biased sample as the data and the nominal sample as the expected distribution. 
-All cross-section, flux and detector systematics are set at their nominal values and determined in the fit 
+All cross-section, flux and detector systematics are set at their nominal values and determined in the fit. 
 Furthermore, the oscillation variables \thetai{23}, \thetai{13}, \dcp, \deltami{32} and $\rho$ are determined in the fit.
 The resulting post fit distribution is shown as the red dashed line in \citefig{fig:fdSamplesLifetime}.
 
