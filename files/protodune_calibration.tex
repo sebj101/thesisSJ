@@ -224,7 +224,7 @@ One can also observe that there are few hits at near the maximum and minimum dri
 This movement of the peak position is clearer in \citefig{fig:dqdx1d}, which shows two different rows from \citefig{fig:dqdxDrift} as 1-dimensional histograms.
 Each of these histograms has been area normalised to 1.
 A Landau distribution convolved with a gaussian~\cite{langaus} is fitted to each set of data points and is shown as a solid line in each case.
-In both cases this function appears to match the data well.
+In both cases this function appears to match the data well within the chosen range.
 The most probable value (MPV) for the distribution moves from a value of \SI{279.8(2)}{\ADC\per\cm} for $t_{\text{drift}} = \SI{0.35(5)}{\ms}$ to a value of \SI{220.5(1)}{\ADC\per\cm} for $t_{\text{drift}} = \SI{2.45(5)}{\ms}$.
 
 \begin{figure}[h]
@@ -279,7 +279,7 @@ However, no mention has been made of the corresponding ions produced by the same
 
 These positively charged ions will experience the same drift field as the ionisation electrons but will instead drift towards the cathode (rather than the anode).
 For a detector medium such as liquid argon, the $\text{Ar}_{2}^{+}$ ions are approximately \num{140000} times heavier than the corresponding electrons and thus will drift much more slowly.
-In fact, the ICARUS T600 collaboration reports an argon ion mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility} for electrons.
+In fact, the ICARUS T600 collaboration reports an argon ion mobility of \SI{0.9d-3}{\cm\squared\per\volt\per\second}~\cite{icarusSpaceCharge} compared with an electron mobility of around \SI{470}{\cm\squared\per\volt\per\second}~\cite{electronMobility}.
 This slow drifting can lead to a build up of positive ions within the detector and distortions in the applied electric field. 
 This build up of ions is referred to as space charge and an analysis of these effects is given in Ref.~\cite{spaceCharge2021}.
 
@@ -311,7 +311,9 @@ In each case the calorimetry is corrected for space charge effects (SCE).
 A variety of runs with different lifetimes (as measured by the purity monitors) are analysed.
 
 Graphs of the measured \dqdx peak positions against drift time are shown for each of the analysed runs in \citefig{fig:dqdxPeak1} and \citefig{fig:dqdxPeak2}.
-In all cases, a function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fitted to the data points. 
+In all cases, a function of the form shown in \citeeq{eq:lifetimeFromdqdx} is fitted to the data points.
+The fit variables $A$ and $\tau$ correspond to the same variables in \citeeq{eq:lifetimeFromdqdx}.
+$A$ is the value of \dqdxMPV in the case where no drift time has elapsed. 
 One can observe that the fit range is between \tdrift values of \SI{0.2}{\ms} and \SI{1.5}{\ms}.
 The choice is made to exclude lower values of \tdrift due to the low statistics in this region.
 
@@ -577,7 +579,7 @@ However, this shift is small: the value of \deltami{32} is only shifted from \SI
 \label{sec:pdune_calibration:osc:fluctuations}
 
 In order to assess if the introduction of this bias has any effect on the measurement of the oscillation parameters, \num{6100} FD-only fits are performed with and without the lifetime bias applied to the data.
-In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 years POT.
+In this case, statistical fluctuations are introduced to the data, equivalent to those that would be expected for 1 year's POT.
 Additionally, the oscillation parameters \thetai{13}, \thetai{23}, \deltami{32}, \dcp and $\rho$ are all thrown within the limits shown in \citetab{tab:paramThrows}.
 
 \begin{table}
