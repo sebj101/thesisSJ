@@ -168,7 +168,6 @@ Finally, any tracks which have reconstructed hits which appear to be outside the
 Constraints are also placed on the angle of tracks used in the selection.
 These constraints are in place due to difficulties in reconstructing the track \dqdx at certain angles.
 This issue is shown in \citefigR{fig:dqdxAng}, which shows the average track \dqdx as a function of two angles, \thetai{XZ} and \thetai{YZ}.
-
 These track angles are described respectively by the formulae
 \begin{align}
 	\thetai{XZ}	&= \arctan \left( \frac{\boldsymbol{X}}{\boldsymbol{Z}} \right) \\
@@ -178,7 +177,7 @@ where $\boldsymbol{X}$, $\boldsymbol{Y}$ and $\boldsymbol{Z}$ are the direction 
 
 One can see that at certain values of \thetai{XZ} (around $\pm\ang{90}$) and \thetai{YZ} (around \ang{-90}) the average track \dqdx falls significantly.
 The difference around $\thetai{XZ} = \pm \ang{90}$ is caused by tracks travelling close to parallel with the drift direction while the difference at $\thetai{YZ} = \ang{-90}$ is due to tracks travelling vertically downwards (i.e. parallel to the wires of the collection plane). 
-However, \citefigL{fig:dqdxAng} shows that this does have the effect of cutting out a large number of the tracks.
+However, \citefigL{fig:dqdxAng}, shows that this does have the effect of cutting out a large number of the tracks.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
@@ -191,7 +190,7 @@ However, \citefigL{fig:dqdxAng} shows that this does have the effect of cutting 
 			\input{files/figures/protodune_calibration/h2dqdxAngle}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[Number of tracks and average track \dqdx as a function of track angle for exiting cosmic rays.]{Left: Number of exiting cosmic ray tracks with a $t_{0}$ tag as a function of track angle. Right: Average track \dqdx as a function of track angle for reconstructed exiting cosmic rays. Both plots show data from a single run. Also shown are dotted lines indicating the angular cuts used in the analysis.}
+	\caption[Number of tracks and average track \dqdx as a function of track angle for exiting cosmic rays.]{Left: Number of exiting cosmic ray tracks with a $t_{0}$ tag as a function of track angle. Right: Average track \dqdx as a function of track angle for reconstructed exiting cosmic rays. Both plots show data from a single run. Also shown are dotted lines indicating the angular cuts used in the analysis. Tracks inside the dotted lines (indicated with text) are discarded.}
 	\label{fig:dqdxAng}
 \end{figure}
 
@@ -199,6 +198,9 @@ In both cases, the track \dqdx is not well reconstructed due to fundamental limi
 Particles travelling directly toward the readout planes will produce charge deposits that will then drift either onto the same wire or wires very close by, making reconstruction difficult.
 Similarly, cosmic rays travelling vertically downwards are travelling parallel to the wires of the collection plane which leads to the same issue of many charge deposits being read out on the same collection plane wire.
 Since this is the plane used to perform calorimetry in this analysis, this causes issues with the reconstruction.
+
+As a result of this, tracks for which $\ang{65} < \left| \theta_{XZ} \right| < \ang{115}$ or $\ang{-110} < \theta_{YZ} < \ang{-70}$ are excluded from the selection.
+This selection is shown in \citefig{fig:dqdxAng}.
 
 \subsection{Measurement process}
 
