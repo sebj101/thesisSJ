@@ -41,7 +41,7 @@ One can see that, at nearly all energies, hadron production uncertainties are la
   \label{fig:fluxUncertainties}
 \end{figure}
 
-The flux uncertainties are evaluated by running many simulations of with variations of the hadron production and focussing uncertainties mentioned above and then using this information to build a covariance matrix.
+The flux uncertainties are evaluated by running many simulations with variations of the hadron production and focussing uncertainties mentioned above and then using this information to build a covariance matrix.
 This matrix is binned in neutrino energy and flavour and has dimensions of $208 \times 208$ bins.
 The matrix is then diagonalised to give 208 principal components, along with their eigenvalues.
 The largest 30 of these principal components (when ordered by the size of their eigenvalues) are used as the flux systematic uncertainties.
@@ -130,7 +130,7 @@ Additionally, central values of the distributions (black points) all lie close t
   \label{fig:protonEScale}
 \end{figure}
 
-Additionally, a 2\% uncertainty is assigned to the the resolution of each of muons, charged hadrons, electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
+Additionally, a 2\% uncertainty is assigned to the the resolution of muons, charged hadrons and electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
 
 These uncertainties on particle energy scales are expected to derive from a variety of sources.
 Some are inherent errors in the detector calibration such as a miscalculation of the electron lifetime, which will cause a bias in the energy scale of particles reconstructed using calorimetric methods.
@@ -193,7 +193,6 @@ These systematics can take the form of either reweightings or bin-to-bin shiftin
 The response functions for bin-to-bin shifts are constructed by taking the calculating the content of each bin at $\pm 1 \sigma$, $\pm 2 \sigma$ and $\pm 3 \sigma$ and then performing a cubic interpolation between these points.
 
 In terms of CAFAna's fitting components, a frequentist approach is adopted with the minimisation being performed by the \texttt{MINUIT}~\cite{minuit} package.
-However, currently work is ongoing to expand CAFAna to allow Bayesian analyses.
 
 The entire framework is written in C++ and may be controlled by the user through \texttt{ROOT} macros.
 
@@ -206,7 +205,7 @@ However, in a real analysis it is expected that this would be included.
 
 Examples of the four FD event rates as a function of reconstructed neutrino energy are shown in \citefig{fig:fdEventRatesWithErrorBand}.
 In each case, the $\pm1\sigma$ systematic error band is also shown in red.
-Furthermore, for the appearance samples, the different event rates resulting from different neutrino mass hierarchies and values of \dcp are shown, while for the disappearance samples to effect of varying \thetai{23} is shown.
+Furthermore, for the appearance samples, the different event rates resulting from different neutrino mass hierarchies and values of \dcp are shown, while for the disappearance samples the effect of varying \thetai{23} is shown.
 One can see that the systematic errors are significant for all samples across the energy range.
 
 \begin{figure}
@@ -355,11 +354,11 @@ The square root of $\Delta \chisquare$ is then taken to provide a crude signific
 	\begin{adjustbox}{max totalsize=.6\linewidth, center}
 		\input{files/figures/dune_lbl/mh_sens_both}
 	\end{adjustbox}
-	\caption[DUNE sensitivity to the neutrino mass hierarchy as a function of true \dcp.]{DUNE sensitivities to the neutrino mass hierarchy as a function of true \dcp for a 7 year staged exposure. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Solid lines show the case for true normal mass hierarchy while dashed lines show the case for true inverted mass hierarchy. The two horizontal dashed lines are at $\sqrt{\Delta\chi^{2}} = 3, 5$ and represent important milestones in determining the mass hierarchy.}
+	\caption[DUNE sensitivity to the neutrino mass hierarchy as a function of true \dcp.]{DUNE sensitivities to the neutrino mass hierarchy as a function of true \dcp for a 7 year staged exposure. The black line shows the statistics-only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Solid lines show the case for true normal mass hierarchy while dashed lines show the case for true inverted mass hierarchy. The two horizontal dashed lines are at $\sqrt{\Delta\chi^{2}} = 3, 5$ and represent important milestones in determining the mass hierarchy.}
 	\label{fig:mhSens}
 \end{figure}
 
-\citefig{fig:mhSens} shows the results of this in the statistics only case (for 7 years of staged running - equivalent to an exposure of \SI{336}{\kilo\tonne\mega\watt\year}), with just the detector systematics and also all the systematics included.
+\citefig{fig:mhSens} shows the results of this in the statistics-only case (for 7 years of staged running - equivalent to an exposure of \SI{336}{\kilo\tonne\mega\watt\year}), with just the detector systematics and also all the systematics included.
 It is immediately apparent that DUNE will be highly sensitive to the neutrino mass hierarchy, surpassing the common particle physics threshold of $\sqrt{\Delta \chisquare} = 5$ at all values of \dcp and for both true hierarchies.
 One can see that the addition of detector systematics reduces the sensitivity somewhat, with remaining systematics reducing it further.
 However, it is clear that, even with a fairly substantial increase in systematic uncertainties, DUNE will still be able to quickly resolve the neutrino mass hierarchy.
@@ -410,7 +409,7 @@ The double-humped structure visible in both \citefig{fig:cpvSens} left and right
 			\input{files/figures/dune_lbl/cpv_sens_ih}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp.]{DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp for 7 years of staged running. The black line shows the statistics only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Left: True normal neutrino mass hierarchy. Right: True inverted mass hierarchy.}
+	\caption[DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp.]{DUNE sensitivities to CP-violation in the lepton sector as a function of true \dcp for 7 years of staged running. The black line shows the statistics-only case. The blue line shows the case where only the detector systematics are used. The red line shows the case where all systematics are used. Left: True normal neutrino mass hierarchy. Right: True inverted mass hierarchy.}
 	\label{fig:cpvSens}
 \end{figure}
 
@@ -420,6 +419,6 @@ However, if the mass hierarchy is normal then DUNE's CPV discovery potential is 
 Under this 7 year running plan, DUNE will not reach the crucial $5\sigma$ discovery level when systematics are included. 
 However, DUNE will still exceed the $3\sigma$ threshold for many values of \dcp will the suite of systematics.
 
-One interesting point that is observable in \citefig{fig:cpvSens} is that that most of the decrease in sensitivity from the statistics only case occurs when only including the detector systematics.
+One interesting point that is observable in \citefig{fig:cpvSens} is that that most of the decrease in sensitivity from the statistics-only case occurs when only including the detector systematics.
 Although there is a decrease from the red to the blue line upon the inclusion of the flux and cross-section systematics, it is much less substantial than the drop in sensitivity upon the inclusion of just the detector systematics.
 It can therefore be assumed that in order for DUNE to reach its full potential, it will be very important to control the detector systematics.
