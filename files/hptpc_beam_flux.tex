@@ -980,6 +980,11 @@ The systematic uncertainty on the number of simulated protons reaching \SFour, $
 Additionally, the simulation is rerun with an additional \SI{1}{\centi\metre} thick piece of acrylic in the beam line and the change in $n_{\SFour,\text{MC}}$ observed.
 We allow this systematic to act as a proxy for the uncertainty on the prescence of unknown light materials in the beam line.
 
+Significant variation is observed in the value of this systematic as the number of moderator blocks is changed.
+Specifically, the value of this systematic is significantly higher for the 3 block sample.
+This is thought to be due to the energy of most of the protons reaching the HPTPC vessel, which is just above the threshold required to reach \SFour. 
+Therefore small changes, such as additional material in the beam line, lead to large changes in $n_{\SFour, \text{MC}}$, compared with the other samples where the proton energies are well above this threshold.
+
 \begin{table}
   \caption[Systematic errors on the number of protons at \SThree and \SFour for data and Monte Carlo]{Systematic errors on the number of protons at \SThree and \SFour for data and Monte Carlo. All values are the percent error of the \SFour proton count with the exception of the uncertainty on the efficiency of \SThree which is the percent error on the proton count measured in \SThree. All of these uncertainties are treated as uncorrelated.}
   \label{tab:systs}
@@ -1009,6 +1014,8 @@ We allow this systematic to act as a proxy for the uncertainty on the prescence 
 \end{table}
 
 For data, the error on the absolute efficiency of \SThree is evaluated by taking the $\pm 1 \sigma$ uncertainty on the fitted relationship between $(\SOne\STwo)_{\text{UToF}}/(\SOne\STwo)_{\text{DToF}}$ and $(\SOne\STwo)_{\text{DToF}}$ (see \citesec{sec:hptpc_beam_flux:methods:s3:deadtime}) and evaluating the fractional change in the number of protons detected by \SThree.
+The uncertainty for the 0 block sample is significantly lower than for the other samples.
+This is due to the much smaller variation in $(\SOne\STwo)_{\text{DToF}}$ between spills (see \citefig{fig:s1s2DeadtimeComp}), resulting in smaller variations in event weights and thus a lower dependence on the dead time correction.
 
 The error on the absolute efficiency of \SFour is evaluated from the calibration tests performed on the bars with a $^{90}\text{Sr}$ source (see \citesec{sec:hptpc_dtof_characterisation:characterisation:barRes}).
 From these tests an absolute efficiency of 0.8 was determined (this is the origin of the additional weighting of 1.25 detailed in \citesec{sec:hptpc_beam_flux:methods:s4:efficiency}).
@@ -1113,3 +1120,6 @@ The measurements demonstrate that adding moderator blocks decreased the peak kin
 From Monte Carlo simulations calibrated with the data, it is demonstrated that \num{5.6(1)}~protons per spill reach the active region of the TPC, with kinetic energies of less than \SI{50}{\MeV}.
 This demonstrates that this is a viable method for producing a beam of low energy protons. 
 Such beams are highly desirable to make measurements relevant to neutrino experiments.
+
+However, it is noted that this increase in the flux of low energy protons comes at the cost of reducing the proton/MIP measured in both \SThree and \SFour (to values of \num{0.03} and \num{0.003} for the full moderator respectively).
+This could be an issue for a detector which had difficulties in distinguishing protons and MIPs since the overwhelming flux of MIPs would necessitate effective background suppression.
