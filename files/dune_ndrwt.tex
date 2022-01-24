@@ -3,7 +3,7 @@
 
 %% ND recap
 As detailed in \citesec{sec:dune:nd}, the primary function of the DUNE Near Detector is to measure the spectrum of neutrino interactions prior to significant oscillations having taken place.
-Having done this it should be able to predict the event rate at the far detector given a set of oscillation parameters.
+Having done this, it should be possible to predict the event rate at the far detector given a set of oscillation parameters.
 However, the event rate measured in the ND is in fact the convolution of the neutrino flux, cross-section and detector effects (see \citeeq{eq:eventRateConv}).
 As a result, neutrino oscillation experiments require the assistance of models to successfully constrain the oscillation parameters.
 In particular, models of neutrino-nucleus interactions are required for tasks such as background estimation and to infer the neutrino energy from observed deposits in the detector.
@@ -46,7 +46,7 @@ However, a significant number of interactions will result in more complex final 
 Although ND-LAr will be a state of the art detector there are issues that exist with liquid argon TPCs that it will be unable to avoid.
 Namely, the high density of liquid argon means that the primary particles produced in a neutrino interaction frequently interact and produce secondary particles.
 This can make it difficult to correctly identify the final state and also correctly reconstruct the hadronic energy.
-These secondary particle are often neutrons which make escape the detector without depositing energy or depositing a highly variable fraction of their energy as ionisation charge~\cite{Friedland_2019}.
+These secondary particles are often neutrons which may escape the detector without depositing energy or depositing a highly variable fraction of their energy as ionisation charge~\cite{Friedland_2019}.
 Additionally, the dense medium may mean that low energy particles are not reconstructed, further biasing energy estimators.
 
 ND-GAr will somewhat mitigate these issues by operating with gaseous argon at a pressure of 10~bar.
@@ -162,7 +162,7 @@ These points are determined from Monte Carlo simulations of the ECAL.
 Charged pions with $p>\SI{1}{\GeV\per\clight}$ are considered to have passed into the muon identification system. 
 This system has a thickness of approximately 2 interaction lengths for charged pions.
 If the pion interacts in the muon identification system, it is correctly identified.
-Therefore, these pions have a probability of $e^{-3}$ to be misidentified as muons.
+Therefore, these pions have a probability of $e^{-3} \approx 0.05$ to be misidentified as muons.
 
 Finally, it is assumed that the detector is able to perfectly sign select particles such as charged pions and muons if the associated track is greater than the \SI{6}{\cm} threshold.
 
@@ -221,7 +221,6 @@ where $E_{\nu,~\textrm{reco}}$ is the sum of the reconstructed muon energy and t
 The mock data generator detailed in \citesec{sec:dune_ndrwt:bdt} is used to reweight events to give an approximation of NuWro data.
 A distribution of $Q^{2}_{\textrm{reco}}$ is then constructed for each of the nominal GENIE sample and the NuWro `mock data' sample. 
 The ratio between the number of events in each $Q^{2}_{\textrm{reco}}$ bin of the two samples is then taken and plotted. 
-
 These ratios are shown in \citefigL{fig:Q2CompFhc} and \citefigL{fig:Q2CompRhc}. 
 Here, one can clearly see that, for all final states apart from $0\pi$, clear differences between GENIE and NuWro are observable.
 
@@ -273,7 +272,7 @@ One can see that these distributions replicate many of the features of the recon
 \subsection{ND-LAr}
 \label{sec:dune_ndrwt:pionMulti:lar}
 
-Attempts to simulate measuring the same quantities are also made in the liquid argon component of the DUNE near detector, ND-LAr (see \citesec{sec:dune:nd:lar} for details of the detector).
+Measurements of $Q^{2}$ are also made in a simulation of the liquid argon component of the DUNE near detector, ND-LAr (see \citesec{sec:dune:nd:lar} for details of the detector).
 ND-LAr has some key differences to ND-GAr in the case of separating out final states, however. 
 Due to the lack of a magnetic field covering ND-LAr, hadronic interactions are typically reconstructed calorimetrically.
 
@@ -752,7 +751,7 @@ However, even with this simpler reweighting, the bias is significantly reduced.
 Further work will also be required to correct the model such that the near detector samples can be included in the fit.
 Even with this reweighting, the fit still fails due to a lack of systematic uncertainties than can replicate the remaining bias.
 This is due to the very high statistics of the ND samples used in the oscillation analysis.
-If this situation occurred was observed in the data during experimental running, this remaining (much smaller) discrepancy would have to be incorporated into the final systematic error budget.
+If this situation was observed in the data during experimental running, this remaining (much smaller) discrepancy would have to be incorporated into the final systematic error budget.
 
 \section{Conclusions}
 \label{sec:dune_ndrwt:conclusions}
