@@ -38,10 +38,24 @@ However, a significant number of interactions will result in more complex final 
 		\begin{adjustbox}{max totalsize=\linewidth, center}
 			\input{files/figures/dune_ndrwt/energyByModeRhc}	
 		\end{adjustbox}
+	\end{minipage} \\
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/energyByModeFhc_unstacked}	
+		\end{adjustbox}
 	\end{minipage}
-	\caption[Neutrino energy spectrum in ND-GAr divided by pion multiplicity.]{Neutrino energy spectra in ND-GAr for charged current \numu and \anumu events with the beam in FHC mode (left) and RHC mode (right). Events are divided by true final state pion multiplicity with the histograms stacked.}
+	\hfill
+	\begin{minipage}[t]{.5\linewidth}
+		\begin{adjustbox}{max totalsize=\linewidth, center}
+			\input{files/figures/dune_ndrwt/energyByModeRhc_unstacked}	
+		\end{adjustbox}
+	\end{minipage}
+	\caption[Neutrino energy spectrum in ND-GAr divided by pion multiplicity.]{Neutrino energy spectra in ND-GAr for charged current \numu and \anumu events with the beam in FHC mode (left hand plots) and RHC mode (right hand plots). Events are divided by true final state pion multiplicity. In the upper plots the histograms are stacked while they are not in the lower plots.}
 	\label{fig:energyByMode}
 \end{figure}
+
+Furthermore, one can see that the energy spectra peak at different neutrino energies for different pion multiplicities. 
+By making measurements of neutrino interactions separated by pion multiplicity one can therefore access many different energy ranges as well as different interaction modes.
 
 Although ND-LAr will be a state of the art detector there are issues that exist with liquid argon TPCs that it will be unable to avoid.
 Namely, the high density of liquid argon means that the primary particles produced in a neutrino interaction frequently interact and produce secondary particles.
@@ -192,8 +206,8 @@ The muon is judged to have ranged out in the ECAL if it has a momentum of less t
 
 \citefig{fig:confusMatPi} shows the confusion matrices produced using the above selection for both forward and reverse horn currents. 
 Here one can see that, for all final states, the correct final state is reconstructed at least 88\% of the time.
-%The largest probability for miscategorised events are NC events where single charged pion is wrongly reconstructed as a muon and the whole event is categorised as a $0\pi$ final state.
-%However, one can see from \citefig{fig:eventCats}, that these represent a very small fraction of the total number of events.
+Events may be reconstructed as having fewer pions than their true value if a pion is misidentified as proton or if its track in the detector is too short, for example.
+Similarly, events may be reconstructed with additional false pions if one or more high energy protons are misidentified as pions.
 
 \begin{figure}[h]
 	\begin{minipage}[t]{.5\linewidth}
