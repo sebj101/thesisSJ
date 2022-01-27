@@ -33,6 +33,7 @@ Hadron production uncertainties are estimated using uncertainties from thin targ
 \citefig{fig:fluxUncertainties} shows these uncertainties as a function of neutrino energy for the \numu and \anumu fluxes in both neutrino and antineutrino mode.
 These can be compared with the FD neutrino fluxes shown in \citefig{fig:fdFlux}.
 One can see that, at nearly all energies, hadron production uncertainties are larger than focussing uncertainties.
+The spike in the focussing uncertainties at roughly \SI{5}{\GeV} for right-sign \numu and \anumu results from the uncertainty in the magnetic horn current~\cite{tdrVol2} which is sharply peaked at this point.
 
 \begin{figure}[h]
   \centering
@@ -121,12 +122,13 @@ This process is repeated \num{10000} times and a Gaussian is fitted to the distr
 The value of $\sigma$ for each Gaussian is plotted as the size of the band.
 One can see that there is significant variation in the uncertainty as a function of energy, caused by the different energy dependencies of the terms in \citeeq{eq:energyResponse}.
 Additionally, central values of the distributions (black points) all lie close to 0.
+In the actual fits, the full bin-to-bin correlations are kept and this plot is purely to illustrate the rough shape (in particle energy) of the energy scale uncertainties.
 
 \begin{figure}[h]
   \begin{adjustbox}{max totalsize=.6\textwidth, center}
     \input{files/figures/dune_lbl/energyResponseBand}
   \end{adjustbox}
-  \caption[Charged hadron energy scale uncertainty as a function of energy.]{Charged hadron energy scale uncertainty as a function of energy, generated from \num{10000} evaluations of \citeeq{eq:energyResponse} with Gaussian throws for $p_{0}$, $p_{1}$ and $p_{2}$. The red area indicates the $1\sigma$ fractional energy uncertainty while the black points indicate the central value for each energy bin.}
+  \caption[Charged hadron energy scale uncertainty as a function of energy.]{Charged hadron energy scale uncertainty as a function of energy, generated from \num{10000} evaluations of \citeeq{eq:energyResponse} with Gaussian throws for $p_{0}$, $p_{1}$ and $p_{2}$. The red area indicates the $1\sigma$ fractional energy uncertainty while the black points indicate the central value for each energy bin. In the actual fits, the bin-to-bin correlations are kept.}
   \label{fig:protonEScale}
 \end{figure}
 
@@ -139,6 +141,7 @@ They may also lead to errors in the reconstruction of track lengths, giving bias
 
 There are however, some detector systematics which are implemented as weights. 
 Notably, a normalisation uncertainty of 1\% is applied to both \numu and \nue events.
+This represents an estimate of the uncertainty on the fiducial volume of the FD.
 
 Furthermore, systematic uncertainties for the near detector acceptance are devised based upon simulation of neutrino interactions in ND-LAr.
 The acceptance of the DUNE ND is quite different to that of the FD due to the vastly different dimensions of the two detectors.
@@ -207,6 +210,8 @@ Examples of the four FD event rates as a function of reconstructed neutrino ener
 In each case, the $\pm1\sigma$ systematic error band is also shown in red.
 Furthermore, for the appearance samples, the different event rates resulting from different neutrino mass hierarchies and values of \dcp are shown, while for the disappearance samples the effect of varying \thetai{23} is shown.
 One can see that the systematic errors are significant for all samples across the energy range.
+The variation in the appearance rates with \dcp is larger than the expected variation due to the systematics.
+However, the systematic uncertainty is comparable to the expected \thetai{23} variation, indicating that tight constraints of these systematics will be required to make precision measurements of this variable.
 
 \begin{figure}
 	\begin{minipage}[t]{.5\linewidth}
@@ -226,7 +231,7 @@ One can see that the systematic errors are significant for all samples across th
 			\input{files/figures/dune_lbl/fdNueRhcWithSyst}
 		\end{adjustbox}
 	\end{minipage}
-	\caption[DUNE far detector event rates with systematic error bands.]{Event rates for each of the far detector samples. The red band indicates the $\pm1\sigma$ error systematic band for the normal hierarchy, $\dcp = \frac{\pi}{2}$ case. For the \nue event rates, results for different neutrino mass hierarchies and values of \dcp are shown. For the \numu event rates the effect of varying \thetai{23} is shown. The \numu event rate does not depend on the hierarchy or the value of \dcp. The full MC statistics are used for these plots (with a scaling factor) with no fluctuations so the statistical uncertainty is not shown. Top left: \numu disappearance with the beam in FHC mode. Top right: \numu disappearance with the beam in RHC mode. Bottom left: \nue appearance with the beam in FHC mode. Bottom right: \nue appearance with the beam in RHC mode.}
+	\caption[DUNE far detector event rates with systematic error bands.]{Event rates for each of the far detector samples. The red band indicates the $\pm1\sigma$ error systematic band for the normal hierarchy, $\dcp = \frac{\pi}{2}$ case. For the \nue event rates, results for different neutrino mass hierarchies and values of \dcp are shown. For the \numu event rates the effect of varying \thetai{23} is between the central value (\ang{49.6}) and a $3\sigma$ error (from Ref.~\cite{nufit4}) is shown. The \numu event rate does not depend on the hierarchy or the value of \dcp. The full MC statistics are used for these plots (with a scaling factor) with no fluctuations so the statistical uncertainty is not shown. Top left: \numu disappearance with the beam in FHC mode. Top right: \numu disappearance with the beam in RHC mode. Bottom left: \nue appearance with the beam in FHC mode. Bottom right: \nue appearance with the beam in RHC mode.}
 	\label{fig:fdEventRatesWithErrorBand}
 \end{figure}
 
@@ -315,6 +320,7 @@ The best fit values for the $\bm{\theta}$ and $\vb{x}$ occur at the minimum valu
 The $D_{i}$ may or may not have Poisson fluctuations added depending on the type of study in question.
 The fits utilised in this chapter are all Asimov studies~\cite{asimov}.
 In these fits, the fake dataset is the same as the nominal Monte Carlo up to some scaling exposure and there are no throws of oscillation parameters, the systematic parameters or the bin statistics.
+These fits provide the median sensitivity without the need to run many toy fits with statistical and systematic fluctuations.
 
 In order to avoid reporting a false minimum $\chi^{2}$ as the true one, each fit is repeated at multiple sets of oscillation parameters. 
 The values of \dcp tested are $-\pi$, $-\pi/2$, 0 and $\pi/2$. 
