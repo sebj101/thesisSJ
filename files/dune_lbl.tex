@@ -354,9 +354,9 @@ From these, the fit which provides the lowest \chisquare is selected as the best
 \subsection{Constraints on systematic parameters}
 
 \citefig{fig:systConstraints} shows the systematics used in the DUNE long-baseline analysis.
-For each parameter, the ratio of the post-fit to pre-fit uncertainties is shown.
-The constraints with just the FD are shown in red, while the green lines show the combined near and far detector constraints.
-One can see that, as expected, the FD detector parameters are not significantly more constrained with the addition of the ND samples. 
+For each parameter, the ratio of the post-fit to pre-fit uncertainties is shown for a 15 year staged exposure (\SI{1104}{\kilo\tonne\mega\watt\year}).
+The constraints with just the FD are shown in red, while the green lines show the constraints with both the ND and FD samples.
+The constraints are divided up depending on if they fall into the category of detector, flux or cross-section uncertainties.
 
 \begin{figure}[h]
 	\centering
@@ -365,9 +365,15 @@ One can see that, as expected, the FD detector parameters are not significantly 
 	\label{fig:systConstraints}
 \end{figure}
 
-There is also significant variation in the level at which various cross-section parameters are constrained. 
-For the most part, these parameters are not well constrained by the FD only, showing the utility of the ND.
-Similarly, the flux parameters become significantly more constrained with the addition of the ND.
+For the detector systematics, one can see that the vast majority are not well constrained, either by the FD samples or with the additional ND samples.
+Given that most of these parameters affect particles in the FD only it is reassuring to see that the addition of ND samples does not increase the constraints on most of these parameters.
+
+The flux parameters are labelled as ``flux~$i$'', representing the $i\text{th}$ principal component of the matrix described in \citesec{sec:dune_lbl:systs:flux}.
+One can see that most of the flux components are not constrained at all by the FD samples but with the inclusion of the ND, all become noticeably more constrained.
+
+The level at which various cross-section parameters are constrained shows significant variation. 
+For the most part (similar to the flux systematics), these parameters are not well constrained by the FD only, showing the utility of the ND.
+
 
 \subsection{Mass hierarchy}
 \label{sec:dune_lbl:sensitivities:mh}
