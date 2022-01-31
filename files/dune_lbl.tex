@@ -202,6 +202,40 @@ The high statistics of the ND, combined with this simplified detector model, lea
 The decision is therefore made to use the above method for the ND detector systematics.
 This method is unnecessary in the FD where a full reconstruction is used.
 
+\begin{table}
+	\caption[]{}
+	\centering
+	\begin{tabular}{c c c c}
+		\hline
+		\hline
+		Systematic(s) & Particles/interactions affected & ND/FD & Comments \\
+		\hline
+		\multicolumn{4}{c}{\textbf{Flux}} \\
+		\hline
+		First 30 flux components & All & ND+FD & -- \\
+		\hline
+		\multicolumn{4}{c}{\textbf{Cross-section}} \\
+		\hline
+		\num{58} cross-section systematics & All & ND+FD & -- \\ 
+		\hline
+		\multicolumn{4}{c}{\textbf{Detector}} \\
+		\hline
+		Total energy scale ND & All, except muons & ND & Incorporated in covariance matrix \\
+		Muon range ND & Stopping $\mu$ & ND & Incorporated in covariance matrix \\
+		Muon curvature ND & Exiting $\mu$ & ND & Incorporated in covariance matrix \\
+		Charged hadron energy ND & $p$, \pipm & ND & Incorporated in covariance matrix \\
+		Shower energy ND & $e$, $\gamma$, \pizero & ND & Incorporated in covariance matrix \\
+		Neutron energy ND & $n$ & ND & Incorporated in covariance matrix \\
+		
+		Total energy scale FD & All, except muons & FD & -- \\
+		Muon range FD & $\mu$ & FD & -- \\
+		Charged hadron energy FD & $p$, \pipm & FD & -- \\
+		Shower energy FD & $e$, $\gamma$, \pizero & FD & -- \\
+		Neutron energy FD & $n$ & FD & -- \\
+		\hline
+	\end{tabular}
+\end{table}
+
 \section{DUNE sensitivities}
 \label{sec:dune_lbl:sensitivities}
 
