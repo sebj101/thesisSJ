@@ -50,8 +50,10 @@ The eigenvalues rapidly decrease (the 10th principal component has an eigenvalue
 Further details are available in Ref.~\cite{duneFluxUncertainties}.
 
 These flux uncertainties can be compared with those from the T2K experiment, shown in \citefig{fig:t2kFluxUnc}.
-The total flux uncertainties in the peak region of the unoscillated flux (a true neutrino energy of about \SI{0.6}{\GeV}) are about 15\%, slightly larger than those expected for DUNE.
-NOvA reports flux uncertainties of 21\% in the peak region of the neutrino flux~\cite{novaFluxUnc}, again larger than those expected by DUNE.
+The total flux uncertainties in the peak region of the unoscillated flux (a true neutrino energy of about \SI{0.6}{\GeV}) are about 15\%, slightly larger than those expected for DUNE (about 12\% at the flux peak).
+The largest uncertainties at \SI{0.6}{\GeV} result from pion and kaon production, similar to DUNE where hadron production uncertainties dominate.
+Furthermore, NOvA reports flux uncertainties of 21\% in the peak region of the neutrino flux~\cite{novaFluxUnc}, again larger than those expected by DUNE.
+This indicates that DUNE's expected flux uncertainties are similar or slightly smaller than thos of of the T2K experiment.
 
 \begin{figure}[h]
   \centering
@@ -93,7 +95,9 @@ This decision is made due to the differences in detector technologies and likely
 
 The first term of \citeeq{eq:energyResponse} remains constant with energy while the second and third are dominant at high and low particle energies respectively.
 Uncertainties of the kind likely to be represented by the first term are uncertainties in any calibration scale.
-An uncertainty represented by the first term is the possible difficulty in reconstructing low energy particles, perhaps due to short tracks in the detector.
+An uncertainty represented by the second term is the possible difficulty in reconstructing low energy particles, perhaps due to short tracks in the detector.
+Finally, the third term represents those uncertainties which do not affect low energy particles but come to dominate at high energies.
+For example, high energy hadrons may scatter inelastically, knocking out neutrons which are very difficult to accurately reconstruct.
 
 The values of the $p_{0}$ (the absolute scale factors) are motivated by those values achieved in current long baseline neutrino experiments which use similar reconstruction techniques.
 For example, the NOvA experiment quotes an absolute muon energy scale of $<1\%$ and a proton energy scale of 5\%~\cite{nova2018}.
@@ -138,6 +142,13 @@ In the actual fits, the full bin-to-bin correlations are kept and this plot is p
 \end{figure}
 
 Additionally, a 2\% uncertainty is assigned to the the resolution of muons, charged hadrons and electromagnetic objects while a 40\% uncertainty is applied to the resolution of neutrons.
+These uncertainties can be expressed as energy shifts of the form
+\begin{equation}
+	E_{\alpha,~\text{reco}}' = E_{\alpha,~\text{reco}} + \left( E_{\alpha,~\text{true}} - E_{\alpha,~\text{reco}} \right) \times p_{\text{res}} \, ,
+\end{equation}
+where $E_{\alpha,~\text{true}}$ is the true energy of the particle in question and $p_{\text{res}}$ is allowed to vary in the fits.
+The $1\sigma$ values for $p_{\text{res}}$ (the aforementioned 2\% and 40\%) are conservative estimates. 
+The value for neutrons is much higher due to the large uncertainties in the amount of energy deposited by neutrons.
 
 These uncertainties on particle energy scales are expected to derive from a variety of sources.
 Some are inherent errors in the detector calibration such as a miscalculation of the electron lifetime, which will cause a bias in the energy scale of particles reconstructed using calorimetric methods.
@@ -181,7 +192,15 @@ Unlike their FD counterparts, the ND detector parameters are not allowed to vary
 Instead, they are incorporated into a covariance matrix.
 This covariance matrix is formed by throwing all ND detector uncertainties simultaneously according to their documented uncertainties and comparing the resulting spectra with the nominal prediction.
 The bin-to-bin covariance is then determined using these comparisons.
-This method protects against over-constraining of ND parameters due to the limitations of the simplified ND reconstruction.
+
+This method differs from that used for the FD due to significant differences in the development of the ND and FD simulation.
+The FD simulation uses a full detector simulation along with a fully simulated energy reconstruction based upon the Pandora toolkit~\cite{pandora}.
+The ND simulation is much simpler. 
+Although neutrino interactions are simulated within the ND volume in the same manner as the FD, with the interaction products being propagated through the detector using a Geant4-based model~\cite{geant}, sufficient reconstruction software has not yet been developed for ND-LAr.
+Therefore a parametrised reconstruction is used, taking as inputs the true simulated energy deposits.
+The high statistics of the ND, combined with this simplified detector model, leads to over-constraining of the ND detector parameters, if included as nuisance parameters.
+The decision is therefore made to use the above method for the ND detector systematics.
+This method is unnecessary in the FD where a full reconstruction is used.
 
 \section{DUNE sensitivites}
 \label{sec:dune_lbl:sensitivities}
