@@ -203,35 +203,49 @@ The decision is therefore made to use the above method for the ND detector syste
 This method is unnecessary in the FD where a full reconstruction is used.
 
 \begin{table}
-	\caption[]{}
+	\caption[Summary of systematic uncertainties used in the DUNE long-baseline analysis]{Summary of systematics used in the DUNE long-baseline analysis, with special attention paid to the detector systematics. The flux and cross-section systematics are discussed in more detail in \citesec{sec:dune_lbl:systs:flux} and \citesec{sec:dune_lbl:systs:xsec} respectively. For each systematic (or set of them) the particle or interaction types affected, which detector the systematic affects and whether or not the systematic is incorporated into the ND covariance matrix is tabulated.}
+	\label{tab:systSummary}
 	\centering
-	\begin{tabular}{c c c c}
+	\begin{tabular}{c c c p{0.3\linewidth}}
 		\hline
 		\hline
-		Systematic(s) & Particles/interactions affected & ND/FD & Comments \\
+		Systematic(s) & Particles/interactions & ND/FD & In ND matrix? \\
 		\hline
 		\multicolumn{4}{c}{\textbf{Flux}} \\
 		\hline
-		First 30 flux components & All & ND+FD & -- \\
+		First 30 flux components & All & ND+FD & No \\
 		\hline
 		\multicolumn{4}{c}{\textbf{Cross-section}} \\
 		\hline
-		\num{58} cross-section systematics & All & ND+FD & -- \\ 
+		\num{58} cross-section systematics & All & ND+FD & No \\ 
 		\hline
 		\multicolumn{4}{c}{\textbf{Detector}} \\
 		\hline
-		Total energy scale ND & All, except muons & ND & Incorporated in covariance matrix \\
-		Muon range ND & Stopping $\mu$ & ND & Incorporated in covariance matrix \\
-		Muon curvature ND & Exiting $\mu$ & ND & Incorporated in covariance matrix \\
-		Charged hadron energy ND & $p$, \pipm & ND & Incorporated in covariance matrix \\
-		Shower energy ND & $e$, $\gamma$, \pizero & ND & Incorporated in covariance matrix \\
-		Neutron energy ND & $n$ & ND & Incorporated in covariance matrix \\
+		Total energy scale ND & All, except muons & ND & Yes \\
+		Muon range ND & Stopping $\mu$ & ND & Yes \\
+		Muon curvature ND & Exiting $\mu$ & ND & Yes \\
+		Charged hadron energy ND & $p$, \pipm & ND & Yes \\
+		Shower energy ND & $e$, $\gamma$, \pizero & ND & Yes \\
+		Neutron energy ND & $n$ & ND & Yes \\
+		Muon resolution ND & $\mu$ & ND & Yes \\
+		Charged hadron res. ND & $p$, \pipm & ND & Yes \\		
+		Shower resolution ND & $e$, $\gamma$, \pizero & ND & Yes \\
+		Neutron resolution ND & $n$ & ND & Yes \\		
+		Fiducial volume ND & All & ND & No \\
+		ND hadronic acceptance & All & ND & Yes \\
+		ND muonic acceptance & All & ND & Yes \\
 		
-		Total energy scale FD & All, except muons & FD & -- \\
-		Muon range FD & $\mu$ & FD & -- \\
-		Charged hadron energy FD & $p$, \pipm & FD & -- \\
-		Shower energy FD & $e$, $\gamma$, \pizero & FD & -- \\
-		Neutron energy FD & $n$ & FD & -- \\
+		Total energy scale FD & All, except muons & FD & No \\
+		Muon range FD & $\mu$ & FD & No \\
+		Charged hadron energy FD & $p$, \pipm & FD & No \\
+		Shower energy FD & $e$, $\gamma$, \pizero & FD & No \\
+		Neutron energy FD & $n$ & FD & No \\
+		Muon resolution FD & $\mu$ & FD & No \\
+		Charged hadron res. FD & $p$, \pipm & FD & No \\		
+		Shower resolution FD & $e$, $\gamma$, \pizero & FD & No\\
+		Neutron resolution FD & $n$ & FD & No \\
+		Fiducial volume \numu FD & $\numu / \anumu$ & FD & No \\
+		Fiducial volume \nue FD & $\nue / \anue$ & FD & No \\
 		\hline
 	\end{tabular}
 \end{table}
